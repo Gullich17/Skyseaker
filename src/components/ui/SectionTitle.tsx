@@ -9,6 +9,8 @@ interface SectionTitleProps {
   subtitle?: string;
   centered?: boolean;
   className?: string;
+  /** Inline margin-bottom on the wrapper — use this instead of Tailwind mb-X for reliable spacing in v4 */
+  mb?: string;
 }
 
 export default function SectionTitle({
@@ -17,6 +19,7 @@ export default function SectionTitle({
   subtitle,
   centered = false,
   className = '',
+  mb,
 }: SectionTitleProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
@@ -48,7 +51,7 @@ export default function SectionTitle({
     <motion.div
       ref={ref}
       className={className}
-      style={{ textAlign: centered ? 'center' : 'left' }}
+      style={{ textAlign: centered ? 'center' : 'left', marginBottom: mb || undefined }}
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}

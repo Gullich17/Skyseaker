@@ -362,7 +362,7 @@ function ServicesSection() {
           preTitle="NOS SERVICES"
           title="Des solutions adaptées à chaque besoin"
           centered
-          className="mb-12 md:mb-16"
+          mb="clamp(48px, 6vw, 64px)"
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "clamp(24px, 3vw, 40px)" }}>
           {serviceCards.map((svc, i) => (
@@ -434,7 +434,7 @@ function WhyChooseUs() {
             <SectionTitle
               preTitle="POURQUOI NOUS CHOISIR"
               title="L'excellence à chaque étape"
-              className="mb-8 md:mb-12"
+              mb="clamp(40px, 5vw, 56px)"
             />
             <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
               {points.map((pt, i) => (
@@ -486,7 +486,7 @@ function FleetShowcase() {
           preTitle="NOTRE FLOTTE"
           title="Accédez aux meilleurs appareils du monde"
           centered
-          className="mb-12 md:mb-16"
+          mb="clamp(48px, 6vw, 64px)"
         />
 
         {/* Horizontal scrollable with scroll indicator */}
@@ -564,7 +564,7 @@ function EmptyLegsSection() {
           title="Voyagez en jet privé à prix réduit"
           subtitle="Profitez de nos repositionnements d'appareils pour voyager à tarif avantageux"
           centered
-          className="mb-12 md:mb-16"
+          mb="clamp(48px, 6vw, 64px)"
         />
         <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "clamp(16px, 2vw, 24px)" }}>
           {featured.map((el, i) => (
@@ -637,7 +637,7 @@ function DestinationsSection() {
           preTitle="DESTINATIONS"
           title="Le monde à portée de vol"
           centered
-          className="mb-12 md:mb-16"
+          mb="clamp(48px, 6vw, 64px)"
         />
         <div className="grid grid-cols-2 lg:grid-cols-3" style={{ gap: "clamp(12px, 2vw, 24px)" }}>
           {destCards.map((dest, i) => (
@@ -697,7 +697,7 @@ function TestimonialsSection() {
           preTitle="TÉMOIGNAGES"
           title="Ce que disent nos clients"
           centered
-          className="mb-12 md:mb-16"
+          mb="clamp(48px, 6vw, 64px)"
         />
 
         <div className="relative" style={{ minHeight: "220px" }}>
@@ -774,7 +774,7 @@ function BlogPreview() {
           preTitle="JOURNAL"
           title="Actualités et inspirations"
           centered
-          className="mb-12 md:mb-16"
+          mb="clamp(48px, 6vw, 64px)"
         />
         <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "clamp(20px, 3vw, 32px)" }}>
           {articles.map((art, i) => (
