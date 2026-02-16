@@ -63,7 +63,7 @@ export default function SectionTitle({
             textTransform: 'uppercase',
             letterSpacing: '0.2em',
             color: '#C9A96E',
-            marginBottom: '16px',
+            marginBottom: '14px',
             lineHeight: 1.5,
           }}
         >
@@ -73,14 +73,14 @@ export default function SectionTitle({
 
       <motion.h2
         variants={itemVariants}
-        className="text-[28px] md:text-[42px]"
         style={{
           fontFamily: 'var(--font-playfair), "Playfair Display", serif',
           fontWeight: 600,
           color: '#FFFFFF',
           lineHeight: 1.15,
           margin: 0,
-          marginBottom: subtitle ? '20px' : '0',
+          fontSize: 'clamp(26px, 4vw, 42px)',
+          marginBottom: subtitle ? '18px' : '0',
         }}
       >
         {title}
@@ -92,7 +92,7 @@ export default function SectionTitle({
           style={{
             fontFamily: 'var(--font-cormorant), "Cormorant Garamond", serif',
             fontStyle: 'italic',
-            fontSize: '20px',
+            fontSize: 'clamp(17px, 2.5vw, 20px)',
             color: '#A0A0A0',
             lineHeight: 1.6,
             margin: 0,

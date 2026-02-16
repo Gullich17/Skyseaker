@@ -40,7 +40,7 @@ function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full px-6 md:px-10" style={{ maxWidth: "1200px", margin: "0 auto", paddingTop: "120px", paddingBottom: "60px" }}>
+      <div className="relative z-10 w-full" style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(100px, 15vh, 120px) 24px clamp(40px, 6vh, 60px)" }}>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,20 +64,20 @@ function HeroSection() {
             WebkitBackdropFilter: "blur(24px)",
             border: "1px solid rgba(201, 169, 110, 0.18)",
             borderRadius: "4px",
-            padding: "28px 36px",
+            padding: "clamp(20px, 3vw, 28px) clamp(16px, 4vw, 36px)",
             boxShadow: "0 30px 80px rgba(0,0,0,0.6)",
           }}
         >
           {/* Tabs */}
-          <div style={{ display: "flex", gap: "0", marginBottom: "24px", borderBottom: "1px solid rgba(201,169,110,0.12)" }}>
+          <div style={{ display: "flex", gap: "0", marginBottom: "24px", borderBottom: "1px solid rgba(201,169,110,0.12)", overflowX: "auto" }}>
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setTripType(tab.id)}
                 className="relative"
                 style={{
-                  padding: "12px 24px",
-                  fontSize: "11px",
+                  padding: "12px clamp(12px, 2.5vw, 24px)",
+                  fontSize: "clamp(10px, 1.2vw, 11px)",
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
                   fontFamily: "var(--font-montserrat)",
@@ -308,7 +308,7 @@ function TrustBanner() {
 
   return (
     <section style={{ background: "#111111", borderTop: "1px solid rgba(201,169,110,0.12)", borderBottom: "1px solid rgba(201,169,110,0.12)" }}>
-      <div className="px-6 md:px-10" style={{ maxWidth: "1200px", margin: "0 auto", padding: "56px 0" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(40px, 6vw, 56px) 24px" }}>
         <div className="hidden md:flex items-center justify-between">
           {stats.map((stat, i) => (
             <div key={stat.label} className="flex items-center" style={{ flex: 1 }}>
@@ -326,9 +326,9 @@ function TrustBanner() {
           ))}
         </div>
         {/* Mobile: 2 columns */}
-        <div className="grid grid-cols-2 gap-y-12 gap-x-8 md:hidden">
+        <div className="grid grid-cols-2 md:hidden" style={{ gap: "32px 24px" }}>
           {stats.map((stat) => (
-            <div key={stat.label}>
+            <div key={stat.label} style={{ textAlign: "center" }}>
               <AnimatedCounter
                 value={stat.value}
                 suffix={stat.suffix}
@@ -356,15 +356,15 @@ function ServicesSection() {
   ];
 
   return (
-    <section style={{ background: "#0A0A0A", padding: "140px 0" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 40px" }}>
+    <section style={{ background: "#0A0A0A", padding: "clamp(80px, 12vw, 140px) 0" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
           preTitle="NOS SERVICES"
           title="Des solutions adaptées à chaque besoin"
           centered
-          className="mb-20"
+          className="mb-12 md:mb-16"
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "40px" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "clamp(24px, 3vw, 40px)" }}>
           {serviceCards.map((svc, i) => (
             <ScrollReveal key={svc.title} delay={i * 0.08}>
               <Link href={svc.href} className="block group h-full">
@@ -379,15 +379,15 @@ function ServicesSection() {
                     />
                     <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(20,20,20,1) 0%, rgba(20,20,20,0.2) 50%, transparent 100%)" }} />
                   </div>
-                  <div style={{ padding: "28px 28px 32px" }} className="flex-1 flex flex-col">
-                    <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "20px", marginBottom: "12px", lineHeight: 1.3 }}
+                  <div style={{ padding: "clamp(20px, 3vw, 28px) clamp(20px, 3vw, 28px) clamp(24px, 3vw, 32px)" }} className="flex-1 flex flex-col">
+                    <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "clamp(17px, 2.5vw, 20px)", marginBottom: "10px", lineHeight: 1.3 }}
                         className="group-hover:text-[#C9A96E] transition-colors">
                       {svc.title}
                     </h3>
-                    <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#A0A0A0", fontSize: "14px", lineHeight: 1.7, marginBottom: "20px", flex: 1 }}>
+                    <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#A0A0A0", fontSize: "clamp(13px, 1.5vw, 14px)", lineHeight: 1.7, marginBottom: "16px", flex: 1 }}>
                       {svc.desc}
                     </p>
-                    <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E" }}>
+                    <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E" }}>
                       En savoir plus →
                     </span>
                   </div>
@@ -413,9 +413,9 @@ function WhyChooseUs() {
   ];
 
   return (
-    <section style={{ background: "#111111", padding: "140px 0" }}>
-      <div className="px-6 md:px-10" style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ gap: "80px" }}>
+    <section style={{ background: "#111111", padding: "clamp(80px, 12vw, 140px) 0" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ gap: "clamp(48px, 6vw, 80px)" }}>
           {/* Image */}
           <ScrollReveal>
             <div className="aspect-[4/3] relative overflow-hidden" style={{ borderRadius: "4px" }}>
@@ -434,7 +434,7 @@ function WhyChooseUs() {
             <SectionTitle
               preTitle="POURQUOI NOUS CHOISIR"
               title="L'excellence à chaque étape"
-              className="mb-12"
+              className="mb-8 md:mb-12"
             />
             <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
               {points.map((pt, i) => (
@@ -480,22 +480,22 @@ function FleetShowcase() {
   ];
 
   return (
-    <section style={{ background: "#0A0A0A", padding: "140px 0" }}>
-      <div className="px-6 md:px-10" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+    <section style={{ background: "#0A0A0A", padding: "clamp(80px, 12vw, 140px) 0" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
           preTitle="NOTRE FLOTTE"
           title="Accédez aux meilleurs appareils du monde"
           centered
-          className="mb-20"
+          className="mb-12 md:mb-16"
         />
 
         {/* Horizontal scrollable with scroll indicator */}
         <div className="relative">
           <div className="overflow-x-auto pb-8 scrollbar-hide" style={{ margin: "0 -10px", padding: "0 10px" }}>
-            <div className="flex" style={{ gap: "28px", minWidth: "max-content" }}>
+            <div className="flex" style={{ gap: "20px", minWidth: "max-content" }}>
               {featuredAircraft.map((ac, i) => (
                 <ScrollReveal key={ac.slug} delay={i * 0.08}>
-                  <Link href={`/flotte/${ac.category.toLowerCase().replace(/ /g, "-")}/${ac.slug}`} className="block group" style={{ width: "340px" }}>
+                  <Link href={`/flotte/${ac.category.toLowerCase().replace(/ /g, "-")}/${ac.slug}`} className="block group" style={{ width: "clamp(280px, 40vw, 340px)" }}>
                     <div className="card-luxury overflow-hidden">
                       <div className="aspect-[16/10] relative overflow-hidden">
                         <Image
@@ -509,19 +509,19 @@ function FleetShowcase() {
                           <Badge>{ac.category}</Badge>
                         </div>
                       </div>
-                      <div style={{ padding: "24px 24px 28px" }}>
-                        <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "20px", marginBottom: "14px" }}
+                      <div style={{ padding: "20px 20px 24px" }}>
+                        <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "18px", marginBottom: "10px" }}
                             className="group-hover:text-[#C9A96E] transition-colors">
                           {ac.name}
                         </h3>
-                        <div className="flex items-center text-[#A0A0A0]" style={{ gap: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "12px" }}>
+                        <div className="flex items-center text-[#A0A0A0]" style={{ gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "11px" }}>
                           <span>{ac.pax} pax</span>
-                          <span style={{ width: "1px", height: "12px", background: "rgba(201,169,110,0.2)" }} />
+                          <span style={{ width: "1px", height: "10px", background: "rgba(201,169,110,0.2)" }} />
                           <span>{ac.range}</span>
-                          <span style={{ width: "1px", height: "12px", background: "rgba(201,169,110,0.2)" }} />
+                          <span style={{ width: "1px", height: "10px", background: "rgba(201,169,110,0.2)" }} />
                           <span>{ac.speed}</span>
                         </div>
-                        <span style={{ display: "block", marginTop: "18px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E" }}>
+                        <span style={{ display: "block", marginTop: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E" }}>
                           Voir la fiche →
                         </span>
                       </div>
@@ -532,13 +532,13 @@ function FleetShowcase() {
             </div>
           </div>
           {/* Scroll hint */}
-          <div className="flex items-center justify-center gap-2 mt-2" style={{ color: "#6B6B6B", fontSize: "12px", fontFamily: "var(--font-montserrat)" }}>
-            <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M8 7l4-4m0 0l4 4m-4-4v18" style={{ transform: "rotate(90deg)", transformOrigin: "center" }} /></svg>
+          <div className="flex items-center justify-center gap-2 mt-2" style={{ color: "#6B6B6B", fontSize: "11px", fontFamily: "var(--font-montserrat)" }}>
+            <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M8 7l4-4m0 0l4 4m-4-4v18" style={{ transform: "rotate(90deg)", transformOrigin: "center" }} /></svg>
             <span>Faites défiler pour voir plus</span>
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center mt-14" style={{ gap: "20px" }}>
+        <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginTop: "clamp(32px, 5vw, 56px)" }}>
           <Button href="/flotte" variant="primary">Explorer toute la flotte</Button>
           <Link href="/flotte/comparateur" className="hover:text-[#C9A96E] transition-colors"
             style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0" }}>
@@ -557,41 +557,41 @@ function EmptyLegsSection() {
   const featured = emptyLegs.slice(0, 4);
 
   return (
-    <section style={{ background: "#111111", padding: "140px 0" }}>
-      <div className="px-6 md:px-10" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+    <section style={{ background: "#111111", padding: "clamp(80px, 12vw, 140px) 0" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
           preTitle="VOLS À VIDE"
           title="Voyagez en jet privé à prix réduit"
           subtitle="Profitez de nos repositionnements d'appareils pour voyager à tarif avantageux"
           centered
-          className="mb-20"
+          className="mb-12 md:mb-16"
         />
-        <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "24px" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "clamp(16px, 2vw, 24px)" }}>
           {featured.map((el, i) => (
             <ScrollReveal key={el.id} delay={i * 0.08}>
-              <div className="card-luxury overflow-hidden" style={{ padding: "28px 32px" }}>
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between" style={{ gap: "24px" }}>
+              <div className="card-luxury overflow-hidden" style={{ padding: "clamp(20px, 3vw, 28px) clamp(20px, 3vw, 32px)" }}>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between" style={{ gap: "16px" }}>
                   <div style={{ flex: 1 }}>
-                    <div className="flex items-center mb-3" style={{ gap: "14px" }}>
-                      <span style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "20px" }}>
+                    <div className="flex items-center mb-3 flex-wrap" style={{ gap: "10px" }}>
+                      <span style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "clamp(17px, 2.5vw, 20px)" }}>
                         {el.departure}
                       </span>
-                      <svg width="22" height="22" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <svg width="20" height="20" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
                         <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
-                      <span style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "20px" }}>
+                      <span style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "clamp(17px, 2.5vw, 20px)" }}>
                         {el.arrival}
                       </span>
                     </div>
-                    <div className="flex items-center" style={{ gap: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "13px", color: "#A0A0A0" }}>
+                    <div className="flex items-center flex-wrap" style={{ gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "12px", color: "#A0A0A0" }}>
                       <span>{new Date(el.date).toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" })}</span>
-                      <span style={{ width: "1px", height: "12px", background: "rgba(201,169,110,0.2)" }} />
+                      <span className="hidden sm:inline-block" style={{ width: "1px", height: "12px", background: "rgba(201,169,110,0.2)" }} />
                       <span>{el.aircraft}</span>
-                      <span style={{ width: "1px", height: "12px", background: "rgba(201,169,110,0.2)" }} />
+                      <span className="hidden sm:inline-block" style={{ width: "1px", height: "12px", background: "rgba(201,169,110,0.2)" }} />
                       <span>{el.seats} places</span>
                     </div>
                   </div>
-                  <div className="text-right shrink-0">
+                  <div className="text-right shrink-0 sm:text-right text-left w-full sm:w-auto">
                     <Badge>-{el.discount}%</Badge>
                     <div style={{ marginTop: "10px" }}>
                       <span style={{ fontSize: "14px", color: "#6B6B6B", textDecoration: "line-through", marginRight: "10px" }}>{el.originalPrice.toLocaleString("fr-FR")}€</span>
@@ -605,7 +605,7 @@ function EmptyLegsSection() {
             </ScrollReveal>
           ))}
         </div>
-        <div className="flex flex-col sm:flex-row items-center justify-center mt-14" style={{ gap: "20px" }}>
+        <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginTop: "clamp(32px, 5vw, 56px)" }}>
           <Button href="/empty-legs" variant="primary">Voir tous les empty legs</Button>
           <Link href="/empty-legs#alertes" className="hover:text-[#C9A96E] transition-colors"
             style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0" }}>
@@ -631,15 +631,15 @@ function DestinationsSection() {
   ];
 
   return (
-    <section style={{ background: "#0A0A0A", padding: "140px 0" }}>
-      <div className="px-6 md:px-10" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+    <section style={{ background: "#0A0A0A", padding: "clamp(80px, 12vw, 140px) 0" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
           preTitle="DESTINATIONS"
           title="Le monde à portée de vol"
           centered
-          className="mb-20"
+          className="mb-12 md:mb-16"
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "24px" }}>
+        <div className="grid grid-cols-2 lg:grid-cols-3" style={{ gap: "clamp(12px, 2vw, 24px)" }}>
           {destCards.map((dest, i) => (
             <ScrollReveal key={dest.slug} delay={i * 0.08}>
               <Link href={`/destinations/${dest.slug}`} className="block group relative overflow-hidden" style={{ aspectRatio: "3/4", borderRadius: "4px" }}>
@@ -650,15 +650,15 @@ function DestinationsSection() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.2) 50%, transparent 100%)" }} />
-                <div className="absolute bottom-0 left-0 right-0" style={{ padding: "32px" }}>
-                  <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", fontSize: "30px", marginBottom: "6px", lineHeight: 1.2 }}>
+                <div className="absolute bottom-0 left-0 right-0" style={{ padding: "clamp(16px, 3vw, 32px)" }}>
+                  <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", fontSize: "clamp(20px, 3vw, 30px)", marginBottom: "4px", lineHeight: 1.2 }}>
                     {dest.name}
                   </h3>
-                  <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#B0B0B0", fontSize: "14px", marginBottom: "8px" }}>
+                  <p className="hidden sm:block" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#B0B0B0", fontSize: "13px", marginBottom: "6px" }}>
                     {dest.country}
                   </p>
-                  <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#C9A96E", fontSize: "13px" }}>
-                    À partir de {dest.time} depuis Paris
+                  <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#C9A96E", fontSize: "clamp(11px, 1.5vw, 13px)" }}>
+                    {dest.time} depuis Paris
                   </p>
                 </div>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ border: "2px solid rgba(201,169,110,0.3)", borderRadius: "4px" }} />
@@ -666,7 +666,7 @@ function DestinationsSection() {
             </ScrollReveal>
           ))}
         </div>
-        <div className="text-center mt-14">
+        <div className="text-center" style={{ marginTop: "clamp(32px, 5vw, 56px)" }}>
           <Button href="/destinations" variant="primary">Toutes nos destinations</Button>
         </div>
       </div>
@@ -686,18 +686,18 @@ function TestimonialsSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden" style={{ padding: "140px 0" }}>
+    <section className="relative overflow-hidden" style={{ padding: "clamp(80px, 12vw, 140px) 0" }}>
       {/* BG */}
       <div className="absolute inset-0" style={{ background: "#0E0E0E" }}>
         <div className="absolute inset-0 opacity-[0.04]" style={{ background: "radial-gradient(circle at 50% 50%, #C9A96E 0%, transparent 70%)" }} />
       </div>
 
-      <div className="relative px-6 md:px-10 text-center" style={{ maxWidth: "720px", margin: "0 auto" }}>
+      <div className="relative text-center" style={{ maxWidth: "720px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
           preTitle="TÉMOIGNAGES"
           title="Ce que disent nos clients"
           centered
-          className="mb-20"
+          className="mb-12 md:mb-16"
         />
 
         <div className="relative" style={{ minHeight: "220px" }}>
@@ -768,15 +768,15 @@ function BlogPreview() {
   ];
 
   return (
-    <section style={{ background: "#111111", padding: "140px 0" }}>
-      <div className="px-6 md:px-10" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+    <section style={{ background: "#111111", padding: "clamp(80px, 12vw, 140px) 0" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
           preTitle="JOURNAL"
           title="Actualités et inspirations"
           centered
-          className="mb-20"
+          className="mb-12 md:mb-16"
         />
-        <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "32px" }}>
+        <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "clamp(20px, 3vw, 32px)" }}>
           {articles.map((art, i) => (
             <ScrollReveal key={art.slug} delay={i * 0.08}>
               <Link href={`/blog/${art.slug}`} className="block group h-full">
@@ -793,17 +793,17 @@ function BlogPreview() {
                       <Badge>{art.cat}</Badge>
                     </div>
                   </div>
-                  <div style={{ padding: "28px 28px 32px" }} className="flex-1 flex flex-col">
-                    <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "18px", lineHeight: 1.45, marginBottom: "14px" }}
+                  <div style={{ padding: "clamp(20px, 3vw, 28px) clamp(20px, 3vw, 28px) clamp(24px, 3vw, 32px)" }} className="flex-1 flex flex-col">
+                    <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "clamp(16px, 2vw, 18px)", lineHeight: 1.45, marginBottom: "12px" }}
                         className="group-hover:text-[#C9A96E] transition-colors">
                       {art.title}
                     </h3>
-                    <div className="flex items-center" style={{ gap: "12px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "12px", color: "#8A8A8A", marginBottom: "18px" }}>
+                    <div className="flex items-center" style={{ gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "11px", color: "#8A8A8A", marginBottom: "14px" }}>
                       <span>{art.date}</span>
                       <span style={{ width: "1px", height: "12px", background: "rgba(201,169,110,0.15)" }} />
                       <span>{art.time} de lecture</span>
                     </div>
-                    <span className="mt-auto" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E" }}>
+                    <span className="mt-auto" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E" }}>
                       Lire l&apos;article →
                     </span>
                   </div>
@@ -812,7 +812,7 @@ function BlogPreview() {
             </ScrollReveal>
           ))}
         </div>
-        <div className="text-center mt-14">
+        <div className="text-center" style={{ marginTop: "clamp(32px, 5vw, 56px)" }}>
           <Button href="/blog" variant="secondary">Voir tous les articles</Button>
         </div>
       </div>
@@ -825,7 +825,7 @@ function BlogPreview() {
    ============================================ */
 function FinalCTA() {
   return (
-    <section className="relative overflow-hidden" style={{ padding: "140px 0" }}>
+    <section className="relative overflow-hidden" style={{ padding: "clamp(80px, 12vw, 140px) 0" }}>
       <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=1920&q=75"
@@ -836,20 +836,20 @@ function FinalCTA() {
         <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.85)" }} />
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, rgba(201,169,110,0.06) 0%, transparent 70%)" }} />
       </div>
-      <div className="relative px-6 md:px-10 text-center" style={{ maxWidth: "720px", margin: "0 auto" }}>
+      <div className="relative text-center" style={{ maxWidth: "720px", margin: "0 auto", padding: "0 24px" }}>
         <ScrollReveal>
-          <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", fontSize: "clamp(36px, 5vw, 52px)", marginBottom: "20px", lineHeight: 1.1 }}>
+          <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", fontSize: "clamp(30px, 5vw, 52px)", marginBottom: "16px", lineHeight: 1.1 }}>
             Prêt à décoller ?
           </h2>
-          <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontSize: "clamp(18px, 2.5vw, 22px)", color: "#B0B0B0", marginBottom: "48px", lineHeight: 1.6 }}>
+          <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontSize: "clamp(17px, 2.5vw, 22px)", color: "#B0B0B0", marginBottom: "clamp(32px, 5vw, 48px)", lineHeight: 1.6 }}>
             Nos experts sont disponibles 24h/24, 7j/7 pour organiser votre prochain vol
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginBottom: "36px" }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginBottom: "clamp(24px, 4vw, 36px)" }}>
             <Button href="/devis" variant="primary" size="lg">Demander un devis</Button>
             <Button href="tel:+33100000000" variant="secondary" size="lg">Nous appeler</Button>
           </div>
           <a href="tel:+33100000000" className="hover:text-[#D4B978] transition-colors"
-            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 300, fontSize: "28px", color: "#C9A96E", letterSpacing: "0.08em" }}>
+            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 300, fontSize: "clamp(22px, 3vw, 28px)", color: "#C9A96E", letterSpacing: "0.08em" }}>
             +33 1 00 00 00 00
           </a>
         </ScrollReveal>

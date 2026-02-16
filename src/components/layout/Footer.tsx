@@ -53,9 +53,9 @@ export default function Footer() {
 
   return (
     <footer style={{ background: "#0A0A0A", borderTop: "1px solid rgba(201,169,110,0.2)" }}>
-      <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
         {/* Logo + Slogan */}
-        <div className="py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6" style={{ padding: "clamp(40px, 6vw, 64px) 0" }}>
           <div className="flex items-center gap-3">
             <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
               <path d="M20 2L38 20L20 38L2 20L20 2Z" stroke="#C9A96E" strokeWidth="1.5" fill="none" />
@@ -100,7 +100,7 @@ export default function Footer() {
         <div style={{ height: 1, background: "#1E1E1E" }} />
 
         {/* Links Grid */}
-        <div className="py-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5" style={{ padding: "clamp(40px, 6vw, 64px) 0", gap: "clamp(28px, 4vw, 40px)" }}>
           {/* Services */}
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#C9A96E] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
@@ -212,7 +212,7 @@ export default function Footer() {
         <div style={{ height: 1, background: "#1E1E1E" }} />
 
         {/* Social + Bottom */}
-        <div className="py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6" style={{ padding: "clamp(24px, 4vw, 32px) 0" }}>
           {/* Social Icons */}
           <div className="flex items-center gap-5">
             {[
