@@ -345,7 +345,7 @@ function TrustBanner() {
 
   return (
     <section style={{ background: "#111111", borderTop: "1px solid rgba(201,169,110,0.12)", borderBottom: "1px solid rgba(201,169,110,0.12)" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(40px, 6vw, 56px) 24px" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(28px, 5vw, 56px) 24px" }}>
         <div className="hidden md:flex items-center justify-between">
           {stats.map((stat, i) => (
             <div key={stat.label} className="flex items-center" style={{ flex: 1 }}>
@@ -362,10 +362,10 @@ function TrustBanner() {
             </div>
           ))}
         </div>
-        {/* Mobile: 2 columns */}
-        <div className="grid grid-cols-2 md:hidden" style={{ gap: "32px 24px" }}>
-          {stats.map((stat) => (
-            <div key={stat.label} style={{ textAlign: "center" }}>
+        {/* Mobile: 3 columns top, 2 centered bottom */}
+        <div className="md:hidden" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "20px 0" }}>
+          {stats.map((stat, i) => (
+            <div key={stat.label} style={{ width: i < 3 ? "33.33%" : "40%", textAlign: "center" }}>
               <AnimatedCounter
                 value={stat.value}
                 suffix={stat.suffix}

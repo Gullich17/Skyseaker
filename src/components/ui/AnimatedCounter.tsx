@@ -54,18 +54,18 @@ export default function AnimatedCounter({
       <div
         style={{
           fontFamily: 'var(--font-cormorant), "Cormorant Garamond", serif',
-          fontSize: '48px',
+          fontSize: 'clamp(32px, 5vw, 48px)',
           fontWeight: 300,
           color: '#C9A96E',
           lineHeight: 1.1,
-          marginBottom: '8px',
+          marginBottom: '6px',
         }}
       >
         {displayValue}
         {suffix && (
           <span
             style={{
-              fontSize: '36px',
+              fontSize: 'clamp(24px, 3.5vw, 36px)',
               fontWeight: 300,
               marginLeft: '2px',
             }}
@@ -79,12 +79,12 @@ export default function AnimatedCounter({
         style={{
           fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
           fontWeight: 500,
-          fontSize: '12px',
+          fontSize: 'clamp(9px, 1.2vw, 12px)',
           textTransform: 'uppercase',
-          letterSpacing: '0.15em',
+          letterSpacing: '0.12em',
           color: '#A0A0A0',
           margin: 0,
-          lineHeight: 1.5,
+          lineHeight: 1.4,
         }}
       >
         {label}
