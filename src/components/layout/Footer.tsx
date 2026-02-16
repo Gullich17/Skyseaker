@@ -71,8 +71,8 @@ export default function Footer() {
             </div>
           </div>
           {/* Newsletter */}
-          <div style={{ maxWidth: "380px" }}>
-            <p className="hidden md:block" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#8A8A8A", marginBottom: "12px" }}>
+          <div className="w-full md:w-auto">
+            <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#8A8A8A", marginBottom: "12px" }}>
               Recevez nos offres exclusives
             </p>
             <form onSubmit={handleNewsletter} style={{ display: "flex", border: "1px solid rgba(201,169,110,0.25)", borderRadius: "2px", overflow: "hidden" }}>
@@ -80,13 +80,13 @@ export default function Footer() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Votre email"
+                placeholder="Votre adresse email"
                 required
                 style={{
                   flex: 1,
                   minWidth: 0,
-                  padding: "10px 14px",
-                  fontSize: "12px",
+                  padding: "12px 16px",
+                  fontSize: "13px",
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 300,
                   color: "#F5F5F0",
@@ -98,10 +98,10 @@ export default function Footer() {
               <button
                 type="submit"
                 style={{
-                  padding: "10px 18px",
-                  fontSize: "10px",
+                  padding: "12px 24px",
+                  fontSize: "11px",
                   textTransform: "uppercase",
-                  letterSpacing: "0.15em",
+                  letterSpacing: "0.18em",
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 600,
                   color: "#0A0A0A",
@@ -114,7 +114,7 @@ export default function Footer() {
                 onMouseEnter={(e) => { e.currentTarget.style.background = "#D4B978"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = "#C9A96E"; }}
               >
-                OK
+                S&apos;inscrire
               </button>
             </form>
           </div>
