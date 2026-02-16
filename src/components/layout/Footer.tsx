@@ -71,29 +71,53 @@ export default function Footer() {
             </div>
           </div>
           {/* Newsletter */}
-          <form onSubmit={handleNewsletter} className="flex w-full md:w-auto">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Votre email pour nos offres exclusives"
-              className="w-full md:w-[320px] px-4 py-3 text-[13px] bg-transparent border text-[#F5F5F0]"
-              style={{ borderColor: "#1E1E1E", fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}
-              required
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 text-[11px] uppercase tracking-[0.2em] border border-l-0 transition-all duration-300 hover:bg-[#C9A96E] hover:text-[#0A0A0A]"
-              style={{
-                borderColor: "#C9A96E",
-                color: "#C9A96E",
-                fontFamily: "'Montserrat', sans-serif",
-                fontWeight: 600,
-              }}
-            >
-              S&apos;inscrire
-            </button>
-          </form>
+          <div className="w-full md:w-auto">
+            <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#8A8A8A", marginBottom: "12px" }}>
+              Recevez nos offres exclusives
+            </p>
+            <form onSubmit={handleNewsletter} style={{ display: "flex", border: "1px solid rgba(201,169,110,0.25)", borderRadius: "2px", overflow: "hidden" }}>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Votre adresse email"
+                required
+                style={{
+                  flex: 1,
+                  minWidth: 0,
+                  padding: "12px 16px",
+                  fontSize: "13px",
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 300,
+                  color: "#F5F5F0",
+                  background: "rgba(255,255,255,0.03)",
+                  border: "none",
+                  outline: "none",
+                }}
+              />
+              <button
+                type="submit"
+                style={{
+                  padding: "12px 24px",
+                  fontSize: "11px",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.18em",
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 600,
+                  color: "#0A0A0A",
+                  background: "#C9A96E",
+                  border: "none",
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                  transition: "background 0.3s ease",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "#D4B978"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = "#C9A96E"; }}
+              >
+                S&apos;inscrire
+              </button>
+            </form>
+          </div>
         </div>
 
         {/* Separator */}
