@@ -23,6 +23,15 @@ const footerFleet = [
   { name: "Comparateur", href: "/flotte/comparateur" },
 ];
 
+const footerYachts = [
+  { name: "Motor Yacht", href: "/yachts/motor-yacht" },
+  { name: "Sailing Yacht", href: "/yachts/sailing-yacht" },
+  { name: "Catamaran", href: "/yachts/catamaran" },
+  { name: "Superyacht", href: "/yachts/superyacht" },
+  { name: "Mega Yacht", href: "/yachts/mega-yacht" },
+  { name: "Comparateur", href: "/yachts/comparateur" },
+];
+
 const footerDestinations = [
   { name: "Genève", href: "/destinations/geneve" },
   { name: "Londres", href: "/destinations/londres" },
@@ -124,7 +133,7 @@ export default function Footer() {
         <div style={{ height: 1, background: "#1E1E1E" }} />
 
         {/* Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5" style={{ padding: "clamp(40px, 6vw, 64px) 0", gap: "clamp(28px, 4vw, 40px)" }}>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6" style={{ padding: "clamp(40px, 6vw, 64px) 0", gap: "clamp(28px, 4vw, 40px)" }}>
           {/* Services */}
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#C9A96E] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
@@ -149,6 +158,23 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {footerFleet.map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
+                    style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Yachts */}
+          <div>
+            <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#C9A96E] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
+              Yachts
+            </h4>
+            <ul className="space-y-3">
+              {footerYachts.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>

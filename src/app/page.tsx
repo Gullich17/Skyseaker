@@ -11,6 +11,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import { emptyLegs } from "@/data/emptyLegs";
+import { yachts } from "@/data/yachts";
 
 /* ============================================
    HERO SECTION
@@ -605,6 +606,114 @@ function FleetShowcase() {
 }
 
 /* ============================================
+   YACHT SHOWCASE
+   ============================================ */
+function YachtShowcase() {
+  const yachtScrollRef = useRef<HTMLDivElement>(null);
+
+  const handleYachtWheel = useCallback((e: React.WheelEvent<HTMLDivElement>) => {
+    const el = yachtScrollRef.current;
+    if (!el) return;
+    const hasOverflow = el.scrollWidth > el.clientWidth;
+    if (!hasOverflow) return;
+    const atStart = el.scrollLeft <= 0;
+    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+    if ((atStart && e.deltaY < 0) || (atEnd && e.deltaY > 0)) return;
+    e.preventDefault();
+    el.scrollLeft += e.deltaY;
+  }, []);
+
+  const yachtFallbacks: Record<string, string> = {
+    "motor-yacht": "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=500&q=75",
+    "sailing-yacht": "https://images.unsplash.com/photo-1534854638093-ba35f2a8a7d7?w=500&q=75",
+    "catamaran": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=75",
+    "superyacht": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=500&q=75",
+    "mega-yacht": "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=500&q=75",
+  };
+
+  const featuredYachts = yachts.slice(0, 5).map((y) => ({
+    name: y.name,
+    category: y.category,
+    guests: `${y.guests} invités`,
+    length: `${y.length} m`,
+    speed: `${y.maxSpeed} nds`,
+    slug: y.id,
+    categorySlug: y.categorySlug,
+    img: y.image?.startsWith("http") ? y.image : yachtFallbacks[y.categorySlug] || yachtFallbacks["motor-yacht"],
+  }));
+
+  return (
+    <section style={{ background: "#111111", padding: "clamp(80px, 12vw, 140px) 0" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
+        <SectionTitle
+          preTitle="NOS YACHTS"
+          title="Découvrez notre flotte nautique de prestige"
+          centered
+          mb="clamp(48px, 6vw, 64px)"
+        />
+
+        {/* Horizontal scrollable */}
+        <div className="relative">
+          <div ref={yachtScrollRef} onWheel={handleYachtWheel} className="overflow-x-auto pb-8 scrollbar-hide" style={{ margin: "0 -10px", padding: "0 10px", overscrollBehavior: "contain" }}>
+            <div className="flex" style={{ gap: "20px", minWidth: "max-content" }}>
+              {featuredYachts.map((yacht, i) => (
+                <ScrollReveal key={yacht.slug} delay={i * 0.08}>
+                  <Link href={`/yachts/${yacht.categorySlug}/${yacht.slug}`} className="block group" style={{ width: "clamp(280px, 40vw, 340px)" }}>
+                    <div className="card-luxury overflow-hidden">
+                      <div className="aspect-[16/10] relative overflow-hidden">
+                        <Image
+                          src={yacht.img}
+                          alt={yacht.name}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(20,20,20,0.8) 0%, transparent 60%)" }} />
+                        <div style={{ position: "absolute", top: "14px", left: "14px" }}>
+                          <Badge>{yacht.category}</Badge>
+                        </div>
+                      </div>
+                      <div style={{ padding: "20px 20px 24px" }}>
+                        <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "18px", marginBottom: "10px" }}
+                            className="group-hover:text-[#C9A96E] transition-colors">
+                          {yacht.name}
+                        </h3>
+                        <div className="flex items-center text-[#A0A0A0]" style={{ gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "11px" }}>
+                          <span>{yacht.guests}</span>
+                          <span style={{ width: "1px", height: "10px", background: "rgba(201,169,110,0.2)" }} />
+                          <span>{yacht.length}</span>
+                          <span style={{ width: "1px", height: "10px", background: "rgba(201,169,110,0.2)" }} />
+                          <span>{yacht.speed}</span>
+                        </div>
+                        <span style={{ display: "block", marginTop: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E" }}>
+                          Voir la fiche →
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+          {/* Scroll hint */}
+          <div className="flex items-center justify-center gap-2 mt-2" style={{ color: "#6B6B6B", fontSize: "11px", fontFamily: "var(--font-montserrat)" }}>
+            <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M8 7l4-4m0 0l4 4m-4-4v18" style={{ transform: "rotate(90deg)", transformOrigin: "center" }} /></svg>
+            <span>Faites défiler pour voir plus</span>
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginTop: "clamp(32px, 5vw, 56px)" }}>
+          <Button href="/yachts" variant="primary">Explorer tous les yachts</Button>
+          <Link href="/yachts/comparateur" className="hover:text-[#C9A96E] transition-colors"
+            style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0" }}>
+            Comparer les yachts →
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================
    EMPTY LEGS
    ============================================ */
 function EmptyLegsSection() {
@@ -923,6 +1032,7 @@ export default function Home() {
       <ServicesSection />
       <WhyChooseUs />
       <FleetShowcase />
+      <YachtShowcase />
       <EmptyLegsSection />
       <DestinationsSection />
       <TestimonialsSection />

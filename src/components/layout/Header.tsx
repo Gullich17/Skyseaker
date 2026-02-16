@@ -28,10 +28,19 @@ const fleetCategories = [
   { name: "Turbopropulseur", href: "/flotte/turbopropulseur" },
 ];
 
+const yachtNavCategories = [
+  { name: "Motor Yacht", href: "/yachts/motor-yacht" },
+  { name: "Sailing Yacht", href: "/yachts/sailing-yacht" },
+  { name: "Catamaran", href: "/yachts/catamaran" },
+  { name: "Superyacht", href: "/yachts/superyacht" },
+  { name: "Mega Yacht", href: "/yachts/mega-yacht" },
+];
+
 const navLinks = [
   { name: "Accueil", href: "/" },
   { name: "Services", href: "/services", hasMega: "services" },
   { name: "Flotte", href: "/flotte", hasMega: "fleet" },
+  { name: "Yachts", href: "/yachts", hasMega: "yachts" },
   { name: "Destinations", href: "/destinations" },
   { name: "Empty Legs", href: "/empty-legs" },
   { name: "Expériences", href: "/experiences" },
@@ -305,6 +314,55 @@ export default function Header() {
               </div>
             </motion.div>
           )}
+          {activeMega === "yachts" && (
+            <motion.div
+              key="mega-yachts"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.12 }}
+              className="absolute top-full left-0 right-0 hidden lg:block"
+              style={{ background: "#0D0D0D", borderBottom: "1px solid rgba(201,169,110,0.12)", boxShadow: "0 20px 60px rgba(0,0,0,0.6)" }}
+              onMouseEnter={() => setActiveMega("yachts")}
+              onMouseLeave={() => setActiveMega(null)}
+            >
+              <div className="flex" style={{ maxWidth: "1400px", margin: "0 auto", padding: "40px 5vw", gap: "60px" }}>
+                <div style={{ flex: "1 1 0" }}>
+                  <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#C9A96E] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
+                    Catégories
+                  </h4>
+                  <div className="flex flex-col" style={{ gap: "6px" }}>
+                    {yachtNavCategories.map((c) => (
+                      <Link key={c.name} href={c.href} className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
+                        style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, padding: "8px 0" }}>
+                        {c.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+                <div style={{ width: "1px", background: "rgba(201,169,110,0.15)", flexShrink: 0 }} />
+                <div style={{ minWidth: "220px" }}>
+                  <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#C9A96E] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
+                    Outils
+                  </h4>
+                  <div className="flex flex-col" style={{ gap: "4px" }}>
+                    <Link href="/yachts" className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
+                      style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, padding: "8px 0" }}>
+                      Voir tous les yachts →
+                    </Link>
+                    <Link href="/yachts/comparateur" className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
+                      style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, padding: "8px 0" }}>
+                      Comparateur de yachts →
+                    </Link>
+                    <Link href="/devis" className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
+                      style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, padding: "8px 0" }}>
+                      Demander un devis →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
         </AnimatePresence>
       </header>
 
@@ -367,7 +425,7 @@ export default function Header() {
                               className="overflow-hidden"
                             >
                               <div style={{ paddingBottom: "16px", paddingLeft: "16px", display: "flex", flexDirection: "column", gap: "2px" }}>
-                                {(link.hasMega === "services" ? services : fleetCategories).map((item) => (
+                                {(link.hasMega === "services" ? services : link.hasMega === "fleet" ? fleetCategories : yachtNavCategories).map((item) => (
                                   <Link
                                     key={item.name}
                                     href={item.href}
