@@ -37,15 +37,11 @@ const yachtNavCategories = [
 ];
 
 const navLinks = [
-  { name: "Accueil", href: "/" },
   { name: "Services", href: "/services", hasMega: "services" },
   { name: "Flotte", href: "/flotte", hasMega: "fleet" },
   { name: "Yachts", href: "/yachts", hasMega: "yachts" },
   { name: "Destinations", href: "/destinations" },
-  { name: "Empty Legs", href: "/empty-legs" },
   { name: "Expériences", href: "/experiences" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
