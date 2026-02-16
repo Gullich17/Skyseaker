@@ -53,11 +53,29 @@ export default function Header() {
 
   useEffect(() => {
     if (mobileOpen) {
+      // Prevent body scroll on iOS + Android
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
       document.body.style.overflow = "hidden";
     } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
       document.body.style.overflow = "";
+      window.scrollTo(0, parseInt(scrollY || "0") * -1);
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.overflow = "";
+    };
   }, [mobileOpen]);
 
   return (
@@ -299,12 +317,12 @@ export default function Header() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35 }}
             className="fixed inset-0 z-40 lg:hidden"
-            style={{ background: "#0A0A0A" }}
+            style={{ background: "#0A0A0A", overscrollBehavior: "contain" }}
           >
             {/* Spacer for nav */}
             <div style={{ height: "70px" }} />
 
-            <div className="h-[calc(100%-70px)] overflow-y-auto flex flex-col" style={{ padding: "0 28px 40px" }}>
+            <div className="flex flex-col" style={{ height: "calc(100% - 70px)", overflowY: "auto", overscrollBehavior: "contain", WebkitOverflowScrolling: "touch", padding: "0 28px 40px" }}>
               {/* Navigation Links */}
               <div style={{ flex: 1 }}>
                 {navLinks.map((link, i) => (
