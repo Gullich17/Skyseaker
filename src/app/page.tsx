@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -508,6 +508,23 @@ function WhyChooseUs() {
    FLEET SHOWCASE
    ============================================ */
 function FleetShowcase() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const handleWheel = useCallback((e: React.WheelEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    // Only hijack if there's horizontal overflow
+    const hasOverflow = el.scrollWidth > el.clientWidth;
+    if (!hasOverflow) return;
+    // Prevent page scroll, convert vertical wheel to horizontal
+    const atStart = el.scrollLeft <= 0;
+    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+    // Allow page scroll if already at carousel edge and scrolling further
+    if ((atStart && e.deltaY < 0) || (atEnd && e.deltaY > 0)) return;
+    e.preventDefault();
+    el.scrollLeft += e.deltaY;
+  }, []);
+
   const featuredAircraft = [
     { name: "Citation XLS+", category: "Super Light Jet", pax: "9", range: "3 400 km", speed: "816 km/h", slug: "citation-xls-plus", img: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=500&q=75" },
     { name: "Challenger 350", category: "Super Midsize", pax: "10", range: "5 926 km", speed: "870 km/h", slug: "challenger-350", img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=500&q=75" },
@@ -528,7 +545,7 @@ function FleetShowcase() {
 
         {/* Horizontal scrollable with scroll indicator */}
         <div className="relative">
-          <div className="overflow-x-auto pb-8 scrollbar-hide" style={{ margin: "0 -10px", padding: "0 10px" }}>
+          <div ref={scrollRef} onWheel={handleWheel} className="overflow-x-auto pb-8 scrollbar-hide" style={{ margin: "0 -10px", padding: "0 10px", overscrollBehavior: "contain" }}>
             <div className="flex" style={{ gap: "20px", minWidth: "max-content" }}>
               {featuredAircraft.map((ac, i) => (
                 <ScrollReveal key={ac.slug} delay={i * 0.08}>
