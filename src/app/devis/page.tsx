@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionTitle from "@/components/ui/SectionTitle";
 
 const steps = ["Votre vol", "Vos préférences", "Vos coordonnées", "Confirmation"];
 
-export default function DevisPage() {
+function DevisForm() {
+  const searchParams = useSearchParams();
   const [currentStep, setCurrentStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
@@ -16,6 +18,28 @@ export default function DevisPage() {
     nom: "", prenom: "", email: "", telephone: "", entreprise: "", source: "",
     cgv: false,
   });
+
+  // Pre-fill form from URL params (coming from homepage hero form)
+  useEffect(() => {
+    const type = searchParams.get("type");
+    const depart = searchParams.get("depart");
+    const destination = searchParams.get("destination");
+    const date = searchParams.get("date");
+    const dateRetour = searchParams.get("dateRetour");
+    const passagers = searchParams.get("passagers");
+
+    if (type || depart || destination || date || dateRetour || passagers) {
+      setForm((prev) => ({
+        ...prev,
+        ...(type ? { type } : {}),
+        ...(depart ? { depart } : {}),
+        ...(destination ? { destination } : {}),
+        ...(date ? { date } : {}),
+        ...(dateRetour ? { dateRetour } : {}),
+        ...(passagers ? { passagers } : {}),
+      }));
+    }
+  }, [searchParams]);
 
   const update = (field: string, value: string | boolean) => setForm({ ...form, [field]: value });
 
@@ -331,5 +355,13 @@ export default function DevisPage() {
         </div>
       </section>
     </>
+  );
+}
+
+export default function DevisPage() {
+  return (
+    <Suspense fallback={null}>
+      <DevisForm />
+    </Suspense>
   );
 }

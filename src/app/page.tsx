@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionTitle from "@/components/ui/SectionTitle";
@@ -15,9 +16,35 @@ import { emptyLegs } from "@/data/emptyLegs";
    HERO SECTION
    ============================================ */
 function HeroSection() {
+  const router = useRouter();
   const [tripType, setTripType] = useState<"aller" | "ar" | "multi">("aller");
   const [showOptions, setShowOptions] = useState(false);
   const [legs, setLegs] = useState([{ from: "", to: "", date: "" }]);
+  const [depart, setDepart] = useState("");
+  const [destination, setDestination] = useState("");
+  const [date, setDate] = useState("");
+  const [dateRetour, setDateRetour] = useState("");
+  const [passagers, setPassagers] = useState("2");
+
+  const handleSubmit = () => {
+    const typeMap = { aller: "aller-simple", ar: "aller-retour", multi: "multi" };
+    const params = new URLSearchParams();
+    params.set("type", typeMap[tripType]);
+    if (tripType !== "multi") {
+      if (depart) params.set("depart", depart);
+      if (destination) params.set("destination", destination);
+      if (date) params.set("date", date);
+      if (tripType === "ar" && dateRetour) params.set("dateRetour", dateRetour);
+      params.set("passagers", passagers);
+    } else {
+      // Multi: pass first leg
+      if (legs[0]?.from) params.set("depart", legs[0].from);
+      if (legs[0]?.to) params.set("destination", legs[0].to);
+      if (legs[0]?.date) params.set("date", legs[0].date);
+      params.set("passagers", passagers);
+    }
+    router.push(`/devis?${params.toString()}`);
+  };
 
   const tabs = [
     { id: "aller" as const, label: "Aller simple" },
@@ -115,6 +142,8 @@ function HeroSection() {
                   <input
                     type="text"
                     placeholder="Ville ou aéroport"
+                    value={depart}
+                    onChange={(e) => setDepart(e.target.value)}
                     style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
                   />
                 </div>
@@ -131,6 +160,8 @@ function HeroSection() {
                   <input
                     type="text"
                     placeholder="Ville ou aéroport"
+                    value={destination}
+                    onChange={(e) => setDestination(e.target.value)}
                     style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
                   />
                 </div>
@@ -142,11 +173,15 @@ function HeroSection() {
                 <div style={{ display: "flex", gap: "10px" }}>
                   <input
                     type="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
                     style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
                   />
                   {tripType === "ar" && (
                     <input
                       type="date"
+                      value={dateRetour}
+                      onChange={(e) => setDateRetour(e.target.value)}
                       style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
                     />
                   )}
@@ -158,7 +193,8 @@ function HeroSection() {
                 </label>
                 <select
                   style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
-                  defaultValue="2"
+                  value={passagers}
+                  onChange={(e) => setPassagers(e.target.value)}
                 >
                   {Array.from({ length: 19 }, (_, i) => (
                     <option key={i + 1} value={i + 1} style={{ background: "#141414" }}>
@@ -262,9 +298,8 @@ function HeroSection() {
           )}
 
           {/* Submit */}
-          <Link
-            href="/devis"
-            className="block transition-all duration-300 hover:shadow-lg"
+          <button
+            onClick={handleSubmit}
             style={{
               display: "block",
               width: "100%",
@@ -278,13 +313,15 @@ function HeroSection() {
               letterSpacing: "0.25em",
               fontFamily: "var(--font-montserrat)",
               fontWeight: 700,
-              textDecoration: "none",
+              border: "none",
               borderRadius: "3px",
               boxShadow: "0 4px 24px rgba(201,169,110,0.35)",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
             }}
           >
             Estimez votre vol gratuitement
-          </Link>
+          </button>
           <p style={{ textAlign: "center", marginTop: "16px", fontSize: "12px", color: "#8A8A8A", fontFamily: "var(--font-montserrat)", fontWeight: 300, letterSpacing: "0.05em" }}>
             Réponse sous 30 minutes &bull; Disponible 24/7 &bull; Sans engagement
           </p>
