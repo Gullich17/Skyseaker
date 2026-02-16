@@ -357,14 +357,14 @@ function ServicesSection() {
 
   return (
     <section style={{ background: "#0A0A0A", padding: "140px 0" }}>
-      <div className="px-6 md:px-10" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 40px" }}>
         <SectionTitle
           preTitle="NOS SERVICES"
           title="Des solutions adaptées à chaque besoin"
           centered
           className="mb-20"
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "32px" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "40px" }}>
           {serviceCards.map((svc, i) => (
             <ScrollReveal key={svc.title} delay={i * 0.08}>
               <Link href={svc.href} className="block group h-full">
