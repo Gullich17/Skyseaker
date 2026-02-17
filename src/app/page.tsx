@@ -101,13 +101,13 @@ function HeroSection() {
           style={{
             maxWidth: "960px",
             margin: "0 auto",
-            background: "rgba(14, 14, 14, 0.92)",
+            background: "linear-gradient(145deg, rgba(15, 37, 53, 0.97) 0%, rgba(14, 32, 45, 0.95) 100%)",
             backdropFilter: "blur(24px)",
             WebkitBackdropFilter: "blur(24px)",
-            border: "1px solid rgba(244, 221, 195, 0.18)",
-            borderRadius: "4px",
-            padding: "clamp(20px, 3vw, 28px) clamp(16px, 4vw, 36px)",
-            boxShadow: "0 30px 80px rgba(0,0,0,0.6)",
+            border: "1px solid rgba(244, 221, 195, 0.22)",
+            borderRadius: "6px",
+            padding: "clamp(24px, 3.5vw, 32px) clamp(20px, 4vw, 40px)",
+            boxShadow: "0 30px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(244,221,195,0.08)",
           }}
         >
           {/* Mode Toggle — Aviation / Yacht */}
@@ -116,13 +116,13 @@ function HeroSection() {
               onClick={() => setHeroMode("aviation")}
               style={{
                 display: "flex", alignItems: "center", gap: "8px",
-                padding: "8px 16px",
+                padding: "10px 20px",
                 fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase",
                 fontFamily: "var(--font-montserrat)", fontWeight: heroMode === "aviation" ? 600 : 400,
-                color: heroMode === "aviation" ? "#F4DDC3" : "#6B6B6B",
-                background: heroMode === "aviation" ? "rgba(244,221,195,0.08)" : "transparent",
-                border: heroMode === "aviation" ? "1px solid rgba(244,221,195,0.25)" : "1px solid transparent",
-                borderRadius: "3px", cursor: "pointer", transition: "all 0.3s ease",
+                color: heroMode === "aviation" ? "#0E202D" : "#8A8A8A",
+                background: heroMode === "aviation" ? "#F4DDC3" : "rgba(244,221,195,0.06)",
+                border: heroMode === "aviation" ? "1px solid #F4DDC3" : "1px solid rgba(244,221,195,0.15)",
+                borderRadius: "4px", cursor: "pointer", transition: "all 0.3s ease",
               }}
             >
               <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
@@ -134,13 +134,13 @@ function HeroSection() {
               onClick={() => setHeroMode("yacht")}
               style={{
                 display: "flex", alignItems: "center", gap: "8px",
-                padding: "8px 16px",
+                padding: "10px 20px",
                 fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase",
                 fontFamily: "var(--font-montserrat)", fontWeight: heroMode === "yacht" ? 600 : 400,
-                color: heroMode === "yacht" ? "#F4DDC3" : "#6B6B6B",
-                background: heroMode === "yacht" ? "rgba(244,221,195,0.08)" : "transparent",
-                border: heroMode === "yacht" ? "1px solid rgba(244,221,195,0.25)" : "1px solid transparent",
-                borderRadius: "3px", cursor: "pointer", transition: "all 0.3s ease",
+                color: heroMode === "yacht" ? "#0E202D" : "#8A8A8A",
+                background: heroMode === "yacht" ? "#F4DDC3" : "rgba(244,221,195,0.06)",
+                border: heroMode === "yacht" ? "1px solid #F4DDC3" : "1px solid rgba(244,221,195,0.15)",
+                borderRadius: "4px", cursor: "pointer", transition: "all 0.3s ease",
               }}
             >
               <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
@@ -155,7 +155,7 @@ function HeroSection() {
 
           {/* Aviation Tabs — only shown in aviation mode */}
           {heroMode === "aviation" && (
-            <div style={{ display: "flex", gap: "0", marginBottom: "24px", borderBottom: "1px solid rgba(244,221,195,0.12)", overflowX: "auto" }}>
+            <div style={{ display: "flex", gap: "0", marginBottom: "24px", borderBottom: "1px solid rgba(244,221,195,0.15)", overflowX: "auto" }}>
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -168,11 +168,11 @@ function HeroSection() {
                     textTransform: "uppercase",
                     fontFamily: "var(--font-montserrat)",
                     fontWeight: tripType === tab.id ? 600 : 400,
-                    color: tripType === tab.id ? "#F4DDC3" : "#6B6B6B",
-                    background: "transparent",
+                    color: tripType === tab.id ? "#F4DDC3" : "#8A8A8A",
+                    background: tripType === tab.id ? "rgba(244,221,195,0.06)" : "transparent",
                     border: "none",
                     cursor: "pointer",
-                    transition: "color 0.3s ease",
+                    transition: "all 0.3s ease",
                   }}
                 >
                   {tab.label}
@@ -215,7 +215,7 @@ function HeroSection() {
                         placeholder="Ville ou aéroport"
                         value={depart}
                         onChange={(e) => setDepart(e.target.value)}
-                        style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
+                        style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
                       />
                     </div>
                   </div>
@@ -233,7 +233,7 @@ function HeroSection() {
                         placeholder="Ville ou aéroport"
                         value={destination}
                         onChange={(e) => setDestination(e.target.value)}
-                        style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
+                        style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
                       />
                     </div>
                   </div>
@@ -246,14 +246,14 @@ function HeroSection() {
                         type="date"
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
-                        style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                        style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
                       />
                       {tripType === "ar" && (
                         <input
                           type="date"
                           value={dateRetour}
                           onChange={(e) => setDateRetour(e.target.value)}
-                          style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                          style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
                         />
                       )}
                     </div>
@@ -263,7 +263,7 @@ function HeroSection() {
                       Passagers
                     </label>
                     <select
-                      style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
+                      style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
                       value={passagers}
                       onChange={(e) => setPassagers(e.target.value)}
                     >
@@ -290,7 +290,7 @@ function HeroSection() {
                             placeholder="Ville ou aéroport"
                             value={leg.from}
                             onChange={(e) => { const n = [...legs]; n[idx].from = e.target.value; setLegs(n); }}
-                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
+                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
                           />
                         </div>
                         <div>
@@ -302,7 +302,7 @@ function HeroSection() {
                             placeholder="Ville ou aéroport"
                             value={leg.to}
                             onChange={(e) => { const n = [...legs]; n[idx].to = e.target.value; setLegs(n); }}
-                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
+                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
                           />
                         </div>
                         <div style={{ display: "flex", gap: "10px" }}>
@@ -310,7 +310,7 @@ function HeroSection() {
                             type="date"
                             value={leg.date}
                             onChange={(e) => { const n = [...legs]; n[idx].date = e.target.value; setLegs(n); }}
-                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
                           />
                           {idx > 0 && (
                             <button
@@ -336,7 +336,7 @@ function HeroSection() {
               {/* Extra Options */}
               <button
                 onClick={() => setShowOptions(!showOptions)}
-                style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500, background: "none", border: "none", cursor: "pointer", marginBottom: "24px" }}
+                style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "rgba(244,221,195,0.7)", fontFamily: "var(--font-montserrat)", fontWeight: 500, background: "none", border: "none", cursor: "pointer", marginBottom: "24px", transition: "color 0.3s ease" }}
               >
                 Options
                 <motion.svg animate={{ rotate: showOptions ? 180 : 0 }} width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -395,7 +395,7 @@ function HeroSection() {
                   type="date"
                   value={yachtDateStart}
                   onChange={(e) => setYachtDateStart(e.target.value)}
-                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
                 />
               </div>
               <div>
@@ -406,7 +406,7 @@ function HeroSection() {
                   type="date"
                   value={yachtDateEnd}
                   onChange={(e) => setYachtDateEnd(e.target.value)}
-                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
                 />
               </div>
               <div>
@@ -416,7 +416,7 @@ function HeroSection() {
                 <select
                   value={yachtGuests}
                   onChange={(e) => setYachtGuests(e.target.value)}
-                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
+                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
                 >
                   {Array.from({ length: 30 }, (_, i) => (
                     <option key={i + 1} value={i + 1} style={{ background: "#132A3A" }}>
@@ -436,8 +436,7 @@ function HeroSection() {
               width: "100%",
               textAlign: "center",
               padding: "20px 24px",
-              background: "linear-gradient(135deg, #F4DDC3 0%, #F4DDC3 50%, #F4DDC3 100%)",
-              backgroundSize: "200% 200%",
+              background: "linear-gradient(135deg, #F4DDC3 0%, #e8ccac 100%)",
               color: "#0E202D",
               fontSize: "13px",
               textTransform: "uppercase",
@@ -445,15 +444,15 @@ function HeroSection() {
               fontFamily: "var(--font-montserrat)",
               fontWeight: 700,
               border: "none",
-              borderRadius: "3px",
-              boxShadow: "0 4px 24px rgba(244,221,195,0.35)",
+              borderRadius: "4px",
+              boxShadow: "0 6px 30px rgba(244,221,195,0.4), inset 0 1px 0 rgba(255,255,255,0.2)",
               cursor: "pointer",
               transition: "all 0.3s ease",
             }}
           >
             {heroMode === "yacht" ? "Estimez votre croisière gratuitement" : "Estimez votre vol gratuitement"}
           </button>
-          <p style={{ textAlign: "center", marginTop: "16px", fontSize: "12px", color: "#8A8A8A", fontFamily: "var(--font-montserrat)", fontWeight: 300, letterSpacing: "0.05em" }}>
+          <p style={{ textAlign: "center", marginTop: "16px", fontSize: "12px", color: "rgba(244,221,195,0.5)", fontFamily: "var(--font-montserrat)", fontWeight: 300, letterSpacing: "0.05em" }}>
             Réponse sous 30 minutes &bull; Disponible 24/7 &bull; Sans engagement
           </p>
         </motion.div>
@@ -969,7 +968,7 @@ function TestimonialsSection() {
   return (
     <section className="relative overflow-hidden" style={{ padding: "clamp(80px, 12vw, 140px) 0" }}>
       {/* BG */}
-      <div className="absolute inset-0" style={{ background: "#0E0E0E" }}>
+      <div className="absolute inset-0" style={{ background: "#0E202D" }}>
         <div className="absolute inset-0 opacity-[0.04]" style={{ background: "radial-gradient(circle at 50% 50%, #F4DDC3 0%, transparent 70%)" }} />
       </div>
 

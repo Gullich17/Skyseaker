@@ -207,9 +207,91 @@ function DevisForm() {
     }));
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [devisRef, setDevisRef] = useState("");
+  const [waUrl, setWaUrl] = useState("");
+
+  /* Build WhatsApp message client-side (avoids popup blocker) */
+  function buildWhatsAppUrl(): string {
+    const WHATSAPP_NUMBER = "33676765511";
+    const ref = `SKY-${Date.now().toString().slice(-6)}`;
+    const lines: string[] = [];
+
+    lines.push("🔔 *NOUVELLE DEMANDE DE DEVIS*");
+    lines.push(`📋 Réf: #${ref}`);
+    lines.push("");
+
+    if (form.serviceType === "yacht") {
+      lines.push("🛥️ *CHARTER NAUTIQUE*");
+      lines.push("");
+      if (form.zoneNavigation) lines.push(`📍 Zone: ${form.zoneNavigation}`);
+      if (form.dateEmbarquement) lines.push(`📅 Embarquement: ${form.dateEmbarquement}`);
+      if (form.dateDebarquement) lines.push(`📅 Débarquement: ${form.dateDebarquement}`);
+      if (form.nombreInvites) lines.push(`👥 Invités: ${form.nombreInvites}`);
+      if (form.dureeJours) lines.push(`⏱️ Durée: ${form.dureeJours} jours`);
+      if (form.categorieYacht) lines.push(`🚢 Catégorie: ${form.categorieYacht}`);
+      if (form.equipage) lines.push(`👨‍✈️ Équipage: ${form.equipage}`);
+      if (form.activitesNautiques.length > 0) lines.push(`🏄 Activités: ${form.activitesNautiques.join(", ")}`);
+      if (form.cateringYacht && form.cateringYacht !== "sans") lines.push(`🍽️ Catering: ${form.cateringYacht}`);
+      if (form.besoinsYacht) lines.push(`📝 Notes: ${form.besoinsYacht}`);
+    } else {
+      lines.push("✈️ *AVIATION PRIVÉE*");
+      lines.push("");
+      if (form.type) lines.push(`🔄 Type: ${form.type}`);
+      if (form.depart || form.destination) lines.push(`📍 Trajet: ${form.depart || "—"} → ${form.destination || "—"}`);
+      if (form.date) {
+        if (form.type === "aller-retour" && form.dateRetour) {
+          lines.push(`📅 Dates: ${form.date} → ${form.dateRetour}`);
+        } else {
+          lines.push(`📅 Date: ${form.date}`);
+        }
+      }
+      if (form.passagers) lines.push(`👥 Passagers: ${form.passagers}`);
+      if (form.flexibilite) lines.push("📆 Dates flexibles: Oui");
+      if (form.categorie) lines.push(`🛩️ Catégorie: ${form.categorie}`);
+      if (form.catering && form.catering !== "aucun") lines.push(`🍽️ Catering: ${form.catering}`);
+      if (form.animaux) lines.push("🐾 Animaux: Oui");
+      if (form.bagagesSpeciaux) lines.push("🧳 Bagages spéciaux: Oui");
+      if (form.transfert && form.transfert !== "aucun") lines.push(`🚗 Transfert: ${form.transfert}`);
+      if (form.besoins) lines.push(`📝 Notes: ${form.besoins}`);
+    }
+
+    lines.push("");
+    lines.push("👤 *CONTACT*");
+    const fullName = `${form.prenom || ""} ${form.nom || ""}`.trim();
+    if (fullName) lines.push(`Nom: ${fullName}`);
+    if (form.email) lines.push(`Email: ${form.email}`);
+    if (form.telephone) lines.push(`Tél: ${form.telephone}`);
+    if (form.entreprise) lines.push(`Entreprise: ${form.entreprise}`);
+
+    setDevisRef(ref);
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
+    setWaUrl(url);
+    return url;
+  }
+
   const next = () => {
-    if (currentStep < 3) setCurrentStep(currentStep + 1);
-    else setSubmitted(true);
+    if (currentStep < 3) {
+      setCurrentStep(currentStep + 1);
+      return;
+    }
+
+    // Step 3 → Build WhatsApp URL client-side + redirect (no popup blocker)
+    setIsSubmitting(true);
+    const url = buildWhatsAppUrl();
+
+    // Open WhatsApp directly — synchronous so no popup blocker
+    window.open(url, "_blank");
+
+    // Also fire API call in background for logging/future use
+    fetch("/api/devis", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    }).catch(() => {});
+
+    setIsSubmitting(false);
+    setSubmitted(true);
   };
   const prev = () => {
     if (currentStep > 0) setCurrentStep(currentStep - 1);
@@ -720,7 +802,7 @@ function DevisForm() {
                     borderRadius: "2px",
                   }}
                 >
-                  {currentStep === 3 ? "Envoyer ma demande" : "Suivant"}
+                  {currentStep === 3 ? (isSubmitting ? "Envoi en cours..." : "Envoyer ma demande") : "Suivant"}
                 </button>
               </div>
             </div>
@@ -751,11 +833,23 @@ function DevisForm() {
               <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontSize: "clamp(16px, 2.5vw, 18px)", color: "#A0A0A0", marginBottom: "8px" }}>
                 Notre équipe vous contactera sous 30 minutes
               </p>
-              <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "13px", color: "#6B6B6B", marginBottom: "32px" }}>
-                Numéro de demande : #SKY-{Date.now().toString().slice(-6)}
+              <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "13px", color: "#6B6B6B", marginBottom: "24px" }}>
+                Numéro de demande : #{devisRef || `SKY-${Date.now().toString().slice(-6)}`}
+              </p>
+              <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "13px", color: "#A0A0A0", marginBottom: "32px" }}>
+                Votre demande a été envoyée via WhatsApp.
+                <br />Si la fenêtre ne s&apos;est pas ouverte,{" "}
+                <a
+                  href={waUrl || `https://wa.me/33676765511?text=${encodeURIComponent(`Bonjour, j'ai soumis une demande de devis #${devisRef || "SKY"}. Merci de me recontacter.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#25D366", textDecoration: "underline" }}
+                >
+                  cliquez ici pour envoyer via WhatsApp
+                </a>
               </p>
               <a
-                href="tel:+33100000000"
+                href="tel:+33676765511"
                 style={{
                   display: "inline-block",
                   padding: "14px 32px",

@@ -16,7 +16,7 @@ const contactOptions = [
   },
   {
     label: "WhatsApp",
-    href: "https://wa.me/33100000000",
+    href: "https://wa.me/33676765511",
     external: true,
     icon: (
       <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@ export default function FloatingWidget() {
               bottom: "64px",
               right: 0,
               width: "240px",
-              background: "rgba(14,14,14,0.96)",
+              background: "rgba(14,32,45,0.96)",
               backdropFilter: "blur(24px)",
               WebkitBackdropFilter: "blur(24px)",
               border: "1px solid rgba(244,221,195,0.15)",
@@ -137,7 +137,7 @@ export default function FloatingWidget() {
           width: "52px",
           height: "52px",
           borderRadius: "50%",
-          background: open ? "#0E0E0E" : "rgba(14,14,14,0.9)",
+          background: open ? "#0E202D" : "rgba(14,32,45,0.9)",
           border: open ? "1px solid rgba(244,221,195,0.3)" : "1px solid rgba(244,221,195,0.2)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
