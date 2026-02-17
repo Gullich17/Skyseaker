@@ -347,10 +347,10 @@ function TrustBanner() {
   return (
     <section style={{ background: "#111111", borderTop: "1px solid rgba(201,169,110,0.12)", borderBottom: "1px solid rgba(201,169,110,0.12)" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(28px, 5vw, 56px) 24px" }}>
-        <div className="hidden md:flex items-center justify-between">
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "clamp(16px, 3vw, 0px) 0" }}>
           {stats.map((stat, i) => (
-            <div key={stat.label} className="flex items-center" style={{ flex: 1 }}>
-              <div style={{ flex: 1, textAlign: "center", padding: "0 16px" }}>
+            <div key={stat.label} style={{ display: "flex", alignItems: "center", flex: "1 1 auto", minWidth: "clamp(100px, 18vw, 200px)" }}>
+              <div style={{ flex: 1, textAlign: "center", padding: "0 clamp(8px, 1.5vw, 16px)" }}>
                 <AnimatedCounter
                   value={stat.value}
                   suffix={stat.suffix}
@@ -360,18 +360,6 @@ function TrustBanner() {
               {i < stats.length - 1 && (
                 <div style={{ width: "1px", height: "56px", background: "linear-gradient(to bottom, transparent, rgba(201,169,110,0.25), transparent)", flexShrink: 0 }} />
               )}
-            </div>
-          ))}
-        </div>
-        {/* Mobile: 3 columns top, 2 centered bottom */}
-        <div className="md:hidden" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "20px 0" }}>
-          {stats.map((stat, i) => (
-            <div key={stat.label} style={{ width: i < 3 ? "33.33%" : "40%", textAlign: "center" }}>
-              <AnimatedCounter
-                value={stat.value}
-                suffix={stat.suffix}
-                label={stat.label}
-              />
             </div>
           ))}
         </div>
