@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const services = [
@@ -16,10 +17,10 @@ const services = [
 ];
 
 const fleetCategories = [
+  { name: "Voir toute la flotte", href: "/flotte" },
   { name: "Very Light Jet", href: "/flotte/very-light-jet" },
   { name: "Light Jet", href: "/flotte/light-jet" },
   { name: "Super Light Jet", href: "/flotte/super-light-jet" },
-  { name: "Midsize Jet", href: "/flotte/midsize-jet" },
   { name: "Super Midsize Jet", href: "/flotte/super-midsize-jet" },
   { name: "Heavy Jet", href: "/flotte/heavy-jet" },
   { name: "Ultra Long Range", href: "/flotte/ultra-long-range" },
@@ -130,16 +131,14 @@ export default function Header() {
       >
         <nav className="flex items-center justify-between h-[70px]" style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 clamp(20px, 5vw, 40px)" }}>
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 shrink-0">
-            <div className="flex items-center gap-2">
-              <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
-                <path d="M20 2L38 20L20 38L2 20L20 2Z" stroke="#F4DDC3" strokeWidth="1.5" fill="none" />
-                <path d="M12 20H28M20 14L28 20L20 26" stroke="#F4DDC3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              <span className="text-xl tracking-[0.15em] uppercase" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500, color: "#FFFFFF" }}>
-                Sky<span style={{ color: "#F4DDC3" }}>seaker</span>
-              </span>
-            </div>
+          <Link href="/" className="shrink-0" style={{ display: "block", position: "relative", width: "clamp(140px, 18vw, 180px)", height: "44px" }}>
+            <Image
+              src="/images/logos/logo-beige.png"
+              alt="Skyseaker"
+              fill
+              style={{ objectFit: "contain", objectPosition: "left center" }}
+              priority
+            />
           </Link>
 
           {/* Desktop Links */}

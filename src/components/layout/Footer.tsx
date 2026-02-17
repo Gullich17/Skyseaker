@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const footerServices = [
@@ -15,8 +16,8 @@ const footerServices = [
 ];
 
 const footerFleet = [
+  { name: "Toute la flotte", href: "/flotte" },
   { name: "Light Jet", href: "/flotte/light-jet" },
-  { name: "Midsize Jet", href: "/flotte/midsize-jet" },
   { name: "Super Midsize", href: "/flotte/super-midsize-jet" },
   { name: "Heavy Jet", href: "/flotte/heavy-jet" },
   { name: "Ultra Long Range", href: "/flotte/ultra-long-range" },
@@ -63,19 +64,18 @@ export default function Footer() {
       <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
         {/* Logo + Slogan */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6" style={{ padding: "clamp(40px, 6vw, 64px) 0" }}>
-          <div className="flex items-center gap-3">
-            <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
-              <path d="M20 2L38 20L20 38L2 20L20 2Z" stroke="#F4DDC3" strokeWidth="1.5" fill="none" />
-              <path d="M12 20H28M20 14L28 20L20 26" stroke="#F4DDC3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <div>
-              <span className="text-xl tracking-[0.15em] uppercase block" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500, color: "#FFFFFF" }}>
-                Sky<span style={{ color: "#F4DDC3" }}>seaker</span>
-              </span>
-              <span className="text-[11px] text-[#6B6B6B] tracking-[0.1em]" style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic" }}>
-                L&apos;excellence de l&apos;aviation privée
-              </span>
-            </div>
+          <div>
+            <Link href="/" style={{ display: "block", position: "relative", width: "180px", height: "60px" }}>
+              <Image
+                src="/images/logos/logo-beige.png"
+                alt="Skyseaker"
+                fill
+                style={{ objectFit: "contain", objectPosition: "left center" }}
+              />
+            </Link>
+            <span className="text-[11px] text-[#6B6B6B] tracking-[0.1em] mt-1 block" style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic" }}>
+              L&apos;excellence de l&apos;aviation privée
+            </span>
           </div>
           {/* Newsletter */}
           <div className="w-full md:w-auto">

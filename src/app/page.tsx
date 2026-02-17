@@ -475,11 +475,23 @@ function TrustBanner() {
 
   return (
     <section style={{ background: "#112130", borderTop: "1px solid rgba(244,221,195,0.12)", borderBottom: "1px solid rgba(244,221,195,0.12)" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(28px, 5vw, 56px) 24px" }}>
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "clamp(16px, 3vw, 0px) 0" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(28px, 5vw, 56px) 0" }}>
+        <div
+          className="scrollbar-hide"
+          style={{
+            display: "flex",
+            flexWrap: "nowrap",
+            justifyContent: "flex-start",
+            overflowX: "auto",
+            WebkitOverflowScrolling: "touch",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            padding: "0 24px",
+          }}
+        >
           {stats.map((stat, i) => (
-            <div key={stat.label} style={{ display: "flex", alignItems: "center", flex: "1 1 auto", minWidth: "clamp(100px, 18vw, 200px)" }}>
-              <div style={{ flex: 1, textAlign: "center", padding: "0 clamp(8px, 1.5vw, 16px)" }}>
+            <div key={stat.label} style={{ display: "flex", alignItems: "center", flexShrink: 0, minWidth: "max-content" }}>
+              <div style={{ textAlign: "center", padding: "0 clamp(12px, 2vw, 24px)", whiteSpace: "nowrap" }}>
                 <AnimatedCounter
                   value={stat.value}
                   suffix={stat.suffix}
