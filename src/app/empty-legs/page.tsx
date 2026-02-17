@@ -32,7 +32,7 @@ function ArrowRightIcon() {
     <svg
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#C9A96E"
+      stroke="#F4DDC3"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -87,7 +87,7 @@ function BellIcon() {
     <svg
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#C9A96E"
+      stroke="#F4DDC3"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -138,9 +138,9 @@ function FilterIcon() {
 const inputStyle: React.CSSProperties = {
   width: '100%',
   padding: '12px 16px',
-  backgroundColor: '#0A0A0A',
-  border: '1px solid #1E1E1E',
-  color: '#F5F5F0',
+  backgroundColor: '#0E202D',
+  border: '1px solid #1A3448',
+  color: '#FFFFFF',
   fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
   fontWeight: 300,
   fontSize: '14px',
@@ -201,21 +201,21 @@ function HeroSection() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(135deg, #0A0A0A 0%, #141414 40%, #1a1510 60%, #0A0A0A 100%)',
+              'linear-gradient(135deg, #0E202D 0%, #132A3A 40%, #122838 60%, #0E202D 100%)',
           }}
         />
         <div
           className="absolute top-1/3 left-0 right-0 h-[1px] opacity-[0.05]"
           style={{
             background:
-              'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+              'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
           }}
         />
         <div
           className="absolute top-2/3 left-0 right-0 h-[1px] opacity-[0.03]"
           style={{
             background:
-              'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+              'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
           }}
         />
       </div>
@@ -224,7 +224,7 @@ function HeroSection() {
         className="absolute inset-0 z-[1]"
         style={{
           background:
-            'linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.3) 50%, rgba(10,10,10,0.6) 100%)',
+            'linear-gradient(to top, rgba(14,32,45,0.8) 0%, rgba(14,32,45,0.3) 50%, rgba(14,32,45,0.6) 100%)',
         }}
       />
 
@@ -239,7 +239,7 @@ function HeroSection() {
             fontSize: '12px',
             textTransform: 'uppercase',
             letterSpacing: '0.3em',
-            color: '#C9A96E',
+            color: '#F4DDC3',
             marginBottom: '16px',
           }}
         >
@@ -254,7 +254,7 @@ function HeroSection() {
           style={{
             fontFamily: 'var(--font-playfair), "Playfair Display", serif',
             fontWeight: 700,
-            color: '#F5F5F0',
+            color: '#FFFFFF',
             lineHeight: 1.15,
           }}
         >
@@ -269,7 +269,7 @@ function HeroSection() {
           style={{
             fontFamily: 'var(--font-cormorant), "Cormorant Garamond", serif',
             fontStyle: 'italic',
-            color: '#D4B978',
+            color: '#F4DDC3',
             lineHeight: 1.4,
           }}
         >
@@ -303,7 +303,7 @@ function HeroSection() {
             width: '80px',
             height: '1px',
             background:
-              'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+              'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
           }}
         />
       </div>
@@ -316,7 +316,7 @@ function HeroSection() {
    ============================================ */
 function ExplanationSection() {
   return (
-    <section className="section-padding" style={{ backgroundColor: '#0A0A0A' }}>
+    <section className="section-padding" style={{ backgroundColor: '#0E202D' }}>
       <div className="container-luxury">
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <ScrollReveal>
@@ -326,7 +326,7 @@ function ExplanationSection() {
                   style={{
                     width: '1px',
                     height: '60px',
-                    backgroundColor: '#C9A96E',
+                    backgroundColor: '#F4DDC3',
                     opacity: 0.4,
                     marginBottom: '24px',
                   }}
@@ -339,7 +339,7 @@ function ExplanationSection() {
                     fontSize: '12px',
                     textTransform: 'uppercase',
                     letterSpacing: '0.2em',
-                    color: '#C9A96E',
+                    color: '#F4DDC3',
                   }}
                 >
                   Qu&apos;est-ce qu&apos;un empty leg ?
@@ -444,9 +444,9 @@ function FilterAndListingSection() {
     <section
       className="section-padding"
       style={{
-        backgroundColor: '#141414',
-        borderTop: '1px solid rgba(201,169,110,0.1)',
-        borderBottom: '1px solid rgba(201,169,110,0.1)',
+        backgroundColor: '#132A3A',
+        borderTop: '1px solid rgba(244,221,195,0.1)',
+        borderBottom: '1px solid rgba(244,221,195,0.1)',
       }}
     >
       <div className="container-luxury">
@@ -462,8 +462,8 @@ function FilterAndListingSection() {
           <div
             className="mt-12 p-6 md:p-8"
             style={{
-              backgroundColor: '#0A0A0A',
-              border: '1px solid #1E1E1E',
+              backgroundColor: '#0E202D',
+              border: '1px solid #1A3448',
             }}
           >
             <div className="flex items-center gap-2 mb-6">
@@ -476,7 +476,7 @@ function FilterAndListingSection() {
                   fontSize: '12px',
                   textTransform: 'uppercase',
                   letterSpacing: '0.15em',
-                  color: '#C9A96E',
+                  color: '#F4DDC3',
                 }}
               >
                 Filtrer les resultats
@@ -494,10 +494,10 @@ function FilterAndListingSection() {
                   onChange={(e) => setDeparture(e.target.value)}
                   style={inputStyle}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#C9A96E';
+                    e.currentTarget.style.borderColor = '#F4DDC3';
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = '#1E1E1E';
+                    e.currentTarget.style.borderColor = '#1A3448';
                   }}
                 />
               </div>
@@ -512,10 +512,10 @@ function FilterAndListingSection() {
                   onChange={(e) => setArrival(e.target.value)}
                   style={inputStyle}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#C9A96E';
+                    e.currentTarget.style.borderColor = '#F4DDC3';
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = '#1E1E1E';
+                    e.currentTarget.style.borderColor = '#1A3448';
                   }}
                 />
               </div>
@@ -532,10 +532,10 @@ function FilterAndListingSection() {
                     colorScheme: 'dark',
                   }}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#C9A96E';
+                    e.currentTarget.style.borderColor = '#F4DDC3';
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = '#1E1E1E';
+                    e.currentTarget.style.borderColor = '#1A3448';
                   }}
                 />
               </div>
@@ -552,10 +552,10 @@ function FilterAndListingSection() {
                     colorScheme: 'dark',
                   }}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#C9A96E';
+                    e.currentTarget.style.borderColor = '#F4DDC3';
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = '#1E1E1E';
+                    e.currentTarget.style.borderColor = '#1A3448';
                   }}
                 />
               </div>
@@ -575,10 +575,10 @@ function FilterAndListingSection() {
                     paddingRight: '36px',
                   }}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#C9A96E';
+                    e.currentTarget.style.borderColor = '#F4DDC3';
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = '#1E1E1E';
+                    e.currentTarget.style.borderColor = '#1A3448';
                   }}
                 >
                   <option value="">Toutes</option>
@@ -601,10 +601,10 @@ function FilterAndListingSection() {
                   style={inputStyle}
                   min={0}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#C9A96E';
+                    e.currentTarget.style.borderColor = '#F4DDC3';
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = '#1E1E1E';
+                    e.currentTarget.style.borderColor = '#1A3448';
                   }}
                 />
               </div>
@@ -655,8 +655,8 @@ function FilterAndListingSection() {
               <div
                 className="py-20 text-center"
                 style={{
-                  backgroundColor: '#0A0A0A',
-                  border: '1px solid #1E1E1E',
+                  backgroundColor: '#0E202D',
+                  border: '1px solid #1A3448',
                 }}
               >
                 <SearchIcon />
@@ -667,7 +667,7 @@ function FilterAndListingSection() {
                       'var(--font-playfair), "Playfair Display", serif',
                     fontWeight: 500,
                     fontSize: '20px',
-                    color: '#F5F5F0',
+                    color: '#FFFFFF',
                   }}
                 >
                   Aucun vol disponible
@@ -708,8 +708,8 @@ function EmptyLegCard({ leg }: { leg: EmptyLeg }) {
     <motion.div
       className="p-6 md:p-8"
       style={{
-        backgroundColor: '#0A0A0A',
-        border: '1px solid #1E1E1E',
+        backgroundColor: '#0E202D',
+        border: '1px solid #1A3448',
         transition: 'border-color 0.3s ease',
       }}
       whileHover={{
@@ -721,10 +721,10 @@ function EmptyLegCard({ leg }: { leg: EmptyLeg }) {
       }}
       onMouseEnter={(e) => {
         (e.currentTarget as HTMLElement).style.borderColor =
-          'rgba(201,169,110,0.3)';
+          'rgba(244,221,195,0.3)';
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = '#1E1E1E';
+        (e.currentTarget as HTMLElement).style.borderColor = '#1A3448';
       }}
     >
       <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-8">
@@ -738,7 +738,7 @@ function EmptyLegCard({ leg }: { leg: EmptyLeg }) {
                     'var(--font-playfair), "Playfair Display", serif',
                   fontWeight: 600,
                   fontSize: '20px',
-                  color: '#F5F5F0',
+                  color: '#FFFFFF',
                   lineHeight: 1.2,
                 }}
               >
@@ -767,7 +767,7 @@ function EmptyLegCard({ leg }: { leg: EmptyLeg }) {
                     'var(--font-playfair), "Playfair Display", serif',
                   fontWeight: 600,
                   fontSize: '20px',
-                  color: '#F5F5F0',
+                  color: '#FFFFFF',
                   lineHeight: 1.2,
                 }}
               >
@@ -863,7 +863,7 @@ function EmptyLegCard({ leg }: { leg: EmptyLeg }) {
                 fontFamily: 'var(--font-cormorant), "Cormorant Garamond", serif',
                 fontWeight: 600,
                 fontSize: '28px',
-                color: '#C9A96E',
+                color: '#F4DDC3',
                 lineHeight: 1.1,
               }}
             >
@@ -900,7 +900,7 @@ function AlertSignupSection() {
     <section
       id="alertes"
       className="section-padding"
-      style={{ backgroundColor: '#0A0A0A' }}
+      style={{ backgroundColor: '#0E202D' }}
     >
       <div className="container-luxury">
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>
@@ -912,7 +912,7 @@ function AlertSignupSection() {
                   style={{
                     width: '64px',
                     height: '64px',
-                    border: '1px solid rgba(201,169,110,0.3)',
+                    border: '1px solid rgba(244,221,195,0.3)',
                     borderRadius: '50%',
                   }}
                 >
@@ -935,13 +935,13 @@ function AlertSignupSection() {
                 transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
                 className="text-center py-12 px-8"
                 style={{
-                  backgroundColor: '#141414',
-                  border: '1px solid rgba(201,169,110,0.3)',
+                  backgroundColor: '#132A3A',
+                  border: '1px solid rgba(244,221,195,0.3)',
                 }}
               >
                 <div
                   className="flex justify-center mb-4"
-                  style={{ color: '#C9A96E' }}
+                  style={{ color: '#F4DDC3' }}
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -963,7 +963,7 @@ function AlertSignupSection() {
                       'var(--font-playfair), "Playfair Display", serif',
                     fontWeight: 600,
                     fontSize: '24px',
-                    color: '#F5F5F0',
+                    color: '#FFFFFF',
                   }}
                 >
                   Alerte creee avec succes
@@ -986,15 +986,15 @@ function AlertSignupSection() {
                 onSubmit={handleSubmit}
                 className="p-6 md:p-8"
                 style={{
-                  backgroundColor: '#141414',
-                  border: '1px solid #1E1E1E',
+                  backgroundColor: '#132A3A',
+                  border: '1px solid #1A3448',
                 }}
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Email */}
                   <div>
                     <label style={labelStyle}>
-                      Email <span style={{ color: '#C9A96E' }}>*</span>
+                      Email <span style={{ color: '#F4DDC3' }}>*</span>
                     </label>
                     <input
                       type="email"
@@ -1004,10 +1004,10 @@ function AlertSignupSection() {
                       required
                       style={inputStyle}
                       onFocus={(e) => {
-                        e.currentTarget.style.borderColor = '#C9A96E';
+                        e.currentTarget.style.borderColor = '#F4DDC3';
                       }}
                       onBlur={(e) => {
-                        e.currentTarget.style.borderColor = '#1E1E1E';
+                        e.currentTarget.style.borderColor = '#1A3448';
                       }}
                     />
                   </div>
@@ -1033,10 +1033,10 @@ function AlertSignupSection() {
                       onChange={(e) => setPhone(e.target.value)}
                       style={inputStyle}
                       onFocus={(e) => {
-                        e.currentTarget.style.borderColor = '#C9A96E';
+                        e.currentTarget.style.borderColor = '#F4DDC3';
                       }}
                       onBlur={(e) => {
-                        e.currentTarget.style.borderColor = '#1E1E1E';
+                        e.currentTarget.style.borderColor = '#1A3448';
                       }}
                     />
                   </div>
@@ -1046,7 +1046,7 @@ function AlertSignupSection() {
                 <div className="mt-6">
                   <label style={labelStyle}>
                     Trajets souhaites{' '}
-                    <span style={{ color: '#C9A96E' }}>*</span>
+                    <span style={{ color: '#F4DDC3' }}>*</span>
                   </label>
                   <textarea
                     placeholder="Ex: Paris - Nice, Geneve - Londres, Paris - Ibiza..."
@@ -1059,10 +1059,10 @@ function AlertSignupSection() {
                       resize: 'vertical',
                     }}
                     onFocus={(e) => {
-                      e.currentTarget.style.borderColor = '#C9A96E';
+                      e.currentTarget.style.borderColor = '#F4DDC3';
                     }}
                     onBlur={(e) => {
-                      e.currentTarget.style.borderColor = '#1E1E1E';
+                      e.currentTarget.style.borderColor = '#1A3448';
                     }}
                   />
                 </div>
@@ -1081,8 +1081,8 @@ function AlertSignupSection() {
                         height: '24px',
                         borderRadius: '12px',
                         backgroundColor: flexibleDates
-                          ? '#C9A96E'
-                          : '#1E1E1E',
+                          ? '#F4DDC3'
+                          : '#1A3448',
                         transition: 'background-color 0.3s ease',
                         position: 'relative',
                       }}
@@ -1093,7 +1093,7 @@ function AlertSignupSection() {
                           height: '18px',
                           borderRadius: '50%',
                           backgroundColor: flexibleDates
-                            ? '#0A0A0A'
+                            ? '#0E202D'
                             : '#6B6B6B',
                           position: 'absolute',
                           left: flexibleDates ? '23px' : '3px',
@@ -1138,8 +1138,8 @@ function BottomCtaSection() {
     <section
       className="section-padding"
       style={{
-        backgroundColor: '#141414',
-        borderTop: '1px solid rgba(201,169,110,0.1)',
+        backgroundColor: '#132A3A',
+        borderTop: '1px solid rgba(244,221,195,0.1)',
       }}
     >
       <div className="container-luxury text-center">

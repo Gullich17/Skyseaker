@@ -61,18 +61,18 @@ export default function Footer() {
   };
 
   return (
-    <footer style={{ background: "#0A0A0A", borderTop: "1px solid rgba(201,169,110,0.2)" }}>
+    <footer style={{ background: "#0E202D", borderTop: "1px solid rgba(244,221,195,0.2)" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
         {/* Logo + Slogan */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6" style={{ padding: "clamp(40px, 6vw, 64px) 0" }}>
           <div className="flex items-center gap-3">
             <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
-              <path d="M20 2L38 20L20 38L2 20L20 2Z" stroke="#C9A96E" strokeWidth="1.5" fill="none" />
-              <path d="M12 20H28M20 14L28 20L20 26" stroke="#C9A96E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M20 2L38 20L20 38L2 20L20 2Z" stroke="#F4DDC3" strokeWidth="1.5" fill="none" />
+              <path d="M12 20H28M20 14L28 20L20 26" stroke="#F4DDC3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             <div>
-              <span className="text-xl tracking-[0.15em] uppercase block" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500, color: "#F5F5F0" }}>
-                Sky<span style={{ color: "#C9A96E" }}>seaker</span>
+              <span className="text-xl tracking-[0.15em] uppercase block" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500, color: "#FFFFFF" }}>
+                Sky<span style={{ color: "#F4DDC3" }}>seaker</span>
               </span>
               <span className="text-[11px] text-[#6B6B6B] tracking-[0.1em]" style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic" }}>
                 L&apos;excellence de l&apos;aviation privée
@@ -84,7 +84,7 @@ export default function Footer() {
             <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#8A8A8A", marginBottom: "12px" }}>
               Recevez nos offres exclusives
             </p>
-            <form onSubmit={handleNewsletter} style={{ display: "flex", border: "1px solid rgba(201,169,110,0.25)", borderRadius: "2px", overflow: "hidden" }}>
+            <form onSubmit={handleNewsletter} style={{ display: "flex", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "2px", overflow: "hidden" }}>
               <input
                 type="email"
                 value={email}
@@ -98,7 +98,7 @@ export default function Footer() {
                   fontSize: "13px",
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 300,
-                  color: "#F5F5F0",
+                  color: "#FFFFFF",
                   background: "rgba(255,255,255,0.03)",
                   border: "none",
                   outline: "none",
@@ -113,15 +113,15 @@ export default function Footer() {
                   letterSpacing: "0.18em",
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 600,
-                  color: "#0A0A0A",
-                  background: "#C9A96E",
+                  color: "#0E202D",
+                  background: "#F4DDC3",
                   border: "none",
                   cursor: "pointer",
                   whiteSpace: "nowrap",
                   transition: "background 0.3s ease",
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = "#D4B978"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = "#C9A96E"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "#F4DDC3"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = "#F4DDC3"; }}
               >
                 S&apos;inscrire
               </button>
@@ -130,19 +130,19 @@ export default function Footer() {
         </div>
 
         {/* Separator */}
-        <div style={{ height: 1, background: "#1E1E1E" }} />
+        <div style={{ height: 1, background: "#1A3448" }} />
 
         {/* Links Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6" style={{ padding: "clamp(40px, 6vw, 64px) 0", gap: "clamp(28px, 4vw, 40px)" }}>
           {/* Services */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#C9A96E] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
+            <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
               Services
             </h4>
             <ul className="space-y-3">
               {footerServices.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
+                  <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
                     {item.name}
                   </Link>
@@ -153,13 +153,13 @@ export default function Footer() {
 
           {/* Flotte */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#C9A96E] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
+            <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
               Flotte
             </h4>
             <ul className="space-y-3">
               {footerFleet.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
+                  <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
                     {item.name}
                   </Link>
@@ -170,13 +170,13 @@ export default function Footer() {
 
           {/* Yachts */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#C9A96E] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
+            <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
               Yachts
             </h4>
             <ul className="space-y-3">
               {footerYachts.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
+                  <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
                     {item.name}
                   </Link>
@@ -187,13 +187,13 @@ export default function Footer() {
 
           {/* Destinations */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#C9A96E] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
+            <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
               Destinations
             </h4>
             <ul className="space-y-3">
               {footerDestinations.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
+                  <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
                     {item.name}
                   </Link>
@@ -204,13 +204,13 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#C9A96E] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
+            <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
               Ressources
             </h4>
             <ul className="space-y-3">
               {footerResources.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
+                  <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
                     {item.name}
                   </Link>
@@ -221,24 +221,24 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#C9A96E] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
+            <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
               Contact
             </h4>
             <ul className="space-y-3">
               <li>
-                <a href="tel:+33100000000" className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
+                <a href="tel:+33100000000" className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                   style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
                   +33 1 00 00 00 00
                 </a>
               </li>
               <li>
-                <a href="tel:+41000000000" className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
+                <a href="tel:+41000000000" className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                   style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
                   +41 00 000 00 00
                 </a>
               </li>
               <li>
-                <a href="mailto:contact@skyseaker.com" className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
+                <a href="mailto:contact@skyseaker.com" className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                   style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
                   contact@skyseaker.com
                 </a>
@@ -259,7 +259,7 @@ export default function Footer() {
         </div>
 
         {/* Separator */}
-        <div style={{ height: 1, background: "#1E1E1E" }} />
+        <div style={{ height: 1, background: "#1A3448" }} />
 
         {/* Social + Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6" style={{ padding: "clamp(24px, 4vw, 32px) 0" }}>
@@ -272,7 +272,7 @@ export default function Footer() {
               { label: "X", path: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" },
               { label: "TikTok", path: "M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" },
             ].map((s) => (
-              <a key={s.label} href="#" className="text-[#6B6B6B] hover:text-[#C9A96E] transition-colors" aria-label={s.label}>
+              <a key={s.label} href="#" className="text-[#6B6B6B] hover:text-[#F4DDC3] transition-colors" aria-label={s.label}>
                 <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d={s.path} /></svg>
               </a>
             ))}
@@ -284,13 +284,13 @@ export default function Footer() {
               © {new Date().getFullYear()} Skyseaker. Tous droits réservés.
             </p>
             <div className="flex items-center gap-4 mt-2 justify-center md:justify-end">
-              <Link href="/mentions-legales" className="text-[11px] text-[#6B6B6B] hover:text-[#C9A96E] transition-colors">
+              <Link href="/mentions-legales" className="text-[11px] text-[#6B6B6B] hover:text-[#F4DDC3] transition-colors">
                 Mentions légales
               </Link>
-              <Link href="/politique-confidentialite" className="text-[11px] text-[#6B6B6B] hover:text-[#C9A96E] transition-colors">
+              <Link href="/politique-confidentialite" className="text-[11px] text-[#6B6B6B] hover:text-[#F4DDC3] transition-colors">
                 Confidentialité
               </Link>
-              <Link href="/conditions-generales" className="text-[11px] text-[#6B6B6B] hover:text-[#C9A96E] transition-colors">
+              <Link href="/conditions-generales" className="text-[11px] text-[#6B6B6B] hover:text-[#F4DDC3] transition-colors">
                 CGV
               </Link>
             </div>

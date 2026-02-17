@@ -78,7 +78,7 @@ function HeroSection() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.5) 40%, rgba(10,10,10,0.85) 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(14,32,45,0.7) 0%, rgba(14,32,45,0.5) 40%, rgba(14,32,45,0.85) 100%)" }} />
       </div>
 
       {/* Content */}
@@ -88,7 +88,7 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center"
-          style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", lineHeight: 1.1, fontSize: "clamp(40px, 5.5vw, 72px)", marginBottom: "48px" }}
+          style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.1, fontSize: "clamp(40px, 5.5vw, 72px)", marginBottom: "48px" }}
         >
           Your World, Our Priority
         </motion.h1>
@@ -104,7 +104,7 @@ function HeroSection() {
             background: "rgba(14, 14, 14, 0.92)",
             backdropFilter: "blur(24px)",
             WebkitBackdropFilter: "blur(24px)",
-            border: "1px solid rgba(201, 169, 110, 0.18)",
+            border: "1px solid rgba(244, 221, 195, 0.18)",
             borderRadius: "4px",
             padding: "clamp(20px, 3vw, 28px) clamp(16px, 4vw, 36px)",
             boxShadow: "0 30px 80px rgba(0,0,0,0.6)",
@@ -119,9 +119,9 @@ function HeroSection() {
                 padding: "8px 16px",
                 fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase",
                 fontFamily: "var(--font-montserrat)", fontWeight: heroMode === "aviation" ? 600 : 400,
-                color: heroMode === "aviation" ? "#C9A96E" : "#6B6B6B",
-                background: heroMode === "aviation" ? "rgba(201,169,110,0.08)" : "transparent",
-                border: heroMode === "aviation" ? "1px solid rgba(201,169,110,0.25)" : "1px solid transparent",
+                color: heroMode === "aviation" ? "#F4DDC3" : "#6B6B6B",
+                background: heroMode === "aviation" ? "rgba(244,221,195,0.08)" : "transparent",
+                border: heroMode === "aviation" ? "1px solid rgba(244,221,195,0.25)" : "1px solid transparent",
                 borderRadius: "3px", cursor: "pointer", transition: "all 0.3s ease",
               }}
             >
@@ -137,9 +137,9 @@ function HeroSection() {
                 padding: "8px 16px",
                 fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase",
                 fontFamily: "var(--font-montserrat)", fontWeight: heroMode === "yacht" ? 600 : 400,
-                color: heroMode === "yacht" ? "#C9A96E" : "#6B6B6B",
-                background: heroMode === "yacht" ? "rgba(201,169,110,0.08)" : "transparent",
-                border: heroMode === "yacht" ? "1px solid rgba(201,169,110,0.25)" : "1px solid transparent",
+                color: heroMode === "yacht" ? "#F4DDC3" : "#6B6B6B",
+                background: heroMode === "yacht" ? "rgba(244,221,195,0.08)" : "transparent",
+                border: heroMode === "yacht" ? "1px solid rgba(244,221,195,0.25)" : "1px solid transparent",
                 borderRadius: "3px", cursor: "pointer", transition: "all 0.3s ease",
               }}
             >
@@ -155,7 +155,7 @@ function HeroSection() {
 
           {/* Aviation Tabs — only shown in aviation mode */}
           {heroMode === "aviation" && (
-            <div style={{ display: "flex", gap: "0", marginBottom: "24px", borderBottom: "1px solid rgba(201,169,110,0.12)", overflowX: "auto" }}>
+            <div style={{ display: "flex", gap: "0", marginBottom: "24px", borderBottom: "1px solid rgba(244,221,195,0.12)", overflowX: "auto" }}>
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -168,7 +168,7 @@ function HeroSection() {
                     textTransform: "uppercase",
                     fontFamily: "var(--font-montserrat)",
                     fontWeight: tripType === tab.id ? 600 : 400,
-                    color: tripType === tab.id ? "#C9A96E" : "#6B6B6B",
+                    color: tripType === tab.id ? "#F4DDC3" : "#6B6B6B",
                     background: "transparent",
                     border: "none",
                     cursor: "pointer",
@@ -179,7 +179,7 @@ function HeroSection() {
                   {tripType === tab.id && (
                     <motion.div
                       layoutId="activeTab"
-                      style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "2px", background: "#C9A96E" }}
+                      style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "2px", background: "#F4DDC3" }}
                     />
                   )}
                 </button>
@@ -189,8 +189,8 @@ function HeroSection() {
 
           {/* Yacht subtitle — only shown in yacht mode */}
           {heroMode === "yacht" && (
-            <div style={{ marginBottom: "24px", paddingBottom: "12px", borderBottom: "1px solid rgba(201,169,110,0.12)" }}>
-              <span style={{ fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#C9A96E" }}>
+            <div style={{ marginBottom: "24px", paddingBottom: "12px", borderBottom: "1px solid rgba(244,221,195,0.12)" }}>
+              <span style={{ fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F4DDC3" }}>
                 Votre croisière privée
               </span>
             </div>
@@ -202,11 +202,11 @@ function HeroSection() {
               {tripType !== "multi" ? (
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "20px", marginBottom: "24px" }}>
                   <div>
-                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
                       Départ
                     </label>
                     <div className="relative">
-                      <svg style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)" }} width="16" height="16" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <svg style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)" }} width="16" height="16" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24">
                         <path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12" />
                         <path d="M3 20h18" />
                       </svg>
@@ -215,16 +215,16 @@ function HeroSection() {
                         placeholder="Ville ou aéroport"
                         value={depart}
                         onChange={(e) => setDepart(e.target.value)}
-                        style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
+                        style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
                       />
                     </div>
                   </div>
                   <div>
-                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
                       Destination
                     </label>
                     <div className="relative">
-                      <svg style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)" }} width="16" height="16" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <svg style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)" }} width="16" height="16" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24">
                         <path d="M18 12L20.73 20.87a1 1 0 01-.89 1.38L12 22l-7.84.25a1 1 0 01-.89-1.38L6 12" />
                         <path d="M3 4h18" />
                       </svg>
@@ -233,12 +233,12 @@ function HeroSection() {
                         placeholder="Ville ou aéroport"
                         value={destination}
                         onChange={(e) => setDestination(e.target.value)}
-                        style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
+                        style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
                       />
                     </div>
                   </div>
                   <div>
-                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
                       {tripType === "ar" ? "Dates" : "Date"}
                     </label>
                     <div style={{ display: "flex", gap: "10px" }}>
@@ -246,29 +246,29 @@ function HeroSection() {
                         type="date"
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
-                        style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                        style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
                       />
                       {tripType === "ar" && (
                         <input
                           type="date"
                           value={dateRetour}
                           onChange={(e) => setDateRetour(e.target.value)}
-                          style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                          style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
                         />
                       )}
                     </div>
                   </div>
                   <div>
-                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
                       Passagers
                     </label>
                     <select
-                      style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
+                      style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
                       value={passagers}
                       onChange={(e) => setPassagers(e.target.value)}
                     >
                       {Array.from({ length: 19 }, (_, i) => (
-                        <option key={i + 1} value={i + 1} style={{ background: "#141414" }}>
+                        <option key={i + 1} value={i + 1} style={{ background: "#132A3A" }}>
                           {i + 1} passager{i > 0 ? "s" : ""}
                         </option>
                       ))}
@@ -282,7 +282,7 @@ function HeroSection() {
                     {legs.map((leg, idx) => (
                       <div key={idx} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "18px", alignItems: "end" }}>
                         <div>
-                          <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                          <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
                             {idx === 0 ? "Départ" : `Étape ${idx + 1}`}
                           </label>
                           <input
@@ -290,11 +290,11 @@ function HeroSection() {
                             placeholder="Ville ou aéroport"
                             value={leg.from}
                             onChange={(e) => { const n = [...legs]; n[idx].from = e.target.value; setLegs(n); }}
-                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
+                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
                           />
                         </div>
                         <div>
-                          <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                          <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
                             Destination
                           </label>
                           <input
@@ -302,7 +302,7 @@ function HeroSection() {
                             placeholder="Ville ou aéroport"
                             value={leg.to}
                             onChange={(e) => { const n = [...legs]; n[idx].to = e.target.value; setLegs(n); }}
-                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
+                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
                           />
                         </div>
                         <div style={{ display: "flex", gap: "10px" }}>
@@ -310,7 +310,7 @@ function HeroSection() {
                             type="date"
                             value={leg.date}
                             onChange={(e) => { const n = [...legs]; n[idx].date = e.target.value; setLegs(n); }}
-                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
                           />
                           {idx > 0 && (
                             <button
@@ -326,7 +326,7 @@ function HeroSection() {
                   </div>
                   <button
                     onClick={() => setLegs([...legs, { from: "", to: "", date: "" }])}
-                    style={{ marginTop: "16px", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 500, background: "none", border: "none", cursor: "pointer" }}
+                    style={{ marginTop: "16px", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500, background: "none", border: "none", cursor: "pointer" }}
                   >
                     + Ajouter une étape
                   </button>
@@ -336,7 +336,7 @@ function HeroSection() {
               {/* Extra Options */}
               <button
                 onClick={() => setShowOptions(!showOptions)}
-                style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 500, background: "none", border: "none", cursor: "pointer", marginBottom: "24px" }}
+                style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500, background: "none", border: "none", cursor: "pointer", marginBottom: "24px" }}
               >
                 Options
                 <motion.svg animate={{ rotate: showOptions ? 180 : 0 }} width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -353,11 +353,11 @@ function HeroSection() {
                   {["Animaux à bord", "Bagages volumineux", "Catering spécial", "Transfert terrestre"].map((opt) => (
                     <label key={opt} className="flex items-center gap-3 cursor-pointer group">
                       <input type="checkbox" className="sr-only peer" />
-                      <div className="flex items-center justify-center peer-checked:bg-[#C9A96E] transition-all"
-                        style={{ width: "18px", height: "18px", border: "1px solid rgba(201,169,110,0.3)", borderRadius: "2px", flexShrink: 0 }}>
-                        <svg className="opacity-0 peer-checked:opacity-100" width="12" height="12" fill="none" stroke="#0A0A0A" strokeWidth="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" /></svg>
+                      <div className="flex items-center justify-center peer-checked:bg-[#F4DDC3] transition-all"
+                        style={{ width: "18px", height: "18px", border: "1px solid rgba(244,221,195,0.3)", borderRadius: "2px", flexShrink: 0 }}>
+                        <svg className="opacity-0 peer-checked:opacity-100" width="12" height="12" fill="none" stroke="#0E202D" strokeWidth="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" /></svg>
                       </div>
-                      <span className="group-hover:text-[#F5F5F0] transition-colors"
+                      <span className="group-hover:text-[#FFFFFF] transition-colors"
                         style={{ fontSize: "12px", color: "#A0A0A0", fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
                         {opt}
                       </span>
@@ -370,56 +370,56 @@ function HeroSection() {
             /* ===== YACHT FORM FIELDS ===== */
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "20px", marginBottom: "24px" }}>
               <div>
-                <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
                   Zone de navigation
                 </label>
                 <select
                   value={yachtZone}
                   onChange={(e) => setYachtZone(e.target.value)}
-                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: yachtZone ? "#F5F5F0" : "#6B6B6B", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
+                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: yachtZone ? "#FFFFFF" : "#6B6B6B", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
                 >
-                  <option value="" style={{ background: "#141414" }}>Sélectionnez</option>
-                  <option value="mediterranee" style={{ background: "#141414" }}>Méditerranée</option>
-                  <option value="caraibes" style={{ background: "#141414" }}>Caraïbes</option>
-                  <option value="asie-pacifique" style={{ background: "#141414" }}>Asie-Pacifique</option>
-                  <option value="europe-nord" style={{ background: "#141414" }}>Europe du Nord</option>
-                  <option value="ocean-indien" style={{ background: "#141414" }}>Océan Indien</option>
-                  <option value="autre" style={{ background: "#141414" }}>Autre</option>
+                  <option value="" style={{ background: "#132A3A" }}>Sélectionnez</option>
+                  <option value="mediterranee" style={{ background: "#132A3A" }}>Méditerranée</option>
+                  <option value="caraibes" style={{ background: "#132A3A" }}>Caraïbes</option>
+                  <option value="asie-pacifique" style={{ background: "#132A3A" }}>Asie-Pacifique</option>
+                  <option value="europe-nord" style={{ background: "#132A3A" }}>Europe du Nord</option>
+                  <option value="ocean-indien" style={{ background: "#132A3A" }}>Océan Indien</option>
+                  <option value="autre" style={{ background: "#132A3A" }}>Autre</option>
                 </select>
               </div>
               <div>
-                <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
                   Embarquement
                 </label>
                 <input
                   type="date"
                   value={yachtDateStart}
                   onChange={(e) => setYachtDateStart(e.target.value)}
-                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
                 />
               </div>
               <div>
-                <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
                   Débarquement
                 </label>
                 <input
                   type="date"
                   value={yachtDateEnd}
                   onChange={(e) => setYachtDateEnd(e.target.value)}
-                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
                 />
               </div>
               <div>
-                <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
                   Invités
                 </label>
                 <select
                   value={yachtGuests}
                   onChange={(e) => setYachtGuests(e.target.value)}
-                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
+                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
                 >
                   {Array.from({ length: 30 }, (_, i) => (
-                    <option key={i + 1} value={i + 1} style={{ background: "#141414" }}>
+                    <option key={i + 1} value={i + 1} style={{ background: "#132A3A" }}>
                       {i + 1} invité{i > 0 ? "s" : ""}
                     </option>
                   ))}
@@ -436,9 +436,9 @@ function HeroSection() {
               width: "100%",
               textAlign: "center",
               padding: "20px 24px",
-              background: "linear-gradient(135deg, #C9A96E 0%, #D4B978 50%, #C9A96E 100%)",
+              background: "linear-gradient(135deg, #F4DDC3 0%, #F4DDC3 50%, #F4DDC3 100%)",
               backgroundSize: "200% 200%",
-              color: "#0A0A0A",
+              color: "#0E202D",
               fontSize: "13px",
               textTransform: "uppercase",
               letterSpacing: "0.25em",
@@ -446,7 +446,7 @@ function HeroSection() {
               fontWeight: 700,
               border: "none",
               borderRadius: "3px",
-              boxShadow: "0 4px 24px rgba(201,169,110,0.35)",
+              boxShadow: "0 4px 24px rgba(244,221,195,0.35)",
               cursor: "pointer",
               transition: "all 0.3s ease",
             }}
@@ -475,7 +475,7 @@ function TrustBanner() {
   ];
 
   return (
-    <section style={{ background: "#111111", borderTop: "1px solid rgba(201,169,110,0.12)", borderBottom: "1px solid rgba(201,169,110,0.12)" }}>
+    <section style={{ background: "#112130", borderTop: "1px solid rgba(244,221,195,0.12)", borderBottom: "1px solid rgba(244,221,195,0.12)" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(28px, 5vw, 56px) 24px" }}>
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "clamp(16px, 3vw, 0px) 0" }}>
           {stats.map((stat, i) => (
@@ -488,7 +488,7 @@ function TrustBanner() {
                 />
               </div>
               {i < stats.length - 1 && (
-                <div style={{ width: "1px", height: "56px", background: "linear-gradient(to bottom, transparent, rgba(201,169,110,0.25), transparent)", flexShrink: 0 }} />
+                <div style={{ width: "1px", height: "56px", background: "linear-gradient(to bottom, transparent, rgba(244,221,195,0.25), transparent)", flexShrink: 0 }} />
               )}
             </div>
           ))}
@@ -512,7 +512,7 @@ function ServicesSection() {
   ];
 
   return (
-    <section style={{ background: "#0A0A0A", padding: "clamp(80px, 12vw, 140px) 0" }}>
+    <section style={{ background: "#0E202D", padding: "clamp(80px, 12vw, 140px) 0" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
           preTitle="NOS SERVICES"
@@ -533,17 +533,17 @@ function ServicesSection() {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(20,20,20,1) 0%, rgba(20,20,20,0.2) 50%, transparent 100%)" }} />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(19,42,58,1) 0%, rgba(19,42,58,0.2) 50%, transparent 100%)" }} />
                   </div>
                   <div style={{ padding: "clamp(20px, 3vw, 28px) clamp(20px, 3vw, 28px) clamp(24px, 3vw, 32px)" }} className="flex-1 flex flex-col">
-                    <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "clamp(17px, 2.5vw, 20px)", marginBottom: "10px", lineHeight: 1.3 }}
-                        className="group-hover:text-[#C9A96E] transition-colors">
+                    <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "clamp(17px, 2.5vw, 20px)", marginBottom: "10px", lineHeight: 1.3 }}
+                        className="group-hover:text-[#F4DDC3] transition-colors">
                       {svc.title}
                     </h3>
                     <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#A0A0A0", fontSize: "clamp(13px, 1.5vw, 14px)", lineHeight: 1.7, marginBottom: "16px", flex: 1 }}>
                       {svc.desc}
                     </p>
-                    <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E" }}>
+                    <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3" }}>
                       En savoir plus →
                     </span>
                   </div>
@@ -569,7 +569,7 @@ function WhyChooseUs() {
   ];
 
   return (
-    <section style={{ background: "#111111", padding: "clamp(80px, 12vw, 140px) 0" }}>
+    <section style={{ background: "#112130", padding: "clamp(80px, 12vw, 140px) 0" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ gap: "clamp(48px, 6vw, 80px)" }}>
           {/* Image */}
@@ -581,7 +581,7 @@ function WhyChooseUs() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(10,10,10,0.3), rgba(10,10,10,0.1))" }} />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(14,32,45,0.3), rgba(14,32,45,0.1))" }} />
             </div>
           </ScrollReveal>
 
@@ -596,11 +596,11 @@ function WhyChooseUs() {
               {points.map((pt, i) => (
                 <ScrollReveal key={pt.title} delay={i * 0.12}>
                   <div className="flex" style={{ gap: "20px" }}>
-                    <div className="shrink-0 flex items-center justify-center" style={{ width: "52px", height: "52px", border: "1px solid rgba(201,169,110,0.25)", borderRadius: "4px", background: "rgba(201,169,110,0.04)" }}>
-                      <svg width="22" height="22" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24"><path d={pt.icon} /></svg>
+                    <div className="shrink-0 flex items-center justify-center" style={{ width: "52px", height: "52px", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", background: "rgba(244,221,195,0.04)" }}>
+                      <svg width="22" height="22" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24"><path d={pt.icon} /></svg>
                     </div>
                     <div>
-                      <h4 style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F5F5F0", fontSize: "16px", marginBottom: "6px" }}>
+                      <h4 style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#FFFFFF", fontSize: "16px", marginBottom: "6px" }}>
                         {pt.title}
                       </h4>
                       <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#A0A0A0", fontSize: "14px", lineHeight: 1.7 }}>
@@ -653,7 +653,7 @@ function FleetShowcase() {
   ];
 
   return (
-    <section style={{ background: "#0A0A0A", padding: "clamp(80px, 12vw, 140px) 0" }}>
+    <section style={{ background: "#0E202D", padding: "clamp(80px, 12vw, 140px) 0" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
           preTitle="NOTRE FLOTTE"
@@ -677,24 +677,24 @@ function FleetShowcase() {
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(20,20,20,0.8) 0%, transparent 60%)" }} />
+                        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(19,42,58,0.8) 0%, transparent 60%)" }} />
                         <div style={{ position: "absolute", top: "14px", left: "14px" }}>
                           <Badge>{ac.category}</Badge>
                         </div>
                       </div>
                       <div style={{ padding: "20px 20px 24px" }}>
-                        <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "18px", marginBottom: "10px" }}
-                            className="group-hover:text-[#C9A96E] transition-colors">
+                        <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "18px", marginBottom: "10px" }}
+                            className="group-hover:text-[#F4DDC3] transition-colors">
                           {ac.name}
                         </h3>
                         <div className="flex items-center text-[#A0A0A0]" style={{ gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "11px" }}>
                           <span>{ac.pax} pax</span>
-                          <span style={{ width: "1px", height: "10px", background: "rgba(201,169,110,0.2)" }} />
+                          <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
                           <span>{ac.range}</span>
-                          <span style={{ width: "1px", height: "10px", background: "rgba(201,169,110,0.2)" }} />
+                          <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
                           <span>{ac.speed}</span>
                         </div>
-                        <span style={{ display: "block", marginTop: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E" }}>
+                        <span style={{ display: "block", marginTop: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3" }}>
                           Voir la fiche →
                         </span>
                       </div>
@@ -713,7 +713,7 @@ function FleetShowcase() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginTop: "clamp(32px, 5vw, 56px)" }}>
           <Button href="/flotte" variant="primary">Explorer toute la flotte</Button>
-          <Link href="/flotte/comparateur" className="hover:text-[#C9A96E] transition-colors"
+          <Link href="/flotte/comparateur" className="hover:text-[#F4DDC3] transition-colors"
             style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0" }}>
             Comparer les appareils →
           </Link>
@@ -761,7 +761,7 @@ function YachtShowcase() {
   }));
 
   return (
-    <section style={{ background: "#111111", padding: "clamp(80px, 12vw, 140px) 0" }}>
+    <section style={{ background: "#112130", padding: "clamp(80px, 12vw, 140px) 0" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
           preTitle="NOS YACHTS"
@@ -785,24 +785,24 @@ function YachtShowcase() {
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(20,20,20,0.8) 0%, transparent 60%)" }} />
+                        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(19,42,58,0.8) 0%, transparent 60%)" }} />
                         <div style={{ position: "absolute", top: "14px", left: "14px" }}>
                           <Badge>{yacht.category}</Badge>
                         </div>
                       </div>
                       <div style={{ padding: "20px 20px 24px" }}>
-                        <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "18px", marginBottom: "10px" }}
-                            className="group-hover:text-[#C9A96E] transition-colors">
+                        <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "18px", marginBottom: "10px" }}
+                            className="group-hover:text-[#F4DDC3] transition-colors">
                           {yacht.name}
                         </h3>
                         <div className="flex items-center text-[#A0A0A0]" style={{ gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "11px" }}>
                           <span>{yacht.guests}</span>
-                          <span style={{ width: "1px", height: "10px", background: "rgba(201,169,110,0.2)" }} />
+                          <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
                           <span>{yacht.length}</span>
-                          <span style={{ width: "1px", height: "10px", background: "rgba(201,169,110,0.2)" }} />
+                          <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
                           <span>{yacht.speed}</span>
                         </div>
-                        <span style={{ display: "block", marginTop: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E" }}>
+                        <span style={{ display: "block", marginTop: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3" }}>
                           Voir la fiche →
                         </span>
                       </div>
@@ -821,7 +821,7 @@ function YachtShowcase() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginTop: "clamp(32px, 5vw, 56px)" }}>
           <Button href="/yachts" variant="primary">Explorer tous les yachts</Button>
-          <Link href="/yachts/comparateur" className="hover:text-[#C9A96E] transition-colors"
+          <Link href="/yachts/comparateur" className="hover:text-[#F4DDC3] transition-colors"
             style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0" }}>
             Comparer les yachts →
           </Link>
@@ -838,7 +838,7 @@ function EmptyLegsSection() {
   const featured = emptyLegs.slice(0, 4);
 
   return (
-    <section style={{ background: "#111111", padding: "clamp(80px, 12vw, 140px) 0" }}>
+    <section style={{ background: "#112130", padding: "clamp(80px, 12vw, 140px) 0" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
           preTitle="VOLS À VIDE"
@@ -854,21 +854,21 @@ function EmptyLegsSection() {
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between" style={{ gap: "16px" }}>
                   <div style={{ flex: 1 }}>
                     <div className="flex items-center mb-3 flex-wrap" style={{ gap: "10px" }}>
-                      <span style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "clamp(17px, 2.5vw, 20px)" }}>
+                      <span style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "clamp(17px, 2.5vw, 20px)" }}>
                         {el.departure}
                       </span>
-                      <svg width="20" height="20" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <svg width="20" height="20" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24">
                         <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
-                      <span style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "clamp(17px, 2.5vw, 20px)" }}>
+                      <span style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "clamp(17px, 2.5vw, 20px)" }}>
                         {el.arrival}
                       </span>
                     </div>
                     <div className="flex items-center flex-wrap" style={{ gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "12px", color: "#A0A0A0" }}>
                       <span>{new Date(el.date).toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" })}</span>
-                      <span className="hidden sm:inline-block" style={{ width: "1px", height: "12px", background: "rgba(201,169,110,0.2)" }} />
+                      <span className="hidden sm:inline-block" style={{ width: "1px", height: "12px", background: "rgba(244,221,195,0.2)" }} />
                       <span>{el.aircraft}</span>
-                      <span className="hidden sm:inline-block" style={{ width: "1px", height: "12px", background: "rgba(201,169,110,0.2)" }} />
+                      <span className="hidden sm:inline-block" style={{ width: "1px", height: "12px", background: "rgba(244,221,195,0.2)" }} />
                       <span>{el.seats} places</span>
                     </div>
                   </div>
@@ -876,7 +876,7 @@ function EmptyLegsSection() {
                     <Badge>-{el.discount}%</Badge>
                     <div style={{ marginTop: "10px" }}>
                       <span style={{ fontSize: "14px", color: "#6B6B6B", textDecoration: "line-through", marginRight: "10px" }}>{el.originalPrice.toLocaleString("fr-FR")}€</span>
-                      <span style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600, fontSize: "26px", color: "#C9A96E" }}>
+                      <span style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600, fontSize: "26px", color: "#F4DDC3" }}>
                         {el.emptyLegPrice.toLocaleString("fr-FR")}€
                       </span>
                     </div>
@@ -888,7 +888,7 @@ function EmptyLegsSection() {
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginTop: "clamp(32px, 5vw, 56px)" }}>
           <Button href="/empty-legs" variant="primary">Voir tous les empty legs</Button>
-          <Link href="/empty-legs#alertes" className="hover:text-[#C9A96E] transition-colors"
+          <Link href="/empty-legs#alertes" className="hover:text-[#F4DDC3] transition-colors"
             style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0" }}>
             Créer une alerte empty leg →
           </Link>
@@ -912,7 +912,7 @@ function DestinationsSection() {
   ];
 
   return (
-    <section style={{ background: "#0A0A0A", padding: "clamp(80px, 12vw, 140px) 0" }}>
+    <section style={{ background: "#0E202D", padding: "clamp(80px, 12vw, 140px) 0" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
           preTitle="DESTINATIONS"
@@ -930,19 +930,19 @@ function DestinationsSection() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.2) 50%, transparent 100%)" }} />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(14,32,45,0.9) 0%, rgba(14,32,45,0.2) 50%, transparent 100%)" }} />
                 <div className="absolute bottom-0 left-0 right-0" style={{ padding: "clamp(16px, 3vw, 32px)" }}>
-                  <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", fontSize: "clamp(20px, 3vw, 30px)", marginBottom: "4px", lineHeight: 1.2 }}>
+                  <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", fontSize: "clamp(20px, 3vw, 30px)", marginBottom: "4px", lineHeight: 1.2 }}>
                     {dest.name}
                   </h3>
                   <p className="hidden sm:block" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#B0B0B0", fontSize: "13px", marginBottom: "6px" }}>
                     {dest.country}
                   </p>
-                  <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#C9A96E", fontSize: "clamp(11px, 1.5vw, 13px)" }}>
+                  <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#F4DDC3", fontSize: "clamp(11px, 1.5vw, 13px)" }}>
                     {dest.time} depuis Paris
                   </p>
                 </div>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ border: "2px solid rgba(201,169,110,0.3)", borderRadius: "4px" }} />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ border: "2px solid rgba(244,221,195,0.3)", borderRadius: "4px" }} />
               </Link>
             </ScrollReveal>
           ))}
@@ -970,7 +970,7 @@ function TestimonialsSection() {
     <section className="relative overflow-hidden" style={{ padding: "clamp(80px, 12vw, 140px) 0" }}>
       {/* BG */}
       <div className="absolute inset-0" style={{ background: "#0E0E0E" }}>
-        <div className="absolute inset-0 opacity-[0.04]" style={{ background: "radial-gradient(circle at 50% 50%, #C9A96E 0%, transparent 70%)" }} />
+        <div className="absolute inset-0 opacity-[0.04]" style={{ background: "radial-gradient(circle at 50% 50%, #F4DDC3 0%, transparent 70%)" }} />
       </div>
 
       <div className="relative text-center" style={{ maxWidth: "720px", margin: "0 auto", padding: "0 24px" }}>
@@ -992,20 +992,20 @@ function TestimonialsSection() {
               style={{ pointerEvents: current === i ? "auto" : "none" }}
             >
               {/* Decorative quotes */}
-              <div style={{ fontFamily: "Georgia, serif", fontSize: "140px", lineHeight: "0.8", color: "#C9A96E", opacity: 0.08, position: "absolute", top: "-20px", left: "50%", transform: "translateX(-50%)" }}>
+              <div style={{ fontFamily: "Georgia, serif", fontSize: "140px", lineHeight: "0.8", color: "#F4DDC3", opacity: 0.08, position: "absolute", top: "-20px", left: "50%", transform: "translateX(-50%)" }}>
                 &ldquo;
               </div>
-              <blockquote style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400, fontStyle: "italic", color: "#F5F5F0", fontSize: "clamp(20px, 3vw, 26px)", lineHeight: 1.6, marginBottom: "32px", position: "relative", zIndex: 1 }}>
+              <blockquote style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400, fontStyle: "italic", color: "#FFFFFF", fontSize: "clamp(20px, 3vw, 26px)", lineHeight: 1.6, marginBottom: "32px", position: "relative", zIndex: 1 }}>
                 {t.quote}
               </blockquote>
               <div className="flex items-center justify-center" style={{ gap: "4px", marginBottom: "18px" }}>
                 {Array.from({ length: t.stars }).map((_, si) => (
-                  <svg key={si} width="18" height="18" fill="#C9A96E" viewBox="0 0 24 24">
+                  <svg key={si} width="18" height="18" fill="#F4DDC3" viewBox="0 0 24 24">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                   </svg>
                 ))}
               </div>
-              <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600, fontSize: "15px", color: "#F5F5F0", marginBottom: "4px" }}>
+              <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600, fontSize: "15px", color: "#FFFFFF", marginBottom: "4px" }}>
                 {t.name}
               </p>
               <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "13px", color: "#8A8A8A" }}>
@@ -1025,7 +1025,7 @@ function TestimonialsSection() {
                 width: current === i ? "32px" : "8px",
                 height: "8px",
                 borderRadius: "4px",
-                background: current === i ? "#C9A96E" : "rgba(201,169,110,0.2)",
+                background: current === i ? "#F4DDC3" : "rgba(244,221,195,0.2)",
                 border: "none",
                 cursor: "pointer",
                 transition: "all 0.4s ease",
@@ -1049,7 +1049,7 @@ function BlogPreview() {
   ];
 
   return (
-    <section style={{ background: "#111111", padding: "clamp(80px, 12vw, 140px) 0" }}>
+    <section style={{ background: "#112130", padding: "clamp(80px, 12vw, 140px) 0" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
           preTitle="JOURNAL"
@@ -1069,22 +1069,22 @@ function BlogPreview() {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(20,20,20,0.6) 0%, transparent 50%)" }} />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(19,42,58,0.6) 0%, transparent 50%)" }} />
                     <div style={{ position: "absolute", top: "14px", left: "14px" }}>
                       <Badge>{art.cat}</Badge>
                     </div>
                   </div>
                   <div style={{ padding: "clamp(20px, 3vw, 28px) clamp(20px, 3vw, 28px) clamp(24px, 3vw, 32px)" }} className="flex-1 flex flex-col">
-                    <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "clamp(16px, 2vw, 18px)", lineHeight: 1.45, marginBottom: "12px" }}
-                        className="group-hover:text-[#C9A96E] transition-colors">
+                    <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "clamp(16px, 2vw, 18px)", lineHeight: 1.45, marginBottom: "12px" }}
+                        className="group-hover:text-[#F4DDC3] transition-colors">
                       {art.title}
                     </h3>
                     <div className="flex items-center" style={{ gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "11px", color: "#8A8A8A", marginBottom: "14px" }}>
                       <span>{art.date}</span>
-                      <span style={{ width: "1px", height: "12px", background: "rgba(201,169,110,0.15)" }} />
+                      <span style={{ width: "1px", height: "12px", background: "rgba(244,221,195,0.15)" }} />
                       <span>{art.time} de lecture</span>
                     </div>
-                    <span className="mt-auto" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E" }}>
+                    <span className="mt-auto" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3" }}>
                       Lire l&apos;article →
                     </span>
                   </div>
@@ -1114,12 +1114,12 @@ function FinalCTA() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.85)" }} />
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, rgba(201,169,110,0.06) 0%, transparent 70%)" }} />
+        <div className="absolute inset-0" style={{ background: "rgba(14,32,45,0.85)" }} />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, rgba(244,221,195,0.06) 0%, transparent 70%)" }} />
       </div>
       <div className="relative text-center" style={{ maxWidth: "720px", margin: "0 auto", padding: "0 24px" }}>
         <ScrollReveal>
-          <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", fontSize: "clamp(30px, 5vw, 52px)", marginBottom: "16px", lineHeight: 1.1 }}>
+          <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", fontSize: "clamp(30px, 5vw, 52px)", marginBottom: "16px", lineHeight: 1.1 }}>
             Prêt à décoller ?
           </h2>
           <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontSize: "clamp(17px, 2.5vw, 22px)", color: "#B0B0B0", marginBottom: "clamp(32px, 5vw, 48px)", lineHeight: 1.6 }}>
@@ -1129,8 +1129,8 @@ function FinalCTA() {
             <Button href="/devis" variant="primary" size="lg">Demander un devis</Button>
             <Button href="tel:+33100000000" variant="secondary" size="lg">Nous appeler</Button>
           </div>
-          <a href="tel:+33100000000" className="hover:text-[#D4B978] transition-colors"
-            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 300, fontSize: "clamp(22px, 3vw, 28px)", color: "#C9A96E", letterSpacing: "0.08em" }}>
+          <a href="tel:+33100000000" className="hover:text-[#F4DDC3] transition-colors"
+            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 300, fontSize: "clamp(22px, 3vw, 28px)", color: "#F4DDC3", letterSpacing: "0.08em" }}>
             +33 1 00 00 00 00
           </a>
         </ScrollReveal>

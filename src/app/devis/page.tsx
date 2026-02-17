@@ -15,9 +15,9 @@ const inputCSS: React.CSSProperties = {
   padding: "14px",
   fontSize: "13px",
   background: "rgba(255,255,255,0.04)",
-  border: "1px solid rgba(201,169,110,0.2)",
+  border: "1px solid rgba(244,221,195,0.2)",
   borderRadius: "3px",
-  color: "#F5F5F0",
+  color: "#FFFFFF",
   fontFamily: "var(--font-montserrat)",
   fontWeight: 300,
   outline: "none",
@@ -55,7 +55,7 @@ const labelCSS: React.CSSProperties = {
 const stepTitleCSS: React.CSSProperties = {
   fontFamily: "var(--font-playfair)",
   fontWeight: 600,
-  color: "#F5F5F0",
+  color: "#FFFFFF",
   fontSize: "clamp(20px, 3vw, 24px)",
   marginBottom: "28px",
 };
@@ -65,9 +65,9 @@ const optionBtn = (active: boolean): React.CSSProperties => ({
   fontSize: "12px",
   textTransform: "uppercase",
   letterSpacing: "0.1em",
-  border: `1px solid ${active ? "#C9A96E" : "rgba(201,169,110,0.15)"}`,
-  color: active ? "#C9A96E" : "#6B6B6B",
-  background: active ? "rgba(201,169,110,0.08)" : "transparent",
+  border: `1px solid ${active ? "#F4DDC3" : "rgba(244,221,195,0.15)"}`,
+  color: active ? "#F4DDC3" : "#6B6B6B",
+  background: active ? "rgba(244,221,195,0.08)" : "transparent",
   fontFamily: "var(--font-montserrat)",
   fontWeight: 500,
   cursor: "pointer",
@@ -78,8 +78,8 @@ const optionBtn = (active: boolean): React.CSSProperties => ({
 const serviceCard = (active: boolean): React.CSSProperties => ({
   flex: "1 1 200px",
   padding: "clamp(24px, 4vw, 40px) clamp(16px, 3vw, 32px)",
-  background: active ? "rgba(201,169,110,0.06)" : "rgba(20,20,20,0.6)",
-  border: `1px solid ${active ? "#C9A96E" : "rgba(201,169,110,0.1)"}`,
+  background: active ? "rgba(244,221,195,0.06)" : "rgba(19,42,58,0.6)",
+  border: `1px solid ${active ? "#F4DDC3" : "rgba(244,221,195,0.1)"}`,
   borderRadius: "4px",
   cursor: "pointer",
   textAlign: "center" as const,
@@ -110,10 +110,10 @@ function CheckboxField({ checked, onChange, label }: { checked: boolean; onChang
     <label style={{ display: "flex", alignItems: "center", gap: "12px", cursor: "pointer" }}>
       <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} className="sr-only peer" />
       <div
-        className="peer-checked:bg-[#C9A96E] transition-all"
-        style={{ width: "18px", height: "18px", border: "1px solid rgba(201,169,110,0.3)", borderRadius: "2px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}
+        className="peer-checked:bg-[#F4DDC3] transition-all"
+        style={{ width: "18px", height: "18px", border: "1px solid rgba(244,221,195,0.3)", borderRadius: "2px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}
       >
-        <svg style={{ width: "12px", height: "12px" }} fill="none" stroke="#0A0A0A" strokeWidth="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" /></svg>
+        <svg style={{ width: "12px", height: "12px" }} fill="none" stroke="#0E202D" strokeWidth="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" /></svg>
       </div>
       <span style={{ fontSize: "13px", color: "#A0A0A0", fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>{label}</span>
     </label>
@@ -251,7 +251,7 @@ function DevisForm() {
   return (
     <>
       {/* HERO */}
-      <section style={{ paddingTop: "clamp(100px, 15vh, 128px)", paddingBottom: "32px", background: "#0A0A0A" }}>
+      <section style={{ paddingTop: "clamp(100px, 15vh, 128px)", paddingBottom: "32px", background: "#0E202D" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
           <SectionTitle
             preTitle="DEVIS EN LIGNE"
@@ -263,16 +263,16 @@ function DevisForm() {
       </section>
 
       {/* FORM */}
-      <section style={{ padding: "clamp(40px, 6vw, 80px) 0 clamp(80px, 10vw, 120px)", background: "#0A0A0A" }}>
+      <section style={{ padding: "clamp(40px, 6vw, 80px) 0 clamp(80px, 10vw, 120px)", background: "#0E202D" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 24px" }}>
 
           {/* SERVICE TYPE SELECTOR */}
           <div style={{ display: "flex", gap: "clamp(12px, 2vw, 20px)", marginBottom: "clamp(36px, 5vw, 56px)", flexWrap: "wrap" }}>
             <button onClick={() => setForm({ ...form, serviceType: "aviation" })} style={serviceCard(!isYacht)}>
-              <svg width="40" height="40" fill="none" stroke={!isYacht ? "#C9A96E" : "#6B6B6B"} strokeWidth="1.5" viewBox="0 0 24 24" style={{ transition: "stroke 0.3s ease" }}>
+              <svg width="40" height="40" fill="none" stroke={!isYacht ? "#F4DDC3" : "#6B6B6B"} strokeWidth="1.5" viewBox="0 0 24 24" style={{ transition: "stroke 0.3s ease" }}>
                 <path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12M3 20h18" />
               </svg>
-              <span style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, fontSize: "clamp(16px, 2.5vw, 20px)", color: !isYacht ? "#F5F5F0" : "#6B6B6B", transition: "color 0.3s ease" }}>
+              <span style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, fontSize: "clamp(16px, 2.5vw, 20px)", color: !isYacht ? "#FFFFFF" : "#6B6B6B", transition: "color 0.3s ease" }}>
                 Aviation Privée
               </span>
               <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "12px", color: !isYacht ? "#A0A0A0" : "#4A4A4A", transition: "color 0.3s ease" }}>
@@ -281,13 +281,13 @@ function DevisForm() {
             </button>
 
             <button onClick={() => setForm({ ...form, serviceType: "yacht" })} style={serviceCard(isYacht)}>
-              <svg width="40" height="40" fill="none" stroke={isYacht ? "#C9A96E" : "#6B6B6B"} strokeWidth="1.5" viewBox="0 0 24 24" style={{ transition: "stroke 0.3s ease" }}>
+              <svg width="40" height="40" fill="none" stroke={isYacht ? "#F4DDC3" : "#6B6B6B"} strokeWidth="1.5" viewBox="0 0 24 24" style={{ transition: "stroke 0.3s ease" }}>
                 <path d="M2 20c2 0 3.5-1.5 5-1.5S9.5 20 12 20s3.5-1.5 5-1.5 3 1.5 5 1.5" />
                 <path d="M4 18l1.5-9h13L20 18" />
                 <path d="M12 3v6" />
                 <path d="M8 9h8" />
               </svg>
-              <span style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, fontSize: "clamp(16px, 2.5vw, 20px)", color: isYacht ? "#F5F5F0" : "#6B6B6B", transition: "color 0.3s ease" }}>
+              <span style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, fontSize: "clamp(16px, 2.5vw, 20px)", color: isYacht ? "#FFFFFF" : "#6B6B6B", transition: "color 0.3s ease" }}>
                 Charter Nautique
               </span>
               <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "12px", color: isYacht ? "#A0A0A0" : "#4A4A4A", transition: "color 0.3s ease" }}>
@@ -308,9 +308,9 @@ function DevisForm() {
                     alignItems: "center",
                     justifyContent: "center",
                     fontSize: "13px",
-                    border: `1px solid ${i <= currentStep ? "#C9A96E" : "#1E1E1E"}`,
-                    background: i < currentStep ? "#C9A96E" : i === currentStep ? "rgba(201,169,110,0.1)" : "transparent",
-                    color: i < currentStep ? "#0A0A0A" : i === currentStep ? "#C9A96E" : "#6B6B6B",
+                    border: `1px solid ${i <= currentStep ? "#F4DDC3" : "#1A3448"}`,
+                    background: i < currentStep ? "#F4DDC3" : i === currentStep ? "rgba(244,221,195,0.1)" : "transparent",
+                    color: i < currentStep ? "#0E202D" : i === currentStep ? "#F4DDC3" : "#6B6B6B",
                     fontFamily: "var(--font-montserrat)",
                     fontWeight: 600,
                     transition: "all 0.3s ease",
@@ -322,7 +322,7 @@ function DevisForm() {
                     fontSize: "clamp(8px, 1.2vw, 10px)",
                     textTransform: "uppercase",
                     letterSpacing: "0.1em",
-                    color: i <= currentStep ? "#C9A96E" : "#6B6B6B",
+                    color: i <= currentStep ? "#F4DDC3" : "#6B6B6B",
                     fontFamily: "var(--font-montserrat)",
                     fontWeight: 500,
                     whiteSpace: "nowrap",
@@ -331,7 +331,7 @@ function DevisForm() {
                   </span>
                 </div>
                 {i < steps.length - 1 && (
-                  <div style={{ flex: 1, height: "1px", margin: "0 12px", background: i < currentStep ? "#C9A96E" : "#1E1E1E", transition: "background 0.3s ease" }} />
+                  <div style={{ flex: 1, height: "1px", margin: "0 12px", background: i < currentStep ? "#F4DDC3" : "#1A3448", transition: "background 0.3s ease" }} />
                 )}
               </div>
             ))}
@@ -393,7 +393,7 @@ function DevisForm() {
                           <label style={labelCSS}>Passagers</label>
                           <select value={form.passagers} onChange={(e) => update("passagers", e.target.value)} style={selectCSS}>
                             {Array.from({ length: 19 }, (_, i) => (
-                              <option key={i + 1} value={i + 1} style={{ background: "#141414" }}>
+                              <option key={i + 1} value={i + 1} style={{ background: "#132A3A" }}>
                                 {i + 1} passager{i > 0 ? "s" : ""}
                               </option>
                             ))}
@@ -413,9 +413,9 @@ function DevisForm() {
                       <div>
                         <label style={labelCSS}>Zone de navigation</label>
                         <select value={form.zoneNavigation} onChange={(e) => update("zoneNavigation", e.target.value)} style={selectCSS}>
-                          <option value="" style={{ background: "#141414" }}>Sélectionnez une zone</option>
+                          <option value="" style={{ background: "#132A3A" }}>Sélectionnez une zone</option>
                           {zones.map((z) => (
-                            <option key={z.v} value={z.v} style={{ background: "#141414" }}>{z.l}</option>
+                            <option key={z.v} value={z.v} style={{ background: "#132A3A" }}>{z.l}</option>
                           ))}
                         </select>
                       </div>
@@ -438,7 +438,7 @@ function DevisForm() {
                           <label style={labelCSS}>Nombre d&apos;invités</label>
                           <select value={form.nombreInvites} onChange={(e) => update("nombreInvites", e.target.value)} style={selectCSS}>
                             {Array.from({ length: 30 }, (_, i) => (
-                              <option key={i + 1} value={i + 1} style={{ background: "#141414" }}>
+                              <option key={i + 1} value={i + 1} style={{ background: "#132A3A" }}>
                                 {i + 1} invité{i > 0 ? "s" : ""}
                               </option>
                             ))}
@@ -447,9 +447,9 @@ function DevisForm() {
                         <div>
                           <label style={labelCSS}>Durée souhaitée</label>
                           <select value={form.dureeJours} onChange={(e) => update("dureeJours", e.target.value)} style={selectCSS}>
-                            <option value="" style={{ background: "#141414" }}>Sélectionnez</option>
+                            <option value="" style={{ background: "#132A3A" }}>Sélectionnez</option>
                             {durees.map((d) => (
-                              <option key={d.v} value={d.v} style={{ background: "#141414" }}>{d.l}</option>
+                              <option key={d.v} value={d.v} style={{ background: "#132A3A" }}>{d.l}</option>
                             ))}
                           </select>
                         </div>
@@ -465,9 +465,9 @@ function DevisForm() {
                       <div>
                         <label style={labelCSS}>Catégorie d&apos;appareil souhaitée</label>
                         <select value={form.categorie} onChange={(e) => update("categorie", e.target.value)} style={selectCSS}>
-                          <option value="" style={{ background: "#141414" }}>Je ne sais pas / Peu importe</option>
+                          <option value="" style={{ background: "#132A3A" }}>Je ne sais pas / Peu importe</option>
                           {fleetCats.map((c) => (
-                            <option key={c.slug} value={c.name} style={{ background: "#141414" }}>{c.name}</option>
+                            <option key={c.slug} value={c.name} style={{ background: "#132A3A" }}>{c.name}</option>
                           ))}
                         </select>
                       </div>
@@ -491,9 +491,9 @@ function DevisForm() {
                       <div>
                         <label style={labelCSS}>Transfert terrestre</label>
                         <select value={form.transfert} onChange={(e) => update("transfert", e.target.value)} style={selectCSS}>
-                          <option value="aucun" style={{ background: "#141414" }}>Aucun</option>
-                          <option value="voiture" style={{ background: "#141414" }}>Voiture de luxe</option>
-                          <option value="helicoptere" style={{ background: "#141414" }}>Hélicoptère</option>
+                          <option value="aucun" style={{ background: "#132A3A" }}>Aucun</option>
+                          <option value="voiture" style={{ background: "#132A3A" }}>Voiture de luxe</option>
+                          <option value="helicoptere" style={{ background: "#132A3A" }}>Hélicoptère</option>
                         </select>
                       </div>
 
@@ -511,9 +511,9 @@ function DevisForm() {
                       <div>
                         <label style={labelCSS}>Catégorie de yacht</label>
                         <select value={form.categorieYacht} onChange={(e) => update("categorieYacht", e.target.value)} style={selectCSS}>
-                          <option value="" style={{ background: "#141414" }}>Peu importe</option>
+                          <option value="" style={{ background: "#132A3A" }}>Peu importe</option>
                           {yachtCats.map((c) => (
-                            <option key={c.slug} value={c.name} style={{ background: "#141414" }}>{c.name}</option>
+                            <option key={c.slug} value={c.name} style={{ background: "#132A3A" }}>{c.name}</option>
                           ))}
                         </select>
                       </div>
@@ -522,9 +522,9 @@ function DevisForm() {
                         <div>
                           <label style={labelCSS}>Cabines souhaitées</label>
                           <select value={form.cabinesSouhaitees} onChange={(e) => update("cabinesSouhaitees", e.target.value)} style={selectCSS}>
-                            <option value="" style={{ background: "#141414" }}>Peu importe</option>
+                            <option value="" style={{ background: "#132A3A" }}>Peu importe</option>
                             {Array.from({ length: 12 }, (_, i) => (
-                              <option key={i + 1} value={i + 1} style={{ background: "#141414" }}>
+                              <option key={i + 1} value={i + 1} style={{ background: "#132A3A" }}>
                                 {i + 1} cabine{i > 0 ? "s" : ""}
                               </option>
                             ))}
@@ -601,12 +601,12 @@ function DevisForm() {
                       <div>
                         <label style={labelCSS}>Comment nous avez-vous connu ?</label>
                         <select value={form.source} onChange={(e) => update("source", e.target.value)} style={selectCSS}>
-                          <option value="" style={{ background: "#141414" }}>Sélectionnez</option>
-                          <option value="google" style={{ background: "#141414" }}>Google</option>
-                          <option value="recommandation" style={{ background: "#141414" }}>Recommandation</option>
-                          <option value="reseaux" style={{ background: "#141414" }}>Réseaux sociaux</option>
-                          <option value="presse" style={{ background: "#141414" }}>Presse</option>
-                          <option value="autre" style={{ background: "#141414" }}>Autre</option>
+                          <option value="" style={{ background: "#132A3A" }}>Sélectionnez</option>
+                          <option value="google" style={{ background: "#132A3A" }}>Google</option>
+                          <option value="recommandation" style={{ background: "#132A3A" }}>Recommandation</option>
+                          <option value="reseaux" style={{ background: "#132A3A" }}>Réseaux sociaux</option>
+                          <option value="presse" style={{ background: "#132A3A" }}>Presse</option>
+                          <option value="autre" style={{ background: "#132A3A" }}>Autre</option>
                         </select>
                       </div>
 
@@ -619,9 +619,9 @@ function DevisForm() {
                       <div style={{ marginTop: "-16px", paddingLeft: "30px" }}>
                         <span style={{ fontSize: "12px", color: "#A0A0A0", fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
                           J&apos;accepte les{" "}
-                          <a href="/conditions-generales" style={{ color: "#C9A96E", textDecoration: "none" }}>conditions générales</a>
+                          <a href="/conditions-generales" style={{ color: "#F4DDC3", textDecoration: "none" }}>conditions générales</a>
                           {" "}et la{" "}
-                          <a href="/politique-confidentialite" style={{ color: "#C9A96E", textDecoration: "none" }}>politique de confidentialité</a>
+                          <a href="/politique-confidentialite" style={{ color: "#F4DDC3", textDecoration: "none" }}>politique de confidentialité</a>
                         </span>
                       </div>
                     </div>
@@ -662,11 +662,11 @@ function DevisForm() {
                               { label: "Téléphone", value: form.telephone || "—" },
                             ]
                         ).map((item) => (
-                          <div key={item.label} style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid #1E1E1E" }}>
+                          <div key={item.label} style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid #1A3448" }}>
                             <span style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.1em", color: "#6B6B6B", fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>
                               {item.label}
                             </span>
-                            <span style={{ fontSize: "14px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, textAlign: "right", maxWidth: "60%" }}>
+                            <span style={{ fontSize: "14px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, textAlign: "right", maxWidth: "60%" }}>
                               {item.value}
                             </span>
                           </div>
@@ -688,7 +688,7 @@ function DevisForm() {
                       textTransform: "uppercase",
                       letterSpacing: "0.15em",
                       border: "1px solid rgba(245,245,240,0.3)",
-                      color: "#F5F5F0",
+                      color: "#FFFFFF",
                       background: "transparent",
                       fontFamily: "var(--font-montserrat)",
                       fontWeight: 500,
@@ -709,13 +709,13 @@ function DevisForm() {
                     fontSize: "12px",
                     textTransform: "uppercase",
                     letterSpacing: "0.2em",
-                    background: currentStep === 3 ? "linear-gradient(135deg, #C9A96E 0%, #D4B978 50%, #C9A96E 100%)" : "transparent",
-                    border: currentStep === 3 ? "none" : "1px solid #C9A96E",
-                    color: currentStep === 3 ? "#0A0A0A" : "#C9A96E",
+                    background: currentStep === 3 ? "linear-gradient(135deg, #F4DDC3 0%, #F4DDC3 50%, #F4DDC3 100%)" : "transparent",
+                    border: currentStep === 3 ? "none" : "1px solid #F4DDC3",
+                    color: currentStep === 3 ? "#0E202D" : "#F4DDC3",
                     fontFamily: "var(--font-montserrat)",
                     fontWeight: 600,
                     cursor: "pointer",
-                    boxShadow: currentStep === 3 ? "0 4px 20px rgba(201,169,110,0.3)" : "none",
+                    boxShadow: currentStep === 3 ? "0 4px 20px rgba(244,221,195,0.3)" : "none",
                     transition: "all 0.3s ease",
                     borderRadius: "2px",
                   }}
@@ -745,7 +745,7 @@ function DevisForm() {
               }}>
                 <svg width="32" height="32" fill="none" stroke="#2D8B6F" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" /></svg>
               </div>
-              <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "clamp(24px, 4vw, 32px)", marginBottom: "16px" }}>
+              <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "clamp(24px, 4vw, 32px)", marginBottom: "16px" }}>
                 Demande envoyée
               </h3>
               <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontSize: "clamp(16px, 2.5vw, 18px)", color: "#A0A0A0", marginBottom: "8px" }}>
@@ -762,8 +762,8 @@ function DevisForm() {
                   fontSize: "12px",
                   textTransform: "uppercase",
                   letterSpacing: "0.2em",
-                  border: "1px solid #C9A96E",
-                  color: "#C9A96E",
+                  border: "1px solid #F4DDC3",
+                  color: "#F4DDC3",
                   fontFamily: "var(--font-montserrat)",
                   fontWeight: 600,
                   textDecoration: "none",

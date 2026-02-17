@@ -112,13 +112,13 @@ function HeroSection() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(135deg, #0A0A0A 0%, #141414 40%, #1a1510 60%, #0A0A0A 100%)',
+              'linear-gradient(135deg, #0E202D 0%, #132A3A 40%, #122838 60%, #0E202D 100%)',
           }}
         />
         <div
           className="absolute top-1/3 left-0 right-0 h-[1px] opacity-[0.05]"
           style={{
-            background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+            background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
           }}
         />
       </div>
@@ -127,7 +127,7 @@ function HeroSection() {
         className="absolute inset-0 z-[1]"
         style={{
           background:
-            'linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.3) 50%, rgba(10,10,10,0.6) 100%)',
+            'linear-gradient(to top, rgba(14,32,45,0.8) 0%, rgba(14,32,45,0.3) 50%, rgba(14,32,45,0.6) 100%)',
         }}
       />
 
@@ -144,7 +144,7 @@ function HeroSection() {
           style={{
             fontFamily: 'var(--font-montserrat)',
             fontWeight: 500,
-            color: '#C9A96E',
+            color: '#F4DDC3',
           }}
         >
           Journal
@@ -162,7 +162,7 @@ function HeroSection() {
           style={{
             fontFamily: 'var(--font-playfair)',
             fontWeight: 700,
-            color: '#F5F5F0',
+            color: '#FFFFFF',
             lineHeight: 1.1,
           }}
         >
@@ -203,12 +203,12 @@ function FeaturedArticle({ article }: { article: Article }) {
       <Link href={`/blog/${article.slug}`} className="block group">
         <div
           className="grid grid-cols-1 lg:grid-cols-2 overflow-hidden"
-          style={{ background: '#141414', border: '1px solid #1E1E1E' }}
+          style={{ background: '#132A3A', border: '1px solid #1A3448' }}
         >
           {/* Image placeholder */}
           <div
             className="relative aspect-[16/9] lg:aspect-auto overflow-hidden"
-            style={{ background: '#1E1E1E', minHeight: '320px' }}
+            style={{ background: '#1A3448', minHeight: '320px' }}
           >
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
@@ -216,7 +216,7 @@ function FeaturedArticle({ article }: { article: Article }) {
                   width="48"
                   height="48"
                   fill="none"
-                  stroke="#C9A96E"
+                  stroke="#F4DDC3"
                   strokeWidth="1"
                   viewBox="0 0 24 24"
                   className="opacity-20 mx-auto mb-2"
@@ -233,7 +233,7 @@ function FeaturedArticle({ article }: { article: Article }) {
             </div>
             <div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              style={{ background: 'rgba(201,169,110,0.05)' }}
+              style={{ background: 'rgba(244,221,195,0.05)' }}
             />
           </div>
 
@@ -243,11 +243,11 @@ function FeaturedArticle({ article }: { article: Article }) {
               <Badge>{article.category}</Badge>
             </div>
             <h2
-              className="text-[26px] md:text-[32px] mb-4 group-hover:text-[#C9A96E] transition-colors duration-300"
+              className="text-[26px] md:text-[32px] mb-4 group-hover:text-[#F4DDC3] transition-colors duration-300"
               style={{
                 fontFamily: 'var(--font-playfair)',
                 fontWeight: 600,
-                color: '#F5F5F0',
+                color: '#FFFFFF',
                 lineHeight: 1.3,
               }}
             >
@@ -271,7 +271,7 @@ function FeaturedArticle({ article }: { article: Article }) {
               >
                 {article.date}
               </span>
-              <span className="w-[1px] h-3 bg-[#1E1E1E]" />
+              <span className="w-[1px] h-3 bg-[#1A3448]" />
               <span
                 className="text-[12px] text-[#6B6B6B]"
                 style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300 }}
@@ -280,7 +280,7 @@ function FeaturedArticle({ article }: { article: Article }) {
               </span>
             </div>
             <span
-              className="block mt-6 text-[12px] uppercase tracking-[0.15em] text-[#C9A96E]"
+              className="block mt-6 text-[12px] uppercase tracking-[0.15em] text-[#F4DDC3]"
               style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 500 }}
             >
               Lire l&apos;article \u2192
@@ -306,7 +306,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
           {/* Image placeholder */}
           <div
             className="aspect-[16/9] relative overflow-hidden"
-            style={{ background: '#1E1E1E' }}
+            style={{ background: '#1A3448' }}
           >
             <div className="absolute inset-0 flex items-center justify-center text-[#6B6B6B] text-xs">
               [BLOG-{article.slug}]
@@ -316,18 +316,18 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
             </div>
             <div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              style={{ background: 'rgba(201,169,110,0.05)' }}
+              style={{ background: 'rgba(244,221,195,0.05)' }}
             />
           </div>
 
           {/* Content */}
           <div className="p-6 flex-1 flex flex-col">
             <h3
-              className="text-[18px] mb-3 group-hover:text-[#C9A96E] transition-colors duration-300 line-clamp-2"
+              className="text-[18px] mb-3 group-hover:text-[#F4DDC3] transition-colors duration-300 line-clamp-2"
               style={{
                 fontFamily: 'var(--font-playfair)',
                 fontWeight: 600,
-                color: '#F5F5F0',
+                color: '#FFFFFF',
                 lineHeight: 1.4,
               }}
             >
@@ -351,7 +351,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
               >
                 {article.date}
               </span>
-              <span className="w-[1px] h-3 bg-[#1E1E1E]" />
+              <span className="w-[1px] h-3 bg-[#1A3448]" />
               <span
                 className="text-[12px] text-[#6B6B6B]"
                 style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300 }}
@@ -360,7 +360,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
               </span>
             </div>
             <span
-              className="text-[12px] uppercase tracking-[0.15em] text-[#C9A96E]"
+              className="text-[12px] uppercase tracking-[0.15em] text-[#F4DDC3]"
               style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 500 }}
             >
               Lire l&apos;article \u2192
@@ -396,12 +396,12 @@ function ArticlesSection() {
   }, [activeCategory, searchQuery, otherArticles]);
 
   return (
-    <section className="section-padding" style={{ background: '#0A0A0A' }}>
+    <section className="section-padding" style={{ background: '#0E202D' }}>
       <div className="px-[5vw]" style={{ maxWidth: '1400px', margin: '0 auto' }}>
         {/* Filters and search */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-12">
           {/* Category tabs */}
-          <div className="flex flex-wrap gap-0 border-b w-full lg:w-auto" style={{ borderColor: 'rgba(201,169,110,0.15)' }}>
+          <div className="flex flex-wrap gap-0 border-b w-full lg:w-auto" style={{ borderColor: 'rgba(244,221,195,0.15)' }}>
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -410,7 +410,7 @@ function ArticlesSection() {
                 style={{
                   fontFamily: 'var(--font-montserrat)',
                   fontWeight: activeCategory === cat ? 600 : 400,
-                  color: activeCategory === cat ? '#C9A96E' : '#6B6B6B',
+                  color: activeCategory === cat ? '#F4DDC3' : '#6B6B6B',
                 }}
               >
                 {cat}
@@ -418,7 +418,7 @@ function ArticlesSection() {
                   <motion.div
                     layoutId="blogActiveTab"
                     className="absolute bottom-0 left-0 right-0 h-[2px]"
-                    style={{ background: '#C9A96E' }}
+                    style={{ background: '#F4DDC3' }}
                   />
                 )}
               </button>
@@ -443,9 +443,9 @@ function ArticlesSection() {
               placeholder="Rechercher un article..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 text-[14px] bg-transparent border text-[#F5F5F0]"
+              className="w-full pl-10 pr-4 py-3 text-[14px] bg-transparent border text-[#FFFFFF]"
               style={{
-                borderColor: '#1E1E1E',
+                borderColor: '#1A3448',
                 fontFamily: 'var(--font-montserrat)',
                 fontWeight: 300,
               }}
@@ -480,7 +480,7 @@ function ArticlesSection() {
                 setActiveCategory('Tous');
                 setSearchQuery('');
               }}
-              className="text-[12px] uppercase tracking-[0.15em] text-[#C9A96E] hover:text-[#D4B978] transition-colors"
+              className="text-[12px] uppercase tracking-[0.15em] text-[#F4DDC3] hover:text-[#F4DDC3] transition-colors"
               style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 500 }}
             >
               R\u00e9initialiser les filtres
@@ -493,14 +493,14 @@ function ArticlesSection() {
           <ScrollReveal>
             <div
               className="p-8 md:p-12 text-center"
-              style={{ background: '#141414', border: '1px solid #1E1E1E' }}
+              style={{ background: '#132A3A', border: '1px solid #1A3448' }}
             >
               <h3
                 className="text-[24px] md:text-[32px] mb-4"
                 style={{
                   fontFamily: 'var(--font-playfair)',
                   fontWeight: 600,
-                  color: '#F5F5F0',
+                  color: '#FFFFFF',
                 }}
               >
                 Restez inspir\u00e9
@@ -521,9 +521,9 @@ function ArticlesSection() {
                 <input
                   type="email"
                   placeholder="Votre adresse email"
-                  className="w-full px-4 py-3 text-[14px] bg-transparent border text-[#F5F5F0]"
+                  className="w-full px-4 py-3 text-[14px] bg-transparent border text-[#FFFFFF]"
                   style={{
-                    borderColor: '#1E1E1E',
+                    borderColor: '#1A3448',
                     fontFamily: 'var(--font-montserrat)',
                     fontWeight: 300,
                   }}

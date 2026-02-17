@@ -66,10 +66,10 @@ export default function GlossairePage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-12" style={{ background: "#0A0A0A" }}>
+      <section className="pt-32 pb-12" style={{ background: "#0E202D" }}>
         <div className="px-[5vw] text-center" style={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <p className="text-[12px] uppercase tracking-[0.2em] text-[#C9A96E] mb-4" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>GLOSSAIRE</p>
-          <h1 className="text-[36px] md:text-[48px] mb-4" style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0" }}>
+          <p className="text-[12px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-4" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>GLOSSAIRE</p>
+          <h1 className="text-[36px] md:text-[48px] mb-4" style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF" }}>
             Glossaire de l&apos;aviation d&apos;affaires
           </h1>
           <p className="text-[18px] text-[#A0A0A0]" style={{ maxWidth: "640px", margin: "0 auto", fontFamily: "var(--font-cormorant)", fontStyle: "italic" }}>
@@ -79,13 +79,13 @@ export default function GlossairePage() {
       </section>
 
       {/* Index */}
-      <section className="py-8 sticky top-[110px] z-30" style={{ background: "rgba(10,10,10,0.95)", backdropFilter: "blur(10px)", borderBottom: "1px solid #1E1E1E" }}>
+      <section className="py-8 sticky top-[110px] z-30" style={{ background: "rgba(14,32,45,0.95)", backdropFilter: "blur(10px)", borderBottom: "1px solid #1A3448" }}>
         <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
           <div className="flex flex-wrap justify-center gap-2">
             {letters.map((l) => (
               <a key={l} href={`#letter-${l}`}
-                className="w-8 h-8 flex items-center justify-center text-[13px] hover:bg-[#C9A96E] hover:text-[#0A0A0A] transition-all"
-                style={{ border: "1px solid #1E1E1E", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>
+                className="w-8 h-8 flex items-center justify-center text-[13px] hover:bg-[#F4DDC3] hover:text-[#0E202D] transition-all"
+                style={{ border: "1px solid #1A3448", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>
                 {l}
               </a>
             ))}
@@ -94,17 +94,17 @@ export default function GlossairePage() {
       </section>
 
       {/* Terms */}
-      <section className="section-padding" style={{ background: "#0A0A0A" }}>
+      <section className="section-padding" style={{ background: "#0E202D" }}>
         <div className="px-[5vw]" style={{ maxWidth: "900px", margin: "0 auto" }}>
           {letters.map((letter) => (
             <div key={letter} id={`letter-${letter}`} className="mb-12">
-              <h2 className="text-[36px] mb-6 pb-2" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#C9A96E", borderBottom: "1px solid rgba(201,169,110,0.2)" }}>
+              <h2 className="text-[36px] mb-6 pb-2" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F4DDC3", borderBottom: "1px solid rgba(244,221,195,0.2)" }}>
                 {letter}
               </h2>
               <div className="space-y-6">
                 {glossary.filter((g) => g.term[0].toUpperCase() === letter).map((g) => (
                   <div key={g.term} id={g.term.toLowerCase().replace(/\s/g, "-")}>
-                    <h3 className="text-[18px] mb-2" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F5F5F0" }}>
+                    <h3 className="text-[18px] mb-2" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#FFFFFF" }}>
                       {g.term}
                     </h3>
                     <p className="text-[14px] text-[#A0A0A0] leading-relaxed" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
@@ -113,7 +113,7 @@ export default function GlossairePage() {
                     {g.links && (
                       <div className="flex gap-3 mt-2">
                         {g.links.map((l) => (
-                          <Link key={l} href={l} className="text-[12px] text-[#C9A96E] hover:text-[#D4B978] transition-colors"
+                          <Link key={l} href={l} className="text-[12px] text-[#F4DDC3] hover:text-[#F4DDC3] transition-colors"
                             style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400 }}>
                             En savoir plus →
                           </Link>

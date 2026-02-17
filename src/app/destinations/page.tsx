@@ -49,25 +49,25 @@ function DestinationsHero() {
           className="object-cover"
           priority
         />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.4) 40%, rgba(10,10,10,0.85) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(14,32,45,0.65) 0%, rgba(14,32,45,0.4) 40%, rgba(14,32,45,0.85) 100%)" }} />
       </div>
 
       {/* Gold accent line */}
-      <div style={{ position: "absolute", top: "33%", left: 0, right: 0, height: "1px", opacity: 0.05, zIndex: 1, background: "linear-gradient(90deg, transparent, #C9A96E, transparent)" }} />
+      <div style={{ position: "absolute", top: "33%", left: 0, right: 0, height: "1px", opacity: 0.05, zIndex: 1, background: "linear-gradient(90deg, transparent, #F4DDC3, transparent)" }} />
 
       {/* Content */}
       <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1200px", margin: "0 auto", padding: "clamp(120px, 18vh, 160px) 24px clamp(48px, 6vw, 80px)", textAlign: "center" }}>
         <motion.p
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
-          style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "16px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#C9A96E" }}
+          style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "16px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F4DDC3" }}
         >
           DESTINATIONS
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: EASE }}
-          style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", lineHeight: 1.15, fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "20px" }}
+          style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "20px" }}
         >
           Le monde à portée
           <br />de vol
@@ -95,17 +95,17 @@ function WorldMap() {
   };
 
   return (
-    <section className="comparator-desktop" style={{ background: "#141414", padding: "clamp(60px, 10vw, 120px) 0" }}>
+    <section className="comparator-desktop" style={{ background: "#132A3A", padding: "clamp(60px, 10vw, 120px) 0" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
         {/* Section title inline */}
         <div style={{ textAlign: "center", marginBottom: "clamp(32px, 5vw, 48px)" }}>
-          <p style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "12px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#C9A96E" }}>
+          <p style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "12px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F4DDC3" }}>
             CARTE MONDIALE
           </p>
-          <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "clamp(28px, 4vw, 44px)", lineHeight: 1.2, marginBottom: "16px" }}>
+          <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "clamp(28px, 4vw, 44px)", lineHeight: 1.2, marginBottom: "16px" }}>
             Notre réseau de destinations
           </h2>
-          <div style={{ width: "60px", height: "1px", background: "#C9A96E", opacity: 0.3, margin: "0 auto" }} />
+          <div style={{ width: "60px", height: "1px", background: "#F4DDC3", opacity: 0.3, margin: "0 auto" }} />
         </div>
 
         <ScrollReveal>
@@ -115,8 +115,8 @@ function WorldMap() {
               width: "100%",
               aspectRatio: "2 / 1",
               overflow: "hidden",
-              background: "#0A0A0A",
-              border: "1px solid #1E1E1E",
+              background: "#0E202D",
+              border: "1px solid #1A3448",
             }}
           >
             {/* Grid lines */}
@@ -129,7 +129,7 @@ function WorldMap() {
                   right: 0,
                   height: "1px",
                   top: `${((i + 1) * 100) / 8}%`,
-                  background: "rgba(30, 30, 30, 0.5)",
+                  background: "rgba(26, 52, 72, 0.5)",
                 }}
               />
             ))}
@@ -142,7 +142,7 @@ function WorldMap() {
                   bottom: 0,
                   width: "1px",
                   left: `${((i + 1) * 100) / 12}%`,
-                  background: "rgba(30, 30, 30, 0.5)",
+                  background: "rgba(26, 52, 72, 0.5)",
                 }}
               />
             ))}
@@ -162,8 +162,8 @@ function WorldMap() {
                     width: "16px",
                     height: "16px",
                     borderRadius: "50%",
-                    background: "#C9A96E",
-                    boxShadow: "0 0 20px rgba(201, 169, 110, 0.6)",
+                    background: "#F4DDC3",
+                    boxShadow: "0 0 20px rgba(244, 221, 195, 0.6)",
                   }}
                 />
                 <div
@@ -176,7 +176,7 @@ function WorldMap() {
                     fontSize: "10px",
                     fontFamily: "var(--font-montserrat)",
                     fontWeight: 600,
-                    color: "#C9A96E",
+                    color: "#F4DDC3",
                   }}
                 >
                   Paris
@@ -214,7 +214,7 @@ function WorldMap() {
                         width: "12px",
                         height: "12px",
                         borderRadius: "50%",
-                        background: "rgba(201, 169, 110, 0.3)",
+                        background: "rgba(244, 221, 195, 0.3)",
                       }}
                     />
                     {/* Dot */}
@@ -224,8 +224,8 @@ function WorldMap() {
                         width: "12px",
                         height: "12px",
                         borderRadius: "50%",
-                        background: dest.popular ? "#D4B978" : "rgba(201, 169, 110, 0.5)",
-                        boxShadow: "0 0 10px rgba(201, 169, 110, 0.4)",
+                        background: dest.popular ? "#F4DDC3" : "rgba(244, 221, 195, 0.5)",
+                        boxShadow: "0 0 10px rgba(244, 221, 195, 0.4)",
                       }}
                     />
                     {/* Tooltip */}
@@ -242,12 +242,12 @@ function WorldMap() {
                         pointerEvents: "none",
                         whiteSpace: "nowrap",
                         padding: "6px 12px",
-                        background: "#141414",
-                        border: "1px solid #C9A96E",
+                        background: "#132A3A",
+                        border: "1px solid #F4DDC3",
                         fontFamily: "var(--font-montserrat)",
                         fontSize: "11px",
                         fontWeight: 500,
-                        color: "#F5F5F0",
+                        color: "#FFFFFF",
                       }}
                     >
                       {dest.name}
@@ -273,7 +273,7 @@ function WorldMap() {
                     y1={`${parisY}%`}
                     x2={`${pos.x}%`}
                     y2={`${pos.y}%`}
-                    stroke="rgba(201, 169, 110, 0.08)"
+                    stroke="rgba(244, 221, 195, 0.08)"
                     strokeWidth="1"
                     strokeDasharray="4 4"
                     initial={{ pathLength: 0, opacity: 0 }}
@@ -297,7 +297,7 @@ function DestinationCard({ destination, index }: { destination: Destination; ind
   return (
     <ScrollReveal delay={index * 0.08}>
       <Link href={`/destinations/${destination.id}`} className="block group">
-        <div style={{ backgroundColor: "#141414", border: "1px solid #1E1E1E", borderRadius: "2px", overflow: "hidden", boxShadow: "0 20px 60px rgba(0,0,0,0.3)", transition: "transform 0.4s ease, box-shadow 0.4s ease" }}>
+        <div style={{ backgroundColor: "#132A3A", border: "1px solid #1A3448", borderRadius: "2px", overflow: "hidden", boxShadow: "0 20px 60px rgba(0,0,0,0.3)", transition: "transform 0.4s ease, box-shadow 0.4s ease" }}>
           {/* Image */}
           <div style={{ aspectRatio: "3/4", position: "relative", overflow: "hidden" }}>
             <Image
@@ -307,7 +307,7 @@ function DestinationCard({ destination, index }: { destination: Destination; ind
               style={{ objectFit: "cover", transition: "transform 0.7s ease" }}
               className="group-hover:scale-105"
             />
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.2) 40%, transparent 100%)" }} />
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(14,32,45,0.9) 0%, rgba(14,32,45,0.2) 40%, transparent 100%)" }} />
 
             {/* Popular badge */}
             {destination.popular && (
@@ -319,8 +319,8 @@ function DestinationCard({ destination, index }: { destination: Destination; ind
             {/* Content overlay at bottom */}
             <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "clamp(16px, 3vw, 24px)", zIndex: 10 }}>
               <h3
-                className="group-hover:text-[#C9A96E] transition-colors"
-                style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", fontSize: "clamp(20px, 3vw, 26px)", marginBottom: "4px" }}
+                className="group-hover:text-[#F4DDC3] transition-colors"
+                style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", fontSize: "clamp(20px, 3vw, 26px)", marginBottom: "4px" }}
               >
                 {destination.name}
               </h3>
@@ -330,10 +330,10 @@ function DestinationCard({ destination, index }: { destination: Destination; ind
 
               <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "12px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                  <svg width="14" height="14" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <svg width="14" height="14" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24">
                     <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#C9A96E", fontSize: "12px" }}>
+                  <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#F4DDC3", fontSize: "12px" }}>
                     {destination.flightTimeFromParis} depuis Paris
                   </span>
                 </div>
@@ -342,11 +342,11 @@ function DestinationCard({ destination, index }: { destination: Destination; ind
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                 <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B", fontSize: "13px" }}>
                   À partir de{" "}
-                  <span style={{ color: "#C9A96E", fontWeight: 500 }}>{destination.priceFrom}€</span>
+                  <span style={{ color: "#F4DDC3", fontWeight: 500 }}>{destination.priceFrom}€</span>
                 </span>
                 <span
                   className="group-hover:opacity-100"
-                  style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 500, opacity: 0, transition: "opacity 0.3s ease" }}
+                  style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500, opacity: 0, transition: "opacity 0.3s ease" }}
                 >
                   Découvrir →
                 </span>
@@ -389,7 +389,7 @@ export default function DestinationsPage() {
       <WorldMap />
 
       {/* Destinations grid with filters */}
-      <section style={{ background: "#0A0A0A", padding: "clamp(60px, 10vw, 120px) 0" }}>
+      <section style={{ background: "#0E202D", padding: "clamp(60px, 10vw, 120px) 0" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
 
           {/* Sticky filter bar */}
@@ -397,11 +397,11 @@ export default function DestinationsPage() {
             position: "sticky",
             top: 0,
             zIndex: 20,
-            background: "#0A0A0A",
+            background: "#0E202D",
             paddingTop: "16px",
             paddingBottom: "16px",
             marginBottom: "clamp(24px, 4vw, 32px)",
-            borderBottom: "1px solid rgba(201,169,110,0.08)",
+            borderBottom: "1px solid rgba(244,221,195,0.08)",
           }}>
             {/* Desktop: wrapped pill row */}
             <div
@@ -422,9 +422,9 @@ export default function DestinationsPage() {
                     cursor: "pointer",
                     fontFamily: "var(--font-montserrat)",
                     fontWeight: activeRegion === cat.slug ? 600 : 400,
-                    color: activeRegion === cat.slug ? "#C9A96E" : "#6B6B6B",
-                    background: activeRegion === cat.slug ? "rgba(201,169,110,0.08)" : "transparent",
-                    border: `1px solid ${activeRegion === cat.slug ? "rgba(201,169,110,0.3)" : "#1E1E1E"}`,
+                    color: activeRegion === cat.slug ? "#F4DDC3" : "#6B6B6B",
+                    background: activeRegion === cat.slug ? "rgba(244,221,195,0.08)" : "transparent",
+                    border: `1px solid ${activeRegion === cat.slug ? "rgba(244,221,195,0.3)" : "#1A3448"}`,
                     borderRadius: "2px",
                     transition: "all 0.3s ease",
                   }}
@@ -436,7 +436,7 @@ export default function DestinationsPage() {
                   {activeRegion === cat.slug && (
                     <motion.div
                       layoutId="activeDestRegion"
-                      style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "2px", background: "#C9A96E" }}
+                      style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "2px", background: "#F4DDC3" }}
                       transition={{ duration: 0.3, ease: EASE }}
                     />
                   )}
@@ -456,22 +456,22 @@ export default function DestinationsPage() {
                   fontFamily: "var(--font-montserrat)",
                   fontWeight: 500,
                   letterSpacing: "0.05em",
-                  color: "#C9A96E",
-                  background: "rgba(10,10,10,0.6)",
-                  border: "1px solid rgba(201,169,110,0.3)",
+                  color: "#F4DDC3",
+                  background: "rgba(14,32,45,0.6)",
+                  border: "1px solid rgba(244,221,195,0.3)",
                   borderRadius: "2px",
                   cursor: "pointer",
                   appearance: "none",
                   WebkitAppearance: "none",
                   outline: "none",
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C9A96E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23F4DDC3' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "right 16px center",
                   backgroundSize: "12px",
                 }}
               >
                 {filterCategories.map((cat) => (
-                  <option key={cat.slug} value={cat.slug} style={{ background: "#141414" }}>
+                  <option key={cat.slug} value={cat.slug} style={{ background: "#132A3A" }}>
                     {cat.name} ({regionCounts[cat.slug]})
                   </option>
                 ))}
@@ -502,11 +502,11 @@ export default function DestinationsPage() {
 
       {/* CTA */}
       <section style={{ position: "relative", padding: "clamp(60px, 10vw, 120px) 0", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #0A0A0A 0%, #1a1510 50%, #0A0A0A 100%)" }} />
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, rgba(201,169,110,0.08) 0%, transparent 70%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #0E202D 0%, #122838 50%, #0E202D 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, rgba(244,221,195,0.08) 0%, transparent 70%)" }} />
         <div style={{ position: "relative", maxWidth: "800px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
           <ScrollReveal>
-            <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", fontSize: "clamp(28px, 5vw, 44px)", marginBottom: "20px" }}>
+            <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", fontSize: "clamp(28px, 5vw, 44px)", marginBottom: "20px" }}>
               Votre destination n&apos;est pas listée ?
             </h2>
             <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", fontSize: "clamp(16px, 2.5vw, 20px)", marginBottom: "40px" }}>

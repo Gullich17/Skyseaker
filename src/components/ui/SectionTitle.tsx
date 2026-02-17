@@ -65,7 +65,7 @@ export default function SectionTitle({
             fontSize: '12px',
             textTransform: 'uppercase',
             letterSpacing: '0.2em',
-            color: '#C9A96E',
+            color: '#F4DDC3',
             marginBottom: '14px',
             lineHeight: 1.5,
           }}

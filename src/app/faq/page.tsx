@@ -48,19 +48,19 @@ export default function FAQPage() {
 
   return (
     <>
-      <section className="pt-32 pb-12" style={{ background: "#0A0A0A" }}>
+      <section className="pt-32 pb-12" style={{ background: "#0E202D" }}>
         <div className="px-[5vw] text-center" style={{ maxWidth: "1400px", margin: "0 auto" }}>
           <SectionTitle preTitle="FAQ" title="Questions fréquentes" subtitle="Trouvez rapidement les réponses à vos questions sur l'aviation privée" centered />
         </div>
       </section>
 
-      <section className="section-padding" style={{ background: "#0A0A0A" }}>
+      <section className="section-padding" style={{ background: "#0E202D" }}>
         <div className="px-[5vw]" style={{ maxWidth: "900px", margin: "0 auto" }}>
           {/* Search */}
           <div className="mb-8">
             <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Rechercher une question..."
-              className="w-full px-6 py-4 text-[14px] bg-transparent border text-[#F5F5F0]"
-              style={{ borderColor: "#1E1E1E", fontFamily: "var(--font-montserrat)", fontWeight: 300 }} />
+              className="w-full px-6 py-4 text-[14px] bg-transparent border text-[#FFFFFF]"
+              style={{ borderColor: "#1A3448", fontFamily: "var(--font-montserrat)", fontWeight: 300 }} />
           </div>
 
           {/* Category Tabs */}
@@ -69,9 +69,9 @@ export default function FAQPage() {
               <button key={cat} onClick={() => { setActiveCategory(cat); setOpenIndex(null); }}
                 className="px-4 py-2 text-[11px] uppercase tracking-[0.15em] border transition-all"
                 style={{
-                  borderColor: activeCategory === cat ? "#C9A96E" : "#1E1E1E",
-                  color: activeCategory === cat ? "#C9A96E" : "#6B6B6B",
-                  background: activeCategory === cat ? "rgba(201,169,110,0.1)" : "transparent",
+                  borderColor: activeCategory === cat ? "#F4DDC3" : "#1A3448",
+                  color: activeCategory === cat ? "#F4DDC3" : "#6B6B6B",
+                  background: activeCategory === cat ? "rgba(244,221,195,0.1)" : "transparent",
                   fontFamily: "var(--font-montserrat)", fontWeight: 500,
                 }}>
                 {cat}
@@ -82,16 +82,16 @@ export default function FAQPage() {
           {/* Questions */}
           <div className="space-y-3">
             {filtered.map((faq, i) => (
-              <div key={i} style={{ border: "1px solid #1E1E1E", background: openIndex === i ? "#141414" : "transparent" }}>
+              <div key={i} style={{ border: "1px solid #1A3448", background: openIndex === i ? "#132A3A" : "transparent" }}>
                 <button
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                   className="w-full flex items-center justify-between px-6 py-5 text-left"
                 >
-                  <span className="text-[15px] text-[#F5F5F0] pr-4" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400 }}>
+                  <span className="text-[15px] text-[#FFFFFF] pr-4" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400 }}>
                     {faq.q}
                   </span>
                   <motion.svg animate={{ rotate: openIndex === i ? 180 : 0 }} className="shrink-0"
-                    width="16" height="16" fill="none" stroke="#C9A96E" strokeWidth="2" viewBox="0 0 24 24">
+                    width="16" height="16" fill="none" stroke="#F4DDC3" strokeWidth="2" viewBox="0 0 24 24">
                     <path d="M19 9l-7 7-7-7" />
                   </motion.svg>
                 </button>
@@ -105,7 +105,7 @@ export default function FAQPage() {
                       className="overflow-hidden"
                     >
                       <div className="px-6 pb-5">
-                        <div className="h-[1px] mb-4" style={{ background: "#1E1E1E" }} />
+                        <div className="h-[1px] mb-4" style={{ background: "#1A3448" }} />
                         <p className="text-[14px] text-[#A0A0A0] leading-relaxed" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
                           {faq.a}
                         </p>
@@ -124,8 +124,8 @@ export default function FAQPage() {
           )}
 
           {/* CTA */}
-          <div className="text-center mt-16 p-10" style={{ background: "#141414", border: "1px solid #1E1E1E" }}>
-            <h3 className="text-[22px] mb-3" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0" }}>
+          <div className="text-center mt-16 p-10" style={{ background: "#132A3A", border: "1px solid #1A3448" }}>
+            <h3 className="text-[22px] mb-3" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF" }}>
               Vous n&apos;avez pas trouvé votre réponse ?
             </h3>
             <p className="text-[14px] text-[#A0A0A0] mb-6" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>

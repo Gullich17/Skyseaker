@@ -29,8 +29,8 @@ export default function Card({
     <motion.div
       className={className}
       style={{
-        backgroundColor: '#141414',
-        border: '1px solid #1E1E1E',
+        backgroundColor: '#132A3A',
+        border: '1px solid #1A3448',
         borderRadius: 0,
         boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
         overflow: 'hidden',

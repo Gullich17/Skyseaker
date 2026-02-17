@@ -34,7 +34,7 @@ const experiences: Experience[] = [
     destination: 'Monaco',
     priceFrom: '\u00e0 partir de 8\u202f900\u00a0\u20ac',
     icon: 'M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 9.75l-3-3m0 0l-3 3m3-3v11.25',
-    gradient: 'linear-gradient(135deg, #1a1510 0%, #141414 100%)',
+    gradient: 'linear-gradient(135deg, #122838 0%, #132A3A 100%)',
   },
   {
     id: 'ski',
@@ -46,7 +46,7 @@ const experiences: Experience[] = [
     destination: 'Courchevel',
     priceFrom: '\u00e0 partir de 15\u202f500\u00a0\u20ac',
     icon: 'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z',
-    gradient: 'linear-gradient(135deg, #101418 0%, #141414 100%)',
+    gradient: 'linear-gradient(135deg, #101418 0%, #132A3A 100%)',
   },
   {
     id: 'grand-prix',
@@ -58,7 +58,7 @@ const experiences: Experience[] = [
     destination: 'Monaco',
     priceFrom: '\u00e0 partir de 22\u202f000\u00a0\u20ac',
     icon: 'M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5',
-    gradient: 'linear-gradient(135deg, #18100a 0%, #141414 100%)',
+    gradient: 'linear-gradient(135deg, #18100a 0%, #132A3A 100%)',
   },
   {
     id: 'wellness',
@@ -70,7 +70,7 @@ const experiences: Experience[] = [
     destination: 'Ibiza',
     priceFrom: '\u00e0 partir de 12\u202f800\u00a0\u20ac',
     icon: 'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z',
-    gradient: 'linear-gradient(135deg, #0f1410 0%, #141414 100%)',
+    gradient: 'linear-gradient(135deg, #0f1410 0%, #132A3A 100%)',
   },
   {
     id: 'safari',
@@ -82,7 +82,7 @@ const experiences: Experience[] = [
     destination: 'Kenya',
     priceFrom: '\u00e0 partir de 35\u202f000\u00a0\u20ac',
     icon: 'M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z',
-    gradient: 'linear-gradient(135deg, #141008 0%, #141414 100%)',
+    gradient: 'linear-gradient(135deg, #141008 0%, #132A3A 100%)',
   },
   {
     id: 'yacht',
@@ -94,7 +94,7 @@ const experiences: Experience[] = [
     destination: 'M\u00e9diterran\u00e9e',
     priceFrom: '\u00e0 partir de 28\u202f000\u00a0\u20ac',
     icon: 'M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3',
-    gradient: 'linear-gradient(135deg, #0a1018 0%, #141414 100%)',
+    gradient: 'linear-gradient(135deg, #0a1018 0%, #132A3A 100%)',
   },
   {
     id: 'golf',
@@ -106,7 +106,7 @@ const experiences: Experience[] = [
     destination: 'Europe',
     priceFrom: '\u00e0 partir de 18\u202f500\u00a0\u20ac',
     icon: 'M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42',
-    gradient: 'linear-gradient(135deg, #0e140a 0%, #141414 100%)',
+    gradient: 'linear-gradient(135deg, #0e140a 0%, #132A3A 100%)',
   },
   {
     id: 'fashion-week',
@@ -118,7 +118,7 @@ const experiences: Experience[] = [
     destination: 'Paris, Milan, New York',
     priceFrom: '\u00e0 partir de 42\u202f000\u00a0\u20ac',
     icon: 'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z',
-    gradient: 'linear-gradient(135deg, #140a14 0%, #141414 100%)',
+    gradient: 'linear-gradient(135deg, #140a14 0%, #132A3A 100%)',
   },
 ];
 
@@ -134,14 +134,14 @@ function HeroSection() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(135deg, #0A0A0A 0%, #141414 40%, #1a1510 60%, #0A0A0A 100%)',
+              'linear-gradient(135deg, #0E202D 0%, #132A3A 40%, #122838 60%, #0E202D 100%)',
           }}
         />
         <div
           className="absolute top-1/3 left-0 right-0 h-[1px] opacity-[0.05]"
           style={{
             background:
-              'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+              'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
           }}
         />
       </div>
@@ -150,7 +150,7 @@ function HeroSection() {
         className="absolute inset-0 z-[1]"
         style={{
           background:
-            'linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.3) 50%, rgba(10,10,10,0.6) 100%)',
+            'linear-gradient(to top, rgba(14,32,45,0.8) 0%, rgba(14,32,45,0.3) 50%, rgba(14,32,45,0.6) 100%)',
         }}
       />
 
@@ -167,7 +167,7 @@ function HeroSection() {
           style={{
             fontFamily: 'var(--font-montserrat)',
             fontWeight: 500,
-            color: '#C9A96E',
+            color: '#F4DDC3',
           }}
         >
           Exp\u00e9riences
@@ -185,7 +185,7 @@ function HeroSection() {
           style={{
             fontFamily: 'var(--font-playfair)',
             fontWeight: 700,
-            color: '#F5F5F0',
+            color: '#FFFFFF',
             lineHeight: 1.1,
           }}
         >
@@ -247,7 +247,7 @@ function ExperienceCard({
       className="relative w-full overflow-hidden"
       style={{
         background: experience.gradient,
-        border: '1px solid #1E1E1E',
+        border: '1px solid #1A3448',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -260,14 +260,14 @@ function ExperienceCard({
           }`}
           style={{ minHeight: '300px' }}
         >
-          <div className="absolute inset-0" style={{ background: '#1E1E1E' }}>
+          <div className="absolute inset-0" style={{ background: '#1A3448' }}>
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
                 <svg
                   width="60"
                   height="60"
                   fill="none"
-                  stroke="#C9A96E"
+                  stroke="#F4DDC3"
                   strokeWidth="1"
                   viewBox="0 0 24 24"
                   className="opacity-20 mx-auto mb-3"
@@ -291,8 +291,8 @@ function ExperienceCard({
             style={{
               background:
                 isReversed
-                  ? 'linear-gradient(to left, rgba(10,10,10,0.6), transparent)'
-                  : 'linear-gradient(to right, rgba(10,10,10,0.6), transparent)',
+                  ? 'linear-gradient(to left, rgba(14,32,45,0.6), transparent)'
+                  : 'linear-gradient(to right, rgba(14,32,45,0.6), transparent)',
             }}
             animate={{ opacity: isHovered ? 0.8 : 0.4 }}
             transition={{ duration: 0.4 }}
@@ -309,15 +309,15 @@ function ExperienceCard({
           <div
             className="w-14 h-14 flex items-center justify-center mb-6"
             style={{
-              border: '1px solid rgba(201,169,110,0.3)',
-              background: 'rgba(201,169,110,0.05)',
+              border: '1px solid rgba(244,221,195,0.3)',
+              background: 'rgba(244,221,195,0.05)',
             }}
           >
             <svg
               width="24"
               height="24"
               fill="none"
-              stroke="#C9A96E"
+              stroke="#F4DDC3"
               strokeWidth="1.5"
               viewBox="0 0 24 24"
             >
@@ -336,7 +336,7 @@ function ExperienceCard({
             style={{
               fontFamily: 'var(--font-playfair)',
               fontWeight: 600,
-              color: '#F5F5F0',
+              color: '#FFFFFF',
               lineHeight: 1.2,
             }}
           >
@@ -363,7 +363,7 @@ function ExperienceCard({
                 width="16"
                 height="16"
                 fill="none"
-                stroke="#C9A96E"
+                stroke="#F4DDC3"
                 strokeWidth="1.5"
                 viewBox="0 0 24 24"
               >
@@ -379,13 +379,13 @@ function ExperienceCard({
                 {experience.duration}
               </span>
             </div>
-            <span className="w-[1px] h-4 bg-[#1E1E1E]" />
+            <span className="w-[1px] h-4 bg-[#1A3448]" />
             <div className="flex items-center gap-2">
               <svg
                 width="16"
                 height="16"
                 fill="none"
-                stroke="#C9A96E"
+                stroke="#F4DDC3"
                 strokeWidth="1.5"
                 viewBox="0 0 24 24"
               >
@@ -402,13 +402,13 @@ function ExperienceCard({
                 {experience.destination}
               </span>
             </div>
-            <span className="w-[1px] h-4 bg-[#1E1E1E]" />
+            <span className="w-[1px] h-4 bg-[#1A3448]" />
             <span
               className="text-[14px]"
               style={{
                 fontFamily: 'var(--font-cormorant)',
                 fontWeight: 600,
-                color: '#C9A96E',
+                color: '#F4DDC3',
               }}
             >
               {experience.priceFrom}
@@ -446,7 +446,7 @@ function ExperienceCard({
       {/* Gold border on hover */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
-        style={{ border: '1px solid #C9A96E' }}
+        style={{ border: '1px solid #F4DDC3' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 0.3 : 0 }}
         transition={{ duration: 0.4 }}
@@ -461,7 +461,7 @@ function ExperienceCard({
 
 function ExperiencesGrid() {
   return (
-    <section className="section-padding" style={{ background: '#0A0A0A' }}>
+    <section className="section-padding" style={{ background: '#0E202D' }}>
       <div className="px-[5vw]" style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <SectionTitle
           preTitle="NOS PACKAGES"
@@ -510,7 +510,7 @@ function HowItWorks() {
   ];
 
   return (
-    <section className="section-padding" style={{ background: '#141414' }}>
+    <section className="section-padding" style={{ background: '#132A3A' }}>
       <div className="px-[5vw]" style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <SectionTitle
           preTitle="COMMENT \u00c7A MARCHE"
@@ -528,7 +528,7 @@ function HowItWorks() {
                   style={{
                     fontFamily: 'var(--font-cormorant)',
                     fontWeight: 300,
-                    color: '#C9A96E',
+                    color: '#F4DDC3',
                     lineHeight: 1,
                   }}
                 >
@@ -536,14 +536,14 @@ function HowItWorks() {
                 </div>
                 <div
                   className="w-[40px] h-[1px] mx-auto mb-6"
-                  style={{ background: 'rgba(201,169,110,0.3)' }}
+                  style={{ background: 'rgba(244,221,195,0.3)' }}
                 />
                 <h4
                   className="text-[16px] mb-3"
                   style={{
                     fontFamily: 'var(--font-montserrat)',
                     fontWeight: 600,
-                    color: '#F5F5F0',
+                    color: '#FFFFFF',
                   }}
                 >
                   {step.title}
@@ -579,14 +579,14 @@ function CTASection() {
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(135deg, #0A0A0A 0%, #1a1510 50%, #0A0A0A 100%)',
+            'linear-gradient(135deg, #0E202D 0%, #122838 50%, #0E202D 100%)',
         }}
       />
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse at center, rgba(201,169,110,0.08) 0%, transparent 70%)',
+            'radial-gradient(ellipse at center, rgba(244,221,195,0.08) 0%, transparent 70%)',
         }}
       />
       <div className="relative px-[5vw] text-center" style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -596,7 +596,7 @@ function CTASection() {
             style={{
               fontFamily: 'var(--font-playfair)',
               fontWeight: 700,
-              color: '#F5F5F0',
+              color: '#FFFFFF',
             }}
           >
             Une exp\u00e9rience sur mesure\u00a0?

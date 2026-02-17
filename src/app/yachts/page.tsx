@@ -39,25 +39,25 @@ function YachtHero() {
           className="object-cover"
           priority
         />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.4) 40%, rgba(10,10,10,0.85) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(14,32,45,0.65) 0%, rgba(14,32,45,0.4) 40%, rgba(14,32,45,0.85) 100%)" }} />
       </div>
 
       {/* Gold accent line */}
-      <div style={{ position: "absolute", top: "33%", left: 0, right: 0, height: "1px", opacity: 0.05, zIndex: 1, background: "linear-gradient(90deg, transparent, #C9A96E, transparent)" }} />
+      <div style={{ position: "absolute", top: "33%", left: 0, right: 0, height: "1px", opacity: 0.05, zIndex: 1, background: "linear-gradient(90deg, transparent, #F4DDC3, transparent)" }} />
 
       {/* Content */}
       <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1200px", margin: "0 auto", padding: "clamp(120px, 18vh, 160px) 24px clamp(48px, 6vw, 80px)", textAlign: "center" }}>
         <motion.p
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
-          style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "16px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#C9A96E" }}
+          style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "16px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F4DDC3" }}
         >
           NOTRE FLOTTE NAUTIQUE
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: EASE }}
-          style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", lineHeight: 1.15, fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "20px" }}
+          style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "20px" }}
         >
           Les plus beaux yachts
           <br />du monde
@@ -81,11 +81,11 @@ function YachtCard({ yacht, index }: { yacht: Yacht; index: number }) {
   return (
     <ScrollReveal delay={index * 0.08}>
       <Link href={`/yachts/${yacht.categorySlug}/${yacht.id}`} className="block group">
-        <div style={{ backgroundColor: "#141414", border: "1px solid #1E1E1E", borderRadius: "2px", overflow: "hidden", boxShadow: "0 20px 60px rgba(0,0,0,0.3)", transition: "transform 0.4s ease, box-shadow 0.4s ease" }}>
+        <div style={{ backgroundColor: "#132A3A", border: "1px solid #1A3448", borderRadius: "2px", overflow: "hidden", boxShadow: "0 20px 60px rgba(0,0,0,0.3)", transition: "transform 0.4s ease, box-shadow 0.4s ease" }}>
           {/* Image */}
           <div style={{ aspectRatio: "16/9", position: "relative", overflow: "hidden" }}>
             <Image src={getYachtImage(yacht)} alt={yacht.name} fill style={{ objectFit: "cover", transition: "transform 0.7s ease" }} className="group-hover:scale-105" />
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(20,20,20,0.7) 0%, transparent 50%)" }} />
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(19,42,58,0.7) 0%, transparent 50%)" }} />
             <div style={{ position: "absolute", top: "12px", left: "12px" }}>
               <Badge>{yacht.category}</Badge>
             </div>
@@ -93,7 +93,7 @@ function YachtCard({ yacht, index }: { yacht: Yacht; index: number }) {
 
           {/* Content */}
           <div style={{ padding: "clamp(16px, 3vw, 24px)" }}>
-            <h3 className="group-hover:text-[#C9A96E] transition-colors" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "clamp(17px, 2vw, 20px)", marginBottom: "4px" }}>
+            <h3 className="group-hover:text-[#F4DDC3] transition-colors" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "clamp(17px, 2vw, 20px)", marginBottom: "4px" }}>
               {yacht.name}
             </h3>
             <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B", fontSize: "13px", marginBottom: "16px" }}>
@@ -109,16 +109,16 @@ function YachtCard({ yacht, index }: { yacht: Yacht; index: number }) {
                 { label: "Cabines", value: `${yacht.cabins}`, icon: "M2.25 12l8.954-8.955a1.126 1.126 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" },
               ].map((spec) => (
                 <div key={spec.label} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <svg width="14" height="14" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24" style={{ flexShrink: 0 }}><path d={spec.icon} /></svg>
+                  <svg width="14" height="14" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24" style={{ flexShrink: 0 }}><path d={spec.icon} /></svg>
                   <div>
                     <span style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#6B6B6B" }}>{spec.label}</span>
-                    <span style={{ display: "block", fontSize: "13px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F5F5F0" }}>{spec.value}</span>
+                    <span style={{ display: "block", fontSize: "13px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#FFFFFF" }}>{spec.value}</span>
                   </div>
                 </div>
               ))}
             </div>
 
-            <span style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>
+            <span style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>
               Voir la fiche →
             </span>
           </div>
@@ -148,7 +148,7 @@ export default function YachtsPage() {
     <>
       <YachtHero />
 
-      <section style={{ background: "#0A0A0A", padding: "clamp(60px, 10vw, 120px) 0" }}>
+      <section style={{ background: "#0E202D", padding: "clamp(60px, 10vw, 120px) 0" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
 
           {/* Sticky filter bar */}
@@ -156,11 +156,11 @@ export default function YachtsPage() {
             position: "sticky",
             top: 0,
             zIndex: 20,
-            background: "#0A0A0A",
+            background: "#0E202D",
             paddingTop: "16px",
             paddingBottom: "16px",
             marginBottom: "clamp(24px, 4vw, 32px)",
-            borderBottom: "1px solid rgba(201,169,110,0.08)",
+            borderBottom: "1px solid rgba(244,221,195,0.08)",
           }}>
             {/* Desktop: wrapped pill row */}
             <div
@@ -181,9 +181,9 @@ export default function YachtsPage() {
                     cursor: "pointer",
                     fontFamily: "var(--font-montserrat)",
                     fontWeight: activeCategory === cat.slug ? 600 : 400,
-                    color: activeCategory === cat.slug ? "#C9A96E" : "#6B6B6B",
-                    background: activeCategory === cat.slug ? "rgba(201,169,110,0.08)" : "transparent",
-                    border: `1px solid ${activeCategory === cat.slug ? "rgba(201,169,110,0.3)" : "#1E1E1E"}`,
+                    color: activeCategory === cat.slug ? "#F4DDC3" : "#6B6B6B",
+                    background: activeCategory === cat.slug ? "rgba(244,221,195,0.08)" : "transparent",
+                    border: `1px solid ${activeCategory === cat.slug ? "rgba(244,221,195,0.3)" : "#1A3448"}`,
                     borderRadius: "2px",
                     transition: "all 0.3s ease",
                   }}
@@ -195,7 +195,7 @@ export default function YachtsPage() {
                   {activeCategory === cat.slug && (
                     <motion.div
                       layoutId="activeYachtCategory"
-                      style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "2px", background: "#C9A96E" }}
+                      style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "2px", background: "#F4DDC3" }}
                       transition={{ duration: 0.3, ease: EASE }}
                     />
                   )}
@@ -215,22 +215,22 @@ export default function YachtsPage() {
                   fontFamily: "var(--font-montserrat)",
                   fontWeight: 500,
                   letterSpacing: "0.05em",
-                  color: "#C9A96E",
-                  background: "rgba(10,10,10,0.6)",
-                  border: "1px solid rgba(201,169,110,0.3)",
+                  color: "#F4DDC3",
+                  background: "rgba(14,32,45,0.6)",
+                  border: "1px solid rgba(244,221,195,0.3)",
                   borderRadius: "2px",
                   cursor: "pointer",
                   appearance: "none",
                   WebkitAppearance: "none",
                   outline: "none",
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C9A96E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23F4DDC3' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "right 16px center",
                   backgroundSize: "12px",
                 }}
               >
                 {yachtCategories.map((cat) => (
-                  <option key={cat.slug} value={cat.slug} style={{ background: "#141414" }}>
+                  <option key={cat.slug} value={cat.slug} style={{ background: "#132A3A" }}>
                     {cat.name} ({categoryCounts[cat.slug]})
                   </option>
                 ))}

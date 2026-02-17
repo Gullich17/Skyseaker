@@ -12,7 +12,7 @@ const contactOptions = [
         <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
       </svg>
     ),
-    color: "#C9A96E",
+    color: "#F4DDC3",
   },
   {
     label: "WhatsApp",
@@ -33,7 +33,7 @@ const contactOptions = [
         <path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
       </svg>
     ),
-    color: "#C9A96E",
+    color: "#F4DDC3",
   },
 ];
 
@@ -57,19 +57,19 @@ export default function FloatingWidget() {
               background: "rgba(14,14,14,0.96)",
               backdropFilter: "blur(24px)",
               WebkitBackdropFilter: "blur(24px)",
-              border: "1px solid rgba(201,169,110,0.15)",
+              border: "1px solid rgba(244,221,195,0.15)",
               borderRadius: "4px",
               overflow: "hidden",
               boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
             }}
           >
             {/* Header */}
-            <div style={{ padding: "16px 20px 12px", borderBottom: "1px solid rgba(201,169,110,0.1)" }}>
+            <div style={{ padding: "16px 20px 12px", borderBottom: "1px solid rgba(244,221,195,0.1)" }}>
               <p style={{
                 fontSize: "10px",
                 textTransform: "uppercase",
                 letterSpacing: "0.2em",
-                color: "#C9A96E",
+                color: "#F4DDC3",
                 fontFamily: "'Montserrat', sans-serif",
                 fontWeight: 600,
                 margin: 0,
@@ -104,7 +104,7 @@ export default function FloatingWidget() {
                     textDecoration: "none",
                     transition: "background 0.2s ease",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(201,169,110,0.06)")}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(244,221,195,0.06)")}
                   onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                 >
                   <div style={{ color: opt.color, flexShrink: 0, opacity: 0.8 }}>
@@ -118,7 +118,7 @@ export default function FloatingWidget() {
                     letterSpacing: "0.02em",
                     transition: "color 0.2s ease",
                   }}
-                    className="group-hover:!text-[#F5F5F0]"
+                    className="group-hover:!text-[#FFFFFF]"
                   >
                     {opt.label}
                   </span>
@@ -138,7 +138,7 @@ export default function FloatingWidget() {
           height: "52px",
           borderRadius: "50%",
           background: open ? "#0E0E0E" : "rgba(14,14,14,0.9)",
-          border: open ? "1px solid rgba(201,169,110,0.3)" : "1px solid rgba(201,169,110,0.2)",
+          border: open ? "1px solid rgba(244,221,195,0.3)" : "1px solid rgba(244,221,195,0.2)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
           cursor: "pointer",
@@ -156,7 +156,7 @@ export default function FloatingWidget() {
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.15 }}
-              width="18" height="18" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24"
+              width="18" height="18" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24"
             >
               <path d="M6 18L18 6M6 6l12 12" />
             </motion.svg>
@@ -167,7 +167,7 @@ export default function FloatingWidget() {
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: -90, opacity: 0 }}
               transition={{ duration: 0.15 }}
-              width="20" height="20" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24"
+              width="20" height="20" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24"
             >
               <path d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
             </motion.svg>

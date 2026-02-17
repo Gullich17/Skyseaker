@@ -30,16 +30,16 @@ const variantColors: Record<ButtonVariant, {
   hoverColor: string;
 }> = {
   primary: {
-    border: '#C9A96E',
-    color: '#C9A96E',
-    hoverBg: '#C9A96E',
-    hoverColor: '#0A0A0A',
+    border: '#F4DDC3',
+    color: '#F4DDC3',
+    hoverBg: '#F4DDC3',
+    hoverColor: '#0E202D',
   },
   secondary: {
-    border: '#F5F5F0',
-    color: '#F5F5F0',
-    hoverBg: '#F5F5F0',
-    hoverColor: '#0A0A0A',
+    border: '#FFFFFF',
+    color: '#FFFFFF',
+    hoverBg: '#FFFFFF',
+    hoverColor: '#0E202D',
   },
 };
 

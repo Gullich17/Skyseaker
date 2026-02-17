@@ -26,13 +26,13 @@ function getImage(y: Yacht): string {
 
 function SpecRow({ label, value, icon }: { label: string; value: string; icon: string }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "14px", padding: "14px 0", borderBottom: "1px solid rgba(30,30,30,0.8)" }}>
-      <div style={{ width: "38px", height: "38px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, background: "rgba(201,169,110,0.05)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "2px" }}>
-        <svg width="16" height="16" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24"><path d={icon} /></svg>
+    <div style={{ display: "flex", alignItems: "center", gap: "14px", padding: "14px 0", borderBottom: "1px solid rgba(26,52,72,0.8)" }}>
+      <div style={{ width: "38px", height: "38px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, background: "rgba(244,221,195,0.05)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "2px" }}>
+        <svg width="16" height="16" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24"><path d={icon} /></svg>
       </div>
       <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
         <span style={{ fontSize: "clamp(12px, 1.5vw, 13px)", fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#6B6B6B" }}>{label}</span>
-        <span style={{ fontSize: "clamp(13px, 1.5vw, 15px)", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F5F5F0", textAlign: "right" }}>{value}</span>
+        <span style={{ fontSize: "clamp(13px, 1.5vw, 15px)", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#FFFFFF", textAlign: "right" }}>{value}</span>
       </div>
     </div>
   );
@@ -47,7 +47,7 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
       <section style={{ position: "relative", minHeight: "clamp(420px, 65vh, 720px)", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
           <Image src={heroImg} alt={yacht.name} fill style={{ objectFit: "cover" }} priority />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.4) 40%, rgba(10,10,10,0.6) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(14,32,45,0.95) 0%, rgba(14,32,45,0.4) 40%, rgba(14,32,45,0.6) 100%)" }} />
         </div>
         <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1200px", margin: "0 auto", padding: "clamp(100px, 15vh, 160px) 24px clamp(32px, 5vw, 56px)" }}>
           <motion.nav initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
@@ -62,7 +62,7 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
             <Badge>{yacht.category}</Badge>
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3, ease: EASE }}
-            style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", lineHeight: 1.1, fontSize: "clamp(36px, 6vw, 64px)", marginBottom: "8px" }}>
+            style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.1, fontSize: "clamp(36px, 6vw, 64px)", marginBottom: "8px" }}>
             {yacht.name}
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
@@ -77,7 +77,7 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
               { label: "Vitesse max", value: `${yacht.maxSpeed} nœuds` },
             ].map((stat) => (
               <div key={stat.label}>
-                <span style={{ display: "block", fontSize: "clamp(22px, 3.5vw, 28px)", fontFamily: "var(--font-cormorant)", fontWeight: 300, color: "#C9A96E" }}>{stat.value}</span>
+                <span style={{ display: "block", fontSize: "clamp(22px, 3.5vw, 28px)", fontFamily: "var(--font-cormorant)", fontWeight: 300, color: "#F4DDC3" }}>{stat.value}</span>
                 <span style={{ display: "block", fontSize: "clamp(9px, 1.2vw, 11px)", textTransform: "uppercase", letterSpacing: "0.15em", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#6B6B6B" }}>{stat.label}</span>
               </div>
             ))}
@@ -86,7 +86,7 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
       </section>
 
       {/* DESCRIPTION + SPECS */}
-      <section style={{ background: "#0A0A0A", padding: "clamp(60px, 10vw, 120px) 0" }}>
+      <section style={{ background: "#0E202D", padding: "clamp(60px, 10vw, 120px) 0" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
           <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: "clamp(40px, 6vw, 64px)" }}>
             <div>
@@ -97,12 +97,12 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.1}>
-                <h3 style={{ fontSize: "clamp(12px, 1.5vw, 14px)", textTransform: "uppercase", letterSpacing: "0.15em", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#C9A96E", marginBottom: "16px" }}>
+                <h3 style={{ fontSize: "clamp(12px, 1.5vw, 14px)", textTransform: "uppercase", letterSpacing: "0.15em", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F4DDC3", marginBottom: "16px" }}>
                   Idéal pour
                 </h3>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
                   {yacht.idealFor.map((use) => (
-                    <div key={use} style={{ padding: "8px 16px", fontSize: "clamp(12px, 1.5vw, 13px)", fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#F5F5F0", background: "rgba(201,169,110,0.06)", border: "1px solid rgba(201,169,110,0.15)", borderRadius: "2px" }}>
+                    <div key={use} style={{ padding: "8px 16px", fontSize: "clamp(12px, 1.5vw, 13px)", fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#FFFFFF", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.15)", borderRadius: "2px" }}>
                       {use}
                     </div>
                   ))}
@@ -111,8 +111,8 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
             </div>
             <div>
               <ScrollReveal delay={0.15}>
-                <div style={{ padding: "clamp(20px, 3vw, 32px)", backgroundColor: "#141414", border: "1px solid #1E1E1E", borderRadius: "2px" }}>
-                  <h3 style={{ fontSize: "clamp(12px, 1.5vw, 14px)", textTransform: "uppercase", letterSpacing: "0.15em", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#C9A96E", marginBottom: "16px" }}>
+                <div style={{ padding: "clamp(20px, 3vw, 32px)", backgroundColor: "#132A3A", border: "1px solid #1A3448", borderRadius: "2px" }}>
+                  <h3 style={{ fontSize: "clamp(12px, 1.5vw, 14px)", textTransform: "uppercase", letterSpacing: "0.15em", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F4DDC3", marginBottom: "16px" }}>
                     Caractéristiques techniques
                   </h3>
                   <SpecRow label="Invités" value={`${yacht.guests} personnes`} icon="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
@@ -136,11 +136,11 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
 
       {/* CTA */}
       <section style={{ position: "relative", padding: "clamp(60px, 10vw, 100px) 0", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #0A0A0A 0%, #0d1218 50%, #0A0A0A 100%)" }} />
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, rgba(201,169,110,0.08) 0%, transparent 70%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #0E202D 0%, #0d1218 50%, #0E202D 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, rgba(244,221,195,0.08) 0%, transparent 70%)" }} />
         <div style={{ position: "relative", maxWidth: "720px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
           <ScrollReveal>
-            <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", fontSize: "clamp(28px, 4.5vw, 44px)", marginBottom: "16px", lineHeight: 1.15 }}>
+            <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", fontSize: "clamp(28px, 4.5vw, 44px)", marginBottom: "16px", lineHeight: 1.15 }}>
               Réserver le {yacht.name}
             </h2>
             <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", fontSize: "clamp(16px, 2.5vw, 18px)", marginBottom: "clamp(32px, 5vw, 48px)", lineHeight: 1.6 }}>
@@ -156,31 +156,31 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
 
       {/* SIMILAR YACHTS */}
       {similarYachts.length > 0 && (
-        <section style={{ background: "#0A0A0A", padding: "clamp(60px, 10vw, 120px) 0" }}>
+        <section style={{ background: "#0E202D", padding: "clamp(60px, 10vw, 120px) 0" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
             <SectionTitle preTitle="YACHTS SIMILAIRES" title="Découvrez aussi" centered mb="clamp(40px, 5vw, 56px)" />
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3" style={{ gap: "clamp(16px, 2vw, 24px)" }}>
               {similarYachts.map((similar, i) => (
                 <ScrollReveal key={similar.id} delay={i * 0.1}>
                   <Link href={`/yachts/${similar.categorySlug}/${similar.id}`} className="block group">
-                    <div style={{ backgroundColor: "#141414", border: "1px solid #1E1E1E", borderRadius: "2px", overflow: "hidden", transition: "transform 0.4s ease, box-shadow 0.4s ease" }}>
+                    <div style={{ backgroundColor: "#132A3A", border: "1px solid #1A3448", borderRadius: "2px", overflow: "hidden", transition: "transform 0.4s ease, box-shadow 0.4s ease" }}>
                       <div style={{ aspectRatio: "16/9", position: "relative", overflow: "hidden" }}>
                         <Image src={getImage(similar)} alt={similar.name} fill style={{ objectFit: "cover", transition: "transform 0.7s ease" }} className="group-hover:scale-105" />
-                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(20,20,20,0.7) 0%, transparent 50%)" }} />
+                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(19,42,58,0.7) 0%, transparent 50%)" }} />
                         <div style={{ position: "absolute", top: "12px", left: "12px" }}><Badge>{similar.category}</Badge></div>
                       </div>
                       <div style={{ padding: "clamp(16px, 2.5vw, 20px)" }}>
-                        <h3 className="group-hover:text-[#C9A96E] transition-colors" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "clamp(16px, 2vw, 18px)", marginBottom: "8px" }}>
+                        <h3 className="group-hover:text-[#F4DDC3] transition-colors" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "clamp(16px, 2vw, 18px)", marginBottom: "8px" }}>
                           {similar.name}
                         </h3>
                         <div style={{ display: "flex", alignItems: "center", gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "clamp(10px, 1.3vw, 12px)", color: "#A0A0A0", flexWrap: "wrap" }}>
                           <span>{similar.guests} invités</span>
-                          <span style={{ width: "1px", height: "10px", background: "rgba(201,169,110,0.2)" }} />
+                          <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
                           <span>{similar.length} m</span>
-                          <span style={{ width: "1px", height: "10px", background: "rgba(201,169,110,0.2)" }} />
+                          <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
                           <span>{similar.maxSpeed} nds</span>
                         </div>
-                        <span style={{ display: "block", marginTop: "12px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E" }}>
+                        <span style={{ display: "block", marginTop: "12px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3" }}>
                           Voir la fiche →
                         </span>
                       </div>

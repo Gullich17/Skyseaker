@@ -15,7 +15,7 @@ export default function NotFound() {
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
-        background: "#0A0A0A",
+        background: "#0E202D",
       }}
     >
       {/* Background gradient */}
@@ -24,7 +24,7 @@ export default function NotFound() {
           position: "absolute",
           inset: 0,
           background:
-            "radial-gradient(ellipse at center, rgba(201,169,110,0.06) 0%, transparent 60%)",
+            "radial-gradient(ellipse at center, rgba(244,221,195,0.06) 0%, transparent 60%)",
         }}
       />
 
@@ -38,7 +38,7 @@ export default function NotFound() {
           height: "1px",
           opacity: 0.04,
           background:
-            "linear-gradient(90deg, transparent, #C9A96E, transparent)",
+            "linear-gradient(90deg, transparent, #F4DDC3, transparent)",
         }}
       />
       <div
@@ -50,7 +50,7 @@ export default function NotFound() {
           height: "1px",
           opacity: 0.04,
           background:
-            "linear-gradient(90deg, transparent, #C9A96E, transparent)",
+            "linear-gradient(90deg, transparent, #F4DDC3, transparent)",
         }}
       />
 
@@ -79,7 +79,7 @@ export default function NotFound() {
               fontSize: "clamp(100px, 20vw, 180px)",
               lineHeight: 1,
               color: "transparent",
-              WebkitTextStroke: "1px rgba(201,169,110,0.3)",
+              WebkitTextStroke: "1px rgba(244,221,195,0.3)",
             }}
           >
             404
@@ -94,7 +94,7 @@ export default function NotFound() {
           style={{
             fontFamily: "var(--font-playfair)",
             fontWeight: 700,
-            color: "#F5F5F0",
+            color: "#FFFFFF",
             fontSize: "clamp(24px, 5vw, 40px)",
             marginBottom: "16px",
           }}
@@ -144,7 +144,7 @@ export default function NotFound() {
             height: "1px",
             margin: "0 auto 40px",
             background:
-              "linear-gradient(90deg, transparent, #C9A96E, transparent)",
+              "linear-gradient(90deg, transparent, #F4DDC3, transparent)",
           }}
         />
 
@@ -168,19 +168,19 @@ export default function NotFound() {
               fontSize: "12px",
               textTransform: "uppercase",
               letterSpacing: "0.2em",
-              border: "1px solid #C9A96E",
-              color: "#C9A96E",
+              border: "1px solid #F4DDC3",
+              color: "#F4DDC3",
               fontFamily: "var(--font-montserrat)",
               fontWeight: 600,
               transition: "all 0.3s ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#C9A96E";
-              e.currentTarget.style.color = "#0A0A0A";
+              e.currentTarget.style.background = "#F4DDC3";
+              e.currentTarget.style.color = "#0E202D";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "transparent";
-              e.currentTarget.style.color = "#C9A96E";
+              e.currentTarget.style.color = "#F4DDC3";
             }}
           >
             Retour à l&apos;accueil
@@ -192,19 +192,19 @@ export default function NotFound() {
               fontSize: "12px",
               textTransform: "uppercase",
               letterSpacing: "0.2em",
-              border: "1px solid #F5F5F0",
-              color: "#F5F5F0",
+              border: "1px solid #FFFFFF",
+              color: "#FFFFFF",
               fontFamily: "var(--font-montserrat)",
               fontWeight: 600,
               transition: "all 0.3s ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F5F5F0";
-              e.currentTarget.style.color = "#0A0A0A";
+              e.currentTarget.style.background = "#FFFFFF";
+              e.currentTarget.style.color = "#0E202D";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "transparent";
-              e.currentTarget.style.color = "#F5F5F0";
+              e.currentTarget.style.color = "#FFFFFF";
             }}
           >
             Demander un devis
@@ -258,7 +258,7 @@ export default function NotFound() {
                   fontWeight: 300,
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "#C9A96E")
+                  (e.currentTarget.style.color = "#F4DDC3")
                 }
                 onMouseLeave={(e) =>
                   (e.currentTarget.style.color = "#A0A0A0")

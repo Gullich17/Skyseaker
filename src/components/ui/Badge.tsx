@@ -13,9 +13,9 @@ export default function Badge({ children, className = '' }: BadgeProps) {
       className={className}
       style={{
         display: 'inline-block',
-        backgroundColor: 'rgba(201, 169, 110, 0.1)',
-        border: '1px solid #C9A96E',
-        color: '#C9A96E',
+        backgroundColor: 'rgba(244, 221, 195, 0.1)',
+        border: '1px solid #F4DDC3',
+        color: '#F4DDC3',
         fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
         fontWeight: 600,
         fontSize: '11px',

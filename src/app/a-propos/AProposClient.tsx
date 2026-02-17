@@ -19,19 +19,19 @@ function HeroSection() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(135deg, #0A0A0A 0%, #141414 40%, #1a1510 60%, #0A0A0A 100%)',
+              'linear-gradient(135deg, #0E202D 0%, #132A3A 40%, #122838 60%, #0E202D 100%)',
           }}
         />
         <div
           className="absolute top-1/3 left-0 right-0 h-[1px] opacity-[0.05]"
           style={{
-            background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+            background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
           }}
         />
         <div
           className="absolute top-2/3 left-0 right-0 h-[1px] opacity-[0.03]"
           style={{
-            background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+            background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
           }}
         />
       </div>
@@ -40,7 +40,7 @@ function HeroSection() {
         className="absolute inset-0 z-[1]"
         style={{
           background:
-            'linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.3) 50%, rgba(10,10,10,0.6) 100%)',
+            'linear-gradient(to top, rgba(14,32,45,0.8) 0%, rgba(14,32,45,0.3) 50%, rgba(14,32,45,0.6) 100%)',
         }}
       />
 
@@ -57,7 +57,7 @@ function HeroSection() {
           style={{
             fontFamily: 'var(--font-montserrat)',
             fontWeight: 500,
-            color: '#C9A96E',
+            color: '#F4DDC3',
           }}
         >
           \u00c0 Propos
@@ -75,7 +75,7 @@ function HeroSection() {
           style={{
             fontFamily: 'var(--font-playfair)',
             fontWeight: 700,
-            color: '#F5F5F0',
+            color: '#FFFFFF',
             lineHeight: 1.1,
           }}
         >
@@ -145,7 +145,7 @@ function HistorySection() {
   ];
 
   return (
-    <section className="section-padding" style={{ background: '#0A0A0A' }}>
+    <section className="section-padding" style={{ background: '#0E202D' }}>
       <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <SectionTitle
           preTitle="NOTRE HISTOIRE"
@@ -160,7 +160,7 @@ function HistorySection() {
           {/* Vertical line */}
           <div
             className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px]"
-            style={{ background: 'rgba(201,169,110,0.2)' }}
+            style={{ background: 'rgba(244,221,195,0.2)' }}
           />
 
           <div className="space-y-12 md:space-y-16">
@@ -225,7 +225,7 @@ function TimelineItem({
           style={{
             fontFamily: 'var(--font-cormorant)',
             fontWeight: 600,
-            color: '#C9A96E',
+            color: '#F4DDC3',
           }}
         >
           {year}
@@ -235,7 +235,7 @@ function TimelineItem({
           style={{
             fontFamily: 'var(--font-playfair)',
             fontWeight: 600,
-            color: '#F5F5F0',
+            color: '#FFFFFF',
           }}
         >
           {title}
@@ -265,8 +265,8 @@ function TimelineItem({
           }}
           className="w-3 h-3 rounded-full"
           style={{
-            background: '#C9A96E',
-            boxShadow: '0 0 0 4px #0A0A0A, 0 0 0 5px rgba(201,169,110,0.3)',
+            background: '#F4DDC3',
+            boxShadow: '0 0 0 4px #0E202D, 0 0 0 5px rgba(244,221,195,0.3)',
           }}
         />
       </div>
@@ -306,7 +306,7 @@ function ValuesSection() {
   ];
 
   return (
-    <section className="section-padding" style={{ background: '#141414' }}>
+    <section className="section-padding" style={{ background: '#132A3A' }}>
       <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <SectionTitle
           preTitle="NOS VALEURS"
@@ -318,19 +318,19 @@ function ValuesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {values.map((v, i) => (
             <ScrollReveal key={v.title} delay={i * 0.15}>
-              <div className="text-center p-8" style={{ background: '#0A0A0A', border: '1px solid #1E1E1E' }}>
+              <div className="text-center p-8" style={{ background: '#0E202D', border: '1px solid #1A3448' }}>
                 <div
                   className="w-16 h-16 mx-auto mb-6 flex items-center justify-center"
                   style={{
-                    border: '1px solid rgba(201,169,110,0.3)',
-                    background: 'rgba(201,169,110,0.05)',
+                    border: '1px solid rgba(244,221,195,0.3)',
+                    background: 'rgba(244,221,195,0.05)',
                   }}
                 >
                   <svg
                     width="28"
                     height="28"
                     fill="none"
-                    stroke="#C9A96E"
+                    stroke="#F4DDC3"
                     strokeWidth="1.5"
                     viewBox="0 0 24 24"
                   >
@@ -342,7 +342,7 @@ function ValuesSection() {
                   style={{
                     fontFamily: 'var(--font-playfair)',
                     fontWeight: 600,
-                    color: '#F5F5F0',
+                    color: '#FFFFFF',
                   }}
                 >
                   {v.title}
@@ -396,7 +396,7 @@ function TeamSection() {
   ];
 
   return (
-    <section className="section-padding" style={{ background: '#0A0A0A' }}>
+    <section className="section-padding" style={{ background: '#0E202D' }}>
       <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <SectionTitle
           preTitle="NOTRE \u00c9QUIPE"
@@ -413,7 +413,7 @@ function TeamSection() {
                 {/* Portrait placeholder */}
                 <div
                   className="w-full aspect-[3/4] relative overflow-hidden mb-6"
-                  style={{ background: '#1E1E1E' }}
+                  style={{ background: '#1A3448' }}
                 >
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
@@ -421,7 +421,7 @@ function TeamSection() {
                         width="48"
                         height="48"
                         fill="none"
-                        stroke="#C9A96E"
+                        stroke="#F4DDC3"
                         strokeWidth="1"
                         viewBox="0 0 24 24"
                         className="opacity-20 mx-auto mb-2"
@@ -439,7 +439,7 @@ function TeamSection() {
                   <div
                     className="absolute bottom-0 left-0 right-0 h-1/3"
                     style={{
-                      background: 'linear-gradient(to top, #0A0A0A, transparent)',
+                      background: 'linear-gradient(to top, #0E202D, transparent)',
                     }}
                   />
                 </div>
@@ -449,7 +449,7 @@ function TeamSection() {
                   style={{
                     fontFamily: 'var(--font-playfair)',
                     fontWeight: 600,
-                    color: '#F5F5F0',
+                    color: '#FFFFFF',
                   }}
                 >
                   {member.name}
@@ -459,7 +459,7 @@ function TeamSection() {
                   style={{
                     fontFamily: 'var(--font-montserrat)',
                     fontWeight: 500,
-                    color: '#C9A96E',
+                    color: '#F4DDC3',
                   }}
                 >
                   {member.role}
@@ -498,11 +498,11 @@ function KeyFiguresSection() {
 
   return (
     <section className="section-padding relative overflow-hidden">
-      <div className="absolute inset-0" style={{ background: '#141414' }}>
+      <div className="absolute inset-0" style={{ background: '#132A3A' }}>
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
-            background: 'radial-gradient(circle at 50% 50%, #C9A96E 0%, transparent 70%)',
+            background: 'radial-gradient(circle at 50% 50%, #F4DDC3 0%, transparent 70%)',
           }}
         />
       </div>
@@ -524,7 +524,7 @@ function KeyFiguresSection() {
                 className="px-6 md:px-12"
               />
               {i < stats.length - 1 && (
-                <div className="hidden md:block w-[1px] h-12 bg-[#C9A96E] opacity-30" />
+                <div className="hidden md:block w-[1px] h-12 bg-[#F4DDC3] opacity-30" />
               )}
             </div>
           ))}
@@ -558,7 +558,7 @@ function CertificationsSection() {
   ];
 
   return (
-    <section className="section-padding" style={{ background: '#0A0A0A' }}>
+    <section className="section-padding" style={{ background: '#0E202D' }}>
       <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <SectionTitle
           preTitle="CERTIFICATIONS"
@@ -572,14 +572,14 @@ function CertificationsSection() {
             <ScrollReveal key={cert.name} delay={i * 0.15}>
               <div
                 className="p-8 text-center h-full"
-                style={{ background: '#141414', border: '1px solid #1E1E1E' }}
+                style={{ background: '#132A3A', border: '1px solid #1A3448' }}
               >
                 {/* Logo placeholder */}
                 <div
                   className="w-20 h-20 mx-auto mb-6 flex items-center justify-center"
                   style={{
-                    border: '1px solid rgba(201,169,110,0.2)',
-                    background: 'rgba(201,169,110,0.03)',
+                    border: '1px solid rgba(244,221,195,0.2)',
+                    background: 'rgba(244,221,195,0.03)',
                   }}
                 >
                   <span
@@ -587,7 +587,7 @@ function CertificationsSection() {
                     style={{
                       fontFamily: 'var(--font-montserrat)',
                       fontWeight: 700,
-                      color: '#C9A96E',
+                      color: '#F4DDC3',
                       letterSpacing: '0.05em',
                     }}
                   >
@@ -599,7 +599,7 @@ function CertificationsSection() {
                   style={{
                     fontFamily: 'var(--font-playfair)',
                     fontWeight: 600,
-                    color: '#F5F5F0',
+                    color: '#FFFFFF',
                   }}
                 >
                   {cert.fullName}
@@ -630,14 +630,14 @@ function CertificationsSection() {
 
 function RSESection() {
   return (
-    <section className="section-padding" style={{ background: '#141414' }}>
+    <section className="section-padding" style={{ background: '#132A3A' }}>
       <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image placeholder */}
           <ScrollReveal>
             <div
               className="aspect-[4/3] relative overflow-hidden"
-              style={{ background: '#1E1E1E' }}
+              style={{ background: '#1A3448' }}
             >
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
@@ -645,7 +645,7 @@ function RSESection() {
                     width="48"
                     height="48"
                     fill="none"
-                    stroke="#C9A96E"
+                    stroke="#F4DDC3"
                     strokeWidth="1"
                     viewBox="0 0 24 24"
                     className="opacity-20 mx-auto mb-2"
@@ -677,18 +677,18 @@ function RSESection() {
                   <div
                     className="w-10 h-10 shrink-0 flex items-center justify-center"
                     style={{
-                      border: '1px solid rgba(201,169,110,0.3)',
-                      background: 'rgba(201,169,110,0.05)',
+                      border: '1px solid rgba(244,221,195,0.3)',
+                      background: 'rgba(244,221,195,0.05)',
                     }}
                   >
-                    <svg width="18" height="18" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
+                    <svg width="18" height="18" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24">
                       <path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div>
                     <h4
                       className="text-[16px] mb-2"
-                      style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 600, color: '#F5F5F0' }}
+                      style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 600, color: '#FFFFFF' }}
                     >
                       Compensation carbone int\u00e9grale
                     </h4>
@@ -707,18 +707,18 @@ function RSESection() {
                   <div
                     className="w-10 h-10 shrink-0 flex items-center justify-center"
                     style={{
-                      border: '1px solid rgba(201,169,110,0.3)',
-                      background: 'rgba(201,169,110,0.05)',
+                      border: '1px solid rgba(244,221,195,0.3)',
+                      background: 'rgba(244,221,195,0.05)',
                     }}
                   >
-                    <svg width="18" height="18" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
+                    <svg width="18" height="18" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24">
                       <path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div>
                     <h4
                       className="text-[16px] mb-2"
-                      style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 600, color: '#F5F5F0' }}
+                      style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 600, color: '#FFFFFF' }}
                     >
                       Carburant durable (SAF)
                     </h4>
@@ -737,18 +737,18 @@ function RSESection() {
                   <div
                     className="w-10 h-10 shrink-0 flex items-center justify-center"
                     style={{
-                      border: '1px solid rgba(201,169,110,0.3)',
-                      background: 'rgba(201,169,110,0.05)',
+                      border: '1px solid rgba(244,221,195,0.3)',
+                      background: 'rgba(244,221,195,0.05)',
                     }}
                   >
-                    <svg width="18" height="18" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
+                    <svg width="18" height="18" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24">
                       <path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div>
                     <h4
                       className="text-[16px] mb-2"
-                      style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 600, color: '#F5F5F0' }}
+                      style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 600, color: '#FFFFFF' }}
                     >
                       Optimisation des itin\u00e9raires
                     </h4>
@@ -779,13 +779,13 @@ function CTASection() {
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(135deg, #0A0A0A 0%, #1a1510 50%, #0A0A0A 100%)',
+          background: 'linear-gradient(135deg, #0E202D 0%, #122838 50%, #0E202D 100%)',
         }}
       />
       <div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(201,169,110,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at center, rgba(244,221,195,0.08) 0%, transparent 70%)',
         }}
       />
       <div className="relative px-[5vw] text-center" style={{ maxWidth: "800px", margin: "0 auto" }}>
@@ -795,7 +795,7 @@ function CTASection() {
             style={{
               fontFamily: 'var(--font-playfair)',
               fontWeight: 700,
-              color: '#F5F5F0',
+              color: '#FFFFFF',
             }}
           >
             Rejoignez l&apos;excellence Skyseaker

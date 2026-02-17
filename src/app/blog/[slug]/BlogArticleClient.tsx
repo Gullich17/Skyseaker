@@ -16,7 +16,7 @@ function ArticleHero({ article }: { article: ArticleData }) {
   return (
     <section className="relative min-h-[60vh] flex items-end overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0" style={{ background: '#1E1E1E' }}>
+        <div className="absolute inset-0" style={{ background: '#1A3448' }}>
           <div className="absolute inset-0 flex items-center justify-center">
             <span
               className="text-[12px] text-[#6B6B6B] uppercase tracking-[0.1em]"
@@ -32,7 +32,7 @@ function ArticleHero({ article }: { article: ArticleData }) {
         className="absolute inset-0 z-[1]"
         style={{
           background:
-            'linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.5) 40%, rgba(10,10,10,0.3) 100%)',
+            'linear-gradient(to top, rgba(14,32,45,0.95) 0%, rgba(14,32,45,0.5) 40%, rgba(14,32,45,0.3) 100%)',
         }}
       />
 
@@ -62,7 +62,7 @@ function ArticleHero({ article }: { article: ArticleData }) {
           style={{
             fontFamily: 'var(--font-playfair)',
             fontWeight: 700,
-            color: '#F5F5F0',
+            color: '#FFFFFF',
             lineHeight: 1.15,
           }}
         >
@@ -83,13 +83,13 @@ function ArticleHero({ article }: { article: ArticleData }) {
             {/* Author avatar placeholder */}
             <div
               className="w-10 h-10 rounded-full flex items-center justify-center"
-              style={{ background: '#141414', border: '1px solid #1E1E1E' }}
+              style={{ background: '#132A3A', border: '1px solid #1A3448' }}
             >
               <svg
                 width="16"
                 height="16"
                 fill="none"
-                stroke="#C9A96E"
+                stroke="#F4DDC3"
                 strokeWidth="1.5"
                 viewBox="0 0 24 24"
               >
@@ -102,7 +102,7 @@ function ArticleHero({ article }: { article: ArticleData }) {
                 style={{
                   fontFamily: 'var(--font-montserrat)',
                   fontWeight: 500,
-                  color: '#F5F5F0',
+                  color: '#FFFFFF',
                 }}
               >
                 {article.author.name}
@@ -119,14 +119,14 @@ function ArticleHero({ article }: { article: ArticleData }) {
               </p>
             </div>
           </div>
-          <span className="w-[1px] h-4 bg-[#1E1E1E]" />
+          <span className="w-[1px] h-4 bg-[#1A3448]" />
           <span
             className="text-[13px] text-[#A0A0A0]"
             style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300 }}
           >
             {article.date}
           </span>
-          <span className="w-[1px] h-4 bg-[#1E1E1E]" />
+          <span className="w-[1px] h-4 bg-[#1A3448]" />
           <span
             className="text-[13px] text-[#A0A0A0]"
             style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300 }}
@@ -157,7 +157,7 @@ function TableOfContents({
         style={{
           fontFamily: 'var(--font-montserrat)',
           fontWeight: 600,
-          color: '#C9A96E',
+          color: '#F4DDC3',
         }}
       >
         Sommaire
@@ -171,10 +171,10 @@ function TableOfContents({
             style={{
               fontFamily: 'var(--font-montserrat)',
               fontWeight: activeSection === section.id ? 500 : 300,
-              color: activeSection === section.id ? '#C9A96E' : '#6B6B6B',
+              color: activeSection === section.id ? '#F4DDC3' : '#6B6B6B',
               borderLeft:
                 activeSection === section.id
-                  ? '2px solid #C9A96E'
+                  ? '2px solid #F4DDC3'
                   : '2px solid transparent',
               paddingLeft: '12px',
             }}
@@ -187,14 +187,14 @@ function TableOfContents({
       {/* Social share */}
       <div
         className="mt-10 pt-8"
-        style={{ borderTop: '1px solid #1E1E1E' }}
+        style={{ borderTop: '1px solid #1A3448' }}
       >
         <p
           className="text-[11px] uppercase tracking-[0.2em] mb-4"
           style={{
             fontFamily: 'var(--font-montserrat)',
             fontWeight: 600,
-            color: '#C9A96E',
+            color: '#F4DDC3',
           }}
         >
           Partager
@@ -217,8 +217,8 @@ function ShareButton({ label, icon }: { label: string; icon: string }) {
       whileTap={{ scale: 0.95 }}
       className="w-10 h-10 flex items-center justify-center"
       style={{
-        background: 'rgba(201,169,110,0.05)',
-        border: '1px solid rgba(201,169,110,0.2)',
+        background: 'rgba(244,221,195,0.05)',
+        border: '1px solid rgba(244,221,195,0.2)',
       }}
       title={label}
     >
@@ -226,7 +226,7 @@ function ShareButton({ label, icon }: { label: string; icon: string }) {
         width="16"
         height="16"
         fill="none"
-        stroke="#C9A96E"
+        stroke="#F4DDC3"
         strokeWidth="1.5"
         viewBox="0 0 24 24"
       >
@@ -266,7 +266,7 @@ function ArticleBody({ article }: { article: ArticleData }) {
   }, [article.sections]);
 
   return (
-    <section className="section-padding" style={{ background: '#0A0A0A' }}>
+    <section className="section-padding" style={{ background: '#0E202D' }}>
       <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-12">
           {/* Sidebar */}
@@ -285,7 +285,7 @@ function ArticleBody({ article }: { article: ArticleData }) {
                     style={{
                       fontFamily: 'var(--font-playfair)',
                       fontWeight: 600,
-                      color: '#F5F5F0',
+                      color: '#FFFFFF',
                       lineHeight: 1.3,
                     }}
                   >
@@ -314,8 +314,8 @@ function ArticleBody({ article }: { article: ArticleData }) {
                     <blockquote
                       className="my-8 pl-6 py-4"
                       style={{
-                        borderLeft: '2px solid #C9A96E',
-                        background: 'rgba(201,169,110,0.03)',
+                        borderLeft: '2px solid #F4DDC3',
+                        background: 'rgba(244,221,195,0.03)',
                       }}
                     >
                       <p
@@ -324,7 +324,7 @@ function ArticleBody({ article }: { article: ArticleData }) {
                           fontFamily: 'var(--font-cormorant)',
                           fontStyle: 'italic',
                           fontWeight: 400,
-                          color: '#F5F5F0',
+                          color: '#FFFFFF',
                           lineHeight: 1.6,
                         }}
                       >
@@ -337,7 +337,7 @@ function ArticleBody({ article }: { article: ArticleData }) {
                 {sIdx < article.sections.length - 1 && (
                   <div
                     className="w-12 h-[1px] my-12"
-                    style={{ background: 'rgba(201,169,110,0.2)' }}
+                    style={{ background: 'rgba(244,221,195,0.2)' }}
                   />
                 )}
               </div>
@@ -350,7 +350,7 @@ function ArticleBody({ article }: { article: ArticleData }) {
                 style={{
                   fontFamily: 'var(--font-montserrat)',
                   fontWeight: 600,
-                  color: '#C9A96E',
+                  color: '#F4DDC3',
                 }}
               >
                 Partager cet article
@@ -381,14 +381,14 @@ function RelatedArticles({
   if (articles.length === 0) return null;
 
   return (
-    <section className="section-padding" style={{ background: '#141414' }}>
+    <section className="section-padding" style={{ background: '#132A3A' }}>
       <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <h2
           className="text-[28px] md:text-[36px] mb-12 text-center"
           style={{
             fontFamily: 'var(--font-playfair)',
             fontWeight: 600,
-            color: '#F5F5F0',
+            color: '#FFFFFF',
           }}
         >
           Articles similaires
@@ -405,7 +405,7 @@ function RelatedArticles({
                   {/* Image placeholder */}
                   <div
                     className="aspect-[16/9] relative"
-                    style={{ background: '#1E1E1E' }}
+                    style={{ background: '#1A3448' }}
                   >
                     <div className="absolute inset-0 flex items-center justify-center text-[#6B6B6B] text-xs">
                       {article.heroImage}
@@ -416,11 +416,11 @@ function RelatedArticles({
                   </div>
                   <div className="p-6">
                     <h3
-                      className="text-[18px] mb-3 group-hover:text-[#C9A96E] transition-colors"
+                      className="text-[18px] mb-3 group-hover:text-[#F4DDC3] transition-colors"
                       style={{
                         fontFamily: 'var(--font-playfair)',
                         fontWeight: 600,
-                        color: '#F5F5F0',
+                        color: '#FFFFFF',
                         lineHeight: 1.4,
                       }}
                     >
@@ -434,11 +434,11 @@ function RelatedArticles({
                       }}
                     >
                       <span>{article.date}</span>
-                      <span className="w-[1px] h-3 bg-[#1E1E1E]" />
+                      <span className="w-[1px] h-3 bg-[#1A3448]" />
                       <span>{article.readTime} de lecture</span>
                     </div>
                     <span
-                      className="block mt-4 text-[12px] uppercase tracking-[0.15em] text-[#C9A96E]"
+                      className="block mt-4 text-[12px] uppercase tracking-[0.15em] text-[#F4DDC3]"
                       style={{
                         fontFamily: 'var(--font-montserrat)',
                         fontWeight: 500,
@@ -468,14 +468,14 @@ function NewsletterCTA() {
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(135deg, #0A0A0A 0%, #1a1510 50%, #0A0A0A 100%)',
+            'linear-gradient(135deg, #0E202D 0%, #122838 50%, #0E202D 100%)',
         }}
       />
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse at center, rgba(201,169,110,0.06) 0%, transparent 70%)',
+            'radial-gradient(ellipse at center, rgba(244,221,195,0.06) 0%, transparent 70%)',
         }}
       />
       <div className="relative px-[5vw] text-center" style={{ maxWidth: "600px", margin: "0 auto" }}>
@@ -485,7 +485,7 @@ function NewsletterCTA() {
             style={{
               fontFamily: 'var(--font-playfair)',
               fontWeight: 600,
-              color: '#F5F5F0',
+              color: '#FFFFFF',
             }}
           >
             Ne manquez rien
@@ -505,9 +505,9 @@ function NewsletterCTA() {
             <input
               type="email"
               placeholder="Votre adresse email"
-              className="w-full sm:flex-1 px-4 py-3 text-[14px] bg-transparent border text-[#F5F5F0]"
+              className="w-full sm:flex-1 px-4 py-3 text-[14px] bg-transparent border text-[#FFFFFF]"
               style={{
-                borderColor: '#1E1E1E',
+                borderColor: '#1A3448',
                 fontFamily: 'var(--font-montserrat)',
                 fontWeight: 300,
               }}

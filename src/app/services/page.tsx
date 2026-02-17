@@ -96,19 +96,19 @@ function HeroSection() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(135deg, #0A0A0A 0%, #141414 40%, #1a1510 60%, #0A0A0A 100%)',
+              'linear-gradient(135deg, #0E202D 0%, #132A3A 40%, #122838 60%, #0E202D 100%)',
           }}
         />
         <div
           className="absolute top-1/3 left-0 right-0 h-[1px] opacity-[0.05]"
           style={{
-            background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+            background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
           }}
         />
         <div
           className="absolute top-2/3 left-0 right-0 h-[1px] opacity-[0.03]"
           style={{
-            background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+            background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
           }}
         />
       </div>
@@ -118,7 +118,7 @@ function HeroSection() {
         className="absolute inset-0 z-[1]"
         style={{
           background:
-            'linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.3) 50%, rgba(10,10,10,0.6) 100%)',
+            'linear-gradient(to top, rgba(14,32,45,0.8) 0%, rgba(14,32,45,0.3) 50%, rgba(14,32,45,0.6) 100%)',
         }}
       />
 
@@ -132,7 +132,7 @@ function HeroSection() {
             fontSize: '12px',
             textTransform: 'uppercase',
             letterSpacing: '0.3em',
-            color: '#C9A96E',
+            color: '#F4DDC3',
           }}
         >
           Skyseaker
@@ -142,7 +142,7 @@ function HeroSection() {
           style={{
             fontFamily: 'var(--font-playfair), "Playfair Display", serif',
             fontWeight: 700,
-            color: '#F5F5F0',
+            color: '#FFFFFF',
             lineHeight: 1.15,
           }}
         >
@@ -168,7 +168,7 @@ function HeroSection() {
           style={{
             width: '80px',
             height: '1px',
-            background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+            background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
           }}
         />
       </div>
@@ -201,8 +201,8 @@ function ServiceRow({
             className="relative w-full overflow-hidden"
             style={{
               aspectRatio: '16 / 10',
-              backgroundColor: '#141414',
-              border: '1px solid #1E1E1E',
+              backgroundColor: '#132A3A',
+              border: '1px solid #1A3448',
             }}
           >
             {/* Gradient overlay */}
@@ -210,7 +210,7 @@ function ServiceRow({
               className="absolute inset-0 z-[1]"
               style={{
                 background:
-                  'linear-gradient(135deg, rgba(201,169,110,0.08) 0%, transparent 50%, rgba(10,10,10,0.4) 100%)',
+                  'linear-gradient(135deg, rgba(244,221,195,0.08) 0%, transparent 50%, rgba(14,32,45,0.4) 100%)',
               }}
             />
             {/* Icon centered */}
@@ -219,12 +219,12 @@ function ServiceRow({
                 style={{
                   width: '80px',
                   height: '80px',
-                  border: '1px solid rgba(201,169,110,0.3)',
+                  border: '1px solid rgba(244,221,195,0.3)',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#C9A96E',
+                  color: '#F4DDC3',
                 }}
               >
                 <ServiceIcon
@@ -237,15 +237,15 @@ function ServiceRow({
             <div
               className="absolute top-4 left-4 w-8 h-8 z-[2]"
               style={{
-                borderTop: '1px solid rgba(201,169,110,0.3)',
-                borderLeft: '1px solid rgba(201,169,110,0.3)',
+                borderTop: '1px solid rgba(244,221,195,0.3)',
+                borderLeft: '1px solid rgba(244,221,195,0.3)',
               }}
             />
             <div
               className="absolute bottom-4 right-4 w-8 h-8 z-[2]"
               style={{
-                borderBottom: '1px solid rgba(201,169,110,0.3)',
-                borderRight: '1px solid rgba(201,169,110,0.3)',
+                borderBottom: '1px solid rgba(244,221,195,0.3)',
+                borderRight: '1px solid rgba(244,221,195,0.3)',
               }}
             />
           </div>
@@ -262,7 +262,7 @@ function ServiceRow({
               fontSize: '12px',
               textTransform: 'uppercase',
               letterSpacing: '0.2em',
-              color: '#C9A96E',
+              color: '#F4DDC3',
             }}
           >
             0{index + 1} &mdash; {service.shortTitle}
@@ -273,7 +273,7 @@ function ServiceRow({
             style={{
               fontFamily: 'var(--font-playfair), "Playfair Display", serif',
               fontWeight: 600,
-              color: '#F5F5F0',
+              color: '#FFFFFF',
               lineHeight: 1.2,
             }}
           >
@@ -302,7 +302,7 @@ function ServiceRow({
                   style={{
                     width: '6px',
                     height: '6px',
-                    backgroundColor: '#C9A96E',
+                    backgroundColor: '#F4DDC3',
                     borderRadius: '50%',
                   }}
                 />
@@ -311,7 +311,7 @@ function ServiceRow({
                     fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
                     fontWeight: 400,
                     fontSize: '13px',
-                    color: '#F5F5F0',
+                    color: '#FFFFFF',
                     lineHeight: 1.5,
                   }}
                 >
@@ -335,7 +335,7 @@ function ServiceRow({
    ============================================ */
 function ServicesListingSection() {
   return (
-    <section className="section-padding" style={{ backgroundColor: '#0A0A0A' }}>
+    <section className="section-padding" style={{ backgroundColor: '#0E202D' }}>
       <div className="container-luxury">
         <div className="space-y-24 lg:space-y-32">
           {services.map((service, index) => (
@@ -348,7 +348,7 @@ function ServicesListingSection() {
                     width: '200px',
                     height: '1px',
                     background:
-                      'linear-gradient(90deg, transparent, rgba(201,169,110,0.3), transparent)',
+                      'linear-gradient(90deg, transparent, rgba(244,221,195,0.3), transparent)',
                   }}
                 />
               )}
@@ -368,9 +368,9 @@ function CtaSection() {
     <section
       className="section-padding"
       style={{
-        backgroundColor: '#141414',
-        borderTop: '1px solid rgba(201,169,110,0.1)',
-        borderBottom: '1px solid rgba(201,169,110,0.1)',
+        backgroundColor: '#132A3A',
+        borderTop: '1px solid rgba(244,221,195,0.1)',
+        borderBottom: '1px solid rgba(244,221,195,0.1)',
       }}
     >
       <div className="container-luxury text-center">

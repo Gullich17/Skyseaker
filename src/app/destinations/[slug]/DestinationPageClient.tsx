@@ -61,22 +61,22 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
 
   return (
     <ScrollReveal delay={index * 0.08}>
-      <div style={{ borderBottom: "1px solid rgba(30, 30, 30, 0.8)" }}>
+      <div style={{ borderBottom: "1px solid rgba(26, 52, 72, 0.8)" }}>
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="group"
           style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "20px 0", textAlign: "left", cursor: "pointer", background: "none", border: "none" }}
         >
           <span
-            className="group-hover:text-[#C9A96E] transition-colors"
-            style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F5F5F0", fontSize: "16px", paddingRight: "16px" }}
+            className="group-hover:text-[#F4DDC3] transition-colors"
+            style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#FFFFFF", fontSize: "16px", paddingRight: "16px" }}
           >
             {question}
           </span>
           <motion.svg
             animate={{ rotate: isOpen ? 45 : 0 }}
             transition={{ duration: 0.3, ease: EASE }}
-            width="20" height="20" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24"
+            width="20" height="20" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24"
             style={{ flexShrink: 0 }}
           >
             <path d="M12 4.5v15m7.5-7.5h-15" />
@@ -107,11 +107,11 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
    ============================================ */
 function InfoRow({ label, value, gold }: { label: string; value: string; gold?: boolean }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid rgba(30, 30, 30, 0.8)" }}>
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid rgba(26, 52, 72, 0.8)" }}>
       <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#6B6B6B", fontSize: "12px" }}>
         {label}
       </span>
-      <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, color: gold ? "#C9A96E" : "#F5F5F0", fontSize: "14px" }}>
+      <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, color: gold ? "#F4DDC3" : "#FFFFFF", fontSize: "14px" }}>
         {value}
       </span>
     </div>
@@ -124,13 +124,13 @@ function InfoRow({ label, value, gold }: { label: string; value: string; gold?: 
 function SectionHeader({ preTitle, title, centered }: { preTitle: string; title: string; centered?: boolean }) {
   return (
     <div style={{ textAlign: centered ? "center" : "left", marginBottom: "clamp(32px, 5vw, 48px)" }}>
-      <p style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "12px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#C9A96E" }}>
+      <p style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "12px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F4DDC3" }}>
         {preTitle}
       </p>
-      <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "clamp(24px, 4vw, 40px)", lineHeight: 1.2, marginBottom: "16px" }}>
+      <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "clamp(24px, 4vw, 40px)", lineHeight: 1.2, marginBottom: "16px" }}>
         {title}
       </h2>
-      <div style={{ width: "60px", height: "1px", background: "#C9A96E", opacity: 0.3, margin: centered ? "0 auto" : undefined }} />
+      <div style={{ width: "60px", height: "1px", background: "#F4DDC3", opacity: 0.3, margin: centered ? "0 auto" : undefined }} />
     </div>
   );
 }
@@ -168,7 +168,7 @@ export default function DestinationPageClient({
             className="object-cover"
             priority
           />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.4) 40%, rgba(10,10,10,0.6) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(14,32,45,0.95) 0%, rgba(14,32,45,0.4) 40%, rgba(14,32,45,0.6) 100%)" }} />
         </div>
 
         <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1200px", margin: "0 auto", padding: "clamp(100px, 14vh, 160px) 24px clamp(40px, 6vw, 64px)" }}>
@@ -196,7 +196,7 @@ export default function DestinationPageClient({
           <motion.h1
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: EASE }}
-            style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", lineHeight: 1.1, fontSize: "clamp(36px, 8vw, 72px)", marginBottom: "12px" }}
+            style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.1, fontSize: "clamp(36px, 8vw, 72px)", marginBottom: "12px" }}
           >
             {destination.name}
           </motion.h1>
@@ -222,8 +222,8 @@ export default function DestinationPageClient({
               { label: "À partir de", value: `${destination.priceFrom}€`, icon: "M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" },
             ].map((info) => (
               <div key={info.label} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <div style={{ width: "40px", height: "40px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, background: "rgba(201, 169, 110, 0.05)", border: "1px solid rgba(201, 169, 110, 0.2)" }}>
-                  <svg width="18" height="18" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
+                <div style={{ width: "40px", height: "40px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, background: "rgba(244, 221, 195, 0.05)", border: "1px solid rgba(244, 221, 195, 0.2)" }}>
+                  <svg width="18" height="18" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24">
                     <path d={info.icon} />
                   </svg>
                 </div>
@@ -231,7 +231,7 @@ export default function DestinationPageClient({
                   <span style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#6B6B6B" }}>
                     {info.label}
                   </span>
-                  <span style={{ display: "block", fontSize: "15px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F5F5F0" }}>
+                  <span style={{ display: "block", fontSize: "15px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#FFFFFF" }}>
                     {info.value}
                   </span>
                 </div>
@@ -244,7 +244,7 @@ export default function DestinationPageClient({
       {/* ============================================
          SEO TEXT + INFO SIDEBAR
          ============================================ */}
-      <section style={{ background: "#0A0A0A", padding: "clamp(60px, 10vw, 120px) 0" }}>
+      <section style={{ background: "#0E202D", padding: "clamp(60px, 10vw, 120px) 0" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
           {/* 2-column layout: CSS grid with sidebar on desktop, stacked on mobile */}
           <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: "clamp(32px, 5vw, 64px)" }} className="sidebar-grid">
@@ -277,8 +277,8 @@ export default function DestinationPageClient({
             {/* Right - Info sidebar */}
             <div>
               <ScrollReveal delay={0.15}>
-                <div style={{ padding: "clamp(20px, 3vw, 24px)", backgroundColor: "#141414", border: "1px solid #1E1E1E", position: "sticky", top: "100px" }}>
-                  <h3 style={{ fontSize: "14px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "24px", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#C9A96E" }}>
+                <div style={{ padding: "clamp(20px, 3vw, 24px)", backgroundColor: "#132A3A", border: "1px solid #1A3448", position: "sticky", top: "100px" }}>
+                  <h3 style={{ fontSize: "14px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "24px", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F4DDC3" }}>
                     Informations clés
                   </h3>
 
@@ -302,7 +302,7 @@ export default function DestinationPageClient({
       {/* ============================================
          AIRPORTS
          ============================================ */}
-      <section style={{ background: "#141414", padding: "clamp(60px, 10vw, 120px) 0" }}>
+      <section style={{ background: "#132A3A", padding: "clamp(60px, 10vw, 120px) 0" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
           <SectionHeader
             preTitle="AÉROPORTS"
@@ -311,16 +311,16 @@ export default function DestinationPageClient({
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "clamp(16px, 2vw, 24px)" }}>
             {destination.airports.map((airport, i) => (
               <ScrollReveal key={airport.code} delay={i * 0.1}>
-                <div style={{ padding: "clamp(20px, 3vw, 24px)", backgroundColor: "#0A0A0A", border: "1px solid #1E1E1E" }}>
+                <div style={{ padding: "clamp(20px, 3vw, 24px)", backgroundColor: "#0E202D", border: "1px solid #1A3448" }}>
                   <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "16px" }}>
-                    <div style={{ width: "48px", height: "48px", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(201, 169, 110, 0.05)", border: "1px solid rgba(201, 169, 110, 0.2)" }}>
-                      <svg width="22" height="22" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
+                    <div style={{ width: "48px", height: "48px", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(244, 221, 195, 0.05)", border: "1px solid rgba(244, 221, 195, 0.2)" }}>
+                      <svg width="22" height="22" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24">
                         <path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12M3 20h18" />
                       </svg>
                     </div>
                     <Badge>{airport.code}</Badge>
                   </div>
-                  <h4 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "18px", marginBottom: "8px" }}>
+                  <h4 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "18px", marginBottom: "8px" }}>
                     {airport.name}
                   </h4>
                   <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B", fontSize: "13px" }}>
@@ -337,7 +337,7 @@ export default function DestinationPageClient({
          RECOMMENDED AIRCRAFT
          ============================================ */}
       {recommendedFleet.length > 0 && (
-        <section style={{ background: "#0A0A0A", padding: "clamp(60px, 10vw, 120px) 0" }}>
+        <section style={{ background: "#0E202D", padding: "clamp(60px, 10vw, 120px) 0" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
             <SectionHeader
               preTitle="APPAREILS RECOMMANDÉS"
@@ -348,7 +348,7 @@ export default function DestinationPageClient({
               {recommendedFleet.map((aircraft, i) => (
                 <ScrollReveal key={aircraft.id} delay={i * 0.1}>
                   <Link href={`/flotte/${aircraft.categorySlug}/${aircraft.id}`} className="block group">
-                    <div style={{ backgroundColor: "#141414", border: "1px solid #1E1E1E", borderRadius: "2px", overflow: "hidden", boxShadow: "0 20px 60px rgba(0,0,0,0.3)", transition: "transform 0.4s ease, box-shadow 0.4s ease" }}>
+                    <div style={{ backgroundColor: "#132A3A", border: "1px solid #1A3448", borderRadius: "2px", overflow: "hidden", boxShadow: "0 20px 60px rgba(0,0,0,0.3)", transition: "transform 0.4s ease, box-shadow 0.4s ease" }}>
                       {/* Image */}
                       <div style={{ aspectRatio: "16/9", position: "relative", overflow: "hidden" }}>
                         <Image
@@ -358,7 +358,7 @@ export default function DestinationPageClient({
                           style={{ objectFit: "cover", transition: "transform 0.7s ease" }}
                           className="group-hover:scale-105"
                         />
-                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(20,20,20,0.7) 0%, transparent 50%)" }} />
+                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(19,42,58,0.7) 0%, transparent 50%)" }} />
                         <div style={{ position: "absolute", top: "12px", left: "12px" }}>
                           <Badge>{aircraft.category}</Badge>
                         </div>
@@ -366,19 +366,19 @@ export default function DestinationPageClient({
                       {/* Content */}
                       <div style={{ padding: "clamp(16px, 3vw, 20px)" }}>
                         <h4
-                          className="group-hover:text-[#C9A96E] transition-colors"
-                          style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0", fontSize: "18px", marginBottom: "8px" }}
+                          className="group-hover:text-[#F4DDC3] transition-colors"
+                          style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "18px", marginBottom: "8px" }}
                         >
                           {aircraft.name}
                         </h4>
                         <div style={{ display: "flex", alignItems: "center", gap: "16px", fontSize: "12px", fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#A0A0A0" }}>
                           <span>{aircraft.passengers} pax</span>
-                          <span style={{ width: "1px", height: "12px", background: "#1E1E1E" }} />
+                          <span style={{ width: "1px", height: "12px", background: "#1A3448" }} />
                           <span>{aircraft.range.toLocaleString("fr-FR")} km</span>
-                          <span style={{ width: "1px", height: "12px", background: "#1E1E1E" }} />
+                          <span style={{ width: "1px", height: "12px", background: "#1A3448" }} />
                           <span>{aircraft.speed} km/h</span>
                         </div>
-                        <span style={{ display: "block", marginTop: "16px", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>
+                        <span style={{ display: "block", marginTop: "16px", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>
                           Voir la fiche →
                         </span>
                       </div>
@@ -394,7 +394,7 @@ export default function DestinationPageClient({
       {/* ============================================
          FAQ
          ============================================ */}
-      <section style={{ background: "#141414", padding: "clamp(60px, 10vw, 120px) 0" }}>
+      <section style={{ background: "#132A3A", padding: "clamp(60px, 10vw, 120px) 0" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", padding: "0 24px" }}>
           <SectionHeader
             preTitle="QUESTIONS FRÉQUENTES"
@@ -413,11 +413,11 @@ export default function DestinationPageClient({
          CTA
          ============================================ */}
       <section style={{ position: "relative", padding: "clamp(60px, 10vw, 120px) 0", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #0A0A0A 0%, #1a1510 50%, #0A0A0A 100%)" }} />
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, rgba(201,169,110,0.1) 0%, transparent 70%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #0E202D 0%, #122838 50%, #0E202D 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, rgba(244,221,195,0.1) 0%, transparent 70%)" }} />
         <div style={{ position: "relative", maxWidth: "800px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
           <ScrollReveal>
-            <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", fontSize: "clamp(28px, 5vw, 48px)", marginBottom: "16px" }}>
+            <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", fontSize: "clamp(28px, 5vw, 48px)", marginBottom: "16px" }}>
               Envolez-vous vers {destination.name}
             </h2>
             <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", fontSize: "clamp(16px, 2.5vw, 20px)", marginBottom: "12px" }}>

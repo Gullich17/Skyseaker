@@ -16,7 +16,7 @@ function CheckIcon() {
     <svg
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#C9A96E"
+      stroke="#F4DDC3"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -77,13 +77,13 @@ function HeroSection({ service }: { service: Service }) {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(135deg, #0A0A0A 0%, #141414 40%, #1a1510 60%, #0A0A0A 100%)',
+              'linear-gradient(135deg, #0E202D 0%, #132A3A 40%, #122838 60%, #0E202D 100%)',
           }}
         />
         <div
           className="absolute top-1/3 left-0 right-0 h-[1px] opacity-[0.05]"
           style={{
-            background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+            background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
           }}
         />
       </div>
@@ -92,7 +92,7 @@ function HeroSection({ service }: { service: Service }) {
         className="absolute inset-0 z-[1]"
         style={{
           background:
-            'linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.3) 50%, rgba(10,10,10,0.6) 100%)',
+            'linear-gradient(to top, rgba(14,32,45,0.8) 0%, rgba(14,32,45,0.3) 50%, rgba(14,32,45,0.6) 100%)',
         }}
       />
 
@@ -132,7 +132,7 @@ function HeroSection({ service }: { service: Service }) {
             fontSize: '12px',
             textTransform: 'uppercase',
             letterSpacing: '0.3em',
-            color: '#C9A96E',
+            color: '#F4DDC3',
             marginBottom: '16px',
           }}
         >
@@ -147,7 +147,7 @@ function HeroSection({ service }: { service: Service }) {
           style={{
             fontFamily: 'var(--font-playfair), "Playfair Display", serif',
             fontWeight: 700,
-            color: '#F5F5F0',
+            color: '#FFFFFF',
             lineHeight: 1.15,
           }}
         >
@@ -179,7 +179,7 @@ function HeroSection({ service }: { service: Service }) {
           style={{
             width: '80px',
             height: '1px',
-            background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)',
+            background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
           }}
         />
       </div>
@@ -192,7 +192,7 @@ function HeroSection({ service }: { service: Service }) {
    ============================================ */
 function DescriptionSection({ service }: { service: Service }) {
   return (
-    <section className="section-padding" style={{ backgroundColor: '#0A0A0A' }}>
+    <section className="section-padding" style={{ backgroundColor: '#0E202D' }}>
       <div className="container-luxury">
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <ScrollReveal>
@@ -203,7 +203,7 @@ function DescriptionSection({ service }: { service: Service }) {
                   style={{
                     width: '1px',
                     height: '60px',
-                    backgroundColor: '#C9A96E',
+                    backgroundColor: '#F4DDC3',
                     opacity: 0.4,
                     marginBottom: '24px',
                   }}
@@ -215,7 +215,7 @@ function DescriptionSection({ service }: { service: Service }) {
                     fontSize: '12px',
                     textTransform: 'uppercase',
                     letterSpacing: '0.2em',
-                    color: '#C9A96E',
+                    color: '#F4DDC3',
                   }}
                 >
                   Presentation
@@ -252,9 +252,9 @@ function AdvantagesSection({ service }: { service: Service }) {
     <section
       className="section-padding"
       style={{
-        backgroundColor: '#141414',
-        borderTop: '1px solid rgba(201,169,110,0.1)',
-        borderBottom: '1px solid rgba(201,169,110,0.1)',
+        backgroundColor: '#132A3A',
+        borderTop: '1px solid rgba(244,221,195,0.1)',
+        borderBottom: '1px solid rgba(244,221,195,0.1)',
       }}
     >
       <div className="container-luxury">
@@ -270,16 +270,16 @@ function AdvantagesSection({ service }: { service: Service }) {
               <div
                 className="p-8 h-full"
                 style={{
-                  backgroundColor: '#0A0A0A',
-                  border: '1px solid #1E1E1E',
+                  backgroundColor: '#0E202D',
+                  border: '1px solid #1A3448',
                   transition: 'border-color 0.3s ease',
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.borderColor =
-                    'rgba(201,169,110,0.3)';
+                    'rgba(244,221,195,0.3)';
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = '#1E1E1E';
+                  (e.currentTarget as HTMLElement).style.borderColor = '#1A3448';
                 }}
               >
                 {/* Gold icon */}
@@ -289,7 +289,7 @@ function AdvantagesSection({ service }: { service: Service }) {
                     style={{
                       width: '48px',
                       height: '48px',
-                      border: '1px solid rgba(201,169,110,0.3)',
+                      border: '1px solid rgba(244,221,195,0.3)',
                       borderRadius: '50%',
                     }}
                   >
@@ -303,7 +303,7 @@ function AdvantagesSection({ service }: { service: Service }) {
                     fontFamily: 'var(--font-playfair), "Playfair Display", serif',
                     fontWeight: 600,
                     fontSize: '18px',
-                    color: '#F5F5F0',
+                    color: '#FFFFFF',
                     lineHeight: 1.3,
                   }}
                 >
@@ -335,7 +335,7 @@ function AdvantagesSection({ service }: { service: Service }) {
    ============================================ */
 function ProcessSection({ service }: { service: Service }) {
   return (
-    <section className="section-padding" style={{ backgroundColor: '#0A0A0A' }}>
+    <section className="section-padding" style={{ backgroundColor: '#0E202D' }}>
       <div className="container-luxury">
         <SectionTitle
           preTitle="Comment ca fonctionne"
@@ -355,13 +355,13 @@ function ProcessSection({ service }: { service: Service }) {
                     style={{
                       width: '56px',
                       height: '56px',
-                      border: '1px solid #C9A96E',
+                      border: '1px solid #F4DDC3',
                       borderRadius: '50%',
                       fontFamily:
                         'var(--font-cormorant), "Cormorant Garamond", serif',
                       fontWeight: 600,
                       fontSize: '24px',
-                      color: '#C9A96E',
+                      color: '#F4DDC3',
                       flexShrink: 0,
                     }}
                   >
@@ -375,7 +375,7 @@ function ProcessSection({ service }: { service: Service }) {
                         flex: 1,
                         minHeight: '40px',
                         background:
-                          'linear-gradient(to bottom, rgba(201,169,110,0.4), rgba(201,169,110,0.05))',
+                          'linear-gradient(to bottom, rgba(244,221,195,0.4), rgba(244,221,195,0.05))',
                         marginTop: '8px',
                       }}
                     />
@@ -391,7 +391,7 @@ function ProcessSection({ service }: { service: Service }) {
                         'var(--font-playfair), "Playfair Display", serif',
                       fontWeight: 600,
                       fontSize: '20px',
-                      color: '#F5F5F0',
+                      color: '#FFFFFF',
                       lineHeight: 1.3,
                     }}
                   >
@@ -436,7 +436,7 @@ function FaqItem({
   return (
     <div
       style={{
-        borderBottom: '1px solid rgba(201,169,110,0.1)',
+        borderBottom: '1px solid rgba(244,221,195,0.1)',
       }}
     >
       <button
@@ -450,7 +450,7 @@ function FaqItem({
             fontFamily: 'var(--font-playfair), "Playfair Display", serif',
             fontWeight: 500,
             fontSize: '18px',
-            color: isOpen ? '#C9A96E' : '#F5F5F0',
+            color: isOpen ? '#F4DDC3' : '#FFFFFF',
             lineHeight: 1.4,
             transition: 'color 0.3s ease',
           }}
@@ -503,9 +503,9 @@ function FaqSection({ service }: { service: Service }) {
     <section
       className="section-padding"
       style={{
-        backgroundColor: '#141414',
-        borderTop: '1px solid rgba(201,169,110,0.1)',
-        borderBottom: '1px solid rgba(201,169,110,0.1)',
+        backgroundColor: '#132A3A',
+        borderTop: '1px solid rgba(244,221,195,0.1)',
+        borderBottom: '1px solid rgba(244,221,195,0.1)',
       }}
     >
       <div className="container-luxury">
@@ -540,7 +540,7 @@ function FaqSection({ service }: { service: Service }) {
    ============================================ */
 function CtaSection({ service }: { service: Service }) {
   return (
-    <section className="section-padding" style={{ backgroundColor: '#0A0A0A' }}>
+    <section className="section-padding" style={{ backgroundColor: '#0E202D' }}>
       <div className="container-luxury text-center">
         <ScrollReveal>
           <SectionTitle

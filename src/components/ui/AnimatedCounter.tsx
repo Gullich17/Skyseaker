@@ -56,7 +56,7 @@ export default function AnimatedCounter({
           fontFamily: 'var(--font-cormorant), "Cormorant Garamond", serif',
           fontSize: 'clamp(32px, 5vw, 48px)',
           fontWeight: 300,
-          color: '#C9A96E',
+          color: '#F4DDC3',
           lineHeight: 1.1,
           marginBottom: '6px',
         }}
