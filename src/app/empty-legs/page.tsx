@@ -1,17 +1,19 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 import { emptyLegs, type EmptyLeg } from '@/data/emptyLegs';
 import SectionTitle from '@/components/ui/SectionTitle';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import Button from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
+import AnimatedCounter from '@/components/ui/AnimatedCounter';
 
 /* ============================================
    ICONS
    ============================================ */
-function PlaneIcon() {
+function PlaneIcon({ size = 16 }: { size?: number }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -20,26 +22,39 @@ function PlaneIcon() {
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="w-4 h-4"
+      style={{ width: size, height: size }}
     >
       <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z" />
     </svg>
   );
 }
 
-function ArrowRightIcon() {
+function PlaneTakeoffIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#F4DDC3"
-      strokeWidth="2"
+      stroke="currentColor"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="w-5 h-5 flex-shrink-0"
+      style={{ width: 20, height: 20 }}
     >
-      <line x1="5" y1="12" x2="19" y2="12" />
-      <polyline points="12 5 19 12 12 19" />
+      <path d="M2 22h20" />
+      <path d="M6.36 17.4L4 17l-2-4 1.1-.55a2 2 0 011.8 0l.17.1a2 2 0 001.8 0L8 12 5 6l1.1-.55a2 2 0 011.8 0l.17.1a2 2 0 001.8 0L12 4l5 6 3.5-2a2 2 0 012.5 1v.5a2 2 0 01-1.1 1.8l-16 8" />
+    </svg>
+  );
+}
+
+function ArrowRightLongIcon() {
+  return (
+    <svg
+      viewBox="0 0 40 12"
+      fill="none"
+      style={{ width: 40, height: 12, flexShrink: 0 }}
+    >
+      <line x1="0" y1="6" x2="34" y2="6" stroke="#F4DDC3" strokeWidth="1" strokeDasharray="4 3" />
+      <path d="M32 2 L38 6 L32 10" stroke="#F4DDC3" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -53,7 +68,7 @@ function CalendarIcon() {
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="w-4 h-4"
+      style={{ width: 15, height: 15 }}
     >
       <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
       <line x1="16" y1="2" x2="16" y2="6" />
@@ -72,7 +87,7 @@ function UsersIcon() {
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="w-4 h-4"
+      style={{ width: 15, height: 15 }}
     >
       <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
       <circle cx="9" cy="7" r="4" />
@@ -91,7 +106,7 @@ function BellIcon() {
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="w-6 h-6"
+      style={{ width: 28, height: 28 }}
     >
       <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
       <path d="M13.73 21a2 2 0 01-3.46 0" />
@@ -108,7 +123,7 @@ function SearchIcon() {
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="w-4 h-4"
+      style={{ width: 40, height: 40 }}
     >
       <circle cx="11" cy="11" r="8" />
       <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -125,9 +140,44 @@ function FilterIcon() {
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="w-4 h-4"
+      style={{ width: 16, height: 16 }}
     >
       <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+    </svg>
+  );
+}
+
+function TagIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 32, height: 32 }}>
+      <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
+      <line x1="7" y1="7" x2="7.01" y2="7" />
+    </svg>
+  );
+}
+
+function ShieldIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 32, height: 32 }}>
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    </svg>
+  );
+}
+
+function ClockIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 32, height: 32 }}>
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>
+  );
+}
+
+function CheckCircleIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: 48, height: 48 }}>
+      <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+      <polyline points="22 4 12 14.01 9 11.01" />
     </svg>
   );
 }
@@ -137,25 +187,26 @@ function FilterIcon() {
    ============================================ */
 const inputStyle: React.CSSProperties = {
   width: '100%',
-  padding: '12px 16px',
-  backgroundColor: '#0E202D',
-  border: '1px solid #1A3448',
+  padding: '14px 16px',
+  backgroundColor: 'rgba(14, 32, 45, 0.6)',
+  border: '1px solid rgba(244, 221, 195, 0.12)',
   color: '#FFFFFF',
   fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
   fontWeight: 300,
   fontSize: '14px',
   outline: 'none',
-  transition: 'border-color 0.3s ease',
+  transition: 'border-color 0.3s ease, background-color 0.3s ease',
+  borderRadius: '2px',
 };
 
 const labelStyle: React.CSSProperties = {
   fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
   fontWeight: 500,
-  fontSize: '11px',
+  fontSize: '10px',
   textTransform: 'uppercase',
-  letterSpacing: '0.15em',
-  color: '#A0A0A0',
-  marginBottom: '8px',
+  letterSpacing: '0.18em',
+  color: '#F4DDC3',
+  marginBottom: '10px',
   display: 'block',
 };
 
@@ -180,6 +231,14 @@ function formatDate(dateStr: string): string {
   }).format(date);
 }
 
+function formatDateShort(dateStr: string): string {
+  const date = new Date(dateStr);
+  return new Intl.DateTimeFormat('fr-FR', {
+    day: 'numeric',
+    month: 'short',
+  }).format(date);
+}
+
 /* ============================================
    UNIQUE CATEGORIES
    ============================================ */
@@ -194,45 +253,65 @@ function HeroSection() {
   return (
     <section
       className="relative flex items-center justify-center overflow-hidden"
-      style={{ minHeight: '60vh' }}
+      style={{ minHeight: 'clamp(500px, 70vh, 700px)' }}
     >
+      {/* Background image */}
       <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80"
+          alt="Jet privé"
+          fill
+          className="object-cover"
+          priority
+        />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(135deg, #0E202D 0%, #132A3A 40%, #122838 60%, #0E202D 100%)',
-          }}
-        />
-        <div
-          className="absolute top-1/3 left-0 right-0 h-[1px] opacity-[0.05]"
-          style={{
-            background:
-              'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
-          }}
-        />
-        <div
-          className="absolute top-2/3 left-0 right-0 h-[1px] opacity-[0.03]"
-          style={{
-            background:
-              'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
+              'linear-gradient(to bottom, rgba(14,32,45,0.75) 0%, rgba(14,32,45,0.55) 40%, rgba(14,32,45,0.9) 100%)',
           }}
         />
       </div>
 
+      {/* Decorative gold lines */}
       <div
-        className="absolute inset-0 z-[1]"
+        className="absolute top-1/3 left-0 right-0 h-[1px] opacity-[0.06]"
         style={{
-          background:
-            'linear-gradient(to top, rgba(14,32,45,0.8) 0%, rgba(14,32,45,0.3) 50%, rgba(14,32,45,0.6) 100%)',
+          background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
         }}
       />
 
-      <div className="relative z-10 w-full px-[5vw] pt-40 pb-20 text-center" style={{ maxWidth: '1400px', margin: '0 auto' }}>
+      {/* Content */}
+      <div
+        className="relative z-10 w-full text-center"
+        style={{ maxWidth: '900px', margin: '0 auto', padding: 'clamp(120px, 18vh, 180px) 24px clamp(60px, 10vh, 100px)' }}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
+          className="flex justify-center mb-8"
+        >
+          <div
+            style={{
+              width: 72,
+              height: 72,
+              border: '1px solid rgba(244,221,195,0.25)',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#F4DDC3',
+            }}
+          >
+            <PlaneTakeoffIcon />
+          </div>
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
           style={{
             fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
             fontWeight: 500,
@@ -240,22 +319,23 @@ function HeroSection() {
             textTransform: 'uppercase',
             letterSpacing: '0.3em',
             color: '#F4DDC3',
-            marginBottom: '16px',
+            marginBottom: '20px',
           }}
         >
-          Skyseaker
+          Empty Legs
         </motion.p>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-          className="text-[36px] md:text-[56px] mb-6"
+          transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
           style={{
             fontFamily: 'var(--font-playfair), "Playfair Display", serif',
             fontWeight: 700,
             color: '#FFFFFF',
-            lineHeight: 1.15,
+            lineHeight: 1.1,
+            fontSize: 'clamp(36px, 5.5vw, 64px)',
+            marginBottom: '24px',
           }}
         >
           VOLS À VIDE
@@ -264,13 +344,14 @@ function HeroSection() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-          className="text-[22px] md:text-[28px] mb-4"
+          transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
           style={{
             fontFamily: 'var(--font-cormorant), "Cormorant Garamond", serif',
             fontStyle: 'italic',
+            fontSize: 'clamp(20px, 3vw, 28px)',
             color: '#F4DDC3',
             lineHeight: 1.4,
+            marginBottom: '20px',
           }}
         >
           Jusqu&apos;à -75% sur votre jet privé
@@ -279,14 +360,14 @@ function HeroSection() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-          className="text-[16px] md:text-[18px]"
+          transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
           style={{
             fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
             fontWeight: 300,
+            fontSize: 'clamp(15px, 1.8vw, 17px)',
             color: '#A0A0A0',
             lineHeight: 1.7,
-            maxWidth: '600px',
+            maxWidth: '560px',
             margin: '0 auto',
           }}
         >
@@ -297,13 +378,12 @@ function HeroSection() {
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{ duration: 1, delay: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-          className="mx-auto mt-8"
+          transition={{ duration: 1, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
+          className="mx-auto mt-10"
           style={{
             width: '80px',
             height: '1px',
-            background:
-              'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
+            background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
           }}
         />
       </div>
@@ -312,78 +392,137 @@ function HeroSection() {
 }
 
 /* ============================================
-   EXPLANATION SECTION
+   STATS SECTION
    ============================================ */
-function ExplanationSection() {
+function StatsSection() {
+  const stats = [
+    { value: 75, suffix: '%', label: "d'économie maximale" },
+    { value: emptyLegs.length, suffix: '+', label: 'vols disponibles' },
+    { value: 30, suffix: 'min', label: 'temps de réponse' },
+    { value: 24, suffix: 'h/24', label: 'disponibilité' },
+  ];
+
+  return (
+    <section
+      style={{
+        backgroundColor: '#132A3A',
+        borderTop: '1px solid rgba(244,221,195,0.08)',
+        borderBottom: '1px solid rgba(244,221,195,0.08)',
+        padding: 'clamp(40px, 6vw, 60px) 0',
+      }}
+    >
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+        <div
+          className="grid grid-cols-2 md:grid-cols-4"
+          style={{ gap: 'clamp(20px, 3vw, 40px)' }}
+        >
+          {stats.map((stat, i) => (
+            <AnimatedCounter
+              key={i}
+              value={stat.value}
+              suffix={stat.suffix}
+              label={stat.label}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================
+   ADVANTAGES SECTION
+   ============================================ */
+function AdvantagesSection() {
+  const advantages = [
+    {
+      icon: <TagIcon />,
+      title: 'Prix réduits',
+      description: "Économisez jusqu'à 75% par rapport à un affrètement classique. Même appareil, même service, tarif exceptionnel.",
+    },
+    {
+      icon: <ShieldIcon />,
+      title: 'Service identique',
+      description: 'Vous bénéficiez exactement du même niveau de confort, de sécurité et de service qu\'un vol privé standard.',
+    },
+    {
+      icon: <ClockIcon />,
+      title: 'Disponibilité immédiate',
+      description: 'Les appareils sont déjà programmés pour voler. Confirmez votre place et embarquez sans délai.',
+    },
+  ];
+
   return (
     <section className="section-padding" style={{ backgroundColor: '#0E202D' }}>
       <div className="container-luxury">
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 md:gap-16">
-              <div className="flex flex-col items-start">
+        <SectionTitle
+          preTitle="Comment ça fonctionne"
+          title="Qu'est-ce qu'un Empty Leg ?"
+          subtitle="Un vol à vide correspond au repositionnement d'un jet privé vers sa prochaine mission. Plutôt que de voler sans passager, profitez-en à prix réduit."
+          centered
+        />
+
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 mt-16"
+          style={{ gap: 'clamp(24px, 3vw, 40px)' }}
+        >
+          {advantages.map((adv, i) => (
+            <ScrollReveal key={i} delay={i * 0.12}>
+              <div
+                className="text-center"
+                style={{
+                  padding: 'clamp(32px, 4vw, 48px) clamp(24px, 3vw, 36px)',
+                  backgroundColor: '#132A3A',
+                  border: '1px solid rgba(244,221,195,0.08)',
+                  transition: 'border-color 0.4s ease, transform 0.4s ease',
+                  height: '100%',
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(244,221,195,0.2)';
+                  (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(244,221,195,0.08)';
+                  (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                }}
+              >
                 <div
+                  className="flex items-center justify-center mx-auto mb-6"
                   style={{
-                    width: '1px',
-                    height: '60px',
-                    backgroundColor: '#F4DDC3',
-                    opacity: 0.4,
-                    marginBottom: '24px',
-                  }}
-                />
-                <p
-                  style={{
-                    fontFamily:
-                      'var(--font-montserrat), Montserrat, sans-serif',
-                    fontWeight: 600,
-                    fontSize: '12px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.2em',
+                    width: 64,
+                    height: 64,
+                    border: '1px solid rgba(244,221,195,0.2)',
+                    borderRadius: '50%',
                     color: '#F4DDC3',
                   }}
                 >
-                  Qu&apos;est-ce qu&apos;un Empty Leg ?
-                </p>
-              </div>
-
-              <div>
-                <p
+                  {adv.icon}
+                </div>
+                <h3
                   style={{
-                    fontFamily:
-                      'var(--font-montserrat), Montserrat, sans-serif',
-                    fontWeight: 300,
-                    fontSize: '16px',
-                    color: '#A0A0A0',
-                    lineHeight: 1.9,
-                    marginBottom: '20px',
+                    fontFamily: 'var(--font-playfair), "Playfair Display", serif',
+                    fontWeight: 600,
+                    fontSize: 'clamp(18px, 2.5vw, 22px)',
+                    color: '#FFFFFF',
+                    marginBottom: '14px',
                   }}
                 >
-                  Un empty leg, ou vol à vide, correspond au repositionnement
-                  d&apos;un jet privé qui doit rejoindre sa prochaine mission ou
-                  retourner à sa base sans passager à bord. Plutôt que de laisser
-                  cet appareil voler à vide, nous vous proposons d&apos;en profiter
-                  à un tarif considérablement réduit.
-                </p>
+                  {adv.title}
+                </h3>
                 <p
                   style={{
-                    fontFamily:
-                      'var(--font-montserrat), Montserrat, sans-serif',
+                    fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
                     fontWeight: 300,
-                    fontSize: '16px',
+                    fontSize: '14px',
                     color: '#A0A0A0',
-                    lineHeight: 1.9,
+                    lineHeight: 1.8,
                   }}
                 >
-                  Vous bénéficiez exactement du même niveau de service, de confort
-                  et de sécurité qu&apos;un affrètement classique, avec des économies
-                  pouvant atteindre 75%. Les dates et horaires sont généralement
-                  fixes, mais la qualité de l&apos;expérience reste identique.
-                  C&apos;est l&apos;opportunité idéale pour découvrir l&apos;aviation privée
-                  ou voyager régulièrement à moindre coût.
+                  {adv.description}
                 </p>
               </div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          ))}
         </div>
       </div>
     </section>
@@ -440,13 +579,14 @@ function FilterAndListingSection() {
     setMaxBudget('');
   };
 
+  const hasFilters = departure || arrival || dateFrom || dateTo || category || maxBudget;
+
   return (
     <section
       className="section-padding"
       style={{
         backgroundColor: '#132A3A',
-        borderTop: '1px solid rgba(244,221,195,0.1)',
-        borderBottom: '1px solid rgba(244,221,195,0.1)',
+        borderTop: '1px solid rgba(244,221,195,0.08)',
       }}
     >
       <div className="container-luxury">
@@ -460,30 +600,55 @@ function FilterAndListingSection() {
         {/* Filters */}
         <ScrollReveal>
           <div
-            className="mt-12 p-6 md:p-8"
+            className="mt-14"
             style={{
-              backgroundColor: '#0E202D',
-              border: '1px solid #1A3448',
+              backgroundColor: 'rgba(14, 32, 45, 0.6)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              border: '1px solid rgba(244,221,195,0.1)',
+              padding: 'clamp(24px, 4vw, 40px)',
             }}
           >
-            <div className="flex items-center gap-2 mb-6">
-              <FilterIcon />
+            <div className="flex items-center gap-3 mb-8">
+              <div style={{ color: '#F4DDC3' }}>
+                <FilterIcon />
+              </div>
               <p
                 style={{
-                  fontFamily:
-                    'var(--font-montserrat), Montserrat, sans-serif',
+                  fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
                   fontWeight: 600,
-                  fontSize: '12px',
+                  fontSize: '11px',
                   textTransform: 'uppercase',
-                  letterSpacing: '0.15em',
+                  letterSpacing: '0.18em',
                   color: '#F4DDC3',
                 }}
               >
                 Filtrer les résultats
               </p>
+              {hasFilters && (
+                <button
+                  onClick={resetFilters}
+                  className="cursor-pointer ml-auto"
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
+                    fontWeight: 400,
+                    fontSize: '11px',
+                    color: '#6B6B6B',
+                    textDecoration: 'underline',
+                    textUnderlineOffset: '3px',
+                    transition: 'color 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = '#F4DDC3'; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = '#6B6B6B'; }}
+                >
+                  Réinitialiser
+                </button>
+              )}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
               {/* Departure */}
               <div>
                 <label style={labelStyle}>Départ</label>
@@ -493,12 +658,8 @@ function FilterAndListingSection() {
                   value={departure}
                   onChange={(e) => setDeparture(e.target.value)}
                   style={inputStyle}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#F4DDC3';
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = '#1A3448';
-                  }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.4)'; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.12)'; }}
                 />
               </div>
 
@@ -511,12 +672,8 @@ function FilterAndListingSection() {
                   value={arrival}
                   onChange={(e) => setArrival(e.target.value)}
                   style={inputStyle}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#F4DDC3';
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = '#1A3448';
-                  }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.4)'; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.12)'; }}
                 />
               </div>
 
@@ -527,16 +684,9 @@ function FilterAndListingSection() {
                   type="date"
                   value={dateFrom}
                   onChange={(e) => setDateFrom(e.target.value)}
-                  style={{
-                    ...inputStyle,
-                    colorScheme: 'dark',
-                  }}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#F4DDC3';
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = '#1A3448';
-                  }}
+                  style={{ ...inputStyle, colorScheme: 'dark' }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.4)'; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.12)'; }}
                 />
               </div>
 
@@ -547,16 +697,9 @@ function FilterAndListingSection() {
                   type="date"
                   value={dateTo}
                   onChange={(e) => setDateTo(e.target.value)}
-                  style={{
-                    ...inputStyle,
-                    colorScheme: 'dark',
-                  }}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#F4DDC3';
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = '#1A3448';
-                  }}
+                  style={{ ...inputStyle, colorScheme: 'dark' }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.4)'; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.12)'; }}
                 />
               </div>
 
@@ -569,30 +712,24 @@ function FilterAndListingSection() {
                   style={{
                     ...inputStyle,
                     appearance: 'none',
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A0A0A0' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23F4DDC3' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
                     backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'right 12px center',
+                    backgroundPosition: 'right 14px center',
                     paddingRight: '36px',
                   }}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#F4DDC3';
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = '#1A3448';
-                  }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.4)'; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.12)'; }}
                 >
                   <option value="">Toutes</option>
                   {categories.map((cat) => (
-                    <option key={cat} value={cat}>
-                      {cat}
-                    </option>
+                    <option key={cat} value={cat}>{cat}</option>
                   ))}
                 </select>
               </div>
 
               {/* Max budget */}
               <div>
-                <label style={labelStyle}>Budget max</label>
+                <label style={labelStyle}>Budget max (€)</label>
                 <input
                   type="number"
                   placeholder="Ex: 5000"
@@ -600,41 +737,16 @@ function FilterAndListingSection() {
                   onChange={(e) => setMaxBudget(e.target.value)}
                   style={inputStyle}
                   min={0}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#F4DDC3';
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = '#1A3448';
-                  }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.4)'; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.12)'; }}
                 />
               </div>
-            </div>
-
-            {/* Reset */}
-            <div className="mt-4 flex justify-end">
-              <button
-                onClick={resetFilters}
-                className="cursor-pointer"
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  fontFamily:
-                    'var(--font-montserrat), Montserrat, sans-serif',
-                  fontWeight: 400,
-                  fontSize: '12px',
-                  color: '#6B6B6B',
-                  textDecoration: 'underline',
-                  textUnderlineOffset: '3px',
-                }}
-              >
-                Réinitialiser les filtres
-              </button>
             </div>
           </div>
         </ScrollReveal>
 
         {/* Results count */}
-        <div className="mt-8 mb-6">
+        <div className="mt-10 mb-8 flex items-center justify-between">
           <p
             style={{
               fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
@@ -643,57 +755,81 @@ function FilterAndListingSection() {
               color: '#6B6B6B',
             }}
           >
-            {filteredLegs.length} vol{filteredLegs.length !== 1 ? 's' : ''}{' '}
-            disponible{filteredLegs.length !== 1 ? 's' : ''}
+            <span style={{ color: '#F4DDC3', fontWeight: 600 }}>{filteredLegs.length}</span>{' '}
+            vol{filteredLegs.length !== 1 ? 's' : ''} disponible{filteredLegs.length !== 1 ? 's' : ''}
           </p>
+          <div
+            style={{
+              flex: 1,
+              height: '1px',
+              backgroundColor: 'rgba(244,221,195,0.08)',
+              marginLeft: '20px',
+            }}
+          />
         </div>
 
         {/* Empty legs listing */}
-        <div className="space-y-4">
-          {filteredLegs.length === 0 ? (
-            <ScrollReveal>
-              <div
-                className="py-20 text-center"
-                style={{
-                  backgroundColor: '#0E202D',
-                  border: '1px solid #1A3448',
-                }}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <AnimatePresence mode="popLayout">
+            {filteredLegs.length === 0 ? (
+              <motion.div
+                key="empty"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
               >
-                <SearchIcon />
-                <p
-                  className="mt-4"
+                <div
+                  className="py-20 text-center"
                   style={{
-                    fontFamily:
-                      'var(--font-playfair), "Playfair Display", serif',
-                    fontWeight: 500,
-                    fontSize: '20px',
-                    color: '#FFFFFF',
+                    backgroundColor: 'rgba(14, 32, 45, 0.6)',
+                    border: '1px solid rgba(244,221,195,0.08)',
                   }}
                 >
-                  Aucun vol disponible
-                </p>
-                <p
-                  className="mt-2"
-                  style={{
-                    fontFamily:
-                      'var(--font-montserrat), Montserrat, sans-serif',
-                    fontWeight: 300,
-                    fontSize: '14px',
-                    color: '#6B6B6B',
-                  }}
+                  <div className="flex justify-center mb-4" style={{ color: '#6B6B6B' }}>
+                    <SearchIcon />
+                  </div>
+                  <p
+                    className="mt-4"
+                    style={{
+                      fontFamily: 'var(--font-playfair), "Playfair Display", serif',
+                      fontWeight: 600,
+                      fontSize: '22px',
+                      color: '#FFFFFF',
+                    }}
+                  >
+                    Aucun vol disponible
+                  </p>
+                  <p
+                    className="mt-3"
+                    style={{
+                      fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
+                      fontWeight: 300,
+                      fontSize: '14px',
+                      color: '#6B6B6B',
+                      maxWidth: '400px',
+                      margin: '12px auto 0',
+                    }}
+                  >
+                    Modifiez vos critères de recherche ou créez une alerte pour être notifié.
+                  </p>
+                </div>
+              </motion.div>
+            ) : (
+              filteredLegs.map((leg, index) => (
+                <motion.div
+                  key={leg.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  layout
                 >
-                  Modifiez vos critères de recherche ou créez une alerte pour
-                  être notifié.
-                </p>
-              </div>
-            </ScrollReveal>
-          ) : (
-            filteredLegs.map((leg, index) => (
-              <ScrollReveal key={leg.id} delay={index * 0.05}>
-                <EmptyLegCard leg={leg} />
-              </ScrollReveal>
-            ))
-          )}
+                  <EmptyLegCard leg={leg} />
+                </motion.div>
+              ))
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </section>
@@ -705,39 +841,48 @@ function FilterAndListingSection() {
    ============================================ */
 function EmptyLegCard({ leg }: { leg: EmptyLeg }) {
   return (
-    <motion.div
-      className="p-6 md:p-8"
+    <div
       style={{
-        backgroundColor: '#0E202D',
-        border: '1px solid #1A3448',
-        transition: 'border-color 0.3s ease',
-      }}
-      whileHover={{
-        scale: 1.005,
-      }}
-      transition={{
-        duration: 0.3,
-        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+        backgroundColor: 'rgba(14, 32, 45, 0.6)',
+        border: '1px solid rgba(244,221,195,0.08)',
+        transition: 'border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease',
+        overflow: 'hidden',
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor =
-          'rgba(244,221,195,0.3)';
+        const el = e.currentTarget as HTMLElement;
+        el.style.borderColor = 'rgba(244,221,195,0.2)';
+        el.style.boxShadow = '0 20px 60px rgba(0,0,0,0.3)';
+        el.style.transform = 'translateY(-2px)';
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = '#1A3448';
+        const el = e.currentTarget as HTMLElement;
+        el.style.borderColor = 'rgba(244,221,195,0.08)';
+        el.style.boxShadow = 'none';
+        el.style.transform = 'translateY(0)';
       }}
     >
-      <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-8">
-        {/* Route */}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-3 mb-3">
+      <div
+        className="flex flex-col lg:flex-row"
+        style={{ minHeight: '100%' }}
+      >
+        {/* Left: Route visual */}
+        <div
+          className="flex-1"
+          style={{
+            padding: 'clamp(24px, 3vw, 36px)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}
+        >
+          {/* Route */}
+          <div className="flex items-center gap-4 mb-5">
             <div>
               <p
                 style={{
-                  fontFamily:
-                    'var(--font-playfair), "Playfair Display", serif',
+                  fontFamily: 'var(--font-playfair), "Playfair Display", serif',
                   fontWeight: 600,
-                  fontSize: '20px',
+                  fontSize: 'clamp(20px, 2.5vw, 26px)',
                   color: '#FFFFFF',
                   lineHeight: 1.2,
                 }}
@@ -746,27 +891,26 @@ function EmptyLegCard({ leg }: { leg: EmptyLeg }) {
               </p>
               <p
                 style={{
-                  fontFamily:
-                    'var(--font-montserrat), Montserrat, sans-serif',
+                  fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
                   fontWeight: 500,
                   fontSize: '11px',
                   color: '#6B6B6B',
-                  letterSpacing: '0.1em',
+                  letterSpacing: '0.12em',
+                  marginTop: '2px',
                 }}
               >
                 {leg.departureCode}
               </p>
             </div>
 
-            <ArrowRightIcon />
+            <ArrowRightLongIcon />
 
             <div>
               <p
                 style={{
-                  fontFamily:
-                    'var(--font-playfair), "Playfair Display", serif',
+                  fontFamily: 'var(--font-playfair), "Playfair Display", serif',
                   fontWeight: 600,
-                  fontSize: '20px',
+                  fontSize: 'clamp(20px, 2.5vw, 26px)',
                   color: '#FFFFFF',
                   lineHeight: 1.2,
                 }}
@@ -775,82 +919,126 @@ function EmptyLegCard({ leg }: { leg: EmptyLeg }) {
               </p>
               <p
                 style={{
-                  fontFamily:
-                    'var(--font-montserrat), Montserrat, sans-serif',
+                  fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
                   fontWeight: 500,
                   fontSize: '11px',
                   color: '#6B6B6B',
-                  letterSpacing: '0.1em',
+                  letterSpacing: '0.12em',
+                  marginTop: '2px',
                 }}
               >
                 {leg.arrivalCode}
               </p>
             </div>
           </div>
+
+          {/* Details row */}
+          <div className="flex flex-wrap items-center gap-5">
+            <div className="flex items-center gap-2" style={{ color: '#A0A0A0' }}>
+              <CalendarIcon />
+              <span
+                style={{
+                  fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
+                  fontWeight: 400,
+                  fontSize: '13px',
+                  color: '#A0A0A0',
+                }}
+              >
+                {formatDate(leg.date)}
+              </span>
+            </div>
+
+            <div
+              style={{
+                width: '1px',
+                height: '14px',
+                backgroundColor: 'rgba(244,221,195,0.15)',
+              }}
+            />
+
+            <div className="flex items-center gap-2" style={{ color: '#A0A0A0' }}>
+              <PlaneIcon size={15} />
+              <span
+                style={{
+                  fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
+                  fontWeight: 400,
+                  fontSize: '13px',
+                  color: '#A0A0A0',
+                }}
+              >
+                {leg.aircraft}
+              </span>
+            </div>
+
+            <div
+              style={{
+                width: '1px',
+                height: '14px',
+                backgroundColor: 'rgba(244,221,195,0.15)',
+              }}
+            />
+
+            <div className="flex items-center gap-2" style={{ color: '#A0A0A0' }}>
+              <UsersIcon />
+              <span
+                style={{
+                  fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
+                  fontWeight: 400,
+                  fontSize: '13px',
+                  color: '#A0A0A0',
+                }}
+              >
+                {leg.seats} places
+              </span>
+            </div>
+          </div>
         </div>
 
-        {/* Details */}
-        <div className="flex flex-wrap items-center gap-4 lg:gap-6">
-          {/* Date */}
+        {/* Vertical separator (desktop) */}
+        <div
+          className="hidden lg:block"
+          style={{
+            width: '1px',
+            alignSelf: 'stretch',
+            backgroundColor: 'rgba(244,221,195,0.08)',
+            margin: '20px 0',
+          }}
+        />
+
+        {/* Horizontal separator (mobile) */}
+        <div
+          className="block lg:hidden"
+          style={{
+            height: '1px',
+            backgroundColor: 'rgba(244,221,195,0.08)',
+            margin: '0 clamp(24px, 3vw, 36px)',
+          }}
+        />
+
+        {/* Right: Pricing & CTA */}
+        <div
+          style={{
+            padding: 'clamp(24px, 3vw, 36px)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '16px',
+            minWidth: '260px',
+          }}
+        >
+          {/* Badges */}
           <div className="flex items-center gap-2">
-            <CalendarIcon />
-            <span
-              style={{
-                fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
-                fontWeight: 400,
-                fontSize: '13px',
-                color: '#A0A0A0',
-              }}
-            >
-              {formatDate(leg.date)}
-            </span>
+            <Badge>{leg.category}</Badge>
           </div>
 
-          {/* Aircraft */}
-          <div className="flex items-center gap-2">
-            <PlaneIcon />
-            <span
-              style={{
-                fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
-                fontWeight: 400,
-                fontSize: '13px',
-                color: '#A0A0A0',
-              }}
-            >
-              {leg.aircraft}
-            </span>
-          </div>
-
-          {/* Seats */}
-          <div className="flex items-center gap-2">
-            <UsersIcon />
-            <span
-              style={{
-                fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
-                fontWeight: 400,
-                fontSize: '13px',
-                color: '#A0A0A0',
-              }}
-            >
-              {leg.seats} places
-            </span>
-          </div>
-        </div>
-
-        {/* Category badge + discount */}
-        <div className="flex items-center gap-3">
-          <Badge>{leg.category}</Badge>
-          <Badge>-{leg.discount}%</Badge>
-        </div>
-
-        {/* Pricing + CTA */}
-        <div className="flex items-center gap-6 lg:gap-8">
-          <div className="text-right">
+          {/* Pricing */}
+          <div className="text-center">
             <p
               style={{
                 fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
                 fontWeight: 400,
-                fontSize: '13px',
+                fontSize: '14px',
                 color: '#6B6B6B',
                 textDecoration: 'line-through',
                 lineHeight: 1.3,
@@ -860,23 +1048,46 @@ function EmptyLegCard({ leg }: { leg: EmptyLeg }) {
             </p>
             <p
               style={{
-                fontFamily: 'var(--font-cormorant), "Cormorant Garamond", serif',
-                fontWeight: 600,
-                fontSize: '28px',
+                fontFamily: 'var(--font-playfair), "Playfair Display", serif',
+                fontWeight: 700,
+                fontSize: 'clamp(28px, 3.5vw, 36px)',
                 color: '#F4DDC3',
                 lineHeight: 1.1,
+                marginTop: '2px',
               }}
             >
               {formatPrice(leg.emptyLegPrice)}
             </p>
+            <div
+              className="mt-2 inline-flex items-center justify-center"
+              style={{
+                backgroundColor: 'rgba(45, 139, 111, 0.15)',
+                border: '1px solid rgba(45, 139, 111, 0.3)',
+                borderRadius: '2px',
+                padding: '3px 10px',
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
+                  fontWeight: 600,
+                  fontSize: '11px',
+                  color: '#2D8B6F',
+                  letterSpacing: '0.05em',
+                }}
+              >
+                -{leg.discount}%
+              </span>
+            </div>
           </div>
 
+          {/* CTA */}
           <Button href="/devis" size="sm">
             Réserver
           </Button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -892,7 +1103,6 @@ function AlertSignupSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, this would send the data to an API
     setSubmitted(true);
   };
 
@@ -900,20 +1110,24 @@ function AlertSignupSection() {
     <section
       id="alertes"
       className="section-padding"
-      style={{ backgroundColor: '#0E202D' }}
+      style={{
+        backgroundColor: '#0E202D',
+        borderTop: '1px solid rgba(244,221,195,0.08)',
+      }}
     >
       <div className="container-luxury">
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>
           <ScrollReveal>
-            <div className="text-center mb-10">
-              <div className="flex justify-center mb-6">
+            <div className="text-center mb-12">
+              <div className="flex justify-center mb-8">
                 <div
                   className="flex items-center justify-center"
                   style={{
-                    width: '64px',
-                    height: '64px',
-                    border: '1px solid rgba(244,221,195,0.3)',
+                    width: '72px',
+                    height: '72px',
+                    border: '1px solid rgba(244,221,195,0.2)',
                     borderRadius: '50%',
+                    background: 'linear-gradient(135deg, rgba(244,221,195,0.06) 0%, transparent 100%)',
                   }}
                 >
                   <BellIcon />
@@ -933,34 +1147,19 @@ function AlertSignupSection() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-                className="text-center py-12 px-8"
+                className="text-center py-16 px-8"
                 style={{
                   backgroundColor: '#132A3A',
-                  border: '1px solid rgba(244,221,195,0.3)',
+                  border: '1px solid rgba(244,221,195,0.2)',
                 }}
               >
-                <div
-                  className="flex justify-center mb-4"
-                  style={{ color: '#F4DDC3' }}
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-12 h-12"
-                  >
-                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
+                <div className="flex justify-center mb-6" style={{ color: '#2D8B6F' }}>
+                  <CheckCircleIcon />
                 </div>
                 <h3
-                  className="mb-2"
+                  className="mb-3"
                   style={{
-                    fontFamily:
-                      'var(--font-playfair), "Playfair Display", serif',
+                    fontFamily: 'var(--font-playfair), "Playfair Display", serif',
                     fontWeight: 600,
                     fontSize: '24px',
                     color: '#FFFFFF',
@@ -970,24 +1169,25 @@ function AlertSignupSection() {
                 </h3>
                 <p
                   style={{
-                    fontFamily:
-                      'var(--font-montserrat), Montserrat, sans-serif',
+                    fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
                     fontWeight: 300,
                     fontSize: '15px',
                     color: '#A0A0A0',
+                    maxWidth: '400px',
+                    margin: '0 auto',
+                    lineHeight: 1.7,
                   }}
                 >
-                  Vous serez notifié dès qu&apos;un vol correspondant à vos critères
-                  sera disponible.
+                  Vous serez notifié dès qu&apos;un vol correspondant à vos critères sera disponible.
                 </p>
               </motion.div>
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="p-6 md:p-8"
                 style={{
                   backgroundColor: '#132A3A',
-                  border: '1px solid #1A3448',
+                  border: '1px solid rgba(244,221,195,0.1)',
+                  padding: 'clamp(28px, 4vw, 48px)',
                 }}
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1003,12 +1203,8 @@ function AlertSignupSection() {
                       onChange={(e) => setEmail(e.target.value)}
                       required
                       style={inputStyle}
-                      onFocus={(e) => {
-                        e.currentTarget.style.borderColor = '#F4DDC3';
-                      }}
-                      onBlur={(e) => {
-                        e.currentTarget.style.borderColor = '#1A3448';
-                      }}
+                      onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.4)'; }}
+                      onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.12)'; }}
                     />
                   </div>
 
@@ -1021,6 +1217,7 @@ function AlertSignupSection() {
                           fontWeight: 300,
                           textTransform: 'none',
                           letterSpacing: '0',
+                          color: '#6B6B6B',
                         }}
                       >
                         (optionnel)
@@ -1032,12 +1229,8 @@ function AlertSignupSection() {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       style={inputStyle}
-                      onFocus={(e) => {
-                        e.currentTarget.style.borderColor = '#F4DDC3';
-                      }}
-                      onBlur={(e) => {
-                        e.currentTarget.style.borderColor = '#1A3448';
-                      }}
+                      onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.4)'; }}
+                      onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.12)'; }}
                     />
                   </div>
                 </div>
@@ -1045,11 +1238,10 @@ function AlertSignupSection() {
                 {/* Routes */}
                 <div className="mt-6">
                   <label style={labelStyle}>
-                    Trajets souhaités{' '}
-                    <span style={{ color: '#F4DDC3' }}>*</span>
+                    Trajets souhaités <span style={{ color: '#F4DDC3' }}>*</span>
                   </label>
                   <textarea
-                    placeholder="Ex: Paris - Nice, Geneve - Londres, Paris - Ibiza..."
+                    placeholder="Ex: Paris → Nice, Genève → Londres, Paris → Ibiza..."
                     value={routes}
                     onChange={(e) => setRoutes(e.target.value)}
                     required
@@ -1058,12 +1250,8 @@ function AlertSignupSection() {
                       ...inputStyle,
                       resize: 'vertical',
                     }}
-                    onFocus={(e) => {
-                      e.currentTarget.style.borderColor = '#F4DDC3';
-                    }}
-                    onBlur={(e) => {
-                      e.currentTarget.style.borderColor = '#1A3448';
-                    }}
+                    onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.4)'; }}
+                    onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.12)'; }}
                   />
                 </div>
 
@@ -1075,14 +1263,12 @@ function AlertSignupSection() {
                   >
                     <div
                       onClick={() => setFlexibleDates(!flexibleDates)}
-                      className="flex-shrink-0 flex items-center justify-center cursor-pointer"
+                      className="flex-shrink-0 cursor-pointer"
                       style={{
                         width: '44px',
                         height: '24px',
                         borderRadius: '12px',
-                        backgroundColor: flexibleDates
-                          ? '#F4DDC3'
-                          : '#1A3448',
+                        backgroundColor: flexibleDates ? '#F4DDC3' : 'rgba(26, 52, 72, 0.8)',
                         transition: 'background-color 0.3s ease',
                         position: 'relative',
                       }}
@@ -1092,10 +1278,9 @@ function AlertSignupSection() {
                           width: '18px',
                           height: '18px',
                           borderRadius: '50%',
-                          backgroundColor: flexibleDates
-                            ? '#0E202D'
-                            : '#6B6B6B',
+                          backgroundColor: flexibleDates ? '#0E202D' : '#6B6B6B',
                           position: 'absolute',
+                          top: '3px',
                           left: flexibleDates ? '23px' : '3px',
                           transition: 'left 0.3s ease, background-color 0.3s ease',
                         }}
@@ -1103,8 +1288,7 @@ function AlertSignupSection() {
                     </div>
                     <span
                       style={{
-                        fontFamily:
-                          'var(--font-montserrat), Montserrat, sans-serif',
+                        fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
                         fontWeight: 400,
                         fontSize: '14px',
                         color: '#A0A0A0',
@@ -1116,7 +1300,7 @@ function AlertSignupSection() {
                 </div>
 
                 {/* Submit */}
-                <div className="mt-8 text-center">
+                <div className="mt-10 text-center">
                   <Button type="submit" size="lg">
                     Créer mon alerte
                   </Button>
@@ -1136,13 +1320,29 @@ function AlertSignupSection() {
 function BottomCtaSection() {
   return (
     <section
-      className="section-padding"
+      className="relative overflow-hidden"
       style={{
-        backgroundColor: '#132A3A',
-        borderTop: '1px solid rgba(244,221,195,0.1)',
+        padding: 'clamp(80px, 12vw, 140px) 0',
+        borderTop: '1px solid rgba(244,221,195,0.08)',
       }}
     >
-      <div className="container-luxury text-center">
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=75"
+          alt="Intérieur jet privé"
+          fill
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(14,32,45,0.92) 0%, rgba(14,32,45,0.85) 50%, rgba(14,32,45,0.95) 100%)',
+          }}
+        />
+      </div>
+
+      <div className="container-luxury text-center relative z-10">
         <ScrollReveal>
           <SectionTitle
             preTitle="Besoin d'un vol sur mesure ?"
@@ -1150,7 +1350,7 @@ function BottomCtaSection() {
             subtitle="Demandez un devis personnalisé pour un affrètement classique. Notre équipe vous répond sous 30 minutes, 24h/24."
             centered
           />
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button href="/devis" size="lg">
               Demander un devis
             </Button>
@@ -1171,7 +1371,8 @@ export default function EmptyLegsPage() {
   return (
     <>
       <HeroSection />
-      <ExplanationSection />
+      <StatsSection />
+      <AdvantagesSection />
       <FilterAndListingSection />
       <AlertSignupSection />
       <BottomCtaSection />
