@@ -3,51 +3,81 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number];
+
 export default function NotFound() {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: "#0A0A0A" }}
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden",
+        background: "#0A0A0A",
+      }}
     >
       {/* Background gradient */}
       <div
-        className="absolute inset-0"
         style={{
+          position: "absolute",
+          inset: 0,
           background:
-            "radial-gradient(ellipse at center, rgba(201,169,110,0.05) 0%, transparent 60%)",
+            "radial-gradient(ellipse at center, rgba(201,169,110,0.06) 0%, transparent 60%)",
         }}
       />
 
       {/* Decorative lines */}
       <div
-        className="absolute top-1/3 left-0 right-0 h-[1px] opacity-[0.03]"
         style={{
-          background: "linear-gradient(90deg, transparent, #C9A96E, transparent)",
+          position: "absolute",
+          top: "33%",
+          left: 0,
+          right: 0,
+          height: "1px",
+          opacity: 0.04,
+          background:
+            "linear-gradient(90deg, transparent, #C9A96E, transparent)",
         }}
       />
       <div
-        className="absolute top-2/3 left-0 right-0 h-[1px] opacity-[0.03]"
         style={{
-          background: "linear-gradient(90deg, transparent, #C9A96E, transparent)",
+          position: "absolute",
+          top: "66%",
+          left: 0,
+          right: 0,
+          height: "1px",
+          opacity: 0.04,
+          background:
+            "linear-gradient(90deg, transparent, #C9A96E, transparent)",
         }}
       />
 
-      <div className="relative z-10 text-center px-[5vw]" style={{ maxWidth: "700px", margin: "0 auto" }}>
+      <div
+        style={{
+          position: "relative",
+          zIndex: 10,
+          textAlign: "center",
+          maxWidth: "700px",
+          margin: "0 auto",
+          padding: "0 24px",
+        }}
+      >
         {/* 404 Number */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 1,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-          }}
-          className="mb-6"
+          transition={{ duration: 1, ease: EASE }}
+          style={{ marginBottom: "24px" }}
         >
           <span
-            className="text-[120px] md:text-[180px] leading-none"
             style={{
+              display: "block",
               fontFamily: "var(--font-cormorant)",
               fontWeight: 300,
+              fontSize: "clamp(100px, 20vw, 180px)",
+              lineHeight: 1,
               color: "transparent",
               WebkitTextStroke: "1px rgba(201,169,110,0.3)",
             }}
@@ -60,16 +90,13 @@ export default function NotFound() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.3,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-          }}
-          className="text-[28px] md:text-[40px] mb-4"
+          transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
           style={{
             fontFamily: "var(--font-playfair)",
             fontWeight: 700,
             color: "#F5F5F0",
+            fontSize: "clamp(24px, 5vw, 40px)",
+            marginBottom: "16px",
           }}
         >
           Destination introuvable
@@ -79,16 +106,13 @@ export default function NotFound() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.5,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-          }}
-          className="text-[18px] md:text-[20px] mb-3"
+          transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
           style={{
             fontFamily: "var(--font-cormorant)",
             fontStyle: "italic",
             color: "#A0A0A0",
+            fontSize: "clamp(16px, 3vw, 20px)",
+            marginBottom: "12px",
           }}
         >
           La page que vous recherchez semble avoir pris son envol
@@ -97,35 +121,30 @@ export default function NotFound() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.6,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-          }}
-          className="text-[14px] mb-10"
+          transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
           style={{
             fontFamily: "var(--font-montserrat)",
             fontWeight: 300,
             color: "#6B6B6B",
+            fontSize: "14px",
+            marginBottom: "40px",
           }}
         >
-          Vérifiez l&apos;URL ou laissez-nous vous guider vers votre prochaine destination.
+          Vérifiez l&apos;URL ou laissez-nous vous guider vers votre prochaine
+          destination.
         </motion.p>
 
         {/* Decorative line */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{
-            duration: 1,
-            delay: 0.7,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-          }}
-          className="mx-auto mb-10"
+          transition={{ duration: 1, delay: 0.7, ease: EASE }}
           style={{
             width: "80px",
             height: "1px",
-            background: "linear-gradient(90deg, transparent, #C9A96E, transparent)",
+            margin: "0 auto 40px",
+            background:
+              "linear-gradient(90deg, transparent, #C9A96E, transparent)",
           }}
         />
 
@@ -133,33 +152,59 @@ export default function NotFound() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+          transition={{ duration: 0.8, delay: 0.8, ease: EASE }}
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "16px",
           }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link
             href="/"
-            className="px-8 py-3.5 text-[12px] uppercase tracking-[0.2em] border transition-all duration-300 hover:bg-[#C9A96E] hover:text-[#0A0A0A]"
             style={{
-              borderColor: "#C9A96E",
+              padding: "14px 32px",
+              fontSize: "12px",
+              textTransform: "uppercase",
+              letterSpacing: "0.2em",
+              border: "1px solid #C9A96E",
               color: "#C9A96E",
               fontFamily: "var(--font-montserrat)",
               fontWeight: 600,
+              transition: "all 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#C9A96E";
+              e.currentTarget.style.color = "#0A0A0A";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.color = "#C9A96E";
             }}
           >
             Retour à l&apos;accueil
           </Link>
           <Link
             href="/devis"
-            className="px-8 py-3.5 text-[12px] uppercase tracking-[0.2em] border transition-all duration-300 hover:bg-[#F5F5F0] hover:text-[#0A0A0A]"
             style={{
-              borderColor: "#F5F5F0",
+              padding: "14px 32px",
+              fontSize: "12px",
+              textTransform: "uppercase",
+              letterSpacing: "0.2em",
+              border: "1px solid #F5F5F0",
               color: "#F5F5F0",
               fontFamily: "var(--font-montserrat)",
               fontWeight: 600,
+              transition: "all 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#F5F5F0";
+              e.currentTarget.style.color = "#0A0A0A";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.color = "#F5F5F0";
             }}
           >
             Demander un devis
@@ -171,11 +216,14 @@ export default function NotFound() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="mt-16"
+          style={{ marginTop: "64px" }}
         >
           <p
-            className="text-[11px] uppercase tracking-[0.2em] mb-6"
             style={{
+              fontSize: "11px",
+              textTransform: "uppercase",
+              letterSpacing: "0.2em",
+              marginBottom: "24px",
               fontFamily: "var(--font-montserrat)",
               fontWeight: 500,
               color: "#6B6B6B",
@@ -183,10 +231,18 @@ export default function NotFound() {
           >
             Pages populaires
           </p>
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: "12px 24px",
+            }}
+          >
             {[
               { label: "Nos Services", href: "/services" },
               { label: "Notre Flotte", href: "/flotte" },
+              { label: "Yachts", href: "/yachts" },
               { label: "Destinations", href: "/destinations" },
               { label: "Empty Legs", href: "/empty-legs" },
               { label: "Contact", href: "/contact" },
@@ -194,8 +250,19 @@ export default function NotFound() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[13px] text-[#A0A0A0] hover:text-[#C9A96E] transition-colors"
-                style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300 }}
+                className="transition-colors"
+                style={{
+                  fontSize: "13px",
+                  color: "#A0A0A0",
+                  fontFamily: "var(--font-montserrat)",
+                  fontWeight: 300,
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = "#C9A96E")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = "#A0A0A0")
+                }
               >
                 {link.label}
               </Link>
