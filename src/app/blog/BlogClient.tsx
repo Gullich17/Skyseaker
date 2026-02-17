@@ -198,7 +198,7 @@ function HeroSection() {
             lineHeight: 1.1,
           }}
         >
-          Actualit\u00e9s et inspirations
+          Actualités et inspirations
         </motion.h1>
 
         <motion.p
@@ -218,7 +218,7 @@ function HeroSection() {
             margin: '0 auto',
           }}
         >
-          Guides, tendances et r\u00e9cits de voyage pour les passionn\u00e9s d&apos;aviation priv\u00e9e
+          Guides, tendances et récits de voyage pour les passionnés d&apos;aviation privée
         </motion.p>
       </div>
     </section>

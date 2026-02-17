@@ -2,11 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import type { ArticleData } from './page';
+
+const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 /* ============================================
    HERO
@@ -14,38 +17,45 @@ import type { ArticleData } from './page';
 
 function ArticleHero({ article }: { article: ArticleData }) {
   return (
-    <section className="relative min-h-[60vh] flex items-end overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0" style={{ background: '#1A3448' }}>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span
-              className="text-[12px] text-[#6B6B6B] uppercase tracking-[0.1em]"
-              style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 400 }}
-            >
-              {article.heroImage}
-            </span>
-          </div>
-        </div>
+    <section
+      className="relative flex items-end overflow-hidden"
+      style={{ minHeight: '60vh' }}
+    >
+      <div className="absolute inset-0">
+        <Image
+          src={article.heroImage}
+          alt={article.title}
+          fill
+          style={{ objectFit: 'cover' }}
+          priority
+          sizes="100vw"
+        />
       </div>
 
       <div
-        className="absolute inset-0 z-[1]"
+        className="absolute inset-0"
         style={{
+          zIndex: 1,
           background:
             'linear-gradient(to top, rgba(14,32,45,0.95) 0%, rgba(14,32,45,0.5) 40%, rgba(14,32,45,0.3) 100%)',
         }}
       />
 
-      <div className="relative z-10 w-full px-[5vw] pb-16 pt-40" style={{ maxWidth: "900px", margin: "0 auto" }}>
+      <div
+        className="relative"
+        style={{
+          zIndex: 10,
+          width: '100%',
+          padding: '160px 5vw 64px 5vw',
+          maxWidth: '900px',
+          margin: '0 auto',
+        }}
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.2,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-          }}
-          className="mb-4"
+          transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
+          style={{ marginBottom: '16px' }}
         >
           <Badge>{article.category}</Badge>
         </motion.div>
@@ -53,17 +63,14 @@ function ArticleHero({ article }: { article: ArticleData }) {
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1,
-            delay: 0.4,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-          }}
-          className="text-[32px] md:text-[48px] lg:text-[56px] mb-6"
+          transition={{ duration: 1, delay: 0.4, ease: EASE }}
           style={{
             fontFamily: 'var(--font-playfair)',
             fontWeight: 700,
             color: '#FFFFFF',
             lineHeight: 1.15,
+            fontSize: 'clamp(32px, 5vw, 56px)',
+            marginBottom: '24px',
           }}
         >
           {article.title}
@@ -72,18 +79,21 @@ function ArticleHero({ article }: { article: ArticleData }) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.6,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-          }}
-          className="flex flex-wrap items-center gap-4"
+          transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
+          className="flex flex-wrap items-center"
+          style={{ gap: '16px' }}
         >
-          <div className="flex items-center gap-3">
+          <div className="flex items-center" style={{ gap: '12px' }}>
             {/* Author avatar placeholder */}
             <div
-              className="w-10 h-10 rounded-full flex items-center justify-center"
-              style={{ background: '#132A3A', border: '1px solid #1A3448' }}
+              className="flex items-center justify-center"
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                background: '#132A3A',
+                border: '1px solid #1A3448',
+              }}
             >
               <svg
                 width="16"
@@ -98,38 +108,60 @@ function ArticleHero({ article }: { article: ArticleData }) {
             </div>
             <div>
               <p
-                className="text-[13px]"
                 style={{
                   fontFamily: 'var(--font-montserrat)',
                   fontWeight: 500,
                   color: '#FFFFFF',
+                  fontSize: '13px',
                 }}
               >
                 {article.author.name}
               </p>
               <p
-                className="text-[11px]"
                 style={{
                   fontFamily: 'var(--font-montserrat)',
                   fontWeight: 300,
                   color: '#6B6B6B',
+                  fontSize: '11px',
                 }}
               >
                 {article.author.role}
               </p>
             </div>
           </div>
-          <span className="w-[1px] h-4 bg-[#1A3448]" />
           <span
-            className="text-[13px] text-[#A0A0A0]"
-            style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300 }}
+            style={{
+              width: '1px',
+              height: '16px',
+              background: '#1A3448',
+              display: 'inline-block',
+            }}
+          />
+          <span
+            style={{
+              fontFamily: 'var(--font-montserrat)',
+              fontWeight: 300,
+              color: '#A0A0A0',
+              fontSize: '13px',
+            }}
           >
             {article.date}
           </span>
-          <span className="w-[1px] h-4 bg-[#1A3448]" />
           <span
-            className="text-[13px] text-[#A0A0A0]"
-            style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300 }}
+            style={{
+              width: '1px',
+              height: '16px',
+              background: '#1A3448',
+              display: 'inline-block',
+            }}
+          />
+          <span
+            style={{
+              fontFamily: 'var(--font-montserrat)',
+              fontWeight: 300,
+              color: '#A0A0A0',
+              fontSize: '13px',
+            }}
           >
             {article.readTime} de lecture
           </span>
@@ -151,62 +183,80 @@ function TableOfContents({
   activeSection: string;
 }) {
   return (
-    <nav className="hidden lg:block sticky top-32 self-start">
-      <p
-        className="text-[11px] uppercase tracking-[0.2em] mb-4"
-        style={{
-          fontFamily: 'var(--font-montserrat)',
-          fontWeight: 600,
-          color: '#F4DDC3',
-        }}
-      >
-        Sommaire
-      </p>
-      <div className="space-y-2">
-        {sections.map((section) => (
-          <a
-            key={section.id}
-            href={`#${section.id}`}
-            className="block text-[13px] py-1 transition-colors duration-300"
-            style={{
-              fontFamily: 'var(--font-montserrat)',
-              fontWeight: activeSection === section.id ? 500 : 300,
-              color: activeSection === section.id ? '#F4DDC3' : '#6B6B6B',
-              borderLeft:
-                activeSection === section.id
-                  ? '2px solid #F4DDC3'
-                  : '2px solid transparent',
-              paddingLeft: '12px',
-            }}
-          >
-            {section.title}
-          </a>
-        ))}
-      </div>
-
-      {/* Social share */}
-      <div
-        className="mt-10 pt-8"
-        style={{ borderTop: '1px solid #1A3448' }}
+    <>
+      <style>{`@media(max-width:1023px){.toc-sidebar{display:none !important;}}`}</style>
+      <nav
+        className="toc-sidebar sticky"
+        style={{ top: '128px', alignSelf: 'flex-start' }}
       >
         <p
-          className="text-[11px] uppercase tracking-[0.2em] mb-4"
           style={{
+            fontSize: '11px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.2em',
+            marginBottom: '16px',
             fontFamily: 'var(--font-montserrat)',
             fontWeight: 600,
             color: '#F4DDC3',
           }}
         >
-          Partager
+          Sommaire
         </p>
-        <div className="flex gap-3">
-          <ShareButton label="LinkedIn" icon="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" />
-          <ShareButton label="Twitter" icon="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-          <ShareButton label="Email" icon="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          <ShareButton label="Copier" icon="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          {sections.map((section) => (
+            <a
+              key={section.id}
+              href={`#${section.id}`}
+              className="block transition-colors"
+              style={{
+                fontSize: '13px',
+                padding: '4px 0',
+                fontFamily: 'var(--font-montserrat)',
+                fontWeight: activeSection === section.id ? 500 : 300,
+                color: activeSection === section.id ? '#F4DDC3' : '#6B6B6B',
+                borderLeft:
+                  activeSection === section.id
+                    ? '2px solid #F4DDC3'
+                    : '2px solid transparent',
+                paddingLeft: '12px',
+                transitionDuration: '300ms',
+              }}
+            >
+              {section.title}
+            </a>
+          ))}
         </div>
-      </div>
-    </nav>
+
+        {/* Social share */}
+        <div
+          style={{
+            marginTop: '40px',
+            paddingTop: '32px',
+            borderTop: '1px solid #1A3448',
+          }}
+        >
+          <p
+            style={{
+              fontSize: '11px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.2em',
+              marginBottom: '16px',
+              fontFamily: 'var(--font-montserrat)',
+              fontWeight: 600,
+              color: '#F4DDC3',
+            }}
+          >
+            Partager
+          </p>
+          <div className="flex" style={{ gap: '12px' }}>
+            <ShareButton label="LinkedIn" icon="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" />
+            <ShareButton label="Twitter" icon="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+            <ShareButton label="Email" icon="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            <ShareButton label="Copier" icon="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+          </div>
+        </div>
+      </nav>
+    </>
   );
 }
 
@@ -215,8 +265,10 @@ function ShareButton({ label, icon }: { label: string; icon: string }) {
     <motion.button
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="w-10 h-10 flex items-center justify-center"
+      className="flex items-center justify-center"
       style={{
+        width: '40px',
+        height: '40px',
         background: 'rgba(244,221,195,0.05)',
         border: '1px solid rgba(244,221,195,0.2)',
       }}
@@ -267,8 +319,19 @@ function ArticleBody({ article }: { article: ArticleData }) {
 
   return (
     <section className="section-padding" style={{ background: '#0E202D' }}>
-      <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
-        <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-12">
+      <style>{`
+        @media(min-width:1024px){.article-grid{grid-template-columns:250px 1fr !important;}}
+        @media(max-width:1023px){.mobile-share{display:block !important;}}
+        @media(min-width:1024px){.mobile-share{display:none !important;}}
+      `}</style>
+      <div style={{ padding: '0 5vw', maxWidth: '1400px', margin: '0 auto' }}>
+        <div
+          className="grid article-grid"
+          style={{
+            gridTemplateColumns: '1fr',
+            gap: '48px',
+          }}
+        >
           {/* Sidebar */}
           <TableOfContents
             sections={article.sections}
@@ -276,13 +339,18 @@ function ArticleBody({ article }: { article: ArticleData }) {
           />
 
           {/* Article content */}
-          <div className="max-w-[740px]">
+          <div style={{ maxWidth: '740px' }}>
             {article.sections.map((section, sIdx) => (
-              <div key={section.id} id={section.id} className="mb-16 scroll-mt-32">
+              <div
+                key={section.id}
+                id={section.id}
+                style={{ marginBottom: '64px', scrollMarginTop: '128px' }}
+              >
                 <ScrollReveal>
                   <h2
-                    className="text-[24px] md:text-[32px] mb-6"
                     style={{
+                      fontSize: 'clamp(24px, 3vw, 32px)',
+                      marginBottom: '24px',
                       fontFamily: 'var(--font-playfair)',
                       fontWeight: 600,
                       color: '#FFFFFF',
@@ -296,8 +364,9 @@ function ArticleBody({ article }: { article: ArticleData }) {
                 {section.content.map((paragraph, pIdx) => (
                   <ScrollReveal key={pIdx} delay={0.05 * pIdx}>
                     <p
-                      className="text-[16px] mb-6"
                       style={{
+                        fontSize: '16px',
+                        marginBottom: '24px',
                         fontFamily: 'var(--font-montserrat)',
                         fontWeight: 300,
                         color: '#A0A0A0',
@@ -312,15 +381,18 @@ function ArticleBody({ article }: { article: ArticleData }) {
                 {section.quote && (
                   <ScrollReveal delay={0.15}>
                     <blockquote
-                      className="my-8 pl-6 py-4"
                       style={{
+                        margin: '32px 0',
+                        paddingLeft: '24px',
+                        paddingTop: '16px',
+                        paddingBottom: '16px',
                         borderLeft: '2px solid #F4DDC3',
                         background: 'rgba(244,221,195,0.03)',
                       }}
                     >
                       <p
-                        className="text-[18px] md:text-[20px]"
                         style={{
+                          fontSize: 'clamp(18px, 2vw, 20px)',
                           fontFamily: 'var(--font-cormorant)',
                           fontStyle: 'italic',
                           fontWeight: 400,
@@ -336,18 +408,28 @@ function ArticleBody({ article }: { article: ArticleData }) {
 
                 {sIdx < article.sections.length - 1 && (
                   <div
-                    className="w-12 h-[1px] my-12"
-                    style={{ background: 'rgba(244,221,195,0.2)' }}
+                    style={{
+                      width: '48px',
+                      height: '1px',
+                      margin: '48px 0',
+                      background: 'rgba(244,221,195,0.2)',
+                    }}
                   />
                 )}
               </div>
             ))}
 
             {/* Mobile share buttons */}
-            <div className="lg:hidden mt-8 mb-12">
+            <div
+              className="mobile-share"
+              style={{ display: 'none', marginTop: '32px', marginBottom: '48px' }}
+            >
               <p
-                className="text-[11px] uppercase tracking-[0.2em] mb-4"
                 style={{
+                  fontSize: '11px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.2em',
+                  marginBottom: '16px',
                   fontFamily: 'var(--font-montserrat)',
                   fontWeight: 600,
                   color: '#F4DDC3',
@@ -355,7 +437,7 @@ function ArticleBody({ article }: { article: ArticleData }) {
               >
                 Partager cet article
               </p>
-              <div className="flex gap-3">
+              <div className="flex" style={{ gap: '12px' }}>
                 <ShareButton label="LinkedIn" icon="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" />
                 <ShareButton label="Twitter" icon="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
                 <ShareButton label="Email" icon="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -382,10 +464,12 @@ function RelatedArticles({
 
   return (
     <section className="section-padding" style={{ background: '#132A3A' }}>
-      <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
+      <div style={{ padding: '0 5vw', maxWidth: '1400px', margin: '0 auto' }}>
         <h2
-          className="text-[28px] md:text-[36px] mb-12 text-center"
           style={{
+            fontSize: 'clamp(28px, 4vw, 36px)',
+            marginBottom: '48px',
+            textAlign: 'center',
             fontFamily: 'var(--font-playfair)',
             fontWeight: 600,
             color: '#FFFFFF',
@@ -394,7 +478,13 @@ function RelatedArticles({
           Articles similaires
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div
+          className="grid"
+          style={{
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+            gap: '24px',
+          }}
+        >
           {articles.map((article, i) => (
             <ScrollReveal key={article.slug} delay={i * 0.1}>
               <Link
@@ -402,22 +492,31 @@ function RelatedArticles({
                 className="block group"
               >
                 <div className="card-luxury overflow-hidden">
-                  {/* Image placeholder */}
+                  {/* Image */}
                   <div
-                    className="aspect-[16/9] relative"
-                    style={{ background: '#1A3448' }}
+                    className="relative overflow-hidden"
+                    style={{ aspectRatio: '16/9' }}
                   >
-                    <div className="absolute inset-0 flex items-center justify-center text-[#6B6B6B] text-xs">
-                      {article.heroImage}
-                    </div>
-                    <div className="absolute top-3 left-3">
+                    <Image
+                      src={article.heroImage}
+                      alt={article.title}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div
+                      className="absolute"
+                      style={{ top: '12px', left: '12px' }}
+                    >
                       <Badge>{article.category}</Badge>
                     </div>
                   </div>
-                  <div className="p-6">
+                  <div style={{ padding: '24px' }}>
                     <h3
-                      className="text-[18px] mb-3 group-hover:text-[#F4DDC3] transition-colors"
+                      className="group-hover:text-[#F4DDC3] transition-colors"
                       style={{
+                        fontSize: '18px',
+                        marginBottom: '12px',
                         fontFamily: 'var(--font-playfair)',
                         fontWeight: 600,
                         color: '#FFFFFF',
@@ -427,19 +526,34 @@ function RelatedArticles({
                       {article.title}
                     </h3>
                     <div
-                      className="flex items-center gap-3 text-[12px] text-[#6B6B6B]"
+                      className="flex items-center"
                       style={{
+                        gap: '12px',
+                        fontSize: '12px',
+                        color: '#6B6B6B',
                         fontFamily: 'var(--font-montserrat)',
                         fontWeight: 300,
                       }}
                     >
                       <span>{article.date}</span>
-                      <span className="w-[1px] h-3 bg-[#1A3448]" />
+                      <span
+                        style={{
+                          width: '1px',
+                          height: '12px',
+                          background: '#1A3448',
+                          display: 'inline-block',
+                        }}
+                      />
                       <span>{article.readTime} de lecture</span>
                     </div>
                     <span
-                      className="block mt-4 text-[12px] uppercase tracking-[0.15em] text-[#F4DDC3]"
+                      className="block"
                       style={{
+                        marginTop: '16px',
+                        fontSize: '12px',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.15em',
+                        color: '#F4DDC3',
                         fontFamily: 'var(--font-montserrat)',
                         fontWeight: 500,
                       }}
@@ -463,7 +577,10 @@ function RelatedArticles({
 
 function NewsletterCTA() {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section
+      className="relative overflow-hidden"
+      style={{ padding: 'clamp(60px, 8vw, 120px) 0' }}
+    >
       <div
         className="absolute inset-0"
         style={{
@@ -478,11 +595,20 @@ function NewsletterCTA() {
             'radial-gradient(ellipse at center, rgba(244,221,195,0.06) 0%, transparent 70%)',
         }}
       />
-      <div className="relative px-[5vw] text-center" style={{ maxWidth: "600px", margin: "0 auto" }}>
+      <div
+        className="relative"
+        style={{
+          padding: '0 5vw',
+          textAlign: 'center',
+          maxWidth: '600px',
+          margin: '0 auto',
+        }}
+      >
         <ScrollReveal>
           <h2
-            className="text-[28px] md:text-[36px] mb-4"
             style={{
+              fontSize: 'clamp(28px, 4vw, 36px)',
+              marginBottom: '16px',
               fontFamily: 'var(--font-playfair)',
               fontWeight: 600,
               color: '#FFFFFF',
@@ -491,23 +617,32 @@ function NewsletterCTA() {
             Ne manquez rien
           </h2>
           <p
-            className="text-[16px] mb-8"
             style={{
+              fontSize: '16px',
+              marginBottom: '32px',
               fontFamily: 'var(--font-cormorant)',
               fontStyle: 'italic',
               color: '#A0A0A0',
             }}
           >
-            Inscrivez-vous \u00e0 notre newsletter pour recevoir nos derniers articles,
+            Inscrivez-vous {'\u00e0'} notre newsletter pour recevoir nos derniers articles,
             guides et offres exclusives
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div
+            className="flex flex-wrap items-center justify-center"
+            style={{ gap: '12px' }}
+          >
             <input
               type="email"
               placeholder="Votre adresse email"
-              className="w-full sm:flex-1 px-4 py-3 text-[14px] bg-transparent border text-[#FFFFFF]"
               style={{
-                borderColor: '#1A3448',
+                width: '100%',
+                flex: '1 1 240px',
+                padding: '12px 16px',
+                fontSize: '14px',
+                background: 'transparent',
+                border: '1px solid #1A3448',
+                color: '#FFFFFF',
                 fontFamily: 'var(--font-montserrat)',
                 fontWeight: 300,
               }}
@@ -517,13 +652,15 @@ function NewsletterCTA() {
             </Button>
           </div>
           <p
-            className="mt-4 text-[11px] text-[#6B6B6B]"
             style={{
+              marginTop: '16px',
+              fontSize: '11px',
+              color: '#6B6B6B',
               fontFamily: 'var(--font-montserrat)',
               fontWeight: 300,
             }}
           >
-            Pas de spam. D\u00e9sinscription en un clic.
+            Pas de spam. D{'\u00e9'}sinscription en un clic.
           </p>
         </ScrollReveal>
       </div>

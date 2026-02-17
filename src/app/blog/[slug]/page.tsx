@@ -39,7 +39,7 @@ const articlesData: Record<string, ArticleData> = {
     dateISO: '2026-02-12',
     readTime: '5 min',
     author: { name: 'Nicolas Mercier', role: 'Directeur Commercial' },
-    heroImage: '[BLOG-top-destinations-2026]',
+    heroImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80',
     sections: [
       {
         id: 'introduction',
@@ -98,7 +98,7 @@ const articlesData: Record<string, ArticleData> = {
     dateISO: '2026-02-08',
     readTime: '8 min',
     author: { name: 'Camille Laurent', role: 'Directrice des Op\u00e9rations' },
-    heroImage: '[BLOG-guide-choisir-jet-prive]',
+    heroImage: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80',
     sections: [
       {
         id: 'introduction',
@@ -147,7 +147,7 @@ const articlesData: Record<string, ArticleData> = {
     dateISO: '2026-02-03',
     readTime: '6 min',
     author: { name: 'Nicolas Mercier', role: 'Directeur Commercial' },
-    heroImage: '[BLOG-empty-legs-guide-complet]',
+    heroImage: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=80',
     sections: [
       {
         id: 'introduction',
@@ -188,7 +188,7 @@ const articlesData: Record<string, ArticleData> = {
     dateISO: '2026-01-28',
     readTime: '7 min',
     author: { name: 'Sophie Archambault', role: 'Responsable Conciergerie' },
-    heroImage: '[BLOG-monaco-grand-prix-2026]',
+    heroImage: 'https://images.unsplash.com/photo-1504817343863-5092a923803e?w=1920&q=80',
     sections: [
       {
         id: 'introduction',
@@ -229,7 +229,7 @@ const articlesData: Record<string, ArticleData> = {
     dateISO: '2026-01-20',
     readTime: '5 min',
     author: { name: 'Alexandre Dubois', role: 'Fondateur & CEO' },
-    heroImage: '[BLOG-tendances-aviation-privee-2026]',
+    heroImage: 'https://images.unsplash.com/photo-1559628233-100c798642d4?w=1920&q=80',
     sections: [
       {
         id: 'introduction',
@@ -270,7 +270,7 @@ const articlesData: Record<string, ArticleData> = {
     dateISO: '2026-01-15',
     readTime: '4 min',
     author: { name: 'Sophie Archambault', role: 'Responsable Conciergerie' },
-    heroImage: '[BLOG-retraite-wellness-ibiza]',
+    heroImage: 'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=1920&q=80',
     sections: [
       {
         id: 'introduction',
@@ -303,7 +303,7 @@ const articlesData: Record<string, ArticleData> = {
     dateISO: '2026-01-08',
     readTime: '6 min',
     author: { name: 'Camille Laurent', role: 'Directrice des Op\u00e9rations' },
-    heroImage: '[BLOG-courchevel-saison-ski-2026]',
+    heroImage: 'https://images.unsplash.com/photo-1551524559-8af4e6624178?w=1920&q=80',
     sections: [
       {
         id: 'introduction',
