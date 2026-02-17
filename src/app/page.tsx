@@ -674,44 +674,43 @@ function FleetShowcase() {
         />
 
         {/* Horizontal scrollable with scroll indicator */}
+        <ScrollReveal>
         <div className="relative">
           <div ref={scrollRef} onWheel={handleWheel} className="overflow-x-auto pb-8 scrollbar-hide" style={{ margin: "0 -10px", padding: "0 10px", overscrollBehavior: "contain" }}>
             <div className="flex" style={{ gap: "20px", minWidth: "max-content" }}>
-              {featuredAircraft.map((ac, i) => (
-                <ScrollReveal key={ac.slug} delay={i * 0.08}>
-                  <Link href={`/flotte/${ac.category.toLowerCase().replace(/ /g, "-")}/${ac.slug}`} className="block group" style={{ width: "clamp(280px, 40vw, 340px)" }}>
-                    <div className="card-luxury overflow-hidden">
-                      <div className="aspect-[16/10] relative overflow-hidden">
-                        <Image
-                          src={ac.img}
-                          alt={ac.name}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(19,42,58,0.8) 0%, transparent 60%)" }} />
-                        <div style={{ position: "absolute", top: "14px", left: "14px" }}>
-                          <Badge>{ac.category}</Badge>
-                        </div>
-                      </div>
-                      <div style={{ padding: "20px 20px 24px" }}>
-                        <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "18px", marginBottom: "10px" }}
-                            className="group-hover:text-[#F4DDC3] transition-colors">
-                          {ac.name}
-                        </h3>
-                        <div className="flex items-center text-[#A0A0A0]" style={{ gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "11px" }}>
-                          <span>{ac.pax} pax</span>
-                          <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
-                          <span>{ac.range}</span>
-                          <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
-                          <span>{ac.speed}</span>
-                        </div>
-                        <span style={{ display: "block", marginTop: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3" }}>
-                          Voir la fiche →
-                        </span>
+              {featuredAircraft.map((ac) => (
+                <Link key={ac.slug} href={`/flotte/${ac.category.toLowerCase().replace(/ /g, "-")}/${ac.slug}`} className="block group" style={{ width: "clamp(280px, 40vw, 340px)" }}>
+                  <div className="card-luxury overflow-hidden">
+                    <div className="aspect-[16/10] relative overflow-hidden">
+                      <Image
+                        src={ac.img}
+                        alt={ac.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(19,42,58,0.8) 0%, transparent 60%)" }} />
+                      <div style={{ position: "absolute", top: "14px", left: "14px" }}>
+                        <Badge>{ac.category}</Badge>
                       </div>
                     </div>
-                  </Link>
-                </ScrollReveal>
+                    <div style={{ padding: "20px 20px 24px" }}>
+                      <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "18px", marginBottom: "10px" }}
+                          className="group-hover:text-[#F4DDC3] transition-colors">
+                        {ac.name}
+                      </h3>
+                      <div className="flex items-center text-[#A0A0A0]" style={{ gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "11px" }}>
+                        <span>{ac.pax} pax</span>
+                        <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
+                        <span>{ac.range}</span>
+                        <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
+                        <span>{ac.speed}</span>
+                      </div>
+                      <span style={{ display: "block", marginTop: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3" }}>
+                        Voir la fiche →
+                      </span>
+                    </div>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -721,6 +720,7 @@ function FleetShowcase() {
             <span>Faites défiler pour voir plus</span>
           </div>
         </div>
+        </ScrollReveal>
 
         <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginTop: "clamp(32px, 5vw, 56px)" }}>
           <Button href="/flotte" variant="primary">Explorer toute la flotte</Button>
@@ -782,44 +782,43 @@ function YachtShowcase() {
         />
 
         {/* Horizontal scrollable */}
+        <ScrollReveal>
         <div className="relative">
           <div ref={yachtScrollRef} onWheel={handleYachtWheel} className="overflow-x-auto pb-8 scrollbar-hide" style={{ margin: "0 -10px", padding: "0 10px", overscrollBehavior: "contain" }}>
             <div className="flex" style={{ gap: "20px", minWidth: "max-content" }}>
-              {featuredYachts.map((yacht, i) => (
-                <ScrollReveal key={yacht.slug} delay={i * 0.08}>
-                  <Link href={`/yachts/${yacht.categorySlug}/${yacht.slug}`} className="block group" style={{ width: "clamp(280px, 40vw, 340px)" }}>
-                    <div className="card-luxury overflow-hidden">
-                      <div className="aspect-[16/10] relative overflow-hidden">
-                        <Image
-                          src={yacht.img}
-                          alt={yacht.name}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(19,42,58,0.8) 0%, transparent 60%)" }} />
-                        <div style={{ position: "absolute", top: "14px", left: "14px" }}>
-                          <Badge>{yacht.category}</Badge>
-                        </div>
-                      </div>
-                      <div style={{ padding: "20px 20px 24px" }}>
-                        <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "18px", marginBottom: "10px" }}
-                            className="group-hover:text-[#F4DDC3] transition-colors">
-                          {yacht.name}
-                        </h3>
-                        <div className="flex items-center text-[#A0A0A0]" style={{ gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "11px" }}>
-                          <span>{yacht.guests}</span>
-                          <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
-                          <span>{yacht.length}</span>
-                          <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
-                          <span>{yacht.speed}</span>
-                        </div>
-                        <span style={{ display: "block", marginTop: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3" }}>
-                          Voir la fiche →
-                        </span>
+              {featuredYachts.map((yacht) => (
+                <Link key={yacht.slug} href={`/yachts/${yacht.categorySlug}/${yacht.slug}`} className="block group" style={{ width: "clamp(280px, 40vw, 340px)" }}>
+                  <div className="card-luxury overflow-hidden">
+                    <div className="aspect-[16/10] relative overflow-hidden">
+                      <Image
+                        src={yacht.img}
+                        alt={yacht.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(19,42,58,0.8) 0%, transparent 60%)" }} />
+                      <div style={{ position: "absolute", top: "14px", left: "14px" }}>
+                        <Badge>{yacht.category}</Badge>
                       </div>
                     </div>
-                  </Link>
-                </ScrollReveal>
+                    <div style={{ padding: "20px 20px 24px" }}>
+                      <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "18px", marginBottom: "10px" }}
+                          className="group-hover:text-[#F4DDC3] transition-colors">
+                        {yacht.name}
+                      </h3>
+                      <div className="flex items-center text-[#A0A0A0]" style={{ gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "11px" }}>
+                        <span>{yacht.guests}</span>
+                        <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
+                        <span>{yacht.length}</span>
+                        <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
+                        <span>{yacht.speed}</span>
+                      </div>
+                      <span style={{ display: "block", marginTop: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3" }}>
+                        Voir la fiche →
+                      </span>
+                    </div>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -829,6 +828,7 @@ function YachtShowcase() {
             <span>Faites défiler pour voir plus</span>
           </div>
         </div>
+        </ScrollReveal>
 
         <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginTop: "clamp(32px, 5vw, 56px)" }}>
           <Button href="/yachts" variant="primary">Explorer tous les yachts</Button>

@@ -258,7 +258,7 @@ function HeroSection() {
             lineHeight: 1.15,
           }}
         >
-          VOLS A VIDE
+          VOLS À VIDE
         </motion.h1>
 
         <motion.p
@@ -273,7 +273,7 @@ function HeroSection() {
             lineHeight: 1.4,
           }}
         >
-          Jusqu&apos;a -75% sur votre jet prive
+          Jusqu&apos;à -75% sur votre jet privé
         </motion.p>
 
         <motion.p
@@ -290,8 +290,8 @@ function HeroSection() {
             margin: '0 auto',
           }}
         >
-          Profitez des repositionnements d&apos;appareils pour voyager en jet prive
-          a des tarifs exceptionnels.
+          Profitez des repositionnements d&apos;appareils pour voyager en jet privé
+          à des tarifs exceptionnels.
         </motion.p>
 
         <motion.div
@@ -342,7 +342,7 @@ function ExplanationSection() {
                     color: '#F4DDC3',
                   }}
                 >
-                  Qu&apos;est-ce qu&apos;un empty leg ?
+                  Qu&apos;est-ce qu&apos;un Empty Leg ?
                 </p>
               </div>
 
@@ -358,11 +358,11 @@ function ExplanationSection() {
                     marginBottom: '20px',
                   }}
                 >
-                  Un empty leg, ou vol a vide, correspond au repositionnement
-                  d&apos;un jet prive qui doit rejoindre sa prochaine mission ou
-                  retourner a sa base sans passager a bord. Plutot que de laisser
-                  cet appareil voler a vide, nous vous proposons d&apos;en profiter
-                  a un tarif considerablement reduit.
+                  Un empty leg, ou vol à vide, correspond au repositionnement
+                  d&apos;un jet privé qui doit rejoindre sa prochaine mission ou
+                  retourner à sa base sans passager à bord. Plutôt que de laisser
+                  cet appareil voler à vide, nous vous proposons d&apos;en profiter
+                  à un tarif considérablement réduit.
                 </p>
                 <p
                   style={{
@@ -374,12 +374,12 @@ function ExplanationSection() {
                     lineHeight: 1.9,
                   }}
                 >
-                  Vous beneficiez exactement du meme niveau de service, de confort
-                  et de securite qu&apos;un affretement classique, avec des economies
-                  pouvant atteindre 75%. Les dates et horaires sont generalement
-                  fixes, mais la qualite de l&apos;experience reste identique.
-                  C&apos;est l&apos;opportunite ideale pour decouvrir l&apos;aviation privee
-                  ou voyager regulierement a moindre cout.
+                  Vous bénéficiez exactement du même niveau de service, de confort
+                  et de sécurité qu&apos;un affrètement classique, avec des économies
+                  pouvant atteindre 75%. Les dates et horaires sont généralement
+                  fixes, mais la qualité de l&apos;expérience reste identique.
+                  C&apos;est l&apos;opportunité idéale pour découvrir l&apos;aviation privée
+                  ou voyager régulièrement à moindre coût.
                 </p>
               </div>
             </div>
@@ -452,8 +452,8 @@ function FilterAndListingSection() {
       <div className="container-luxury">
         <SectionTitle
           preTitle="Offres disponibles"
-          title="Trouvez votre vol a vide"
-          subtitle="Filtrez parmi nos empty legs disponibles et reservez au meilleur prix."
+          title="Trouvez votre vol à vide"
+          subtitle="Filtrez parmi nos empty legs disponibles et réservez au meilleur prix."
           centered
         />
 
@@ -479,17 +479,17 @@ function FilterAndListingSection() {
                   color: '#F4DDC3',
                 }}
               >
-                Filtrer les resultats
+                Filtrer les résultats
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
               {/* Departure */}
               <div>
-                <label style={labelStyle}>Depart</label>
+                <label style={labelStyle}>Départ</label>
                 <input
                   type="text"
-                  placeholder="Ville de depart"
+                  placeholder="Ville de départ"
                   value={departure}
                   onChange={(e) => setDeparture(e.target.value)}
                   style={inputStyle}
@@ -504,10 +504,10 @@ function FilterAndListingSection() {
 
               {/* Arrival */}
               <div>
-                <label style={labelStyle}>Arrivee</label>
+                <label style={labelStyle}>Arrivée</label>
                 <input
                   type="text"
-                  placeholder="Ville d'arrivee"
+                  placeholder="Ville d'arrivée"
                   value={arrival}
                   onChange={(e) => setArrival(e.target.value)}
                   style={inputStyle}
@@ -522,7 +522,7 @@ function FilterAndListingSection() {
 
               {/* Date from */}
               <div>
-                <label style={labelStyle}>Date debut</label>
+                <label style={labelStyle}>Date début</label>
                 <input
                   type="date"
                   value={dateFrom}
@@ -562,7 +562,7 @@ function FilterAndListingSection() {
 
               {/* Category */}
               <div>
-                <label style={labelStyle}>Categorie</label>
+                <label style={labelStyle}>Catégorie</label>
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
@@ -627,7 +627,7 @@ function FilterAndListingSection() {
                   textUnderlineOffset: '3px',
                 }}
               >
-                Reinitialiser les filtres
+                Réinitialiser les filtres
               </button>
             </div>
           </div>
@@ -682,8 +682,8 @@ function FilterAndListingSection() {
                     color: '#6B6B6B',
                   }}
                 >
-                  Modifiez vos criteres de recherche ou creez une alerte pour
-                  etre notifie.
+                  Modifiez vos critères de recherche ou créez une alerte pour
+                  être notifié.
                 </p>
               </div>
             </ScrollReveal>
@@ -872,7 +872,7 @@ function EmptyLegCard({ leg }: { leg: EmptyLeg }) {
           </div>
 
           <Button href="/devis" size="sm">
-            Reserver
+            Réserver
           </Button>
         </div>
       </div>
@@ -921,9 +921,9 @@ function AlertSignupSection() {
               </div>
 
               <SectionTitle
-                preTitle="Ne manquez aucune opportunite"
-                title="Creer une alerte"
-                subtitle="Recevez une notification des qu'un vol a vide correspond a vos criteres de recherche."
+                preTitle="Ne manquez aucune opportunité"
+                title="Créer une alerte"
+                subtitle="Recevez une notification dès qu'un vol à vide correspond à vos critères de recherche."
                 centered
               />
             </div>
@@ -966,7 +966,7 @@ function AlertSignupSection() {
                     color: '#FFFFFF',
                   }}
                 >
-                  Alerte creee avec succes
+                  Alerte créée avec succès
                 </h3>
                 <p
                   style={{
@@ -977,7 +977,7 @@ function AlertSignupSection() {
                     color: '#A0A0A0',
                   }}
                 >
-                  Vous serez notifie des qu&apos;un vol correspondant a vos criteres
+                  Vous serez notifié dès qu&apos;un vol correspondant à vos critères
                   sera disponible.
                 </p>
               </motion.div>
@@ -1015,7 +1015,7 @@ function AlertSignupSection() {
                   {/* Phone */}
                   <div>
                     <label style={labelStyle}>
-                      Telephone{' '}
+                      Téléphone{' '}
                       <span
                         style={{
                           fontWeight: 300,
@@ -1045,7 +1045,7 @@ function AlertSignupSection() {
                 {/* Routes */}
                 <div className="mt-6">
                   <label style={labelStyle}>
-                    Trajets souhaites{' '}
+                    Trajets souhaités{' '}
                     <span style={{ color: '#F4DDC3' }}>*</span>
                   </label>
                   <textarea
@@ -1110,7 +1110,7 @@ function AlertSignupSection() {
                         color: '#A0A0A0',
                       }}
                     >
-                      Dates flexibles (je suis ouvert a differentes dates)
+                      Dates flexibles (je suis ouvert à différentes dates)
                     </span>
                   </label>
                 </div>
@@ -1118,7 +1118,7 @@ function AlertSignupSection() {
                 {/* Submit */}
                 <div className="mt-8 text-center">
                   <Button type="submit" size="lg">
-                    Creer mon alerte
+                    Créer mon alerte
                   </Button>
                 </div>
               </form>
@@ -1146,8 +1146,8 @@ function BottomCtaSection() {
         <ScrollReveal>
           <SectionTitle
             preTitle="Besoin d'un vol sur mesure ?"
-            title="L'empty leg ne correspond pas a vos besoins ?"
-            subtitle="Demandez un devis personnalise pour un affretement classique. Notre equipe vous repond sous 30 minutes, 24h/24."
+            title="L'empty leg ne correspond pas à vos besoins ?"
+            subtitle="Demandez un devis personnalisé pour un affrètement classique. Notre équipe vous répond sous 30 minutes, 24h/24."
             centered
           />
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
