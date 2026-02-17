@@ -2,55 +2,30 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import SectionTitle from "@/components/ui/SectionTitle";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { fleet, type Aircraft } from "@/data/fleet";
 
+const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number];
+
 /* ============================================
-   AIRCRAFT SELECT DROPDOWN
+   AIRCRAFT SELECT
    ============================================ */
-function AircraftSelect({
-  value,
-  onChange,
-  index,
-}: {
-  value: string;
-  onChange: (id: string) => void;
-  index: number;
-}) {
+function AircraftSelect({ value, onChange, index }: { value: string; onChange: (id: string) => void; index: number }) {
   return (
-    <div className="flex-1">
-      <label
-        className="block text-[10px] uppercase tracking-[0.15em] mb-2"
-        style={{
-          fontFamily: "var(--font-montserrat)",
-          fontWeight: 500,
-          color: "#6B6B6B",
-        }}
-      >
+    <div style={{ flex: 1 }}>
+      <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "8px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#6B6B6B" }}>
         Appareil {index + 1}
       </label>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full px-4 py-3 text-[14px] bg-transparent border appearance-none"
-        style={{
-          borderColor: value ? "#C9A96E" : "#1E1E1E",
-          color: value ? "#F5F5F0" : "#6B6B6B",
-          fontFamily: "var(--font-montserrat)",
-          fontWeight: 300,
-          backgroundColor: "#141414",
-        }}
+        style={{ width: "100%", padding: "12px 16px", fontSize: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 300, color: value ? "#F5F5F0" : "#6B6B6B", backgroundColor: "#141414", border: `1px solid ${value ? "#C9A96E" : "#1E1E1E"}`, borderRadius: "2px", appearance: "none", WebkitAppearance: "none", outline: "none", cursor: "pointer" }}
       >
-        <option value="" style={{ background: "#141414" }}>
-          Sélectionner un appareil
-        </option>
+        <option value="" style={{ background: "#141414" }}>Sélectionner un appareil</option>
         {fleet.map((a) => (
-          <option key={a.id} value={a.id} style={{ background: "#141414" }}>
-            {a.name} — {a.category}
-          </option>
+          <option key={a.id} value={a.id} style={{ background: "#141414" }}>{a.name} — {a.category}</option>
         ))}
       </select>
     </div>
@@ -60,71 +35,21 @@ function AircraftSelect({
 /* ============================================
    COMPARISON ROW
    ============================================ */
-function ComparisonRow({
-  label,
-  values,
-  unit,
-  highlight,
-}: {
-  label: string;
-  values: (string | number | null)[];
-  unit?: string;
-  highlight?: "max" | "min" | "none";
-}) {
-  const numericValues = values.map((v) =>
-    typeof v === "number" ? v : null
-  );
+function ComparisonRow({ label, values, unit, highlight }: { label: string; values: (string | number | null)[]; unit?: string; highlight?: "max" | "min" | "none" }) {
+  const numericValues = values.map((v) => (typeof v === "number" ? v : null));
   const validNums = numericValues.filter((n): n is number => n !== null);
-  const best =
-    highlight === "max"
-      ? Math.max(...validNums)
-      : highlight === "min"
-        ? Math.min(...validNums)
-        : null;
+  const best = highlight === "max" ? Math.max(...validNums) : highlight === "min" ? Math.min(...validNums) : null;
 
   return (
-    <div
-      className="grid items-center gap-4 py-4 border-b"
-      style={{
-        gridTemplateColumns: `200px repeat(${values.length}, 1fr)`,
-        borderColor: "rgba(30, 30, 30, 0.8)",
-      }}
-    >
-      <span
-        className="text-[12px] uppercase tracking-[0.1em]"
-        style={{
-          fontFamily: "var(--font-montserrat)",
-          fontWeight: 500,
-          color: "#6B6B6B",
-        }}
-      >
-        {label}
-      </span>
+    <div style={{ display: "grid", gridTemplateColumns: `200px repeat(${values.length}, 1fr)`, alignItems: "center", gap: "16px", padding: "14px 0", borderBottom: "1px solid rgba(30,30,30,0.8)" }}>
+      <span style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#6B6B6B" }}>{label}</span>
       {values.map((val, i) => {
-        const isBest =
-          best !== null && typeof val === "number" && val === best;
+        const isBest = best !== null && typeof val === "number" && val === best;
         return (
-          <span
-            key={i}
-            className="text-[15px] text-center"
-            style={{
-              fontFamily: "var(--font-montserrat)",
-              fontWeight: isBest ? 600 : 400,
-              color: isBest ? "#C9A96E" : val ? "#F5F5F0" : "#1E1E1E",
-            }}
-          >
+          <span key={i} style={{ fontSize: "15px", textAlign: "center", fontFamily: "var(--font-montserrat)", fontWeight: isBest ? 600 : 400, color: isBest ? "#C9A96E" : val ? "#F5F5F0" : "#1E1E1E" }}>
             {val !== null && val !== undefined ? (
-              <>
-                {typeof val === "number" ? val.toLocaleString("fr-FR") : val}
-                {unit && (
-                  <span className="text-[11px] text-[#6B6B6B] ml-1">
-                    {unit}
-                  </span>
-                )}
-              </>
-            ) : (
-              "—"
-            )}
+              <>{typeof val === "number" ? val.toLocaleString("fr-FR") : val}{unit && <span style={{ fontSize: "11px", color: "#6B6B6B", marginLeft: "4px" }}>{unit}</span>}</>
+            ) : "—"}
           </span>
         );
       })}
@@ -137,133 +62,45 @@ function ComparisonRow({
    ============================================ */
 export default function ComparateurPage() {
   const [selections, setSelections] = useState<string[]>(["", "", ""]);
-
-  const selectedAircraft: (Aircraft | null)[] = selections.map(
-    (id) => fleet.find((a) => a.id === id) ?? null
-  );
-
-  const updateSelection = (index: number, id: string) => {
-    const newSelections = [...selections];
-    newSelections[index] = id;
-    setSelections(newSelections);
-  };
-
+  const selectedAircraft: (Aircraft | null)[] = selections.map((id) => fleet.find((a) => a.id === id) ?? null);
+  const updateSelection = (index: number, id: string) => { const n = [...selections]; n[index] = id; setSelections(n); };
   const hasSelection = selectedAircraft.some((a) => a !== null);
 
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            background:
-              "linear-gradient(135deg, #0A0A0A 0%, #141414 40%, #1a1510 60%, #0A0A0A 100%)",
-          }}
-        />
-        <div
-          className="absolute top-1/3 left-0 right-0 h-[1px] opacity-[0.05]"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, #C9A96E, transparent)",
-          }}
-        />
-        <div
-          className="absolute inset-0 z-[1]"
-          style={{
-            background:
-              "linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.3) 50%, rgba(10,10,10,0.6) 100%)",
-          }}
-        />
-        <div className="relative z-10 w-full px-[5vw] pt-40 pb-16 text-center" style={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.7,
-              delay: 0.1,
-              ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-            }}
-            className="text-[12px] uppercase tracking-[0.2em] mb-4"
-            style={{
-              fontFamily: "var(--font-montserrat)",
-              fontWeight: 500,
-              color: "#C9A96E",
-            }}
-          >
+      <section style={{ position: "relative", minHeight: "clamp(360px, 50vh, 560px)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, zIndex: 0, background: "linear-gradient(135deg, #0A0A0A 0%, #141414 40%, #1a1510 60%, #0A0A0A 100%)" }} />
+        <div style={{ position: "absolute", top: "33%", left: 0, right: 0, height: "1px", opacity: 0.05, background: "linear-gradient(90deg, transparent, #C9A96E, transparent)" }} />
+        <div style={{ position: "absolute", inset: 0, zIndex: 1, background: "linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.3) 50%, rgba(10,10,10,0.6) 100%)" }} />
+        <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1200px", margin: "0 auto", padding: "clamp(120px, 18vh, 160px) 24px clamp(40px, 5vw, 64px)", textAlign: "center" }}>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
+            style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "16px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#C9A96E" }}>
             NOTRE FLOTTE
           </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1,
-              delay: 0.3,
-              ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-            }}
-            className="text-[36px] md:text-[56px] mb-6"
-            style={{
-              fontFamily: "var(--font-playfair)",
-              fontWeight: 700,
-              color: "#F5F5F0",
-              lineHeight: 1.15,
-            }}
-          >
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3, ease: EASE }}
+            style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", lineHeight: 1.15, fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "20px" }}>
             Comparateur de jets
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.5,
-              ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-            }}
-            className="text-[18px] md:text-[22px]"
-            style={{
-              maxWidth: "600px",
-              margin: "0 auto",
-              fontFamily: "var(--font-cormorant)",
-              fontStyle: "italic",
-              color: "#A0A0A0",
-            }}
-          >
-            Comparez jusqu&apos;à 3 appareils pour trouver celui qui correspond
-            à votre mission
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
+            style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", maxWidth: "600px", margin: "0 auto", fontSize: "clamp(16px, 2.5vw, 22px)" }}>
+            Comparez jusqu&apos;à 3 appareils pour trouver celui qui correspond à votre mission
           </motion.p>
         </div>
       </section>
 
       {/* Comparator */}
-      <section className="section-padding" style={{ background: "#0A0A0A" }}>
-        <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
+      <section style={{ background: "#0A0A0A", padding: "clamp(60px, 10vw, 120px) 0" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
           {/* Selectors */}
           <ScrollReveal>
-            <div
-              className="p-6 md:p-8 mb-12"
-              style={{
-                backgroundColor: "#141414",
-                border: "1px solid #1E1E1E",
-              }}
-            >
-              <p
-                className="text-[12px] uppercase tracking-[0.15em] mb-6"
-                style={{
-                  fontFamily: "var(--font-montserrat)",
-                  fontWeight: 500,
-                  color: "#C9A96E",
-                }}
-              >
+            <div style={{ padding: "clamp(20px, 3vw, 32px)", backgroundColor: "#141414", border: "1px solid #1E1E1E", borderRadius: "2px", marginBottom: "clamp(32px, 5vw, 48px)" }}>
+              <p style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "20px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#C9A96E" }}>
                 Sélectionnez vos appareils
               </p>
-              <div className="flex flex-col md:flex-row gap-4">
+              <div className="flex flex-col md:flex-row" style={{ gap: "16px" }}>
                 {selections.map((sel, i) => (
-                  <AircraftSelect
-                    key={i}
-                    value={sel}
-                    onChange={(id) => updateSelection(i, id)}
-                    index={i}
-                  />
+                  <AircraftSelect key={i} value={sel} onChange={(id) => updateSelection(i, id)} index={i} />
                 ))}
               </div>
             </div>
@@ -272,65 +109,26 @@ export default function ComparateurPage() {
           {/* Aircraft Headers */}
           {hasSelection && (
             <ScrollReveal>
-              <div
-                className="grid gap-4 mb-8"
-                style={{
-                  gridTemplateColumns: `200px repeat(${selectedAircraft.length}, 1fr)`,
-                }}
-              >
+              <div style={{ display: "grid", gridTemplateColumns: `200px repeat(${selectedAircraft.length}, 1fr)`, gap: "16px", marginBottom: "24px" }}>
                 <div />
                 {selectedAircraft.map((a, i) => (
-                  <div key={i} className="text-center">
+                  <div key={i} style={{ textAlign: "center" }}>
                     {a ? (
                       <>
                         {/* Image placeholder */}
-                        <div
-                          className="aspect-[16/9] relative mb-4 overflow-hidden"
-                          style={{ background: "#1E1E1E" }}
-                        >
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <svg
-                              width="40"
-                              height="40"
-                              fill="none"
-                              stroke="#C9A96E"
-                              strokeWidth="1"
-                              viewBox="0 0 24 24"
-                              className="opacity-20"
-                            >
+                        <div style={{ aspectRatio: "16/9", position: "relative", marginBottom: "12px", overflow: "hidden", borderRadius: "2px", background: "#1E1E1E" }}>
+                          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                            <svg width="40" height="40" fill="none" stroke="#C9A96E" strokeWidth="1" viewBox="0 0 24 24" style={{ opacity: 0.2 }}>
                               <path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12M3 20h18" />
                             </svg>
                           </div>
                         </div>
-                        <h3
-                          className="text-[18px] mb-2"
-                          style={{
-                            fontFamily: "var(--font-playfair)",
-                            fontWeight: 600,
-                            color: "#F5F5F0",
-                          }}
-                        >
-                          {a.name}
-                        </h3>
+                        <h3 style={{ fontSize: "18px", marginBottom: "8px", fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0" }}>{a.name}</h3>
                         <Badge>{a.category}</Badge>
                       </>
                     ) : (
-                      <div
-                        className="aspect-[16/9] flex items-center justify-center mb-4"
-                        style={{
-                          background: "#141414",
-                          border: "1px dashed #1E1E1E",
-                        }}
-                      >
-                        <span
-                          className="text-[12px]"
-                          style={{
-                            fontFamily: "var(--font-montserrat)",
-                            color: "#6B6B6B",
-                          }}
-                        >
-                          Non sélectionné
-                        </span>
+                      <div style={{ aspectRatio: "16/9", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "12px", background: "#141414", border: "1px dashed #1E1E1E", borderRadius: "2px" }}>
+                        <span style={{ fontSize: "12px", fontFamily: "var(--font-montserrat)", color: "#6B6B6B" }}>Non sélectionné</span>
                       </div>
                     )}
                   </div>
@@ -342,120 +140,41 @@ export default function ComparateurPage() {
           {/* Comparison Table */}
           {hasSelection && (
             <ScrollReveal delay={0.1}>
-              <div
-                className="p-6 md:p-8 overflow-x-auto"
-                style={{
-                  backgroundColor: "#141414",
-                  border: "1px solid #1E1E1E",
-                }}
-              >
-                <h3
-                  className="text-[14px] uppercase tracking-[0.15em] mb-6"
-                  style={{
-                    fontFamily: "var(--font-montserrat)",
-                    fontWeight: 600,
-                    color: "#C9A96E",
-                  }}
-                >
+              <div style={{ padding: "clamp(20px, 3vw, 32px)", backgroundColor: "#141414", border: "1px solid #1E1E1E", borderRadius: "2px", overflowX: "auto" }}>
+                <h3 style={{ fontSize: "14px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "20px", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#C9A96E" }}>
                   Caractéristiques techniques
                 </h3>
-
                 <div style={{ minWidth: "600px" }}>
-                  <ComparisonRow
-                    label="Constructeur"
-                    values={selectedAircraft.map((a) => a?.manufacturer ?? null)}
-                  />
-                  <ComparisonRow
-                    label="Catégorie"
-                    values={selectedAircraft.map((a) => a?.category ?? null)}
-                  />
-                  <ComparisonRow
-                    label="Passagers"
-                    values={selectedAircraft.map((a) => a?.passengers ?? null)}
-                    highlight="max"
-                  />
-                  <ComparisonRow
-                    label="Autonomie"
-                    values={selectedAircraft.map((a) => a?.range ?? null)}
-                    unit="km"
-                    highlight="max"
-                  />
-                  <ComparisonRow
-                    label="Vitesse"
-                    values={selectedAircraft.map((a) => a?.speed ?? null)}
-                    unit="km/h"
-                    highlight="max"
-                  />
-                  <ComparisonRow
-                    label="Longueur cabine"
-                    values={selectedAircraft.map((a) => a?.cabinLength ?? null)}
-                    unit="m"
-                    highlight="max"
-                  />
-                  <ComparisonRow
-                    label="Hauteur cabine"
-                    values={selectedAircraft.map((a) => a?.cabinHeight ?? null)}
-                    unit="m"
-                    highlight="max"
-                  />
-                  <ComparisonRow
-                    label="Bagages"
-                    values={selectedAircraft.map((a) => a?.baggage ?? null)}
-                    unit="m³"
-                    highlight="max"
-                  />
-                  <ComparisonRow
-                    label="Moteurs"
-                    values={selectedAircraft.map((a) => a?.engines ?? null)}
-                  />
-                  <ComparisonRow
-                    label="Distance décollage"
-                    values={selectedAircraft.map(
-                      (a) => a?.takeoffDistance ?? null
-                    )}
-                    unit="m"
-                    highlight="min"
-                  />
-                  <ComparisonRow
-                    label="Année introduction"
-                    values={selectedAircraft.map(
-                      (a) => a?.yearIntroduced ?? null
-                    )}
-                  />
+                  <ComparisonRow label="Constructeur" values={selectedAircraft.map((a) => a?.manufacturer ?? null)} />
+                  <ComparisonRow label="Catégorie" values={selectedAircraft.map((a) => a?.category ?? null)} />
+                  <ComparisonRow label="Passagers" values={selectedAircraft.map((a) => a?.passengers ?? null)} highlight="max" />
+                  <ComparisonRow label="Autonomie" values={selectedAircraft.map((a) => a?.range ?? null)} unit="km" highlight="max" />
+                  <ComparisonRow label="Vitesse" values={selectedAircraft.map((a) => a?.speed ?? null)} unit="km/h" highlight="max" />
+                  <ComparisonRow label="Longueur cabine" values={selectedAircraft.map((a) => a?.cabinLength ?? null)} unit="m" highlight="max" />
+                  <ComparisonRow label="Hauteur cabine" values={selectedAircraft.map((a) => a?.cabinHeight ?? null)} unit="m" highlight="max" />
+                  <ComparisonRow label="Bagages" values={selectedAircraft.map((a) => a?.baggage ?? null)} unit="m³" highlight="max" />
+                  <ComparisonRow label="Moteurs" values={selectedAircraft.map((a) => a?.engines ?? null)} />
+                  <ComparisonRow label="Distance décollage" values={selectedAircraft.map((a) => a?.takeoffDistance ?? null)} unit="m" highlight="min" />
+                  <ComparisonRow label="Année introduction" values={selectedAircraft.map((a) => a?.yearIntroduced ?? null)} />
                 </div>
               </div>
             </ScrollReveal>
           )}
 
-          {/* No selection state */}
+          {/* Empty state */}
           {!hasSelection && (
-            <div className="text-center py-20">
-              <svg
-                width="64"
-                height="64"
-                fill="none"
-                stroke="#1E1E1E"
-                strokeWidth="1"
-                viewBox="0 0 24 24"
-                className="mx-auto mb-6"
-              >
+            <div style={{ textAlign: "center", padding: "80px 0" }}>
+              <svg width="64" height="64" fill="none" stroke="#1E1E1E" strokeWidth="1" viewBox="0 0 24 24" style={{ margin: "0 auto 24px" }}>
                 <path d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
               </svg>
-              <p
-                className="text-[16px] mb-2"
-                style={{
-                  fontFamily: "var(--font-cormorant)",
-                  fontStyle: "italic",
-                  color: "#6B6B6B",
-                }}
-              >
+              <p style={{ fontSize: "16px", fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#6B6B6B" }}>
                 Sélectionnez au moins un appareil pour commencer la comparaison
               </p>
             </div>
           )}
 
           {/* Bottom CTA */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16">
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "16px", marginTop: "clamp(48px, 6vw, 64px)" }}>
             <Button href="/flotte" variant="secondary">
               Retour à la flotte
             </Button>
