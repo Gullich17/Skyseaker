@@ -12,6 +12,7 @@ import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import { emptyLegs } from "@/data/emptyLegs";
 import { yachts } from "@/data/yachts";
+import { fleet } from "@/data/fleet";
 
 /* ============================================
    HERO SECTION
@@ -655,13 +656,28 @@ function FleetShowcase() {
     el.scrollLeft += e.deltaY;
   }, []);
 
-  const featuredAircraft = [
-    { name: "Citation XLS+", category: "Super Light Jet", pax: "9", range: "3 400 km", speed: "816 km/h", slug: "citation-xls-plus", img: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=500&q=75" },
-    { name: "Challenger 350", category: "Super Midsize", pax: "10", range: "5 926 km", speed: "870 km/h", slug: "challenger-350", img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=500&q=75" },
-    { name: "Global 6000", category: "Heavy Jet", pax: "14", range: "11 112 km", speed: "950 km/h", slug: "global-6000", img: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=500&q=75" },
-    { name: "Gulfstream G650ER", category: "Ultra Long Range", pax: "16", range: "13 890 km", speed: "956 km/h", slug: "gulfstream-g650er", img: "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=500&q=75" },
-    { name: "Phenom 300E", category: "Light Jet", pax: "8", range: "3 650 km", speed: "839 km/h", slug: "phenom-300e", img: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=500&q=75" },
+  const featuredSlugs = [
+    "embraer-phenom-300",
+    "cessna-citation-latitude",
+    "challenger-350",
+    "bombardier-global-6500",
+    "gulfstream-g650",
+    "dassault-falcon-8x",
+    "bombardier-global-7500",
   ];
+  const featuredAircraft = featuredSlugs
+    .map((slug) => fleet.find((a) => a.id === slug))
+    .filter(Boolean)
+    .map((a) => ({
+      name: a!.name,
+      category: a!.category,
+      categorySlug: a!.categorySlug,
+      pax: `${a!.passengers} pax`,
+      range: `${a!.range.toLocaleString("fr-FR")} km`,
+      speed: `${a!.speed} km/h`,
+      slug: a!.id,
+      img: a!.image,
+    }));
 
   return (
     <section style={{ background: "#0E202D", padding: "clamp(80px, 12vw, 140px) 0" }}>
@@ -679,7 +695,7 @@ function FleetShowcase() {
           <div ref={scrollRef} onWheel={handleWheel} className="overflow-x-auto pb-8 scrollbar-hide" style={{ margin: "0 -10px", padding: "0 10px", overscrollBehavior: "contain" }}>
             <div className="flex" style={{ gap: "20px", minWidth: "max-content" }}>
               {featuredAircraft.map((ac) => (
-                <Link key={ac.slug} href={`/flotte/${ac.category.toLowerCase().replace(/ /g, "-")}/${ac.slug}`} className="block group" style={{ width: "clamp(280px, 40vw, 340px)" }}>
+                <Link key={ac.slug} href={`/flotte/${ac.categorySlug}/${ac.slug}`} className="block group" style={{ width: "clamp(280px, 40vw, 340px)" }}>
                   <div className="card-luxury overflow-hidden">
                     <div className="aspect-[16/10] relative overflow-hidden">
                       <Image
