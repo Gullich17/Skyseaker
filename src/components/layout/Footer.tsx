@@ -65,7 +65,7 @@ export default function Footer() {
         {/* Logo + Slogan */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6" style={{ padding: "clamp(40px, 6vw, 64px) 0" }}>
           <div>
-            <Link href="/" style={{ display: "block", position: "relative", width: "180px", height: "60px" }}>
+            <Link href="/" style={{ display: "block", position: "relative", width: "220px", height: "80px" }}>
               <Image
                 src="/images/logos/logo-beige.png"
                 alt="Skyseaker"

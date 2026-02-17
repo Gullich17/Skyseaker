@@ -131,7 +131,7 @@ export default function Header() {
       >
         <nav className="flex items-center justify-between h-[70px]" style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 clamp(20px, 5vw, 40px)" }}>
           {/* Logo */}
-          <Link href="/" className="shrink-0" style={{ display: "block", position: "relative", width: "clamp(140px, 18vw, 180px)", height: "44px" }}>
+          <Link href="/" className="shrink-0" style={{ display: "block", position: "relative", width: "clamp(160px, 20vw, 220px)", height: "60px" }}>
             <Image
               src="/images/logos/logo-beige.png"
               alt="Skyseaker"
