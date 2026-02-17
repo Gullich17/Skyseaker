@@ -265,36 +265,10 @@ export default function AircraftPageClient({
               <SectionTitle preTitle="GALERIE" title="Photos de l&apos;appareil" centered mb="clamp(32px, 5vw, 48px)" />
             </ScrollReveal>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "12px" }}>
-              {/* Main image - larger */}
-              <ScrollReveal delay={0}>
-                <div
-                  onClick={() => openLightbox(0)}
-                  className="group"
-                  style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", border: "1px solid #1A3448", cursor: "pointer", gridColumn: aircraft.gallery.length >= 3 ? "span 2" : "span 1" }}
-                >
-                  <Image
-                    src={heroImg}
-                    alt={`${aircraft.name} - Vue principale`}
-                    fill
-                    style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
-                    className="group-hover:scale-105"
-                  />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(14,32,45,0.5) 0%, transparent 50%)", transition: "opacity 0.3s ease" }} className="group-hover:opacity-60" />
-                  <div
-                    className="group-hover:opacity-100"
-                    style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", opacity: 0, transition: "opacity 0.3s ease" }}
-                  >
-                    <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "rgba(244,221,195,0.15)", border: "1px solid rgba(244,221,195,0.3)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <svg width="20" height="20" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" /></svg>
-                    </div>
-                  </div>
-                </div>
-              </ScrollReveal>
-
-              {/* Gallery images */}
+            {/* Grid fixe 3 colonnes */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px" }}>
               {aircraft.gallery.map((img, i) => (
-                <ScrollReveal key={i} delay={(i + 1) * 0.06}>
+                <ScrollReveal key={i} delay={i * 0.06}>
                   <div
                     onClick={() => openLightbox(i + 1)}
                     className="group"
@@ -302,12 +276,12 @@ export default function AircraftPageClient({
                   >
                     <Image
                       src={img}
-                      alt={`${aircraft.name} - Photo ${i + 2}`}
+                      alt={`${aircraft.name} - Photo ${i + 1}`}
                       fill
                       style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
                       className="group-hover:scale-105"
                     />
-                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(14,32,45,0.4) 0%, transparent 50%)", transition: "opacity 0.3s ease" }} className="group-hover:opacity-60" />
+                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(14,32,45,0.3) 0%, transparent 50%)" }} />
                     <div
                       className="group-hover:opacity-100"
                       style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", opacity: 0, transition: "opacity 0.3s ease" }}

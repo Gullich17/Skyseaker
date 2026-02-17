@@ -85,13 +85,17 @@ function AircraftCard({ aircraft, index }: { aircraft: Aircraft; index: number }
           }}
           transition={{ duration: 0.4, ease: EASE }}
         >
-          {/* Image Placeholder */}
+          {/* Image */}
           <div className="aspect-[16/9] relative overflow-hidden" style={{ background: "#1A3448" }}>
-            <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <svg width="48" height="48" fill="none" stroke="#F4DDC3" strokeWidth="1" viewBox="0 0 24 24" style={{ opacity: 0.2 }}>
-                <path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12M3 20h18" />
-              </svg>
-            </div>
+            {aircraft.image && (
+              <Image
+                src={aircraft.image}
+                alt={aircraft.name}
+                fill
+                style={{ objectFit: "cover", transition: "transform 0.7s ease" }}
+                className="group-hover:scale-105"
+              />
+            )}
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(19,42,58,0.7) 0%, transparent 50%)" }} />
             <div style={{ position: "absolute", top: "12px", left: "12px" }}>
               <Badge>{aircraft.category}</Badge>
