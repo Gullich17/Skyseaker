@@ -398,6 +398,13 @@ input[type="date"] {
   .selectors-row { flex-direction: column !important; }
 }
 
+/* Sidebar grid — 2 cols desktop, 1 col mobile */
+.sidebar-grid { grid-template-columns: 2fr 1fr; }
+
+@media (max-width: 768px) {
+  .sidebar-grid { grid-template-columns: 1fr !important; }
+}
+
 /* Link reset for styled links */
 a {
   text-decoration: none;
