@@ -26,8 +26,8 @@ function getImage(aircraft: Aircraft): string {
     "helicoptere": "https://images.unsplash.com/photo-1559628233-100c798642d4?w=1200&q=80",
     "turbopropulseur": "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1200&q=80",
   };
-  // Use aircraft.image if it starts with http, else fallback
-  if (aircraft.image?.startsWith("http")) return aircraft.image;
+  // Use aircraft.image if it exists (local or remote), else category fallback
+  if (aircraft.image) return aircraft.image;
   return fallbacks[aircraft.categorySlug] || fallbacks["light-jet"];
 }
 
