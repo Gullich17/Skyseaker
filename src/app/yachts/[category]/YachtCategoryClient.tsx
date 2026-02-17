@@ -62,7 +62,7 @@ function YachtCard({ yacht, index }: { yacht: Yacht; index: number }) {
               {yacht.name}
             </h3>
             <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B", fontSize: "12px", marginBottom: "16px" }}>
-              {yacht.builder} · {yacht.yearBuilt}
+              {yacht.builder} · {yacht.yearBuilt ?? '-'}
             </p>
             {/* Specs row */}
             <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "12px", marginBottom: "16px" }}>
@@ -80,7 +80,7 @@ function YachtCard({ yacht, index }: { yacht: Yacht; index: number }) {
               </span>
               <span style={{ width: "1px", height: "12px", background: "#1A3448" }} />
               <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#A0A0A0", fontSize: "12px" }}>
-                {yacht.cabins} cabine{yacht.cabins > 1 ? "s" : ""}
+                {yacht.cabins ?? '-'} cabine{(yacht.cabins ?? 0) > 1 ? "s" : ""}
               </span>
             </div>
             <span

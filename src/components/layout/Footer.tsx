@@ -24,11 +24,10 @@ const footerFleet = [
 ];
 
 const footerYachts = [
+  { name: "Location", href: "/yachts/location" },
+  { name: "Achat", href: "/yachts/achat" },
   { name: "Motor Yacht", href: "/yachts/motor-yacht" },
   { name: "Sailing Yacht", href: "/yachts/sailing-yacht" },
-  { name: "Catamaran", href: "/yachts/catamaran" },
-  { name: "Superyacht", href: "/yachts/superyacht" },
-  { name: "Mega Yacht", href: "/yachts/mega-yacht" },
   { name: "Comparateur", href: "/yachts/comparateur" },
 ];
 

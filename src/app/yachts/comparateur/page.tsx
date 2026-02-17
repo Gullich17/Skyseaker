@@ -117,16 +117,16 @@ function MobileYachtCard({ yacht, allSelected }: { yacht: Yacht; allSelected: (Y
         <SpecRow label="Constructeur" value={yacht.builder} />
         <SpecRow label="Catégorie" value={yacht.category} />
         <SpecRow label="Invités" value={yacht.guests} isBest={isBest("guests", "max")} />
-        <SpecRow label="Cabines" value={yacht.cabins} isBest={isBest("cabins", "max")} />
+        <SpecRow label="Cabines" value={yacht.cabins ?? null} isBest={isBest("cabins", "max")} />
         <SpecRow label="Équipage" value={yacht.crew} isBest={isBest("crew", "max")} />
         <SpecRow label="Longueur" value={yacht.length} unit="m" isBest={isBest("length", "max")} />
         <SpecRow label="Largeur" value={yacht.beam} unit="m" isBest={isBest("beam", "max")} />
-        <SpecRow label="Tirant d'eau" value={yacht.draft} unit="m" isBest={isBest("draft", "min")} />
-        <SpecRow label="Vitesse croisière" value={yacht.cruisingSpeed} unit="nds" isBest={isBest("cruisingSpeed", "max")} />
-        <SpecRow label="Vitesse max" value={yacht.maxSpeed} unit="nds" isBest={isBest("maxSpeed", "max")} />
-        <SpecRow label="Autonomie" value={yacht.range} unit="nm" isBest={isBest("range", "max")} />
-        <SpecRow label="Motorisation" value={yacht.engines} />
-        <SpecRow label="Année" value={yacht.yearBuilt} />
+        <SpecRow label="Tirant d'eau" value={yacht.draft ?? null} unit="m" isBest={isBest("draft", "min")} />
+        <SpecRow label="Vitesse croisière" value={yacht.cruisingSpeed ?? null} unit="nds" isBest={isBest("cruisingSpeed", "max")} />
+        <SpecRow label="Vitesse max" value={yacht.maxSpeed ?? null} unit="nds" isBest={isBest("maxSpeed", "max")} />
+        <SpecRow label="Autonomie" value={yacht.range ?? null} unit="nm" isBest={isBest("range", "max")} />
+        <SpecRow label="Motorisation" value={yacht.engines ?? null} />
+        <SpecRow label="Année" value={yacht.yearBuilt ?? null} />
       </div>
     </div>
   );

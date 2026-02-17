@@ -753,7 +753,7 @@ function YachtShowcase() {
     category: y.category,
     guests: `${y.guests} invités`,
     length: `${y.length} m`,
-    speed: `${y.maxSpeed} nds`,
+    speed: `${y.maxSpeed ?? '-'} nds`,
     slug: y.id,
     categorySlug: y.categorySlug,
     img: y.image?.startsWith("http") ? y.image : yachtFallbacks[y.categorySlug] || yachtFallbacks["motor-yacht"],
