@@ -76,7 +76,7 @@ function HeroSection() {
           className="text-center"
           style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#F5F5F0", lineHeight: 1.1, fontSize: "clamp(40px, 5.5vw, 72px)", marginBottom: "48px" }}
         >
-          L&apos;excellence de l&apos;aviation privée
+          Your World, Our Priority
         </motion.h1>
 
         {/* Quote Form */}
