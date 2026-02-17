@@ -147,6 +147,147 @@ function WorldMap() {
               />
             ))}
 
+            {/* Continent outlines */}
+            <svg
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}
+            >
+              {/* North America */}
+              <path
+                d="M15,18 L17,16 L19,15 L22,14 L24,15 L26,14 L28,16 L29,18 L28,20 L27,22 L26,24 L25,26 L24,28 L23,30 L22,32 L21,33 L20,34 L19,35 L18,36 L17,37 L16,36 L15,34 L14,32 L13,30 L12,28 L12,26 L13,24 L14,22 L14,20 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Central America & Caribbean */}
+              <path
+                d="M19,35 L20,36 L21,37 L22,38 L23,38 L24,39 L23,40 L22,40 L21,39 L20,38 L19,37 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* South America */}
+              <path
+                d="M24,40 L26,39 L28,40 L30,42 L31,44 L32,46 L32,48 L33,50 L33,52 L34,54 L34,56 L33,58 L32,60 L31,62 L30,64 L29,65 L28,66 L27,65 L26,63 L25,60 L24,57 L23,54 L22,51 L22,48 L23,45 L23,43 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Europe */}
+              <path
+                d="M47,18 L48,17 L49,16 L50,16 L51,17 L52,17 L53,18 L54,19 L55,20 L54,21 L53,22 L52,23 L51,24 L50,25 L49,25 L48,24 L47,23 L46,22 L46,20 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Scandinavian peninsula */}
+              <path
+                d="M50,12 L51,13 L52,14 L52,16 L51,17 L50,16 L49,14 L49,13 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* UK & Ireland */}
+              <path
+                d="M46,18 L47,17 L47,19 L46,20 Z M45,18 L45,20 L44.5,19 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Africa */}
+              <path
+                d="M47,28 L48,27 L50,27 L52,28 L54,28 L55,30 L56,32 L56,34 L57,36 L57,38 L56,40 L55,42 L54,44 L53,46 L52,48 L51,50 L50,52 L49,53 L48,52 L47,50 L46,48 L45,46 L44,44 L44,42 L44,40 L44,38 L45,36 L45,34 L45,32 L46,30 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Madagascar */}
+              <path
+                d="M57,48 L58,47 L58,50 L57,51 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Asia (Russia + Central + East) */}
+              <path
+                d="M55,10 L58,9 L62,9 L66,10 L70,11 L74,10 L78,10 L82,11 L85,12 L87,14 L88,16 L87,18 L85,19 L82,18 L78,18 L75,19 L72,20 L70,22 L68,23 L66,22 L64,21 L62,20 L60,20 L58,20 L56,19 L55,18 L54,16 L54,14 L54,12 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Middle East & India */}
+              <path
+                d="M56,24 L58,23 L60,22 L62,23 L64,24 L65,26 L66,28 L68,28 L70,27 L72,28 L73,30 L72,32 L71,34 L70,36 L68,37 L66,36 L64,34 L62,32 L60,30 L58,28 L57,26 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Southeast Asia */}
+              <path
+                d="M74,28 L76,27 L78,28 L79,30 L78,32 L76,33 L74,32 L73,30 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Japan */}
+              <path
+                d="M84,20 L85,19 L86,20 L86,22 L85,24 L84,23 L83,22 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Indonesia / Maritime SE Asia */}
+              <path
+                d="M76,36 L78,35 L80,36 L82,36 L84,37 L83,38 L81,38 L79,38 L77,37 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Australia */}
+              <path
+                d="M78,46 L80,44 L82,43 L84,43 L86,44 L88,45 L89,47 L89,49 L88,51 L87,53 L85,54 L83,54 L81,53 L79,52 L78,50 L77,48 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* New Zealand */}
+              <path
+                d="M91,52 L92,51 L92,54 L91,55 Z M91,56 L92,55 L92,57 L91,58 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Greenland */}
+              <path
+                d="M35,10 L37,9 L39,9 L40,10 L40,12 L39,14 L37,14 L36,13 L35,12 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Iceland */}
+              <path
+                d="M43,14 L44,13.5 L45,14 L44.5,15 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Italian peninsula */}
+              <path
+                d="M49.5,23 L50,24 L50.5,25 L51,26.5 L50.5,27 L50,26.5 L49.5,25 L49,24 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+              {/* Iberian Peninsula */}
+              <path
+                d="M45,23 L46,22 L47,22.5 L48,23 L48,25 L47,25.5 L46,25 L45,24 Z"
+                fill="rgba(26, 52, 72, 0.45)"
+                stroke="rgba(244, 221, 195, 0.1)"
+                strokeWidth="0.2"
+              />
+            </svg>
+
             {/* Paris marker (origin) */}
             <div
               style={{
