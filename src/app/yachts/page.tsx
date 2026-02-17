@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -30,9 +30,22 @@ function getYachtImage(y: Yacht): string {
 function YachtHero() {
   return (
     <section style={{ position: "relative", minHeight: "clamp(400px, 60vh, 640px)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-      <div style={{ position: "absolute", inset: 0, zIndex: 0, background: "linear-gradient(135deg, #0A0A0A 0%, #141414 40%, #0d1218 60%, #0A0A0A 100%)" }} />
-      <div style={{ position: "absolute", top: "33%", left: 0, right: 0, height: "1px", opacity: 0.05, background: "linear-gradient(90deg, transparent, #C9A96E, transparent)" }} />
-      <div style={{ position: "absolute", inset: 0, zIndex: 1, background: "linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.3) 50%, rgba(10,10,10,0.6) 100%)" }} />
+      {/* Background image */}
+      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        <Image
+          src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=1920&q=80"
+          alt="Yacht de luxe en mer"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.4) 40%, rgba(10,10,10,0.85) 100%)" }} />
+      </div>
+
+      {/* Gold accent line */}
+      <div style={{ position: "absolute", top: "33%", left: 0, right: 0, height: "1px", opacity: 0.05, zIndex: 1, background: "linear-gradient(90deg, transparent, #C9A96E, transparent)" }} />
+
+      {/* Content */}
       <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1200px", margin: "0 auto", padding: "clamp(120px, 18vh, 160px) 24px clamp(48px, 6vw, 80px)", textAlign: "center" }}>
         <motion.p
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
@@ -121,6 +134,14 @@ function YachtCard({ yacht, index }: { yacht: Yacht; index: number }) {
 export default function YachtsPage() {
   const [activeCategory, setActiveCategory] = useState("tous");
 
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    yachtCategories.forEach((cat) => {
+      counts[cat.slug] = cat.slug === "tous" ? yachts.length : yachts.filter((y) => y.categorySlug === cat.slug).length;
+    });
+    return counts;
+  }, []);
+
   const filteredYachts = activeCategory === "tous" ? yachts : yachts.filter((y) => y.categorySlug === activeCategory);
 
   return (
@@ -129,28 +150,91 @@ export default function YachtsPage() {
 
       <section style={{ background: "#0A0A0A", padding: "clamp(60px, 10vw, 120px) 0" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
-          {/* Category Tabs */}
-          <div style={{ marginBottom: "clamp(32px, 5vw, 48px)", overflowX: "auto", paddingBottom: "16px" }} className="scrollbar-hide">
-            <div style={{ display: "flex", gap: "8px", minWidth: "max-content" }}>
+
+          {/* Sticky filter bar */}
+          <div style={{
+            position: "sticky",
+            top: 0,
+            zIndex: 20,
+            background: "#0A0A0A",
+            paddingTop: "16px",
+            paddingBottom: "16px",
+            marginBottom: "clamp(24px, 4vw, 32px)",
+            borderBottom: "1px solid rgba(201,169,110,0.08)",
+          }}>
+            {/* Desktop: wrapped pill row */}
+            <div
+              className="filter-desktop"
+              style={{ flexWrap: "wrap", gap: "8px", alignItems: "center" }}
+            >
               {yachtCategories.map((cat) => (
                 <button
                   key={cat.slug}
                   onClick={() => setActiveCategory(cat.slug)}
                   style={{
-                    position: "relative", padding: "12px 20px", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.12em", whiteSpace: "nowrap", cursor: "pointer",
-                    fontFamily: "var(--font-montserrat)", fontWeight: activeCategory === cat.slug ? 600 : 400,
+                    position: "relative",
+                    padding: "10px 16px",
+                    fontSize: "11px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    whiteSpace: "nowrap",
+                    cursor: "pointer",
+                    fontFamily: "var(--font-montserrat)",
+                    fontWeight: activeCategory === cat.slug ? 600 : 400,
                     color: activeCategory === cat.slug ? "#C9A96E" : "#6B6B6B",
                     background: activeCategory === cat.slug ? "rgba(201,169,110,0.08)" : "transparent",
                     border: `1px solid ${activeCategory === cat.slug ? "rgba(201,169,110,0.3)" : "#1E1E1E"}`,
-                    borderRadius: "2px", transition: "all 0.3s ease",
+                    borderRadius: "2px",
+                    transition: "all 0.3s ease",
                   }}
                 >
                   {cat.name}
+                  <span style={{ marginLeft: "6px", fontSize: "10px", fontWeight: 400, opacity: 0.6 }}>
+                    ({categoryCounts[cat.slug]})
+                  </span>
                   {activeCategory === cat.slug && (
-                    <motion.div layoutId="activeYachtCategory" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "2px", background: "#C9A96E" }} transition={{ duration: 0.3, ease: EASE }} />
+                    <motion.div
+                      layoutId="activeYachtCategory"
+                      style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "2px", background: "#C9A96E" }}
+                      transition={{ duration: 0.3, ease: EASE }}
+                    />
                   )}
                 </button>
               ))}
+            </div>
+
+            {/* Mobile: dropdown select */}
+            <div className="filter-mobile">
+              <select
+                value={activeCategory}
+                onChange={(e) => setActiveCategory(e.target.value)}
+                style={{
+                  width: "100%",
+                  padding: "14px 40px 14px 16px",
+                  fontSize: "13px",
+                  fontFamily: "var(--font-montserrat)",
+                  fontWeight: 500,
+                  letterSpacing: "0.05em",
+                  color: "#C9A96E",
+                  background: "rgba(10,10,10,0.6)",
+                  border: "1px solid rgba(201,169,110,0.3)",
+                  borderRadius: "2px",
+                  cursor: "pointer",
+                  appearance: "none",
+                  WebkitAppearance: "none",
+                  outline: "none",
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C9A96E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "right 16px center",
+                  backgroundSize: "12px",
+                }}
+              >
+                {yachtCategories.map((cat) => (
+                  <option key={cat.slug} value={cat.slug} style={{ background: "#141414" }}>
+                    {cat.name} ({categoryCounts[cat.slug]})
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
 
@@ -165,7 +249,7 @@ export default function YachtsPage() {
               key={activeCategory}
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: EASE }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "clamp(16px, 2vw, 24px)" }}
+              style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "clamp(16px, 2vw, 24px)" }}
             >
               {filteredYachts.map((yacht, i) => (
                 <YachtCard key={yacht.id} yacht={yacht} index={i} />
@@ -174,9 +258,9 @@ export default function YachtsPage() {
           </AnimatePresence>
 
           {/* Bottom CTA */}
-          <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginTop: "clamp(48px, 6vw, 64px)" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "16px", marginTop: "clamp(48px, 6vw, 64px)" }}>
             <Button href="/yachts/comparateur" variant="primary">Comparer les yachts</Button>
-            <Button href="/devis" variant="secondary">Demander un devis</Button>
+            <Button href="/devis?service=yacht" variant="secondary">Demander un devis</Button>
           </div>
         </div>
       </section>

@@ -378,6 +378,15 @@ input[type="date"] {
   display: none;
 }
 
+/* Filter responsive toggle */
+.filter-desktop { display: flex; }
+.filter-mobile { display: none; }
+
+@media (max-width: 768px) {
+  .filter-desktop { display: none !important; }
+  .filter-mobile { display: block !important; }
+}
+
 /* Link reset for styled links */
 a {
   text-decoration: none;
