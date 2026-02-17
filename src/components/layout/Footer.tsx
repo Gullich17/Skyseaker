@@ -47,7 +47,6 @@ const footerResources = [
   { name: "Blog", href: "/blog" },
   { name: "FAQ", href: "/faq" },
   { name: "Glossaire aviation", href: "/glossaire-aviation" },
-  { name: "Programme fidélité", href: "/programme-fidelite" },
   { name: "Expériences", href: "/experiences" },
   { name: "À propos", href: "/a-propos" },
 ];

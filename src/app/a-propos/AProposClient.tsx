@@ -2,10 +2,13 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import Image from 'next/image';
 import SectionTitle from '@/components/ui/SectionTitle';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import AnimatedCounter from '@/components/ui/AnimatedCounter';
 import Button from '@/components/ui/Button';
+
+const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 /* ============================================
    HERO
@@ -13,66 +16,97 @@ import Button from '@/components/ui/Button';
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(135deg, #0E202D 0%, #132A3A 40%, #122838 60%, #0E202D 100%)',
-          }}
-        />
-        <div
-          className="absolute top-1/3 left-0 right-0 h-[1px] opacity-[0.05]"
-          style={{
-            background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
-          }}
-        />
-        <div
-          className="absolute top-2/3 left-0 right-0 h-[1px] opacity-[0.03]"
-          style={{
-            background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
-          }}
+    <section
+      style={{
+        position: 'relative',
+        minHeight: '70vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Background image */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+        <Image
+          src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80"
+          alt="Skyseaker aviation privee"
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
+          priority
+          sizes="100vw"
         />
       </div>
 
+      {/* Gradient overlay */}
       <div
-        className="absolute inset-0 z-[1]"
         style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 1,
           background:
-            'linear-gradient(to top, rgba(14,32,45,0.8) 0%, rgba(14,32,45,0.3) 50%, rgba(14,32,45,0.6) 100%)',
+            'linear-gradient(to bottom, rgba(14,32,45,0.7) 0%, rgba(14,32,45,0.4) 40%, rgba(14,32,45,0.6) 70%, rgba(14,32,45,0.9) 100%)',
         }}
       />
 
-      <div className="relative z-10 text-center px-[5vw] pt-32 pb-20">
+      {/* Decorative lines */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '33%',
+          left: 0,
+          right: 0,
+          height: '1px',
+          opacity: 0.05,
+          zIndex: 2,
+          background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          top: '66%',
+          left: 0,
+          right: 0,
+          height: '1px',
+          opacity: 0.03,
+          zIndex: 2,
+          background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
+        }}
+      />
+
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 10,
+          textAlign: 'center',
+          padding: '128px 5vw 80px',
+        }}
+      >
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.2,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-          }}
-          className="text-[12px] uppercase tracking-[0.3em] mb-6"
+          transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
           style={{
+            fontSize: '12px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.3em',
+            marginBottom: '24px',
             fontFamily: 'var(--font-montserrat)',
             fontWeight: 500,
             color: '#F4DDC3',
           }}
         >
-          \u00c0 Propos
+          &Agrave; Propos
         </motion.p>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1,
-            delay: 0.4,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-          }}
-          className="text-[36px] md:text-[56px] lg:text-[68px] mb-6"
+          transition={{ duration: 1, delay: 0.4, ease: EASE }}
           style={{
+            fontSize: 'clamp(36px, 5.5vw, 68px)',
+            marginBottom: '24px',
             fontFamily: 'var(--font-playfair)',
             fontWeight: 700,
             color: '#FFFFFF',
@@ -85,13 +119,9 @@ function HeroSection() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.6,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-          }}
-          className="text-[18px] md:text-[22px]"
+          transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
           style={{
+            fontSize: 'clamp(18px, 2.5vw, 22px)',
             maxWidth: '700px',
             margin: '0 auto',
             fontFamily: 'var(--font-cormorant)',
@@ -99,7 +129,7 @@ function HeroSection() {
             color: '#A0A0A0',
           }}
         >
-          Depuis notre cr\u00e9ation, nous red\u00e9finissons les standards de l&apos;aviation priv\u00e9e avec passion et d\u00e9termination
+          Depuis notre cr&eacute;ation, nous red&eacute;finissons les standards de l&apos;aviation priv&eacute;e avec passion et d&eacute;termination
         </motion.p>
       </div>
     </section>
@@ -145,25 +175,55 @@ function HistorySection() {
   ];
 
   return (
-    <section className="section-padding" style={{ background: '#0E202D' }}>
-      <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
+    <section style={{ background: '#0E202D', padding: 'clamp(60px, 8vw, 120px) 0' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         <SectionTitle
           preTitle="NOTRE HISTOIRE"
           title="Une d\u00e9cennie d\u2019excellence"
           subtitle="De Paris au reste du monde, chaque ann\u00e9e a \u00e9t\u00e9 une nouvelle \u00e9tape vers la perfection."
           centered
-          className="mb-20"
+          mb="80px"
         />
 
         {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line */}
+        <div style={{ position: 'relative' }}>
+          {/* Vertical line - centered on desktop, left on mobile */}
           <div
-            className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px]"
-            style={{ background: 'rgba(244,221,195,0.2)' }}
+            style={{
+              position: 'absolute',
+              left: '16px',
+              top: 0,
+              bottom: 0,
+              width: '1px',
+              background: 'rgba(244,221,195,0.2)',
+            }}
+          />
+          {/* Desktop centered line via CSS media query workaround: we use a second line visible only on wider screens */}
+          <div
+            className="hidden md:block"
+            style={{
+              position: 'absolute',
+              left: '50%',
+              top: 0,
+              bottom: 0,
+              width: '1px',
+              background: 'rgba(244,221,195,0.2)',
+            }}
+          />
+          {/* Hide mobile line on desktop */}
+          <div
+            className="md:hidden"
+            style={{
+              position: 'absolute',
+              left: '16px',
+              top: 0,
+              bottom: 0,
+              width: '1px',
+              background: 'rgba(244,221,195,0.2)',
+            }}
           />
 
-          <div className="space-y-12 md:space-y-16">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(48px, 5vw, 64px)' }}>
             {milestones.map((ms, i) => {
               const isLeft = i % 2 === 0;
               return (
@@ -205,11 +265,7 @@ function TimelineItem({
       ref={ref}
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{
-        duration: 0.7,
-        delay: 0.1,
-        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-      }}
+      transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
       className={`relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0 ${
         isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
       }`}
@@ -221,8 +277,10 @@ function TimelineItem({
         }`}
       >
         <span
-          className="text-[14px] block mb-2"
           style={{
+            fontSize: '14px',
+            display: 'block',
+            marginBottom: '8px',
             fontFamily: 'var(--font-cormorant)',
             fontWeight: 600,
             color: '#F4DDC3',
@@ -231,8 +289,9 @@ function TimelineItem({
           {year}
         </span>
         <h4
-          className="text-[20px] mb-3"
           style={{
+            fontSize: '20px',
+            marginBottom: '12px',
             fontFamily: 'var(--font-playfair)',
             fontWeight: 600,
             color: '#FFFFFF',
@@ -241,8 +300,8 @@ function TimelineItem({
           {title}
         </h4>
         <p
-          className="text-[14px]"
           style={{
+            fontSize: '14px',
             fontFamily: 'var(--font-montserrat)',
             fontWeight: 300,
             color: '#A0A0A0',
@@ -258,13 +317,11 @@ function TimelineItem({
         <motion.div
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
-          transition={{
-            duration: 0.5,
-            delay: 0.3,
-            ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-          }}
-          className="w-3 h-3 rounded-full"
+          transition={{ duration: 0.5, delay: 0.3, ease: EASE }}
           style={{
+            width: '12px',
+            height: '12px',
+            borderRadius: '50%',
             background: '#F4DDC3',
             boxShadow: '0 0 0 4px #0E202D, 0 0 0 5px rgba(244,221,195,0.3)',
           }}
@@ -306,22 +363,40 @@ function ValuesSection() {
   ];
 
   return (
-    <section className="section-padding" style={{ background: '#132A3A' }}>
-      <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
+    <section style={{ background: '#132A3A', padding: 'clamp(60px, 8vw, 120px) 0' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         <SectionTitle
           preTitle="NOS VALEURS"
           title="Les piliers de notre excellence"
           centered
-          className="mb-16"
+          mb="64px"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
+            gap: '32px',
+          }}
+        >
           {values.map((v, i) => (
             <ScrollReveal key={v.title} delay={i * 0.15}>
-              <div className="text-center p-8" style={{ background: '#0E202D', border: '1px solid #1A3448' }}>
+              <div
+                style={{
+                  textAlign: 'center',
+                  padding: '32px',
+                  background: '#0E202D',
+                  border: '1px solid #1A3448',
+                }}
+              >
                 <div
-                  className="w-16 h-16 mx-auto mb-6 flex items-center justify-center"
                   style={{
+                    width: '64px',
+                    height: '64px',
+                    margin: '0 auto 24px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     border: '1px solid rgba(244,221,195,0.3)',
                     background: 'rgba(244,221,195,0.05)',
                   }}
@@ -338,8 +413,9 @@ function ValuesSection() {
                   </svg>
                 </div>
                 <h4
-                  className="text-[18px] mb-4"
                   style={{
+                    fontSize: '18px',
+                    marginBottom: '16px',
                     fontFamily: 'var(--font-playfair)',
                     fontWeight: 600,
                     color: '#FFFFFF',
@@ -348,8 +424,8 @@ function ValuesSection() {
                   {v.title}
                 </h4>
                 <p
-                  className="text-[14px]"
                   style={{
+                    fontSize: '14px',
                     fontFamily: 'var(--font-montserrat)',
                     fontWeight: 300,
                     color: '#A0A0A0',
@@ -377,76 +453,83 @@ function TeamSection() {
       name: 'Alexandre Dubois',
       role: 'Fondateur & CEO',
       bio: 'Ancien pilote de ligne et entrepreneur, Alexandre a fond\u00e9 Skyseaker avec la vision de d\u00e9mocratiser l\u2019excellence dans l\u2019aviation priv\u00e9e.',
+      photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=75',
     },
     {
       name: 'Camille Laurent',
       role: 'Directrice des Op\u00e9rations',
       bio: '15 ans d\u2019exp\u00e9rience dans l\u2019aviation d\u2019affaires. Camille supervise chaque vol pour garantir un service irr\u00e9prochable.',
+      photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=75',
     },
     {
       name: 'Nicolas Mercier',
       role: 'Directeur Commercial',
       bio: 'Sp\u00e9cialiste du luxe et de la relation client, Nicolas veille \u00e0 ce que chaque client re\u00e7oive un accompagnement sur mesure.',
+      photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=75',
     },
     {
       name: 'Sophie Archambault',
       role: 'Responsable Conciergerie',
       bio: 'Ancienne directrice d\u2019h\u00f4tel 5 \u00e9toiles, Sophie orchestre les exp\u00e9riences exclusives et la conciergerie de luxe Skyseaker.',
+      photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=75',
     },
   ];
 
   return (
-    <section className="section-padding" style={{ background: '#0E202D' }}>
-      <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
+    <section style={{ background: '#0E202D', padding: 'clamp(60px, 8vw, 120px) 0' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         <SectionTitle
           preTitle="NOTRE \u00c9QUIPE"
           title="Les visages de Skyseaker"
           subtitle="Une \u00e9quipe de passionn\u00e9s d\u00e9di\u00e9s \u00e0 votre satisfaction"
           centered
-          className="mb-16"
+          mb="64px"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
+            gap: '32px',
+          }}
+        >
           {team.map((member, i) => (
             <ScrollReveal key={member.name} delay={i * 0.1}>
-              <div className="text-center">
-                {/* Portrait placeholder */}
+              <div style={{ textAlign: 'center' }}>
+                {/* Portrait image */}
                 <div
-                  className="w-full aspect-[3/4] relative overflow-hidden mb-6"
-                  style={{ background: '#1A3448' }}
+                  style={{
+                    width: '100%',
+                    aspectRatio: '3 / 4',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    marginBottom: '24px',
+                    background: '#1A3448',
+                  }}
                 >
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <svg
-                        width="48"
-                        height="48"
-                        fill="none"
-                        stroke="#F4DDC3"
-                        strokeWidth="1"
-                        viewBox="0 0 24 24"
-                        className="opacity-20 mx-auto mb-2"
-                      >
-                        <path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                      </svg>
-                      <span
-                        className="text-[11px] text-[#6B6B6B] uppercase tracking-[0.1em]"
-                        style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 400 }}
-                      >
-                        [PORTRAIT]
-                      </span>
-                    </div>
-                  </div>
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    fill
+                    style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
                   <div
-                    className="absolute bottom-0 left-0 right-0 h-1/3"
                     style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      height: '33%',
                       background: 'linear-gradient(to top, #0E202D, transparent)',
                     }}
                   />
                 </div>
 
                 <h4
-                  className="text-[18px] mb-1"
                   style={{
+                    fontSize: '18px',
+                    marginBottom: '4px',
                     fontFamily: 'var(--font-playfair)',
                     fontWeight: 600,
                     color: '#FFFFFF',
@@ -455,8 +538,11 @@ function TeamSection() {
                   {member.name}
                 </h4>
                 <p
-                  className="text-[12px] uppercase tracking-[0.15em] mb-4"
                   style={{
+                    fontSize: '12px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.15em',
+                    marginBottom: '16px',
                     fontFamily: 'var(--font-montserrat)',
                     fontWeight: 500,
                     color: '#F4DDC3',
@@ -465,8 +551,8 @@ function TeamSection() {
                   {member.role}
                 </p>
                 <p
-                  className="text-[14px]"
                   style={{
+                    fontSize: '14px',
                     fontFamily: 'var(--font-montserrat)',
                     fontWeight: 300,
                     color: '#A0A0A0',
@@ -497,26 +583,41 @@ function KeyFiguresSection() {
   ];
 
   return (
-    <section className="section-padding relative overflow-hidden">
-      <div className="absolute inset-0" style={{ background: '#132A3A' }}>
+    <section
+      style={{
+        position: 'relative',
+        overflow: 'hidden',
+        padding: 'clamp(60px, 8vw, 120px) 0',
+      }}
+    >
+      <div style={{ position: 'absolute', inset: 0, background: '#132A3A' }}>
         <div
-          className="absolute inset-0 opacity-[0.03]"
           style={{
+            position: 'absolute',
+            inset: 0,
+            opacity: 0.03,
             background: 'radial-gradient(circle at 50% 50%, #F4DDC3 0%, transparent 70%)',
           }}
         />
       </div>
-      <div className="relative px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
+      <div style={{ position: 'relative', maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         <SectionTitle
           preTitle="CHIFFRES CL\u00c9S"
           title="L\u2019excellence en chiffres"
           centered
-          className="mb-16"
+          mb="64px"
         />
 
-        <div className="flex flex-wrap justify-center gap-8 md:gap-0">
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '32px',
+          }}
+        >
           {stats.map((stat, i) => (
-            <div key={stat.label} className="flex items-center">
+            <div key={stat.label} style={{ display: 'flex', alignItems: 'center' }}>
               <AnimatedCounter
                 value={stat.value}
                 suffix={stat.suffix}
@@ -524,7 +625,15 @@ function KeyFiguresSection() {
                 className="px-6 md:px-12"
               />
               {i < stats.length - 1 && (
-                <div className="hidden md:block w-[1px] h-12 bg-[#F4DDC3] opacity-30" />
+                <div
+                  className="hidden md:block"
+                  style={{
+                    width: '1px',
+                    height: '48px',
+                    background: '#F4DDC3',
+                    opacity: 0.3,
+                  }}
+                />
               )}
             </div>
           ))}
@@ -558,33 +667,49 @@ function CertificationsSection() {
   ];
 
   return (
-    <section className="section-padding" style={{ background: '#0E202D' }}>
-      <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
+    <section style={{ background: '#0E202D', padding: 'clamp(60px, 8vw, 120px) 0' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         <SectionTitle
           preTitle="CERTIFICATIONS"
-          title="Des standards de s\u00e9curit\u00e9 inégal\u00e9s"
+          title="Des standards de s\u00e9curit\u00e9 in\u00e9gal\u00e9s"
           centered
-          className="mb-16"
+          mb="64px"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: '32px',
+          }}
+        >
           {certifications.map((cert, i) => (
             <ScrollReveal key={cert.name} delay={i * 0.15}>
               <div
-                className="p-8 text-center h-full"
-                style={{ background: '#132A3A', border: '1px solid #1A3448' }}
+                style={{
+                  padding: '32px',
+                  textAlign: 'center',
+                  height: '100%',
+                  background: '#132A3A',
+                  border: '1px solid #1A3448',
+                }}
               >
                 {/* Logo placeholder */}
                 <div
-                  className="w-20 h-20 mx-auto mb-6 flex items-center justify-center"
                   style={{
+                    width: '80px',
+                    height: '80px',
+                    margin: '0 auto 24px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     border: '1px solid rgba(244,221,195,0.2)',
                     background: 'rgba(244,221,195,0.03)',
                   }}
                 >
                   <span
-                    className="text-[16px]"
                     style={{
+                      fontSize: '16px',
                       fontFamily: 'var(--font-montserrat)',
                       fontWeight: 700,
                       color: '#F4DDC3',
@@ -595,8 +720,9 @@ function CertificationsSection() {
                   </span>
                 </div>
                 <h4
-                  className="text-[16px] mb-2"
                   style={{
+                    fontSize: '16px',
+                    marginBottom: '8px',
                     fontFamily: 'var(--font-playfair)',
                     fontWeight: 600,
                     color: '#FFFFFF',
@@ -605,8 +731,8 @@ function CertificationsSection() {
                   {cert.fullName}
                 </h4>
                 <p
-                  className="text-[14px]"
                   style={{
+                    fontSize: '14px',
                     fontFamily: 'var(--font-montserrat)',
                     fontWeight: 300,
                     color: '#A0A0A0',
@@ -630,36 +756,33 @@ function CertificationsSection() {
 
 function RSESection() {
   return (
-    <section className="section-padding" style={{ background: '#132A3A' }}>
-      <div className="px-[5vw]" style={{ maxWidth: "1400px", margin: "0 auto" }}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Image placeholder */}
+    <section style={{ background: '#132A3A', padding: 'clamp(60px, 8vw, 120px) 0' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 440px), 1fr))',
+            gap: '48px',
+            alignItems: 'center',
+          }}
+        >
+          {/* Image */}
           <ScrollReveal>
             <div
-              className="aspect-[4/3] relative overflow-hidden"
-              style={{ background: '#1A3448' }}
+              style={{
+                aspectRatio: '4 / 3',
+                position: 'relative',
+                overflow: 'hidden',
+                background: '#1A3448',
+              }}
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <svg
-                    width="48"
-                    height="48"
-                    fill="none"
-                    stroke="#F4DDC3"
-                    strokeWidth="1"
-                    viewBox="0 0 24 24"
-                    className="opacity-20 mx-auto mb-2"
-                  >
-                    <path d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.692-.8 1.26l.13.783c.12.725-.166 1.456-.75 1.893M12.75 3.031l-.143.033m7.83 14.003L18.868 18.5m0 0l-1.118-.775M3.888 15.903l.456 1.369" />
-                  </svg>
-                  <span
-                    className="text-[11px] text-[#6B6B6B] uppercase tracking-[0.1em]"
-                    style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 400 }}
-                  >
-                    [RSE-IMAGE]
-                  </span>
-                </div>
-              </div>
+              <Image
+                src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=800&q=75"
+                alt="Engagement environnemental Skyseaker"
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </ScrollReveal>
 
@@ -668,15 +791,20 @@ function RSESection() {
             <SectionTitle
               preTitle="RESPONSABILIT\u00c9 ENVIRONNEMENTALE"
               title="Notre engagement pour la plan\u00e8te"
-              className="mb-8"
+              mb="32px"
             />
 
-            <div className="space-y-6">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               <ScrollReveal delay={0.1}>
-                <div className="flex gap-4">
+                <div style={{ display: 'flex', gap: '16px' }}>
                   <div
-                    className="w-10 h-10 shrink-0 flex items-center justify-center"
                     style={{
+                      width: '40px',
+                      height: '40px',
+                      flexShrink: 0,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                       border: '1px solid rgba(244,221,195,0.3)',
                       background: 'rgba(244,221,195,0.05)',
                     }}
@@ -687,26 +815,41 @@ function RSESection() {
                   </div>
                   <div>
                     <h4
-                      className="text-[16px] mb-2"
-                      style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 600, color: '#FFFFFF' }}
+                      style={{
+                        fontSize: '16px',
+                        marginBottom: '8px',
+                        fontFamily: 'var(--font-montserrat)',
+                        fontWeight: 600,
+                        color: '#FFFFFF',
+                      }}
                     >
-                      Compensation carbone int\u00e9grale
+                      Compensation carbone int&eacute;grale
                     </h4>
                     <p
-                      className="text-[14px]"
-                      style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300, color: '#A0A0A0', lineHeight: 1.7 }}
+                      style={{
+                        fontSize: '14px',
+                        fontFamily: 'var(--font-montserrat)',
+                        fontWeight: 300,
+                        color: '#A0A0A0',
+                        lineHeight: 1.7,
+                      }}
                     >
-                      100\u00a0% des \u00e9missions de CO\u2082 de chaque vol sont compens\u00e9es via des projets certifi\u00e9s de reforestation et d&apos;\u00e9nergie renouvelable.
+                      100&nbsp;% des &eacute;missions de CO&#x2082; de chaque vol sont compens&eacute;es via des projets certifi&eacute;s de reforestation et d&apos;&eacute;nergie renouvelable.
                     </p>
                   </div>
                 </div>
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
-                <div className="flex gap-4">
+                <div style={{ display: 'flex', gap: '16px' }}>
                   <div
-                    className="w-10 h-10 shrink-0 flex items-center justify-center"
                     style={{
+                      width: '40px',
+                      height: '40px',
+                      flexShrink: 0,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                       border: '1px solid rgba(244,221,195,0.3)',
                       background: 'rgba(244,221,195,0.05)',
                     }}
@@ -717,26 +860,41 @@ function RSESection() {
                   </div>
                   <div>
                     <h4
-                      className="text-[16px] mb-2"
-                      style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 600, color: '#FFFFFF' }}
+                      style={{
+                        fontSize: '16px',
+                        marginBottom: '8px',
+                        fontFamily: 'var(--font-montserrat)',
+                        fontWeight: 600,
+                        color: '#FFFFFF',
+                      }}
                     >
                       Carburant durable (SAF)
                     </h4>
                     <p
-                      className="text-[14px]"
-                      style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300, color: '#A0A0A0', lineHeight: 1.7 }}
+                      style={{
+                        fontSize: '14px',
+                        fontFamily: 'var(--font-montserrat)',
+                        fontWeight: 300,
+                        color: '#A0A0A0',
+                        lineHeight: 1.7,
+                      }}
                     >
-                      Nous proposons l&apos;option SAF (Sustainable Aviation Fuel) sur un nombre croissant de nos vols, r\u00e9duisant jusqu&apos;\u00e0 80\u00a0% les \u00e9missions nettes.
+                      Nous proposons l&apos;option SAF (Sustainable Aviation Fuel) sur un nombre croissant de nos vols, r&eacute;duisant jusqu&apos;&agrave; 80&nbsp;% les &eacute;missions nettes.
                     </p>
                   </div>
                 </div>
               </ScrollReveal>
 
               <ScrollReveal delay={0.3}>
-                <div className="flex gap-4">
+                <div style={{ display: 'flex', gap: '16px' }}>
                   <div
-                    className="w-10 h-10 shrink-0 flex items-center justify-center"
                     style={{
+                      width: '40px',
+                      height: '40px',
+                      flexShrink: 0,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                       border: '1px solid rgba(244,221,195,0.3)',
                       background: 'rgba(244,221,195,0.05)',
                     }}
@@ -747,16 +905,26 @@ function RSESection() {
                   </div>
                   <div>
                     <h4
-                      className="text-[16px] mb-2"
-                      style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 600, color: '#FFFFFF' }}
+                      style={{
+                        fontSize: '16px',
+                        marginBottom: '8px',
+                        fontFamily: 'var(--font-montserrat)',
+                        fontWeight: 600,
+                        color: '#FFFFFF',
+                      }}
                     >
-                      Optimisation des itin\u00e9raires
+                      Optimisation des itin&eacute;raires
                     </h4>
                     <p
-                      className="text-[14px]"
-                      style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300, color: '#A0A0A0', lineHeight: 1.7 }}
+                      style={{
+                        fontSize: '14px',
+                        fontFamily: 'var(--font-montserrat)',
+                        fontWeight: 300,
+                        color: '#A0A0A0',
+                        lineHeight: 1.7,
+                      }}
                     >
-                      Notre technologie d&apos;IA optimise chaque trajet pour r\u00e9duire la consommation de carburant et minimiser l&apos;empreinte environnementale.
+                      Notre technologie d&apos;IA optimise chaque trajet pour r&eacute;duire la consommation de carburant et minimiser l&apos;empreinte environnementale.
                     </p>
                   </div>
                 </div>
@@ -775,24 +943,41 @@ function RSESection() {
 
 function CTASection() {
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section
+      style={{
+        position: 'relative',
+        padding: '128px 0',
+        overflow: 'hidden',
+      }}
+    >
       <div
-        className="absolute inset-0"
         style={{
+          position: 'absolute',
+          inset: 0,
           background: 'linear-gradient(135deg, #0E202D 0%, #122838 50%, #0E202D 100%)',
         }}
       />
       <div
-        className="absolute inset-0"
         style={{
+          position: 'absolute',
+          inset: 0,
           background: 'radial-gradient(ellipse at center, rgba(244,221,195,0.08) 0%, transparent 70%)',
         }}
       />
-      <div className="relative px-[5vw] text-center" style={{ maxWidth: "800px", margin: "0 auto" }}>
+      <div
+        style={{
+          position: 'relative',
+          maxWidth: '800px',
+          margin: '0 auto',
+          padding: '0 5vw',
+          textAlign: 'center',
+        }}
+      >
         <ScrollReveal>
           <h2
-            className="text-[32px] md:text-[48px] mb-6"
             style={{
+              fontSize: 'clamp(32px, 5vw, 48px)',
+              marginBottom: '24px',
               fontFamily: 'var(--font-playfair)',
               fontWeight: 700,
               color: '#FFFFFF',
@@ -801,12 +986,25 @@ function CTASection() {
             Rejoignez l&apos;excellence Skyseaker
           </h2>
           <p
-            className="text-[18px] md:text-[20px] mb-10 text-[#A0A0A0]"
-            style={{ fontFamily: 'var(--font-cormorant)', fontStyle: 'italic' }}
+            style={{
+              fontSize: 'clamp(18px, 2.2vw, 20px)',
+              marginBottom: '40px',
+              color: '#A0A0A0',
+              fontFamily: 'var(--font-cormorant)',
+              fontStyle: 'italic',
+            }}
           >
-            D\u00e9couvrez ce que signifie voyager sans compromis
+            D&eacute;couvrez ce que signifie voyager sans compromis
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '16px',
+            }}
+          >
             <Button href="/devis" variant="primary" size="lg">
               Demander un devis
             </Button>

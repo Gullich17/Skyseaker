@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import SectionTitle from '@/components/ui/SectionTitle';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import Badge from '@/components/ui/Badge';
@@ -22,6 +23,7 @@ interface Article {
   date: string;
   readTime: string;
   featured?: boolean;
+  image: string;
 }
 
 const articles: Article[] = [
@@ -34,6 +36,7 @@ const articles: Article[] = [
     date: '12 F\u00e9v 2026',
     readTime: '5 min',
     featured: true,
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75',
   },
   {
     slug: 'guide-choisir-jet-prive',
@@ -43,6 +46,7 @@ const articles: Article[] = [
     category: 'Guides',
     date: '8 F\u00e9v 2026',
     readTime: '8 min',
+    image: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&q=75',
   },
   {
     slug: 'empty-legs-guide-complet',
@@ -52,6 +56,7 @@ const articles: Article[] = [
     category: 'Guides',
     date: '3 F\u00e9v 2026',
     readTime: '6 min',
+    image: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=75',
   },
   {
     slug: 'monaco-grand-prix-2026',
@@ -61,6 +66,7 @@ const articles: Article[] = [
     category: '\u00c9v\u00e9nements',
     date: '28 Jan 2026',
     readTime: '7 min',
+    image: 'https://images.unsplash.com/photo-1504817343863-5092a923803e?w=600&q=75',
   },
   {
     slug: 'tendances-aviation-privee-2026',
@@ -70,6 +76,7 @@ const articles: Article[] = [
     category: 'Actualit\u00e9s',
     date: '20 Jan 2026',
     readTime: '5 min',
+    image: 'https://images.unsplash.com/photo-1559628233-100c798642d4?w=600&q=75',
   },
   {
     slug: 'retraite-wellness-ibiza',
@@ -79,6 +86,7 @@ const articles: Article[] = [
     category: 'Lifestyle',
     date: '15 Jan 2026',
     readTime: '4 min',
+    image: 'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&q=75',
   },
   {
     slug: 'courchevel-saison-ski-2026',
@@ -88,6 +96,7 @@ const articles: Article[] = [
     category: 'Destinations',
     date: '8 Jan 2026',
     readTime: '6 min',
+    image: 'https://images.unsplash.com/photo-1551524559-8af4e6624178?w=600&q=75',
   },
 ];
 
@@ -106,32 +115,51 @@ const categories: Category[] = [
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <section
+      className="relative flex items-center justify-center overflow-hidden"
+      style={{ minHeight: '60vh' }}
+    >
       <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80"
+          alt="Aviation priv\u00e9e"
+          fill
+          priority
+          style={{ objectFit: 'cover' }}
+        />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(135deg, #0E202D 0%, #132A3A 40%, #122838 60%, #0E202D 100%)',
+              'linear-gradient(135deg, rgba(14,32,45,0.85) 0%, rgba(19,42,58,0.75) 40%, rgba(18,40,56,0.8) 60%, rgba(14,32,45,0.9) 100%)',
           }}
         />
         <div
-          className="absolute top-1/3 left-0 right-0 h-[1px] opacity-[0.05]"
+          className="absolute top-1/3 left-0 right-0"
           style={{
+            height: '1px',
+            opacity: 0.05,
             background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
           }}
         />
       </div>
 
       <div
-        className="absolute inset-0 z-[1]"
+        className="absolute inset-0"
         style={{
+          zIndex: 1,
           background:
             'linear-gradient(to top, rgba(14,32,45,0.8) 0%, rgba(14,32,45,0.3) 50%, rgba(14,32,45,0.6) 100%)',
         }}
       />
 
-      <div className="relative z-10 text-center px-[5vw] pt-32 pb-16">
+      <div
+        className="relative text-center"
+        style={{
+          zIndex: 10,
+          padding: '128px 5vw 64px 5vw',
+        }}
+      >
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -140,8 +168,11 @@ function HeroSection() {
             delay: 0.2,
             ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
           }}
-          className="text-[12px] uppercase tracking-[0.3em] mb-6"
           style={{
+            fontSize: '12px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.3em',
+            marginBottom: '24px',
             fontFamily: 'var(--font-montserrat)',
             fontWeight: 500,
             color: '#F4DDC3',
@@ -158,8 +189,9 @@ function HeroSection() {
             delay: 0.4,
             ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
           }}
-          className="text-[36px] md:text-[56px] lg:text-[68px] mb-6"
           style={{
+            fontSize: 'clamp(36px, 5vw, 68px)',
+            marginBottom: '24px',
             fontFamily: 'var(--font-playfair)',
             fontWeight: 700,
             color: '#FFFFFF',
@@ -177,8 +209,8 @@ function HeroSection() {
             delay: 0.6,
             ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
           }}
-          className="text-[18px] md:text-[22px]"
           style={{
+            fontSize: 'clamp(18px, 2.5vw, 22px)',
             fontFamily: 'var(--font-cormorant)',
             fontStyle: 'italic',
             color: '#A0A0A0',
@@ -202,60 +234,60 @@ function FeaturedArticle({ article }: { article: Article }) {
     <ScrollReveal>
       <Link href={`/blog/${article.slug}`} className="block group">
         <div
-          className="grid grid-cols-1 lg:grid-cols-2 overflow-hidden"
-          style={{ background: '#132A3A', border: '1px solid #1A3448' }}
+          className="overflow-hidden"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(1, 1fr)',
+            background: '#132A3A',
+            border: '1px solid #1A3448',
+          }}
         >
-          {/* Image placeholder */}
+          <style>{`@media(min-width:1024px){.featured-grid{grid-template-columns:1fr 1fr !important;}}`}</style>
+          {/* Image */}
           <div
-            className="relative aspect-[16/9] lg:aspect-auto overflow-hidden"
-            style={{ background: '#1A3448', minHeight: '320px' }}
+            className="featured-grid-img relative overflow-hidden"
+            style={{ aspectRatio: '16/9', minHeight: '320px' }}
           >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <svg
-                  width="48"
-                  height="48"
-                  fill="none"
-                  stroke="#F4DDC3"
-                  strokeWidth="1"
-                  viewBox="0 0 24 24"
-                  className="opacity-20 mx-auto mb-2"
-                >
-                  <path d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V4.5a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v15a1.5 1.5 0 001.5 1.5z" />
-                </svg>
-                <span
-                  className="text-[11px] text-[#6B6B6B] uppercase tracking-[0.1em]"
-                  style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 400 }}
-                >
-                  [BLOG-{article.slug}]
-                </span>
-              </div>
-            </div>
+            <Image
+              src={article.image}
+              alt={article.title}
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              style={{ objectFit: 'cover', transition: 'transform 0.7s ease' }}
+              className="group-hover:scale-105"
+            />
             <div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              style={{ background: 'rgba(244,221,195,0.05)' }}
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              style={{ background: 'rgba(244,221,195,0.05)', transitionDuration: '500ms' }}
             />
           </div>
 
           {/* Content */}
-          <div className="p-8 md:p-12 flex flex-col justify-center">
-            <div className="mb-4">
+          <div
+            className="flex flex-col justify-center"
+            style={{ padding: 'clamp(32px, 4vw, 48px)' }}
+          >
+            <div style={{ marginBottom: '16px' }}>
               <Badge>{article.category}</Badge>
             </div>
             <h2
-              className="text-[26px] md:text-[32px] mb-4 group-hover:text-[#F4DDC3] transition-colors duration-300"
+              className="group-hover:text-[#F4DDC3] transition-colors"
               style={{
+                fontSize: 'clamp(26px, 3vw, 32px)',
+                marginBottom: '16px',
                 fontFamily: 'var(--font-playfair)',
                 fontWeight: 600,
                 color: '#FFFFFF',
                 lineHeight: 1.3,
+                transitionDuration: '300ms',
               }}
             >
               {article.title}
             </h2>
             <p
-              className="text-[15px] mb-6"
               style={{
+                fontSize: '15px',
+                marginBottom: '24px',
                 fontFamily: 'var(--font-montserrat)',
                 fontWeight: 300,
                 color: '#A0A0A0',
@@ -264,26 +296,42 @@ function FeaturedArticle({ article }: { article: Article }) {
             >
               {article.excerpt}
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center" style={{ gap: '16px' }}>
               <span
-                className="text-[12px] text-[#6B6B6B]"
-                style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300 }}
+                style={{
+                  fontSize: '12px',
+                  color: '#6B6B6B',
+                  fontFamily: 'var(--font-montserrat)',
+                  fontWeight: 300,
+                }}
               >
                 {article.date}
               </span>
-              <span className="w-[1px] h-3 bg-[#1A3448]" />
+              <span style={{ width: '1px', height: '12px', background: '#1A3448' }} />
               <span
-                className="text-[12px] text-[#6B6B6B]"
-                style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300 }}
+                style={{
+                  fontSize: '12px',
+                  color: '#6B6B6B',
+                  fontFamily: 'var(--font-montserrat)',
+                  fontWeight: 300,
+                }}
               >
                 {article.readTime} de lecture
               </span>
             </div>
             <span
-              className="block mt-6 text-[12px] uppercase tracking-[0.15em] text-[#F4DDC3]"
-              style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 500 }}
+              style={{
+                display: 'block',
+                marginTop: '24px',
+                fontSize: '12px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.15em',
+                color: '#F4DDC3',
+                fontFamily: 'var(--font-montserrat)',
+                fontWeight: 500,
+              }}
             >
-              Lire l&apos;article \u2192
+              Lire l&apos;article &rarr;
             </span>
           </div>
         </div>
@@ -300,42 +348,53 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
   return (
     <ScrollReveal delay={index * 0.1}>
       <Link href={`/blog/${article.slug}`} className="block group h-full">
-        <div
-          className="card-luxury overflow-hidden h-full flex flex-col"
-        >
-          {/* Image placeholder */}
+        <div className="card-luxury overflow-hidden h-full flex flex-col">
+          {/* Image */}
           <div
-            className="aspect-[16/9] relative overflow-hidden"
-            style={{ background: '#1A3448' }}
+            className="relative overflow-hidden"
+            style={{ aspectRatio: '16/9' }}
           >
-            <div className="absolute inset-0 flex items-center justify-center text-[#6B6B6B] text-xs">
-              [BLOG-{article.slug}]
-            </div>
-            <div className="absolute top-3 left-3 z-10">
+            <Image
+              src={article.image}
+              alt={article.title}
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+              style={{ objectFit: 'cover', transition: 'transform 0.7s ease' }}
+              className="group-hover:scale-105"
+            />
+            <div
+              className="absolute top-3 left-3"
+              style={{ zIndex: 10 }}
+            >
               <Badge>{article.category}</Badge>
             </div>
             <div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              style={{ background: 'rgba(244,221,195,0.05)' }}
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              style={{ background: 'rgba(244,221,195,0.05)', transitionDuration: '500ms' }}
             />
           </div>
 
           {/* Content */}
-          <div className="p-6 flex-1 flex flex-col">
+          <div className="flex-1 flex flex-col" style={{ padding: '24px' }}>
             <h3
-              className="text-[18px] mb-3 group-hover:text-[#F4DDC3] transition-colors duration-300 line-clamp-2"
+              className="group-hover:text-[#F4DDC3] transition-colors line-clamp-2"
               style={{
+                fontSize: '18px',
+                marginBottom: '12px',
                 fontFamily: 'var(--font-playfair)',
                 fontWeight: 600,
                 color: '#FFFFFF',
                 lineHeight: 1.4,
+                transitionDuration: '300ms',
               }}
             >
               {article.title}
             </h3>
             <p
-              className="text-[14px] mb-4 flex-1 line-clamp-2"
+              className="flex-1 line-clamp-2"
               style={{
+                fontSize: '14px',
+                marginBottom: '16px',
                 fontFamily: 'var(--font-montserrat)',
                 fontWeight: 300,
                 color: '#A0A0A0',
@@ -344,26 +403,40 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
             >
               {article.excerpt}
             </p>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center" style={{ gap: '12px', marginBottom: '16px' }}>
               <span
-                className="text-[12px] text-[#6B6B6B]"
-                style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300 }}
+                style={{
+                  fontSize: '12px',
+                  color: '#6B6B6B',
+                  fontFamily: 'var(--font-montserrat)',
+                  fontWeight: 300,
+                }}
               >
                 {article.date}
               </span>
-              <span className="w-[1px] h-3 bg-[#1A3448]" />
+              <span style={{ width: '1px', height: '12px', background: '#1A3448' }} />
               <span
-                className="text-[12px] text-[#6B6B6B]"
-                style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300 }}
+                style={{
+                  fontSize: '12px',
+                  color: '#6B6B6B',
+                  fontFamily: 'var(--font-montserrat)',
+                  fontWeight: 300,
+                }}
               >
                 {article.readTime} de lecture
               </span>
             </div>
             <span
-              className="text-[12px] uppercase tracking-[0.15em] text-[#F4DDC3]"
-              style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 500 }}
+              style={{
+                fontSize: '12px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.15em',
+                color: '#F4DDC3',
+                fontFamily: 'var(--font-montserrat)',
+                fontWeight: 500,
+              }}
             >
-              Lire l&apos;article \u2192
+              Lire l&apos;article &rarr;
             </span>
           </div>
         </div>
@@ -397,28 +470,43 @@ function ArticlesSection() {
 
   return (
     <section className="section-padding" style={{ background: '#0E202D' }}>
-      <div className="px-[5vw]" style={{ maxWidth: '1400px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         {/* Filters and search */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-12">
+        <div
+          className="flex flex-col lg:flex-row items-start lg:items-center justify-between"
+          style={{ gap: '24px', marginBottom: '48px' }}
+        >
           {/* Category tabs */}
-          <div className="flex flex-wrap gap-0 border-b w-full lg:w-auto" style={{ borderColor: 'rgba(244,221,195,0.15)' }}>
+          <div
+            className="flex flex-wrap"
+            style={{ gap: 0, borderBottom: '1px solid rgba(244,221,195,0.15)', width: '100%', maxWidth: '100%' }}
+          >
+            <style>{`@media(min-width:1024px){.blog-tabs-wrap{width:auto !important;}}`}</style>
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className="px-4 py-3 text-[12px] uppercase tracking-[0.12em] transition-all duration-300 relative whitespace-nowrap"
+                className="relative whitespace-nowrap transition-all"
                 style={{
+                  padding: '12px 16px',
+                  fontSize: '12px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.12em',
                   fontFamily: 'var(--font-montserrat)',
                   fontWeight: activeCategory === cat ? 600 : 400,
                   color: activeCategory === cat ? '#F4DDC3' : '#6B6B6B',
+                  background: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transitionDuration: '300ms',
                 }}
               >
                 {cat}
                 {activeCategory === cat && (
                   <motion.div
                     layoutId="blogActiveTab"
-                    className="absolute bottom-0 left-0 right-0 h-[2px]"
-                    style={{ background: '#F4DDC3' }}
+                    className="absolute bottom-0 left-0 right-0"
+                    style={{ height: '2px', background: '#F4DDC3' }}
                   />
                 )}
               </button>
@@ -426,9 +514,10 @@ function ArticlesSection() {
           </div>
 
           {/* Search bar */}
-          <div className="relative w-full lg:w-[300px]">
+          <div className="relative" style={{ width: '100%', maxWidth: '300px' }}>
             <svg
-              className="absolute left-3 top-1/2 -translate-y-1/2"
+              className="absolute"
+              style={{ left: '12px', top: '50%', transform: 'translateY(-50%)' }}
               width="16"
               height="16"
               fill="none"
@@ -443,11 +532,19 @@ function ArticlesSection() {
               placeholder="Rechercher un article..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 text-[14px] bg-transparent border text-[#FFFFFF]"
               style={{
-                borderColor: '#1A3448',
+                width: '100%',
+                paddingLeft: '40px',
+                paddingRight: '16px',
+                paddingTop: '12px',
+                paddingBottom: '12px',
+                fontSize: '14px',
+                background: 'transparent',
+                border: '1px solid #1A3448',
+                color: '#FFFFFF',
                 fontFamily: 'var(--font-montserrat)',
                 fontWeight: 300,
+                outline: 'none',
               }}
             />
           </div>
@@ -455,23 +552,31 @@ function ArticlesSection() {
 
         {/* Featured article */}
         {featuredArticle && activeCategory === 'Tous' && searchQuery === '' && (
-          <div className="mb-12">
+          <div style={{ marginBottom: '48px' }}>
             <FeaturedArticle article={featuredArticle} />
           </div>
         )}
 
         {/* Articles grid */}
         {filteredArticles.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+            style={{ gap: '24px' }}
+          >
             {filteredArticles.map((article, i) => (
               <ArticleCard key={article.slug} article={article} index={i} />
             ))}
           </div>
         ) : (
-          <div className="text-center py-20">
+          <div style={{ textAlign: 'center', padding: '80px 0' }}>
             <p
-              className="text-[16px] text-[#6B6B6B] mb-4"
-              style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300 }}
+              style={{
+                fontSize: '16px',
+                color: '#6B6B6B',
+                marginBottom: '16px',
+                fontFamily: 'var(--font-montserrat)',
+                fontWeight: 300,
+              }}
             >
               Aucun article trouv\u00e9 pour cette recherche.
             </p>
@@ -480,8 +585,18 @@ function ArticlesSection() {
                 setActiveCategory('Tous');
                 setSearchQuery('');
               }}
-              className="text-[12px] uppercase tracking-[0.15em] text-[#F4DDC3] hover:text-[#F4DDC3] transition-colors"
-              style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 500 }}
+              className="transition-colors"
+              style={{
+                fontSize: '12px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.15em',
+                color: '#F4DDC3',
+                fontFamily: 'var(--font-montserrat)',
+                fontWeight: 500,
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+              }}
             >
               R\u00e9initialiser les filtres
             </button>
@@ -489,15 +604,20 @@ function ArticlesSection() {
         )}
 
         {/* Newsletter CTA */}
-        <div className="mt-20">
+        <div style={{ marginTop: '80px' }}>
           <ScrollReveal>
             <div
-              className="p-8 md:p-12 text-center"
-              style={{ background: '#132A3A', border: '1px solid #1A3448' }}
+              style={{
+                padding: 'clamp(32px, 4vw, 48px)',
+                textAlign: 'center',
+                background: '#132A3A',
+                border: '1px solid #1A3448',
+              }}
             >
               <h3
-                className="text-[24px] md:text-[32px] mb-4"
                 style={{
+                  fontSize: 'clamp(24px, 3vw, 32px)',
+                  marginBottom: '16px',
                   fontFamily: 'var(--font-playfair)',
                   fontWeight: 600,
                   color: '#FFFFFF',
@@ -506,26 +626,35 @@ function ArticlesSection() {
                 Restez inspir\u00e9
               </h3>
               <p
-                className="text-[16px] mb-8"
                 style={{
+                  fontSize: '16px',
+                  marginBottom: '32px',
                   fontFamily: 'var(--font-cormorant)',
                   fontStyle: 'italic',
                   color: '#A0A0A0',
                   maxWidth: '500px',
-                  margin: '0 auto',
+                  margin: '0 auto 32px auto',
                 }}
               >
                 Recevez nos derni\u00e8res actualit\u00e9s, guides exclusifs et offres sp\u00e9ciales directement dans votre bo\u00eete mail
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3" style={{ maxWidth: '500px', margin: '0 auto' }}>
+              <div
+                className="flex flex-col sm:flex-row items-center justify-center"
+                style={{ gap: '12px', maxWidth: '500px', margin: '0 auto' }}
+              >
                 <input
                   type="email"
                   placeholder="Votre adresse email"
-                  className="w-full px-4 py-3 text-[14px] bg-transparent border text-[#FFFFFF]"
                   style={{
-                    borderColor: '#1A3448',
+                    width: '100%',
+                    padding: '12px 16px',
+                    fontSize: '14px',
+                    background: 'transparent',
+                    border: '1px solid #1A3448',
+                    color: '#FFFFFF',
                     fontFamily: 'var(--font-montserrat)',
                     fontWeight: 300,
+                    outline: 'none',
                   }}
                 />
                 <Button variant="primary" size="sm">
@@ -533,8 +662,13 @@ function ArticlesSection() {
                 </Button>
               </div>
               <p
-                className="mt-4 text-[11px] text-[#6B6B6B]"
-                style={{ fontFamily: 'var(--font-montserrat)', fontWeight: 300 }}
+                style={{
+                  marginTop: '16px',
+                  fontSize: '11px',
+                  color: '#6B6B6B',
+                  fontFamily: 'var(--font-montserrat)',
+                  fontWeight: 300,
+                }}
               >
                 Pas de spam. D\u00e9sinscription en un clic.
               </p>
