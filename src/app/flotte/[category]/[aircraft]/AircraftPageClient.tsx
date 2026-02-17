@@ -138,20 +138,6 @@ export default function AircraftPageClient({
 
         {/* Content */}
         <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1200px", margin: "0 auto", padding: "clamp(100px, 15vh, 160px) 24px clamp(32px, 5vw, 56px)" }}>
-          {/* Breadcrumb */}
-          <motion.nav
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
-            style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px", fontSize: "12px", fontFamily: "var(--font-montserrat)", fontWeight: 300 }}
-          >
-            <Link href="/flotte" style={{ color: "#6B6B6B", textDecoration: "none", transition: "color 0.3s" }}>Flotte</Link>
-            <span style={{ color: "#6B6B6B" }}>/</span>
-            <Link href={`/flotte?category=${aircraft.categorySlug}`} style={{ color: "#6B6B6B", textDecoration: "none", transition: "color 0.3s" }}>{aircraft.category}</Link>
-            <span style={{ color: "#6B6B6B" }}>/</span>
-            <span style={{ color: "#A0A0A0" }}>{aircraft.name}</span>
-          </motion.nav>
-
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: EASE }} style={{ marginBottom: "12px" }}>
             <Badge>{aircraft.category}</Badge>
           </motion.div>
@@ -198,6 +184,34 @@ export default function AircraftPageClient({
           </motion.div>
         </div>
       </section>
+
+      {/* ====== BREADCRUMB ====== */}
+      <nav
+        style={{
+          background: "#0E202D",
+          borderBottom: "1px solid rgba(26,52,72,0.6)",
+          padding: "16px 24px",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1200px",
+            margin: "0 auto",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            fontSize: "clamp(11px, 1.4vw, 13px)",
+            fontFamily: "var(--font-montserrat)",
+            fontWeight: 300,
+          }}
+        >
+          <Link href="/flotte" style={{ color: "#6B6B6B", textDecoration: "none", transition: "color 0.3s" }}>Flotte</Link>
+          <span style={{ color: "rgba(107,107,107,0.5)" }}>/</span>
+          <Link href={`/flotte?category=${aircraft.categorySlug}`} style={{ color: "#6B6B6B", textDecoration: "none", transition: "color 0.3s" }}>{aircraft.category}</Link>
+          <span style={{ color: "rgba(107,107,107,0.5)" }}>/</span>
+          <span style={{ color: "#A0A0A0" }}>{aircraft.name}</span>
+        </div>
+      </nav>
 
       {/* ====== DESCRIPTION + SPECS ====== */}
       <section style={{ background: "#0E202D", padding: "clamp(60px, 10vw, 120px) 0" }}>
