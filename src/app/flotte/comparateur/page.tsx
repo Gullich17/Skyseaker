@@ -33,7 +33,7 @@ function AircraftSelect({ value, onChange, index }: { value: string; onChange: (
 }
 
 /* ============================================
-   COMPARISON ROW
+   COMPARISON ROW (desktop table)
    ============================================ */
 function ComparisonRow({ label, values, unit, highlight }: { label: string; values: (string | number | null)[]; unit?: string; highlight?: "max" | "min" | "none" }) {
   const numericValues = values.map((v) => (typeof v === "number" ? v : null));
@@ -53,6 +53,69 @@ function ComparisonRow({ label, values, unit, highlight }: { label: string; valu
           </span>
         );
       })}
+    </div>
+  );
+}
+
+/* ============================================
+   SPEC ROW (mobile card)
+   ============================================ */
+function SpecRow({ label, value, unit, isBest }: { label: string; value: string | number | null; unit?: string; isBest?: boolean }) {
+  return (
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", borderBottom: "1px solid rgba(30,30,30,0.5)" }}>
+      <span style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.08em", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#6B6B6B" }}>{label}</span>
+      <span style={{ fontSize: "14px", fontFamily: "var(--font-montserrat)", fontWeight: isBest ? 600 : 400, color: isBest ? "#C9A96E" : value ? "#F5F5F0" : "#1E1E1E" }}>
+        {value !== null && value !== undefined ? (
+          <>{typeof value === "number" ? value.toLocaleString("fr-FR") : value}{unit && <span style={{ fontSize: "11px", color: "#6B6B6B", marginLeft: "4px" }}>{unit}</span>}</>
+        ) : "—"}
+      </span>
+    </div>
+  );
+}
+
+/* ============================================
+   MOBILE AIRCRAFT CARD
+   ============================================ */
+function MobileAircraftCard({ aircraft, allSelected }: { aircraft: Aircraft; allSelected: (Aircraft | null)[] }) {
+  const validAircraft = allSelected.filter((a): a is Aircraft => a !== null);
+
+  function isBest(field: keyof Aircraft, mode: "max" | "min"): boolean {
+    if (validAircraft.length < 2) return false;
+    const vals = validAircraft.map((a) => a[field]).filter((v): v is number => typeof v === "number");
+    if (vals.length < 2) return false;
+    const target = mode === "max" ? Math.max(...vals) : Math.min(...vals);
+    return aircraft[field] === target;
+  }
+
+  return (
+    <div style={{ backgroundColor: "#141414", border: "1px solid #1E1E1E", borderRadius: "2px", overflow: "hidden" }}>
+      {/* Header */}
+      <div style={{ padding: "20px", borderBottom: "1px solid #1E1E1E", textAlign: "center" }}>
+        <div style={{ aspectRatio: "16/9", position: "relative", marginBottom: "12px", overflow: "hidden", borderRadius: "2px", background: "#1E1E1E" }}>
+          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <svg width="40" height="40" fill="none" stroke="#C9A96E" strokeWidth="1" viewBox="0 0 24 24" style={{ opacity: 0.2 }}>
+              <path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12M3 20h18" />
+            </svg>
+          </div>
+        </div>
+        <h3 style={{ fontSize: "20px", marginBottom: "8px", fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0" }}>{aircraft.name}</h3>
+        <Badge>{aircraft.category}</Badge>
+      </div>
+
+      {/* Specs */}
+      <div style={{ padding: "16px 20px" }}>
+        <SpecRow label="Constructeur" value={aircraft.manufacturer} />
+        <SpecRow label="Catégorie" value={aircraft.category} />
+        <SpecRow label="Passagers" value={aircraft.passengers} isBest={isBest("passengers", "max")} />
+        <SpecRow label="Autonomie" value={aircraft.range} unit="km" isBest={isBest("range", "max")} />
+        <SpecRow label="Vitesse" value={aircraft.speed} unit="km/h" isBest={isBest("speed", "max")} />
+        <SpecRow label="Longueur cabine" value={aircraft.cabinLength} unit="m" isBest={isBest("cabinLength", "max")} />
+        <SpecRow label="Hauteur cabine" value={aircraft.cabinHeight} unit="m" isBest={isBest("cabinHeight", "max")} />
+        <SpecRow label="Bagages" value={aircraft.baggage} unit="m³" isBest={isBest("baggage", "max")} />
+        <SpecRow label="Moteurs" value={aircraft.engines} />
+        <SpecRow label="Distance décollage" value={aircraft.takeoffDistance} unit="m" isBest={isBest("takeoffDistance", "min")} />
+        <SpecRow label="Année introduction" value={aircraft.yearIntroduced} />
+      </div>
     </div>
   );
 }
@@ -98,7 +161,7 @@ export default function ComparateurPage() {
               <p style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "20px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#C9A96E" }}>
                 Sélectionnez vos appareils
               </p>
-              <div className="flex flex-col md:flex-row" style={{ gap: "16px" }}>
+              <div className="selectors-row" style={{ gap: "16px" }}>
                 {selections.map((sel, i) => (
                   <AircraftSelect key={i} value={sel} onChange={(id) => updateSelection(i, id)} index={i} />
                 ))}
@@ -106,59 +169,74 @@ export default function ComparateurPage() {
             </div>
           </ScrollReveal>
 
-          {/* Aircraft Headers */}
+          {/* ===== DESKTOP: Grid comparison ===== */}
           {hasSelection && (
-            <ScrollReveal>
-              <div style={{ display: "grid", gridTemplateColumns: `200px repeat(${selectedAircraft.length}, 1fr)`, gap: "16px", marginBottom: "24px" }}>
-                <div />
-                {selectedAircraft.map((a, i) => (
-                  <div key={i} style={{ textAlign: "center" }}>
-                    {a ? (
-                      <>
-                        {/* Image placeholder */}
-                        <div style={{ aspectRatio: "16/9", position: "relative", marginBottom: "12px", overflow: "hidden", borderRadius: "2px", background: "#1E1E1E" }}>
-                          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                            <svg width="40" height="40" fill="none" stroke="#C9A96E" strokeWidth="1" viewBox="0 0 24 24" style={{ opacity: 0.2 }}>
-                              <path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12M3 20h18" />
-                            </svg>
+            <div className="comparator-desktop">
+              {/* Aircraft Headers */}
+              <ScrollReveal>
+                <div style={{ display: "grid", gridTemplateColumns: `200px repeat(${selectedAircraft.length}, 1fr)`, gap: "16px", marginBottom: "24px" }}>
+                  <div />
+                  {selectedAircraft.map((a, i) => (
+                    <div key={i} style={{ textAlign: "center" }}>
+                      {a ? (
+                        <>
+                          <div style={{ aspectRatio: "16/9", position: "relative", marginBottom: "12px", overflow: "hidden", borderRadius: "2px", background: "#1E1E1E" }}>
+                            <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                              <svg width="40" height="40" fill="none" stroke="#C9A96E" strokeWidth="1" viewBox="0 0 24 24" style={{ opacity: 0.2 }}>
+                                <path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12M3 20h18" />
+                              </svg>
+                            </div>
                           </div>
+                          <h3 style={{ fontSize: "18px", marginBottom: "8px", fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0" }}>{a.name}</h3>
+                          <Badge>{a.category}</Badge>
+                        </>
+                      ) : (
+                        <div style={{ aspectRatio: "16/9", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "12px", background: "#141414", border: "1px dashed #1E1E1E", borderRadius: "2px" }}>
+                          <span style={{ fontSize: "12px", fontFamily: "var(--font-montserrat)", color: "#6B6B6B" }}>Non sélectionné</span>
                         </div>
-                        <h3 style={{ fontSize: "18px", marginBottom: "8px", fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0" }}>{a.name}</h3>
-                        <Badge>{a.category}</Badge>
-                      </>
-                    ) : (
-                      <div style={{ aspectRatio: "16/9", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "12px", background: "#141414", border: "1px dashed #1E1E1E", borderRadius: "2px" }}>
-                        <span style={{ fontSize: "12px", fontFamily: "var(--font-montserrat)", color: "#6B6B6B" }}>Non sélectionné</span>
-                      </div>
-                    )}
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </ScrollReveal>
+
+              {/* Comparison Table */}
+              <ScrollReveal delay={0.1}>
+                <div style={{ padding: "clamp(20px, 3vw, 32px)", backgroundColor: "#141414", border: "1px solid #1E1E1E", borderRadius: "2px", overflowX: "auto" }}>
+                  <h3 style={{ fontSize: "14px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "20px", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#C9A96E" }}>
+                    Caractéristiques techniques
+                  </h3>
+                  <div style={{ minWidth: "600px" }}>
+                    <ComparisonRow label="Constructeur" values={selectedAircraft.map((a) => a?.manufacturer ?? null)} />
+                    <ComparisonRow label="Catégorie" values={selectedAircraft.map((a) => a?.category ?? null)} />
+                    <ComparisonRow label="Passagers" values={selectedAircraft.map((a) => a?.passengers ?? null)} highlight="max" />
+                    <ComparisonRow label="Autonomie" values={selectedAircraft.map((a) => a?.range ?? null)} unit="km" highlight="max" />
+                    <ComparisonRow label="Vitesse" values={selectedAircraft.map((a) => a?.speed ?? null)} unit="km/h" highlight="max" />
+                    <ComparisonRow label="Longueur cabine" values={selectedAircraft.map((a) => a?.cabinLength ?? null)} unit="m" highlight="max" />
+                    <ComparisonRow label="Hauteur cabine" values={selectedAircraft.map((a) => a?.cabinHeight ?? null)} unit="m" highlight="max" />
+                    <ComparisonRow label="Bagages" values={selectedAircraft.map((a) => a?.baggage ?? null)} unit="m³" highlight="max" />
+                    <ComparisonRow label="Moteurs" values={selectedAircraft.map((a) => a?.engines ?? null)} />
+                    <ComparisonRow label="Distance décollage" values={selectedAircraft.map((a) => a?.takeoffDistance ?? null)} unit="m" highlight="min" />
+                    <ComparisonRow label="Année introduction" values={selectedAircraft.map((a) => a?.yearIntroduced ?? null)} />
                   </div>
-                ))}
-              </div>
-            </ScrollReveal>
+                </div>
+              </ScrollReveal>
+            </div>
           )}
 
-          {/* Comparison Table */}
+          {/* ===== MOBILE: Stacked cards ===== */}
           {hasSelection && (
-            <ScrollReveal delay={0.1}>
-              <div style={{ padding: "clamp(20px, 3vw, 32px)", backgroundColor: "#141414", border: "1px solid #1E1E1E", borderRadius: "2px", overflowX: "auto" }}>
-                <h3 style={{ fontSize: "14px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "20px", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#C9A96E" }}>
-                  Caractéristiques techniques
-                </h3>
-                <div style={{ minWidth: "600px" }}>
-                  <ComparisonRow label="Constructeur" values={selectedAircraft.map((a) => a?.manufacturer ?? null)} />
-                  <ComparisonRow label="Catégorie" values={selectedAircraft.map((a) => a?.category ?? null)} />
-                  <ComparisonRow label="Passagers" values={selectedAircraft.map((a) => a?.passengers ?? null)} highlight="max" />
-                  <ComparisonRow label="Autonomie" values={selectedAircraft.map((a) => a?.range ?? null)} unit="km" highlight="max" />
-                  <ComparisonRow label="Vitesse" values={selectedAircraft.map((a) => a?.speed ?? null)} unit="km/h" highlight="max" />
-                  <ComparisonRow label="Longueur cabine" values={selectedAircraft.map((a) => a?.cabinLength ?? null)} unit="m" highlight="max" />
-                  <ComparisonRow label="Hauteur cabine" values={selectedAircraft.map((a) => a?.cabinHeight ?? null)} unit="m" highlight="max" />
-                  <ComparisonRow label="Bagages" values={selectedAircraft.map((a) => a?.baggage ?? null)} unit="m³" highlight="max" />
-                  <ComparisonRow label="Moteurs" values={selectedAircraft.map((a) => a?.engines ?? null)} />
-                  <ComparisonRow label="Distance décollage" values={selectedAircraft.map((a) => a?.takeoffDistance ?? null)} unit="m" highlight="min" />
-                  <ComparisonRow label="Année introduction" values={selectedAircraft.map((a) => a?.yearIntroduced ?? null)} />
+            <div className="comparator-mobile">
+              <ScrollReveal>
+                <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                  {selectedAircraft.map((a, i) =>
+                    a ? (
+                      <MobileAircraftCard key={i} aircraft={a} allSelected={selectedAircraft} />
+                    ) : null
+                  )}
                 </div>
-              </div>
-            </ScrollReveal>
+              </ScrollReveal>
+            </div>
           )}
 
           {/* Empty state */}

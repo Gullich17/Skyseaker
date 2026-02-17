@@ -129,7 +129,7 @@ export default function Header() {
           borderBottom: (scrolled || activeMega) ? "1px solid rgba(30,30,30,0.8)" : "1px solid transparent",
         }}
       >
-        <nav className="flex items-center justify-between h-[70px] px-6" style={{ maxWidth: "1400px", margin: "0 auto" }}>
+        <nav className="flex items-center justify-between h-[70px]" style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 clamp(20px, 5vw, 40px)" }}>
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
             <div className="flex items-center gap-2">

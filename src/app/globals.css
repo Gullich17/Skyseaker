@@ -387,6 +387,17 @@ input[type="date"] {
   .filter-mobile { display: block !important; }
 }
 
+/* Comparator responsive toggle */
+.comparator-desktop { display: block; }
+.comparator-mobile { display: none; }
+.selectors-row { display: flex; flex-direction: row; }
+
+@media (max-width: 768px) {
+  .comparator-desktop { display: none !important; }
+  .comparator-mobile { display: block !important; }
+  .selectors-row { flex-direction: column !important; }
+}
+
 /* Link reset for styled links */
 a {
   text-decoration: none;

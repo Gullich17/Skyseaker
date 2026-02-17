@@ -47,7 +47,7 @@ function YachtSelect({ value, onChange, index }: { value: string; onChange: (id:
 }
 
 /* ============================================
-   COMPARISON ROW
+   COMPARISON ROW (desktop table)
    ============================================ */
 function ComparisonRow({ label, values, unit, highlight }: { label: string; values: (string | number | null)[]; unit?: string; highlight?: "max" | "min" | "none" }) {
   const numericValues = values.map((v) => (typeof v === "number" ? v : null));
@@ -67,6 +67,67 @@ function ComparisonRow({ label, values, unit, highlight }: { label: string; valu
           </span>
         );
       })}
+    </div>
+  );
+}
+
+/* ============================================
+   SPEC ROW (mobile card)
+   ============================================ */
+function SpecRow({ label, value, unit, isBest }: { label: string; value: string | number | null; unit?: string; isBest?: boolean }) {
+  return (
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", borderBottom: "1px solid rgba(30,30,30,0.5)" }}>
+      <span style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.08em", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#6B6B6B" }}>{label}</span>
+      <span style={{ fontSize: "14px", fontFamily: "var(--font-montserrat)", fontWeight: isBest ? 600 : 400, color: isBest ? "#C9A96E" : value ? "#F5F5F0" : "#1E1E1E" }}>
+        {value !== null && value !== undefined ? (
+          <>{typeof value === "number" ? value.toLocaleString("fr-FR") : value}{unit && <span style={{ fontSize: "11px", color: "#6B6B6B", marginLeft: "4px" }}>{unit}</span>}</>
+        ) : "—"}
+      </span>
+    </div>
+  );
+}
+
+/* ============================================
+   MOBILE YACHT CARD
+   ============================================ */
+function MobileYachtCard({ yacht, allSelected }: { yacht: Yacht; allSelected: (Yacht | null)[] }) {
+  const validYachts = allSelected.filter((y): y is Yacht => y !== null);
+
+  function isBest(field: keyof Yacht, mode: "max" | "min"): boolean {
+    if (validYachts.length < 2) return false;
+    const vals = validYachts.map((y) => y[field]).filter((v): v is number => typeof v === "number");
+    if (vals.length < 2) return false;
+    const target = mode === "max" ? Math.max(...vals) : Math.min(...vals);
+    return yacht[field] === target;
+  }
+
+  return (
+    <div style={{ backgroundColor: "#141414", border: "1px solid #1E1E1E", borderRadius: "2px", overflow: "hidden" }}>
+      {/* Header */}
+      <div style={{ padding: "20px", borderBottom: "1px solid #1E1E1E", textAlign: "center" }}>
+        <div style={{ aspectRatio: "16/9", position: "relative", marginBottom: "12px", overflow: "hidden", borderRadius: "2px" }}>
+          <Image src={getImg(yacht)} alt={yacht.name} fill style={{ objectFit: "cover" }} />
+        </div>
+        <h3 style={{ fontSize: "20px", marginBottom: "8px", fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0" }}>{yacht.name}</h3>
+        <Badge>{yacht.category}</Badge>
+      </div>
+
+      {/* Specs */}
+      <div style={{ padding: "16px 20px" }}>
+        <SpecRow label="Constructeur" value={yacht.builder} />
+        <SpecRow label="Catégorie" value={yacht.category} />
+        <SpecRow label="Invités" value={yacht.guests} isBest={isBest("guests", "max")} />
+        <SpecRow label="Cabines" value={yacht.cabins} isBest={isBest("cabins", "max")} />
+        <SpecRow label="Équipage" value={yacht.crew} isBest={isBest("crew", "max")} />
+        <SpecRow label="Longueur" value={yacht.length} unit="m" isBest={isBest("length", "max")} />
+        <SpecRow label="Largeur" value={yacht.beam} unit="m" isBest={isBest("beam", "max")} />
+        <SpecRow label="Tirant d'eau" value={yacht.draft} unit="m" isBest={isBest("draft", "min")} />
+        <SpecRow label="Vitesse croisière" value={yacht.cruisingSpeed} unit="nds" isBest={isBest("cruisingSpeed", "max")} />
+        <SpecRow label="Vitesse max" value={yacht.maxSpeed} unit="nds" isBest={isBest("maxSpeed", "max")} />
+        <SpecRow label="Autonomie" value={yacht.range} unit="nm" isBest={isBest("range", "max")} />
+        <SpecRow label="Motorisation" value={yacht.engines} />
+        <SpecRow label="Année" value={yacht.yearBuilt} />
+      </div>
     </div>
   );
 }
@@ -112,7 +173,7 @@ export default function YachtComparateurPage() {
               <p style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "20px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#C9A96E" }}>
                 Sélectionnez vos yachts
               </p>
-              <div className="flex flex-col md:flex-row" style={{ gap: "16px" }}>
+              <div className="selectors-row" style={{ gap: "16px" }}>
                 {selections.map((sel, i) => (
                   <YachtSelect key={i} value={sel} onChange={(id) => updateSelection(i, id)} index={i} />
                 ))}
@@ -120,56 +181,72 @@ export default function YachtComparateurPage() {
             </div>
           </ScrollReveal>
 
-          {/* Yacht Headers */}
+          {/* ===== DESKTOP: Grid comparison ===== */}
           {hasSelection && (
-            <ScrollReveal>
-              <div style={{ display: "grid", gridTemplateColumns: `200px repeat(${selectedYachts.length}, 1fr)`, gap: "16px", marginBottom: "24px" }}>
-                <div />
-                {selectedYachts.map((y, i) => (
-                  <div key={i} style={{ textAlign: "center" }}>
-                    {y ? (
-                      <>
-                        <div style={{ aspectRatio: "16/9", position: "relative", marginBottom: "12px", overflow: "hidden", borderRadius: "2px" }}>
-                          <Image src={getImg(y)} alt={y.name} fill style={{ objectFit: "cover" }} />
+            <div className="comparator-desktop">
+              {/* Yacht Headers */}
+              <ScrollReveal>
+                <div style={{ display: "grid", gridTemplateColumns: `200px repeat(${selectedYachts.length}, 1fr)`, gap: "16px", marginBottom: "24px" }}>
+                  <div />
+                  {selectedYachts.map((y, i) => (
+                    <div key={i} style={{ textAlign: "center" }}>
+                      {y ? (
+                        <>
+                          <div style={{ aspectRatio: "16/9", position: "relative", marginBottom: "12px", overflow: "hidden", borderRadius: "2px" }}>
+                            <Image src={getImg(y)} alt={y.name} fill style={{ objectFit: "cover" }} />
+                          </div>
+                          <h3 style={{ fontSize: "18px", marginBottom: "8px", fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0" }}>{y.name}</h3>
+                          <Badge>{y.category}</Badge>
+                        </>
+                      ) : (
+                        <div style={{ aspectRatio: "16/9", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "12px", background: "#141414", border: "1px dashed #1E1E1E", borderRadius: "2px" }}>
+                          <span style={{ fontSize: "12px", fontFamily: "var(--font-montserrat)", color: "#6B6B6B" }}>Non sélectionné</span>
                         </div>
-                        <h3 style={{ fontSize: "18px", marginBottom: "8px", fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#F5F5F0" }}>{y.name}</h3>
-                        <Badge>{y.category}</Badge>
-                      </>
-                    ) : (
-                      <div style={{ aspectRatio: "16/9", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "12px", background: "#141414", border: "1px dashed #1E1E1E", borderRadius: "2px" }}>
-                        <span style={{ fontSize: "12px", fontFamily: "var(--font-montserrat)", color: "#6B6B6B" }}>Non sélectionné</span>
-                      </div>
-                    )}
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </ScrollReveal>
+
+              {/* Comparison Table */}
+              <ScrollReveal delay={0.1}>
+                <div style={{ padding: "clamp(20px, 3vw, 32px)", backgroundColor: "#141414", border: "1px solid #1E1E1E", borderRadius: "2px", overflowX: "auto" }}>
+                  <h3 style={{ fontSize: "14px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "20px", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#C9A96E" }}>
+                    Caractéristiques techniques
+                  </h3>
+                  <div style={{ minWidth: "600px" }}>
+                    <ComparisonRow label="Constructeur" values={selectedYachts.map((y) => y?.builder ?? null)} />
+                    <ComparisonRow label="Catégorie" values={selectedYachts.map((y) => y?.category ?? null)} />
+                    <ComparisonRow label="Invités" values={selectedYachts.map((y) => y?.guests ?? null)} highlight="max" />
+                    <ComparisonRow label="Cabines" values={selectedYachts.map((y) => y?.cabins ?? null)} highlight="max" />
+                    <ComparisonRow label="Équipage" values={selectedYachts.map((y) => y?.crew ?? null)} highlight="max" />
+                    <ComparisonRow label="Longueur" values={selectedYachts.map((y) => y?.length ?? null)} unit="m" highlight="max" />
+                    <ComparisonRow label="Largeur" values={selectedYachts.map((y) => y?.beam ?? null)} unit="m" highlight="max" />
+                    <ComparisonRow label="Tirant d'eau" values={selectedYachts.map((y) => y?.draft ?? null)} unit="m" highlight="min" />
+                    <ComparisonRow label="Vitesse croisière" values={selectedYachts.map((y) => y?.cruisingSpeed ?? null)} unit="nds" highlight="max" />
+                    <ComparisonRow label="Vitesse max" values={selectedYachts.map((y) => y?.maxSpeed ?? null)} unit="nds" highlight="max" />
+                    <ComparisonRow label="Autonomie" values={selectedYachts.map((y) => y?.range ?? null)} unit="nm" highlight="max" />
+                    <ComparisonRow label="Motorisation" values={selectedYachts.map((y) => y?.engines ?? null)} />
+                    <ComparisonRow label="Année" values={selectedYachts.map((y) => y?.yearBuilt ?? null)} />
                   </div>
-                ))}
-              </div>
-            </ScrollReveal>
+                </div>
+              </ScrollReveal>
+            </div>
           )}
 
-          {/* Comparison Table */}
+          {/* ===== MOBILE: Stacked cards ===== */}
           {hasSelection && (
-            <ScrollReveal delay={0.1}>
-              <div style={{ padding: "clamp(20px, 3vw, 32px)", backgroundColor: "#141414", border: "1px solid #1E1E1E", borderRadius: "2px", overflowX: "auto" }}>
-                <h3 style={{ fontSize: "14px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "20px", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#C9A96E" }}>
-                  Caractéristiques techniques
-                </h3>
-                <div style={{ minWidth: "600px" }}>
-                  <ComparisonRow label="Constructeur" values={selectedYachts.map((y) => y?.builder ?? null)} />
-                  <ComparisonRow label="Catégorie" values={selectedYachts.map((y) => y?.category ?? null)} />
-                  <ComparisonRow label="Invités" values={selectedYachts.map((y) => y?.guests ?? null)} highlight="max" />
-                  <ComparisonRow label="Cabines" values={selectedYachts.map((y) => y?.cabins ?? null)} highlight="max" />
-                  <ComparisonRow label="Équipage" values={selectedYachts.map((y) => y?.crew ?? null)} highlight="max" />
-                  <ComparisonRow label="Longueur" values={selectedYachts.map((y) => y?.length ?? null)} unit="m" highlight="max" />
-                  <ComparisonRow label="Largeur" values={selectedYachts.map((y) => y?.beam ?? null)} unit="m" highlight="max" />
-                  <ComparisonRow label="Tirant d'eau" values={selectedYachts.map((y) => y?.draft ?? null)} unit="m" highlight="min" />
-                  <ComparisonRow label="Vitesse croisière" values={selectedYachts.map((y) => y?.cruisingSpeed ?? null)} unit="nds" highlight="max" />
-                  <ComparisonRow label="Vitesse max" values={selectedYachts.map((y) => y?.maxSpeed ?? null)} unit="nds" highlight="max" />
-                  <ComparisonRow label="Autonomie" values={selectedYachts.map((y) => y?.range ?? null)} unit="nm" highlight="max" />
-                  <ComparisonRow label="Motorisation" values={selectedYachts.map((y) => y?.engines ?? null)} />
-                  <ComparisonRow label="Année" values={selectedYachts.map((y) => y?.yearBuilt ?? null)} />
+            <div className="comparator-mobile">
+              <ScrollReveal>
+                <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                  {selectedYachts.map((y, i) =>
+                    y ? (
+                      <MobileYachtCard key={i} yacht={y} allSelected={selectedYachts} />
+                    ) : null
+                  )}
                 </div>
-              </div>
-            </ScrollReveal>
+              </ScrollReveal>
+            </div>
           )}
 
           {/* Empty state */}
@@ -185,7 +262,7 @@ export default function YachtComparateurPage() {
           )}
 
           {/* Bottom CTA */}
-          <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginTop: "clamp(48px, 6vw, 64px)" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "16px", marginTop: "clamp(48px, 6vw, 64px)" }}>
             <Button href="/yachts" variant="secondary">Retour aux yachts</Button>
             <Button href="/devis" variant="primary">Demander un devis</Button>
           </div>
