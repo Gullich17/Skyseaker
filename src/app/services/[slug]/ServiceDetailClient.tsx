@@ -3,152 +3,176 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { type Service } from '@/data/services';
 import SectionTitle from '@/components/ui/SectionTitle';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import Button from '@/components/ui/Button';
+import Badge from '@/components/ui/Badge';
+
+const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number];
 
 /* ============================================
-   ICON COMPONENTS
+   SERVICE IMAGES — Unsplash
    ============================================ */
-function CheckIcon() {
+const serviceImages: Record<string, string> = {
+  'affretement-jet-prive':
+    'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80',
+  'vols-a-vide-empty-legs':
+    'https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=1920&q=80',
+  'voyage-groupe':
+    'https://images.unsplash.com/photo-1559628233-100c798642d4?w=1920&q=80',
+  'fret-urgent':
+    'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=80',
+  'conciergerie-lifestyle':
+    'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=80',
+  'transferts-vip':
+    'https://images.unsplash.com/photo-1549317661-bd32c8ce0aca?w=1920&q=80',
+  'gestion-appareil':
+    'https://images.unsplash.com/photo-1583396082374-5ac19e1f63d0?w=1920&q=80',
+  'achat-vente-jet':
+    'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80',
+};
+
+const serviceSecondaryImages: Record<string, string> = {
+  'affretement-jet-prive':
+    'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=75',
+  'vols-a-vide-empty-legs':
+    'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800&q=75',
+  'voyage-groupe':
+    'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=75',
+  'fret-urgent':
+    'https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=75',
+  'conciergerie-lifestyle':
+    'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=75',
+  'transferts-vip':
+    'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&q=75',
+  'gestion-appareil':
+    'https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=800&q=75',
+  'achat-vente-jet':
+    'https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=75',
+};
+
+function getHeroImage(slug: string): string {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#F4DDC3"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-5 h-5 flex-shrink-0"
-    >
-      <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
-      <polyline points="22 4 12 14.01 9 11.01" />
-    </svg>
+    serviceImages[slug] ||
+    'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80'
   );
 }
 
-function ChevronDown({ isOpen }: { isOpen: boolean }) {
+function getSecondaryImage(slug: string): string {
   return (
-    <motion.svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-5 h-5 flex-shrink-0"
-      animate={{ rotate: isOpen ? 180 : 0 }}
-      transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-    >
-      <polyline points="6 9 12 15 18 9" />
-    </motion.svg>
-  );
-}
-
-function ArrowLeft() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-4 h-4"
-    >
-      <line x1="19" y1="12" x2="5" y2="12" />
-      <polyline points="12 19 5 12 12 5" />
-    </svg>
+    serviceSecondaryImages[slug] ||
+    'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=75'
   );
 }
 
 /* ============================================
-   HERO SECTION
+   HERO SECTION — with background image
    ============================================ */
 function HeroSection({ service }: { service: Service }) {
   return (
     <section
-      className="relative flex items-center justify-center overflow-hidden"
-      style={{ minHeight: '55vh' }}
+      style={{
+        position: 'relative',
+        minHeight: 'clamp(500px, 70vh, 800px)',
+        display: 'flex',
+        alignItems: 'flex-end',
+        overflow: 'hidden',
+      }}
     >
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(135deg, #0E202D 0%, #132A3A 40%, #122838 60%, #0E202D 100%)',
-          }}
+      {/* Background image */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+        <Image
+          src={getHeroImage(service.slug)}
+          alt={service.title}
+          fill
+          priority
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
+          sizes="100vw"
         />
         <div
-          className="absolute top-1/3 left-0 right-0 h-[1px] opacity-[0.05]"
           style={{
-            background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
+            position: 'absolute',
+            inset: 0,
+            background:
+              'linear-gradient(to top, rgba(14,32,45,0.95) 0%, rgba(14,32,45,0.4) 40%, rgba(14,32,45,0.6) 100%)',
           }}
         />
       </div>
 
+      {/* Gold accent line */}
       <div
-        className="absolute inset-0 z-[1]"
         style={{
+          position: 'absolute',
+          top: '33%',
+          left: 0,
+          right: 0,
+          height: '1px',
+          opacity: 0.05,
+          zIndex: 1,
           background:
-            'linear-gradient(to top, rgba(14,32,45,0.8) 0%, rgba(14,32,45,0.3) 50%, rgba(14,32,45,0.6) 100%)',
+            'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
         }}
       />
 
-      <div className="relative z-10 w-full px-[5vw] pt-40 pb-16 text-center" style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        {/* Back link */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-          className="mb-8"
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 10,
+          width: '100%',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding:
+            'clamp(100px, 14vh, 160px) 24px clamp(40px, 6vw, 64px)',
+        }}
+      >
+        {/* Breadcrumb */}
+        <motion.nav
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            marginBottom: '20px',
+            fontSize: '12px',
+            fontFamily: 'var(--font-montserrat)',
+            fontWeight: 300,
+          }}
         >
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 transition-colors"
-            style={{
-              fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
-              fontWeight: 500,
-              fontSize: '12px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.15em',
-              color: '#A0A0A0',
-              textDecoration: 'none',
-            }}
+            className="transition-colors hover:text-[#F4DDC3]"
+            style={{ color: '#6B6B6B', textDecoration: 'none' }}
           >
-            <ArrowLeft />
-            Tous nos services
+            Services
           </Link>
-        </motion.div>
+          <span style={{ color: '#6B6B6B' }}>/</span>
+          <span style={{ color: '#A0A0A0' }}>{service.shortTitle}</span>
+        </motion.nav>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-          style={{
-            fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
-            fontWeight: 500,
-            fontSize: '12px',
-            textTransform: 'uppercase',
-            letterSpacing: '0.3em',
-            color: '#F4DDC3',
-            marginBottom: '16px',
-          }}
+          transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
+          style={{ marginBottom: '16px' }}
         >
-          {service.shortTitle}
-        </motion.p>
+          <Badge>{service.shortTitle}</Badge>
+        </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-          className="text-[32px] md:text-[52px] mb-6"
+          transition={{ duration: 1, delay: 0.3, ease: EASE }}
           style={{
-            fontFamily: 'var(--font-playfair), "Playfair Display", serif',
+            fontFamily: 'var(--font-playfair)',
             fontWeight: 700,
             color: '#FFFFFF',
-            lineHeight: 1.15,
+            lineHeight: 1.1,
+            fontSize: 'clamp(36px, 8vw, 64px)',
+            marginBottom: '20px',
           }}
         >
           {service.title}
@@ -157,84 +181,121 @@ function HeroSection({ service }: { service: Service }) {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-          className="text-[17px] md:text-[20px]"
+          transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
           style={{
-            fontFamily: 'var(--font-cormorant), "Cormorant Garamond", serif',
+            fontFamily: 'var(--font-cormorant)',
             fontStyle: 'italic',
             color: '#A0A0A0',
-            lineHeight: 1.6,
+            fontSize: 'clamp(16px, 2.5vw, 22px)',
             maxWidth: '650px',
-            margin: '0 auto',
           }}
         >
           {service.shortDescription}
         </motion.p>
-
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-          className="mx-auto mt-8"
-          style={{
-            width: '80px',
-            height: '1px',
-            background: 'linear-gradient(90deg, transparent, #F4DDC3, transparent)',
-          }}
-        />
       </div>
     </section>
   );
 }
 
 /* ============================================
-   DETAILED DESCRIPTION SECTION
+   DESCRIPTION SECTION — with image
    ============================================ */
 function DescriptionSection({ service }: { service: Service }) {
   return (
-    <section className="section-padding" style={{ backgroundColor: '#0E202D' }}>
-      <div className="container-luxury">
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+    <section
+      style={{
+        background: '#0E202D',
+        padding: 'clamp(60px, 10vw, 120px) 0',
+      }}
+    >
+      <div
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 24px',
+        }}
+      >
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr',
+            gap: 'clamp(32px, 5vw, 64px)',
+          }}
+          className="sidebar-grid"
+        >
+          {/* Text content */}
           <ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 md:gap-16">
-              {/* Left: visual accent */}
-              <div className="flex flex-col items-start">
+            <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr',
+                  gap: 'clamp(32px, 5vw, 48px)',
+                }}
+                className="desc-grid"
+              >
+                {/* Image */}
                 <div
                   style={{
-                    width: '1px',
-                    height: '60px',
-                    backgroundColor: '#F4DDC3',
-                    opacity: 0.4,
-                    marginBottom: '24px',
-                  }}
-                />
-                <p
-                  style={{
-                    fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
-                    fontWeight: 600,
-                    fontSize: '12px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.2em',
-                    color: '#F4DDC3',
+                    position: 'relative',
+                    aspectRatio: '16/7',
+                    overflow: 'hidden',
+                    border: '1px solid #1A3448',
                   }}
                 >
-                  Presentation
-                </p>
-              </div>
+                  <Image
+                    src={getSecondaryImage(service.slug)}
+                    alt={service.shortTitle}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes="(min-width: 1024px) 900px, 100vw"
+                  />
+                  <div
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background:
+                        'linear-gradient(to top, rgba(14,32,45,0.5) 0%, transparent 50%)',
+                    }}
+                  />
+                </div>
 
-              {/* Right: description text */}
-              <div>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
-                    fontWeight: 300,
-                    fontSize: '16px',
-                    color: '#A0A0A0',
-                    lineHeight: 1.9,
-                  }}
-                >
-                  {service.description}
-                </p>
+                {/* Text */}
+                <div>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-montserrat)',
+                      fontWeight: 500,
+                      fontSize: '12px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.2em',
+                      color: '#F4DDC3',
+                      marginBottom: '16px',
+                    }}
+                  >
+                    Présentation
+                  </p>
+                  <div
+                    style={{
+                      width: '60px',
+                      height: '1px',
+                      background: '#F4DDC3',
+                      opacity: 0.3,
+                      marginBottom: '24px',
+                    }}
+                  />
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-montserrat)',
+                      fontWeight: 300,
+                      fontSize: '16px',
+                      color: '#A0A0A0',
+                      lineHeight: 1.9,
+                    }}
+                  >
+                    {service.description}
+                  </p>
+                </div>
               </div>
             </div>
           </ScrollReveal>
@@ -250,26 +311,41 @@ function DescriptionSection({ service }: { service: Service }) {
 function AdvantagesSection({ service }: { service: Service }) {
   return (
     <section
-      className="section-padding"
       style={{
-        backgroundColor: '#132A3A',
-        borderTop: '1px solid rgba(244,221,195,0.1)',
-        borderBottom: '1px solid rgba(244,221,195,0.1)',
+        background: '#132A3A',
+        padding: 'clamp(60px, 10vw, 120px) 0',
+        borderTop: '1px solid rgba(244,221,195,0.08)',
+        borderBottom: '1px solid rgba(244,221,195,0.08)',
       }}
     >
-      <div className="container-luxury">
+      <div
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 24px',
+        }}
+      >
         <SectionTitle
           preTitle="Pourquoi nous choisir"
           title="Les avantages"
           centered
+          mb="64px"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns:
+              'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
+            gap: '24px',
+          }}
+        >
           {service.advantages.map((adv, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
               <div
-                className="p-8 h-full"
                 style={{
+                  padding: 'clamp(24px, 3vw, 32px)',
+                  height: '100%',
                   backgroundColor: '#0E202D',
                   border: '1px solid #1A3448',
                   transition: 'border-color 0.3s ease',
@@ -279,32 +355,46 @@ function AdvantagesSection({ service }: { service: Service }) {
                     'rgba(244,221,195,0.3)';
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = '#1A3448';
+                  (e.currentTarget as HTMLElement).style.borderColor =
+                    '#1A3448';
                 }}
               >
-                {/* Gold icon */}
-                <div className="mb-6">
-                  <div
-                    className="flex items-center justify-center"
-                    style={{
-                      width: '48px',
-                      height: '48px',
-                      border: '1px solid rgba(244,221,195,0.3)',
-                      borderRadius: '50%',
-                    }}
+                {/* Icon */}
+                <div
+                  style={{
+                    width: '48px',
+                    height: '48px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '24px',
+                    background: 'rgba(244,221,195,0.05)',
+                    border: '1px solid rgba(244,221,195,0.2)',
+                  }}
+                >
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#F4DDC3"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
-                    <CheckIcon />
-                  </div>
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
                 </div>
 
                 <h3
-                  className="mb-3"
                   style={{
-                    fontFamily: 'var(--font-playfair), "Playfair Display", serif',
+                    fontFamily: 'var(--font-playfair)',
                     fontWeight: 600,
                     fontSize: '18px',
                     color: '#FFFFFF',
                     lineHeight: 1.3,
+                    marginBottom: '8px',
                   }}
                 >
                   {adv.title}
@@ -312,7 +402,7 @@ function AdvantagesSection({ service }: { service: Service }) {
 
                 <p
                   style={{
-                    fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
+                    fontFamily: 'var(--font-montserrat)',
                     fontWeight: 300,
                     fontSize: '14px',
                     color: '#A0A0A0',
@@ -335,37 +425,62 @@ function AdvantagesSection({ service }: { service: Service }) {
    ============================================ */
 function ProcessSection({ service }: { service: Service }) {
   return (
-    <section className="section-padding" style={{ backgroundColor: '#0E202D' }}>
-      <div className="container-luxury">
+    <section
+      style={{
+        background: '#0E202D',
+        padding: 'clamp(60px, 10vw, 120px) 0',
+      }}
+    >
+      <div
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 24px',
+        }}
+      >
         <SectionTitle
-          preTitle="Comment ca fonctionne"
+          preTitle="Comment ça fonctionne"
           title="Le processus"
           centered
+          mb="64px"
         />
 
-        <div className="mt-16" style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           {service.steps.map((step, i) => (
             <ScrollReveal key={i} delay={i * 0.12}>
-              <div className="flex gap-6 md:gap-10 mb-12 last:mb-0">
+              <div
+                style={{
+                  display: 'flex',
+                  gap: 'clamp(16px, 3vw, 40px)',
+                  marginBottom: i < service.steps.length - 1 ? '40px' : 0,
+                }}
+              >
                 {/* Timeline column */}
-                <div className="flex flex-col items-center flex-shrink-0">
-                  {/* Number circle */}
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    flexShrink: 0,
+                  }}
+                >
+                  {/* Number */}
                   <div
-                    className="flex items-center justify-center"
                     style={{
                       width: '56px',
                       height: '56px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                       border: '1px solid #F4DDC3',
-                      borderRadius: '50%',
-                      fontFamily:
-                        'var(--font-cormorant), "Cormorant Garamond", serif',
+                      fontFamily: 'var(--font-cormorant)',
                       fontWeight: 600,
                       fontSize: '24px',
                       color: '#F4DDC3',
                       flexShrink: 0,
                     }}
                   >
-                    {i + 1}
+                    {String(i + 1).padStart(2, '0')}
                   </div>
                   {/* Vertical line */}
                   {i < service.steps.length - 1 && (
@@ -383,24 +498,22 @@ function ProcessSection({ service }: { service: Service }) {
                 </div>
 
                 {/* Content */}
-                <div className="pt-3 pb-4">
+                <div style={{ paddingTop: '12px', paddingBottom: '4px' }}>
                   <h3
-                    className="mb-2"
                     style={{
-                      fontFamily:
-                        'var(--font-playfair), "Playfair Display", serif',
+                      fontFamily: 'var(--font-playfair)',
                       fontWeight: 600,
                       fontSize: '20px',
                       color: '#FFFFFF',
                       lineHeight: 1.3,
+                      marginBottom: '8px',
                     }}
                   >
                     {step.title}
                   </h3>
                   <p
                     style={{
-                      fontFamily:
-                        'var(--font-montserrat), Montserrat, sans-serif',
+                      fontFamily: 'var(--font-montserrat)',
                       fontWeight: 300,
                       fontSize: '15px',
                       color: '#A0A0A0',
@@ -427,70 +540,86 @@ function FaqItem({
   answer,
   isOpen,
   onToggle,
+  index,
 }: {
   question: string;
   answer: string;
   isOpen: boolean;
   onToggle: () => void;
+  index: number;
 }) {
   return (
-    <div
-      style={{
-        borderBottom: '1px solid rgba(244,221,195,0.1)',
-      }}
-    >
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 py-6 text-left cursor-pointer"
-        style={{ background: 'none', border: 'none' }}
-        aria-expanded={isOpen}
-      >
-        <h3
+    <ScrollReveal delay={index * 0.08}>
+      <div style={{ borderBottom: '1px solid rgba(26, 52, 72, 0.8)' }}>
+        <button
+          onClick={onToggle}
+          className="group"
           style={{
-            fontFamily: 'var(--font-playfair), "Playfair Display", serif',
-            fontWeight: 500,
-            fontSize: '18px',
-            color: isOpen ? '#F4DDC3' : '#FFFFFF',
-            lineHeight: 1.4,
-            transition: 'color 0.3s ease',
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '20px 0',
+            textAlign: 'left',
+            cursor: 'pointer',
+            background: 'none',
+            border: 'none',
           }}
+          aria-expanded={isOpen}
         >
-          {question}
-        </h3>
-        <ChevronDown isOpen={isOpen} />
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{
-              height: {
-                duration: 0.35,
-                ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-              },
-              opacity: { duration: 0.25 },
+          <span
+            className="group-hover:text-[#F4DDC3] transition-colors"
+            style={{
+              fontFamily: 'var(--font-montserrat)',
+              fontWeight: 500,
+              color: isOpen ? '#F4DDC3' : '#FFFFFF',
+              fontSize: '16px',
+              paddingRight: '16px',
+              transition: 'color 0.3s ease',
             }}
-            style={{ overflow: 'hidden' }}
           >
-            <p
-              className="pb-6"
-              style={{
-                fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
-                fontWeight: 300,
-                fontSize: '15px',
-                color: '#A0A0A0',
-                lineHeight: 1.8,
-              }}
+            {question}
+          </span>
+          <motion.svg
+            animate={{ rotate: isOpen ? 45 : 0 }}
+            transition={{ duration: 0.3, ease: EASE }}
+            width="20"
+            height="20"
+            fill="none"
+            stroke="#F4DDC3"
+            strokeWidth="1.5"
+            viewBox="0 0 24 24"
+            style={{ flexShrink: 0 }}
+          >
+            <path d="M12 4.5v15m7.5-7.5h-15" />
+          </motion.svg>
+        </button>
+        <AnimatePresence initial={false}>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: EASE }}
+              style={{ overflow: 'hidden' }}
             >
-              {answer}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+              <p
+                style={{
+                  paddingBottom: '20px',
+                  fontSize: '15px',
+                  lineHeight: 1.8,
+                  fontFamily: 'var(--font-montserrat)',
+                  fontWeight: 300,
+                  color: '#A0A0A0',
+                }}
+              >
+                {answer}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </ScrollReveal>
   );
 }
 
@@ -501,34 +630,38 @@ function FaqSection({ service }: { service: Service }) {
 
   return (
     <section
-      className="section-padding"
       style={{
-        backgroundColor: '#132A3A',
-        borderTop: '1px solid rgba(244,221,195,0.1)',
-        borderBottom: '1px solid rgba(244,221,195,0.1)',
+        background: '#132A3A',
+        padding: 'clamp(60px, 10vw, 120px) 0',
       }}
     >
-      <div className="container-luxury">
+      <div
+        style={{
+          maxWidth: '900px',
+          margin: '0 auto',
+          padding: '0 24px',
+        }}
+      >
         <SectionTitle
-          preTitle="Questions frequentes"
+          preTitle="Questions fréquentes"
           title="FAQ"
           centered
+          mb="48px"
         />
 
-        <div className="mt-12" style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <ScrollReveal>
-            {service.faq.map((item, i) => (
-              <FaqItem
-                key={i}
-                question={item.question}
-                answer={item.answer}
-                isOpen={openIndex === i}
-                onToggle={() =>
-                  setOpenIndex(openIndex === i ? null : i)
-                }
-              />
-            ))}
-          </ScrollReveal>
+        <div>
+          {service.faq.map((item, i) => (
+            <FaqItem
+              key={i}
+              question={item.question}
+              answer={item.answer}
+              isOpen={openIndex === i}
+              onToggle={() =>
+                setOpenIndex(openIndex === i ? null : i)
+              }
+              index={i}
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -536,27 +669,107 @@ function FaqSection({ service }: { service: Service }) {
 }
 
 /* ============================================
-   CTA SECTION
+   CTA SECTION — with radial gradient
    ============================================ */
 function CtaSection({ service }: { service: Service }) {
   return (
-    <section className="section-padding" style={{ backgroundColor: '#0E202D' }}>
-      <div className="container-luxury text-center">
+    <section
+      style={{
+        position: 'relative',
+        padding: 'clamp(60px, 10vw, 120px) 0',
+        overflow: 'hidden',
+      }}
+    >
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background:
+            'linear-gradient(135deg, #0E202D 0%, #122838 50%, #0E202D 100%)',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background:
+            'radial-gradient(ellipse at center, rgba(244,221,195,0.08) 0%, transparent 70%)',
+        }}
+      />
+
+      <div
+        style={{
+          position: 'relative',
+          maxWidth: '800px',
+          margin: '0 auto',
+          padding: '0 24px',
+          textAlign: 'center',
+        }}
+      >
         <ScrollReveal>
-          <SectionTitle
-            preTitle={service.shortTitle}
-            title="Pret a decoller ?"
-            subtitle="Contactez-nous pour obtenir un devis personnalise sous 30 minutes. Disponible 24h/24 et 7j/7."
-            centered
-          />
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href="/devis" size="lg">
+          <p
+            style={{
+              fontFamily: 'var(--font-montserrat)',
+              fontWeight: 500,
+              fontSize: '12px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.2em',
+              color: '#F4DDC3',
+              marginBottom: '16px',
+            }}
+          >
+            {service.shortTitle}
+          </p>
+          <h2
+            style={{
+              fontFamily: 'var(--font-playfair)',
+              fontWeight: 700,
+              color: '#FFFFFF',
+              fontSize: 'clamp(28px, 5vw, 48px)',
+              marginBottom: '16px',
+            }}
+          >
+            Prêt à décoller&nbsp;?
+          </h2>
+          <p
+            style={{
+              fontFamily: 'var(--font-cormorant)',
+              fontStyle: 'italic',
+              color: '#A0A0A0',
+              fontSize: 'clamp(16px, 2.5vw, 20px)',
+              marginBottom: '40px',
+            }}
+          >
+            Contactez-nous pour obtenir un devis personnalisé sous 30
+            minutes. Disponible 24h/24 et 7j/7.
+          </p>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '16px',
+            }}
+          >
+            <Button href="/devis" variant="primary" size="lg">
               Demander un devis
             </Button>
-            <Button href="/contact" variant="secondary" size="lg">
-              Nous contacter
+            <Button href="tel:+33676765511" variant="secondary" size="lg">
+              Nous appeler
             </Button>
           </div>
+          <p
+            style={{
+              marginTop: '24px',
+              fontSize: '12px',
+              fontFamily: 'var(--font-montserrat)',
+              fontWeight: 300,
+              color: '#6B6B6B',
+            }}
+          >
+            Réponse sous 30 minutes &bull; Disponible 24/7
+          </p>
         </ScrollReveal>
       </div>
     </section>
