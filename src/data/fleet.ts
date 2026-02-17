@@ -395,7 +395,7 @@ export const fleet: Aircraft[] = [
     takeoffDistance: 1485,
     description: "Le Challenger 350 est la référence de sa catégorie, offrant l'une des cabines les plus larges du segment super midsize. Performances transatlantiques, confort exceptionnel et technologie de pointe en font un choix incontournable pour les vols moyen-courrier.",
     idealFor: ["Vols moyen-courrier", "Réunions à bord", "Cabine extra-large"],
-    image: "/images/fleet/challenger-350/main.jpg",
+    image: "/images/fleet/challenger-350/gallery-5.png",
     gallery: [
       "/images/fleet/challenger-350/gallery-1.jpg",
       "/images/fleet/challenger-350/gallery-2.jpg",
