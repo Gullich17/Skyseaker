@@ -129,9 +129,9 @@ export default function Header() {
           borderBottom: (scrolled || activeMega) ? "1px solid rgba(26,52,72,0.8)" : "1px solid transparent",
         }}
       >
-        <nav className="flex items-center justify-between h-[70px]" style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 clamp(20px, 5vw, 40px)" }}>
+        <nav className="flex items-center justify-between h-[80px]" style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 clamp(20px, 5vw, 40px)" }}>
           {/* Logo */}
-          <Link href="/" className="shrink-0" style={{ display: "block", position: "relative", width: "clamp(160px, 20vw, 220px)", height: "60px" }}>
+          <Link href="/" className="shrink-0" style={{ display: "block", position: "relative", width: "clamp(200px, 25vw, 300px)", height: "70px" }}>
             <Image
               src="/images/logos/logo-beige.png"
               alt="Skyseaker"
