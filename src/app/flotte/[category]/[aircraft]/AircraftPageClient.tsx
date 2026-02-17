@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionTitle from "@/components/ui/SectionTitle";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Badge from "@/components/ui/Badge";
@@ -61,9 +62,72 @@ export default function AircraftPageClient({
   similarAircraft: Aircraft[];
 }) {
   const heroImg = getImage(aircraft);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const allImages = [heroImg, ...(aircraft.gallery || [])];
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
 
   return (
     <>
+      {/* ====== LIGHTBOX ====== */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            style={{ position: "fixed", inset: 0, zIndex: 9999, background: "rgba(0,0,0,0.92)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}
+            onClick={() => setLightboxOpen(false)}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setLightboxOpen(false)}
+              style={{ position: "absolute", top: "20px", right: "20px", width: "44px", height: "44px", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "50%", cursor: "pointer", zIndex: 10 }}
+            >
+              <svg width="20" height="20" fill="none" stroke="#FFFFFF" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" /></svg>
+            </button>
+
+            {/* Prev */}
+            <button
+              onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex - 1 + allImages.length) % allImages.length); }}
+              style={{ position: "absolute", left: "20px", top: "50%", transform: "translateY(-50%)", width: "48px", height: "48px", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "50%", cursor: "pointer", zIndex: 10 }}
+            >
+              <svg width="20" height="20" fill="none" stroke="#FFFFFF" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
+            </button>
+
+            {/* Next */}
+            <button
+              onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex + 1) % allImages.length); }}
+              style={{ position: "absolute", right: "20px", top: "50%", transform: "translateY(-50%)", width: "48px", height: "48px", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "50%", cursor: "pointer", zIndex: 10 }}
+            >
+              <svg width="20" height="20" fill="none" stroke="#FFFFFF" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
+            </button>
+
+            {/* Image */}
+            <div onClick={(e) => e.stopPropagation()} style={{ position: "relative", maxWidth: "90vw", maxHeight: "85vh", width: "100%", aspectRatio: "16/10" }}>
+              <Image
+                src={allImages[lightboxIndex]}
+                alt={`${aircraft.name} - Photo ${lightboxIndex + 1}`}
+                fill
+                style={{ objectFit: "contain" }}
+                sizes="90vw"
+              />
+            </div>
+
+            {/* Counter */}
+            <div style={{ position: "absolute", bottom: "20px", left: "50%", transform: "translateX(-50%)", fontSize: "13px", fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#6B6B6B" }}>
+              {lightboxIndex + 1} / {allImages.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* ====== HERO ====== */}
       <section style={{ position: "relative", minHeight: "clamp(420px, 65vh, 720px)", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
         {/* Background image */}
@@ -192,6 +256,73 @@ export default function AircraftPageClient({
           </div>
         </div>
       </section>
+
+      {/* ====== PHOTO GALLERY ====== */}
+      {aircraft.gallery && aircraft.gallery.length > 0 && (
+        <section style={{ background: "#132A3A", padding: "clamp(60px, 10vw, 100px) 0", borderTop: "1px solid rgba(244,221,195,0.08)" }}>
+          <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
+            <ScrollReveal>
+              <SectionTitle preTitle="GALERIE" title="Photos de l&apos;appareil" centered mb="clamp(32px, 5vw, 48px)" />
+            </ScrollReveal>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "12px" }}>
+              {/* Main image - larger */}
+              <ScrollReveal delay={0}>
+                <div
+                  onClick={() => openLightbox(0)}
+                  className="group"
+                  style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", border: "1px solid #1A3448", cursor: "pointer", gridColumn: aircraft.gallery.length >= 3 ? "span 2" : "span 1" }}
+                >
+                  <Image
+                    src={heroImg}
+                    alt={`${aircraft.name} - Vue principale`}
+                    fill
+                    style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
+                    className="group-hover:scale-105"
+                  />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(14,32,45,0.5) 0%, transparent 50%)", transition: "opacity 0.3s ease" }} className="group-hover:opacity-60" />
+                  <div
+                    className="group-hover:opacity-100"
+                    style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", opacity: 0, transition: "opacity 0.3s ease" }}
+                  >
+                    <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "rgba(244,221,195,0.15)", border: "1px solid rgba(244,221,195,0.3)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <svg width="20" height="20" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" /></svg>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              {/* Gallery images */}
+              {aircraft.gallery.map((img, i) => (
+                <ScrollReveal key={i} delay={(i + 1) * 0.06}>
+                  <div
+                    onClick={() => openLightbox(i + 1)}
+                    className="group"
+                    style={{ position: "relative", aspectRatio: "16/10", overflow: "hidden", border: "1px solid #1A3448", cursor: "pointer" }}
+                  >
+                    <Image
+                      src={img}
+                      alt={`${aircraft.name} - Photo ${i + 2}`}
+                      fill
+                      style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
+                      className="group-hover:scale-105"
+                    />
+                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(14,32,45,0.4) 0%, transparent 50%)", transition: "opacity 0.3s ease" }} className="group-hover:opacity-60" />
+                    <div
+                      className="group-hover:opacity-100"
+                      style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", opacity: 0, transition: "opacity 0.3s ease" }}
+                    >
+                      <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "rgba(244,221,195,0.15)", border: "1px solid rgba(244,221,195,0.3)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <svg width="16" height="16" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ====== CTA ====== */}
       <section style={{ position: "relative", padding: "clamp(60px, 10vw, 100px) 0", overflow: "hidden" }}>
