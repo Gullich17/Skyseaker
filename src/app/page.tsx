@@ -18,6 +18,7 @@ import { yachts } from "@/data/yachts";
    ============================================ */
 function HeroSection() {
   const router = useRouter();
+  const [heroMode, setHeroMode] = useState<"aviation" | "yacht">("aviation");
   const [tripType, setTripType] = useState<"aller" | "ar" | "multi">("aller");
   const [showOptions, setShowOptions] = useState(false);
   const [legs, setLegs] = useState([{ from: "", to: "", date: "" }]);
@@ -26,8 +27,22 @@ function HeroSection() {
   const [date, setDate] = useState("");
   const [dateRetour, setDateRetour] = useState("");
   const [passagers, setPassagers] = useState("2");
+  // Yacht fields
+  const [yachtZone, setYachtZone] = useState("");
+  const [yachtDateStart, setYachtDateStart] = useState("");
+  const [yachtDateEnd, setYachtDateEnd] = useState("");
+  const [yachtGuests, setYachtGuests] = useState("6");
 
   const handleSubmit = () => {
+    if (heroMode === "yacht") {
+      const params = new URLSearchParams();
+      params.set("service", "yacht");
+      if (yachtZone) params.set("zone", yachtZone);
+      if (yachtDateStart) params.set("date", yachtDateStart);
+      if (yachtGuests) params.set("passagers", yachtGuests);
+      router.push(`/devis?${params.toString()}`);
+      return;
+    }
     const typeMap = { aller: "aller-simple", ar: "aller-retour", multi: "multi" };
     const params = new URLSearchParams();
     params.set("type", typeMap[tripType]);
@@ -38,7 +53,6 @@ function HeroSection() {
       if (tripType === "ar" && dateRetour) params.set("dateRetour", dateRetour);
       params.set("passagers", passagers);
     } else {
-      // Multi: pass first leg
       if (legs[0]?.from) params.set("depart", legs[0].from);
       if (legs[0]?.to) params.set("destination", legs[0].to);
       if (legs[0]?.date) params.set("date", legs[0].date);
@@ -96,206 +110,322 @@ function HeroSection() {
             boxShadow: "0 30px 80px rgba(0,0,0,0.6)",
           }}
         >
-          {/* Tabs */}
-          <div style={{ display: "flex", gap: "0", marginBottom: "24px", borderBottom: "1px solid rgba(201,169,110,0.12)", overflowX: "auto" }}>
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setTripType(tab.id)}
-                className="relative"
-                style={{
-                  padding: "12px clamp(12px, 2.5vw, 24px)",
-                  fontSize: "clamp(10px, 1.2vw, 11px)",
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  fontFamily: "var(--font-montserrat)",
-                  fontWeight: tripType === tab.id ? 600 : 400,
-                  color: tripType === tab.id ? "#C9A96E" : "#6B6B6B",
-                  background: "transparent",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "color 0.3s ease",
-                }}
-              >
-                {tab.label}
-                {tripType === tab.id && (
-                  <motion.div
-                    layoutId="activeTab"
-                    style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "2px", background: "#C9A96E" }}
-                  />
-                )}
-              </button>
-            ))}
+          {/* Mode Toggle — Aviation / Yacht */}
+          <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "16px" }}>
+            <button
+              onClick={() => setHeroMode("aviation")}
+              style={{
+                display: "flex", alignItems: "center", gap: "8px",
+                padding: "8px 16px",
+                fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase",
+                fontFamily: "var(--font-montserrat)", fontWeight: heroMode === "aviation" ? 600 : 400,
+                color: heroMode === "aviation" ? "#C9A96E" : "#6B6B6B",
+                background: heroMode === "aviation" ? "rgba(201,169,110,0.08)" : "transparent",
+                border: heroMode === "aviation" ? "1px solid rgba(201,169,110,0.25)" : "1px solid transparent",
+                borderRadius: "3px", cursor: "pointer", transition: "all 0.3s ease",
+              }}
+            >
+              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+              </svg>
+              Aviation
+            </button>
+            <button
+              onClick={() => setHeroMode("yacht")}
+              style={{
+                display: "flex", alignItems: "center", gap: "8px",
+                padding: "8px 16px",
+                fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase",
+                fontFamily: "var(--font-montserrat)", fontWeight: heroMode === "yacht" ? 600 : 400,
+                color: heroMode === "yacht" ? "#C9A96E" : "#6B6B6B",
+                background: heroMode === "yacht" ? "rgba(201,169,110,0.08)" : "transparent",
+                border: heroMode === "yacht" ? "1px solid rgba(201,169,110,0.25)" : "1px solid transparent",
+                borderRadius: "3px", cursor: "pointer", transition: "all 0.3s ease",
+              }}
+            >
+              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                <path d="M2 20s2 2 5 2 5-2 5-2 2 2 5 2 5-2 5-2" />
+                <path d="M4 18l1.2-5.6a2 2 0 012-1.4h9.6a2 2 0 012 1.4L20 18" />
+                <path d="M12 11V4" />
+                <path d="M12 4l6 7" />
+              </svg>
+              Yacht
+            </button>
           </div>
 
-          {/* Form Fields */}
-          {tripType !== "multi" ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: "20px", marginBottom: "24px" }}>
-              <div>
-                <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                  Départ
-                </label>
-                <div className="relative">
-                  <svg style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)" }} width="16" height="16" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
-                    <path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12" />
-                    <path d="M3 20h18" />
-                  </svg>
-                  <input
-                    type="text"
-                    placeholder="Ville ou aéroport"
-                    value={depart}
-                    onChange={(e) => setDepart(e.target.value)}
-                    style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
-                  />
-                </div>
-              </div>
-              <div>
-                <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                  Destination
-                </label>
-                <div className="relative">
-                  <svg style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)" }} width="16" height="16" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
-                    <path d="M18 12L20.73 20.87a1 1 0 01-.89 1.38L12 22l-7.84.25a1 1 0 01-.89-1.38L6 12" />
-                    <path d="M3 4h18" />
-                  </svg>
-                  <input
-                    type="text"
-                    placeholder="Ville ou aéroport"
-                    value={destination}
-                    onChange={(e) => setDestination(e.target.value)}
-                    style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
-                  />
-                </div>
-              </div>
-              <div>
-                <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                  {tripType === "ar" ? "Dates" : "Date"}
-                </label>
-                <div style={{ display: "flex", gap: "10px" }}>
-                  <input
-                    type="date"
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
-                    style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
-                  />
-                  {tripType === "ar" && (
-                    <input
-                      type="date"
-                      value={dateRetour}
-                      onChange={(e) => setDateRetour(e.target.value)}
-                      style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+          {/* Aviation Tabs — only shown in aviation mode */}
+          {heroMode === "aviation" && (
+            <div style={{ display: "flex", gap: "0", marginBottom: "24px", borderBottom: "1px solid rgba(201,169,110,0.12)", overflowX: "auto" }}>
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setTripType(tab.id)}
+                  className="relative"
+                  style={{
+                    padding: "12px clamp(12px, 2.5vw, 24px)",
+                    fontSize: "clamp(10px, 1.2vw, 11px)",
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    fontFamily: "var(--font-montserrat)",
+                    fontWeight: tripType === tab.id ? 600 : 400,
+                    color: tripType === tab.id ? "#C9A96E" : "#6B6B6B",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "color 0.3s ease",
+                  }}
+                >
+                  {tab.label}
+                  {tripType === tab.id && (
+                    <motion.div
+                      layoutId="activeTab"
+                      style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "2px", background: "#C9A96E" }}
                     />
                   )}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Yacht subtitle — only shown in yacht mode */}
+          {heroMode === "yacht" && (
+            <div style={{ marginBottom: "24px", paddingBottom: "12px", borderBottom: "1px solid rgba(201,169,110,0.12)" }}>
+              <span style={{ fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#C9A96E" }}>
+                Votre croisière privée
+              </span>
+            </div>
+          )}
+
+          {/* Form Fields */}
+          {heroMode === "aviation" ? (
+            <>
+              {tripType !== "multi" ? (
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "20px", marginBottom: "24px" }}>
+                  <div>
+                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                      Départ
+                    </label>
+                    <div className="relative">
+                      <svg style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)" }} width="16" height="16" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
+                        <path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12" />
+                        <path d="M3 20h18" />
+                      </svg>
+                      <input
+                        type="text"
+                        placeholder="Ville ou aéroport"
+                        value={depart}
+                        onChange={(e) => setDepart(e.target.value)}
+                        style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                      Destination
+                    </label>
+                    <div className="relative">
+                      <svg style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)" }} width="16" height="16" fill="none" stroke="#C9A96E" strokeWidth="1.5" viewBox="0 0 24 24">
+                        <path d="M18 12L20.73 20.87a1 1 0 01-.89 1.38L12 22l-7.84.25a1 1 0 01-.89-1.38L6 12" />
+                        <path d="M3 4h18" />
+                      </svg>
+                      <input
+                        type="text"
+                        placeholder="Ville ou aéroport"
+                        value={destination}
+                        onChange={(e) => setDestination(e.target.value)}
+                        style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                      {tripType === "ar" ? "Dates" : "Date"}
+                    </label>
+                    <div style={{ display: "flex", gap: "10px" }}>
+                      <input
+                        type="date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                      />
+                      {tripType === "ar" && (
+                        <input
+                          type="date"
+                          value={dateRetour}
+                          onChange={(e) => setDateRetour(e.target.value)}
+                          style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                      Passagers
+                    </label>
+                    <select
+                      style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
+                      value={passagers}
+                      onChange={(e) => setPassagers(e.target.value)}
+                    >
+                      {Array.from({ length: 19 }, (_, i) => (
+                        <option key={i + 1} value={i + 1} style={{ background: "#141414" }}>
+                          {i + 1} passager{i > 0 ? "s" : ""}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
+              ) : (
+                /* Multi-destinations */
+                <div style={{ marginBottom: "24px" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+                    {legs.map((leg, idx) => (
+                      <div key={idx} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "18px", alignItems: "end" }}>
+                        <div>
+                          <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                            {idx === 0 ? "Départ" : `Étape ${idx + 1}`}
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="Ville ou aéroport"
+                            value={leg.from}
+                            onChange={(e) => { const n = [...legs]; n[idx].from = e.target.value; setLegs(n); }}
+                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
+                          />
+                        </div>
+                        <div>
+                          <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                            Destination
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="Ville ou aéroport"
+                            value={leg.to}
+                            onChange={(e) => { const n = [...legs]; n[idx].to = e.target.value; setLegs(n); }}
+                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
+                          />
+                        </div>
+                        <div style={{ display: "flex", gap: "10px" }}>
+                          <input
+                            type="date"
+                            value={leg.date}
+                            onChange={(e) => { const n = [...legs]; n[idx].date = e.target.value; setLegs(n); }}
+                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                          />
+                          {idx > 0 && (
+                            <button
+                              onClick={() => setLegs(legs.filter((_, i) => i !== idx))}
+                              style={{ padding: "0 12px", color: "#8B2D2D", background: "none", border: "none", cursor: "pointer" }}
+                            >
+                              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" /></svg>
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => setLegs([...legs, { from: "", to: "", date: "" }])}
+                    style={{ marginTop: "16px", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 500, background: "none", border: "none", cursor: "pointer" }}
+                  >
+                    + Ajouter une étape
+                  </button>
+                </div>
+              )}
+
+              {/* Extra Options */}
+              <button
+                onClick={() => setShowOptions(!showOptions)}
+                style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 500, background: "none", border: "none", cursor: "pointer", marginBottom: "24px" }}
+              >
+                Options
+                <motion.svg animate={{ rotate: showOptions ? 180 : 0 }} width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path d="M19 9l-7 7-7-7" />
+                </motion.svg>
+              </button>
+
+              {showOptions && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "18px", marginBottom: "28px", overflow: "hidden" }}
+                >
+                  {["Animaux à bord", "Bagages volumineux", "Catering spécial", "Transfert terrestre"].map((opt) => (
+                    <label key={opt} className="flex items-center gap-3 cursor-pointer group">
+                      <input type="checkbox" className="sr-only peer" />
+                      <div className="flex items-center justify-center peer-checked:bg-[#C9A96E] transition-all"
+                        style={{ width: "18px", height: "18px", border: "1px solid rgba(201,169,110,0.3)", borderRadius: "2px", flexShrink: 0 }}>
+                        <svg className="opacity-0 peer-checked:opacity-100" width="12" height="12" fill="none" stroke="#0A0A0A" strokeWidth="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" /></svg>
+                      </div>
+                      <span className="group-hover:text-[#F5F5F0] transition-colors"
+                        style={{ fontSize: "12px", color: "#A0A0A0", fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
+                        {opt}
+                      </span>
+                    </label>
+                  ))}
+                </motion.div>
+              )}
+            </>
+          ) : (
+            /* ===== YACHT FORM FIELDS ===== */
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "20px", marginBottom: "24px" }}>
+              <div>
+                <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                  Zone de navigation
+                </label>
+                <select
+                  value={yachtZone}
+                  onChange={(e) => setYachtZone(e.target.value)}
+                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: yachtZone ? "#F5F5F0" : "#6B6B6B", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
+                >
+                  <option value="" style={{ background: "#141414" }}>Sélectionnez</option>
+                  <option value="mediterranee" style={{ background: "#141414" }}>Méditerranée</option>
+                  <option value="caraibes" style={{ background: "#141414" }}>Caraïbes</option>
+                  <option value="asie-pacifique" style={{ background: "#141414" }}>Asie-Pacifique</option>
+                  <option value="europe-nord" style={{ background: "#141414" }}>Europe du Nord</option>
+                  <option value="ocean-indien" style={{ background: "#141414" }}>Océan Indien</option>
+                  <option value="autre" style={{ background: "#141414" }}>Autre</option>
+                </select>
               </div>
               <div>
                 <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                  Passagers
+                  Embarquement
+                </label>
+                <input
+                  type="date"
+                  value={yachtDateStart}
+                  onChange={(e) => setYachtDateStart(e.target.value)}
+                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                />
+              </div>
+              <div>
+                <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                  Débarquement
+                </label>
+                <input
+                  type="date"
+                  value={yachtDateEnd}
+                  onChange={(e) => setYachtDateEnd(e.target.value)}
+                  style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
+                />
+              </div>
+              <div>
+                <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
+                  Invités
                 </label>
                 <select
+                  value={yachtGuests}
+                  onChange={(e) => setYachtGuests(e.target.value)}
                   style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
-                  value={passagers}
-                  onChange={(e) => setPassagers(e.target.value)}
                 >
-                  {Array.from({ length: 19 }, (_, i) => (
+                  {Array.from({ length: 30 }, (_, i) => (
                     <option key={i + 1} value={i + 1} style={{ background: "#141414" }}>
-                      {i + 1} passager{i > 0 ? "s" : ""}
+                      {i + 1} invité{i > 0 ? "s" : ""}
                     </option>
                   ))}
                 </select>
               </div>
             </div>
-          ) : (
-            /* Multi-destinations */
-            <div style={{ marginBottom: "24px" }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
-                {legs.map((leg, idx) => (
-                  <div key={idx} className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "18px", alignItems: "end" }}>
-                    <div>
-                      <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                        {idx === 0 ? "Départ" : `Étape ${idx + 1}`}
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Ville ou aéroport"
-                        value={leg.from}
-                        onChange={(e) => { const n = [...legs]; n[idx].from = e.target.value; setLegs(n); }}
-                        style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
-                      />
-                    </div>
-                    <div>
-                      <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                        Destination
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Ville ou aéroport"
-                        value={leg.to}
-                        onChange={(e) => { const n = [...legs]; n[idx].to = e.target.value; setLegs(n); }}
-                        style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
-                      />
-                    </div>
-                    <div style={{ display: "flex", gap: "10px" }}>
-                      <input
-                        type="date"
-                        value={leg.date}
-                        onChange={(e) => { const n = [...legs]; n[idx].date = e.target.value; setLegs(n); }}
-                        style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,169,110,0.2)", borderRadius: "3px", color: "#F5F5F0", fontFamily: "var(--font-montserrat)", fontWeight: 300, colorScheme: "dark", outline: "none" }}
-                      />
-                      {idx > 0 && (
-                        <button
-                          onClick={() => setLegs(legs.filter((_, i) => i !== idx))}
-                          style={{ padding: "0 12px", color: "#8B2D2D", background: "none", border: "none", cursor: "pointer" }}
-                        >
-                          <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" /></svg>
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <button
-                onClick={() => setLegs([...legs, { from: "", to: "", date: "" }])}
-                style={{ marginTop: "16px", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 500, background: "none", border: "none", cursor: "pointer" }}
-              >
-                + Ajouter une étape
-              </button>
-            </div>
-          )}
-
-          {/* Extra Options */}
-          <button
-            onClick={() => setShowOptions(!showOptions)}
-            className="flex items-center gap-2"
-            style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#C9A96E", fontFamily: "var(--font-montserrat)", fontWeight: 500, background: "none", border: "none", cursor: "pointer", marginBottom: "24px" }}
-          >
-            Options
-            <motion.svg animate={{ rotate: showOptions ? 180 : 0 }} width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path d="M19 9l-7 7-7-7" />
-            </motion.svg>
-          </button>
-
-          {showOptions && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              className="grid grid-cols-2 md:grid-cols-4 overflow-hidden"
-              style={{ gap: "18px", marginBottom: "28px" }}
-            >
-              {["Animaux à bord", "Bagages volumineux", "Catering spécial", "Transfert terrestre"].map((opt) => (
-                <label key={opt} className="flex items-center gap-3 cursor-pointer group">
-                  <input type="checkbox" className="sr-only peer" />
-                  <div className="flex items-center justify-center peer-checked:bg-[#C9A96E] transition-all"
-                    style={{ width: "18px", height: "18px", border: "1px solid rgba(201,169,110,0.3)", borderRadius: "2px", flexShrink: 0 }}>
-                    <svg className="opacity-0 peer-checked:opacity-100" width="12" height="12" fill="none" stroke="#0A0A0A" strokeWidth="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" /></svg>
-                  </div>
-                  <span className="group-hover:text-[#F5F5F0] transition-colors"
-                    style={{ fontSize: "12px", color: "#A0A0A0", fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
-                    {opt}
-                  </span>
-                </label>
-              ))}
-            </motion.div>
           )}
 
           {/* Submit */}
@@ -321,7 +451,7 @@ function HeroSection() {
               transition: "all 0.3s ease",
             }}
           >
-            Estimez votre vol gratuitement
+            {heroMode === "yacht" ? "Estimez votre croisière gratuitement" : "Estimez votre vol gratuitement"}
           </button>
           <p style={{ textAlign: "center", marginTop: "16px", fontSize: "12px", color: "#8A8A8A", fontFamily: "var(--font-montserrat)", fontWeight: 300, letterSpacing: "0.05em" }}>
             Réponse sous 30 minutes &bull; Disponible 24/7 &bull; Sans engagement
