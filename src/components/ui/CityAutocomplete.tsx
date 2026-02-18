@@ -27,9 +27,15 @@ export default function CityAutocomplete({
   const [focused, setFocused] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
+  // Pour la recherche, ignorer le "(CODE)" si présent dans la valeur
+  const searchValue = useMemo(() => {
+    const match = value.match(/^(.+?)\s*\(([A-Z]{4})\)$/);
+    return match ? match[1].trim() : value;
+  }, [value]);
+
   const suggestions = useMemo(() => {
-    if (!value || value.length < 1) return [];
-    const q = value.toLowerCase();
+    if (!searchValue || searchValue.length < 1) return [];
+    const q = searchValue.toLowerCase();
     return CITIES_DB.filter(
       (c) =>
         c.city.toLowerCase().includes(q) ||
@@ -40,7 +46,7 @@ export default function CityAutocomplete({
             a.code.toLowerCase().includes(q)
         )
     ).slice(0, 8);
-  }, [value]);
+  }, [searchValue]);
 
   const handleClickOutside = useCallback((e: MouseEvent) => {
     if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
@@ -52,6 +58,11 @@ export default function CityAutocomplete({
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [handleClickOutside]);
+
+  const selectAirport = (city: string, code: string) => {
+    onChange(`${city} (${code})`);
+    setOpen(false);
+  };
 
   const selectCity = (city: string) => {
     onChange(city);
@@ -141,78 +152,77 @@ export default function CityAutocomplete({
             className="scrollbar-hide"
           >
             {suggestions.map((entry) => (
-              <button
+              <div
                 key={entry.city}
-                type="button"
-                onMouseDown={(e) => {
-                  e.preventDefault();
-                  selectCity(entry.city);
-                }}
                 style={{
-                  width: '100%',
-                  display: 'block',
-                  padding: '12px 16px',
-                  textAlign: 'left',
-                  background: 'transparent',
-                  border: 'none',
                   borderBottom: '1px solid rgba(244,221,195,0.06)',
-                  cursor: 'pointer',
-                  transition: 'background-color 0.2s ease',
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(244,221,195,0.06)';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent';
                 }}
               >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span
-                      style={{
-                        fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
-                        fontWeight: 500,
-                        fontSize: '14px',
-                        color: '#FFFFFF',
-                      }}
-                    >
-                      {entry.city}
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
-                        fontWeight: 300,
-                        fontSize: '12px',
-                        color: '#6B6B6B',
-                        marginLeft: '8px',
-                      }}
-                    >
-                      {entry.country}
-                    </span>
-                  </div>
-                </div>
+                {/* City header */}
                 <div
-                  className="flex flex-wrap gap-2 mt-1"
+                  style={{
+                    padding: '10px 16px 4px',
+                  }}
                 >
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
+                      fontWeight: 500,
+                      fontSize: '14px',
+                      color: '#FFFFFF',
+                    }}
+                  >
+                    {entry.city}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
+                      fontWeight: 300,
+                      fontSize: '12px',
+                      color: '#6B6B6B',
+                      marginLeft: '8px',
+                    }}
+                  >
+                    {entry.country}
+                  </span>
+                </div>
+                {/* Individual airport buttons */}
+                <div style={{ padding: '4px 12px 10px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                   {entry.airports.map((apt) => (
-                    <span
+                    <button
                       key={apt.code}
+                      type="button"
+                      onMouseDown={(e) => {
+                        e.preventDefault();
+                        selectAirport(entry.city, apt.code);
+                      }}
                       style={{
                         fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
                         fontWeight: 400,
                         fontSize: '11px',
                         color: '#F4DDC3',
                         backgroundColor: 'rgba(244,221,195,0.08)',
-                        padding: '2px 8px',
+                        padding: '4px 10px',
                         borderRadius: '2px',
                         letterSpacing: '0.03em',
+                        border: '1px solid rgba(244,221,195,0.1)',
+                        cursor: 'pointer',
+                        transition: 'background-color 0.2s ease, border-color 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(244,221,195,0.18)';
+                        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(244,221,195,0.3)';
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(244,221,195,0.08)';
+                        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(244,221,195,0.1)';
                       }}
                     >
                       {apt.code} — {apt.name}
-                    </span>
+                    </button>
                   ))}
                 </div>
-              </button>
+              </div>
             ))}
           </motion.div>
         )}
