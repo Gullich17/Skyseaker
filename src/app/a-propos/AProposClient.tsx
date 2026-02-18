@@ -259,9 +259,62 @@ function TimelineItem({
         isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
       }`}
     >
-      {/* Content */}
+      {/* Mobile: dot + year row */}
+      <div className="md:hidden flex items-center gap-3 mb-3">
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={isInView ? { scale: 1 } : { scale: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: EASE }}
+          style={{
+            width: '12px',
+            height: '12px',
+            flexShrink: 0,
+            borderRadius: '50%',
+            background: '#F4DDC3',
+            boxShadow: '0 0 0 4px #0E202D, 0 0 0 5px rgba(244,221,195,0.3)',
+          }}
+        />
+        <span
+          style={{
+            fontSize: '14px',
+            fontFamily: 'var(--font-cormorant)',
+            fontWeight: 600,
+            color: '#F4DDC3',
+          }}
+        >
+          {year}
+        </span>
+      </div>
+
+      {/* Mobile: content below */}
+      <div className="md:hidden" style={{ paddingLeft: '28px' }}>
+        <h4
+          style={{
+            fontSize: '20px',
+            marginBottom: '12px',
+            fontFamily: 'var(--font-playfair)',
+            fontWeight: 600,
+            color: '#FFFFFF',
+          }}
+        >
+          {title}
+        </h4>
+        <p
+          style={{
+            fontSize: '14px',
+            fontFamily: 'var(--font-montserrat)',
+            fontWeight: 300,
+            color: '#A0A0A0',
+            lineHeight: 1.7,
+          }}
+        >
+          {description}
+        </p>
+      </div>
+
+      {/* Desktop: content */}
       <div
-        className={`pl-10 md:pl-0 md:w-[calc(50%-40px)] ${
+        className={`hidden md:block md:w-[calc(50%-40px)] ${
           isLeft ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'
         }`}
       >
@@ -301,8 +354,8 @@ function TimelineItem({
         </p>
       </div>
 
-      {/* Dot */}
-      <div className="absolute left-0 md:left-1/2 top-1 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
+      {/* Desktop: dot */}
+      <div className="hidden md:block absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
         <motion.div
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
@@ -317,7 +370,7 @@ function TimelineItem({
         />
       </div>
 
-      {/* Spacer for other side */}
+      {/* Desktop: spacer for other side */}
       <div className="hidden md:block md:w-[calc(50%-40px)]" />
     </motion.div>
   );
