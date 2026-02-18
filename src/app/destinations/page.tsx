@@ -43,8 +43,8 @@ function DestinationsHero() {
       {/* Background image */}
       <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
         <Image
-          src="https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=1920&q=80"
-          alt="Vue aérienne de destinations de voyage"
+          src="/images/fleet/falcon-8x/main.png"
+          alt="Jet privé en vol vers votre destination"
           fill
           className="object-cover"
           priority
