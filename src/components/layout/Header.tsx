@@ -6,18 +6,18 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const services = [
-  { name: "Affrètement personnalisé", href: "/services/affretement-jet-prive", desc: "Vol sur mesure, 8 500+ appareils" },
-  { name: "Vols à vide (Empty Legs)", href: "/services/vols-a-vide-empty-legs", desc: "Jusqu'à -75% sur votre jet" },
-  { name: "Voyages de groupe", href: "/services/voyage-groupe", desc: "De 10 à 50+ passagers" },
-  { name: "Fret urgent", href: "/services/fret-urgent", desc: "Livraison express mondiale" },
-  { name: "Conciergerie & Lifestyle", href: "/services/conciergerie-lifestyle", desc: "Expériences sur mesure" },
-  { name: "Transferts VIP", href: "/services/transferts-vip", desc: "Berlines, SUV, hélicoptères" },
-  { name: "Gestion d'appareil", href: "/services/gestion-appareil", desc: "Optimisez votre investissement" },
-  { name: "Achat/Vente de jet", href: "/services/achat-vente-jet", desc: "Acquisition & cession" },
+  { name: "Bespoke Charter", href: "/services/affretement-jet-prive", desc: "Tailored flights, 8,500+ aircraft" },
+  { name: "Empty Legs", href: "/services/vols-a-vide-empty-legs", desc: "Up to 75% off your jet" },
+  { name: "Group Travel", href: "/services/voyage-groupe", desc: "From 10 to 50+ passengers" },
+  { name: "Urgent Cargo", href: "/services/fret-urgent", desc: "Worldwide express delivery" },
+  { name: "Concierge & Lifestyle", href: "/services/conciergerie-lifestyle", desc: "Bespoke experiences" },
+  { name: "VIP Transfers", href: "/services/transferts-vip", desc: "Sedans, SUVs, helicopters" },
+  { name: "Aircraft Management", href: "/services/gestion-appareil", desc: "Optimise your investment" },
+  { name: "Jet Sales & Acquisitions", href: "/services/achat-vente-jet", desc: "Purchase & sale" },
 ];
 
 const fleetCategories = [
-  { name: "Voir toute la flotte", href: "/flotte" },
+  { name: "View Entire Fleet", href: "/flotte" },
   { name: "Very Light Jet", href: "/flotte/very-light-jet" },
   { name: "Light Jet", href: "/flotte/light-jet" },
   { name: "Super Light Jet", href: "/flotte/super-light-jet" },
@@ -25,23 +25,23 @@ const fleetCategories = [
   { name: "Heavy Jet", href: "/flotte/heavy-jet" },
   { name: "Ultra Long Range", href: "/flotte/ultra-long-range" },
   { name: "VIP Airliner", href: "/flotte/vip-airliner" },
-  { name: "Hélicoptère", href: "/flotte/helicoptere" },
-  { name: "Turbopropulseur", href: "/flotte/turbopropulseur" },
+  { name: "Helicopter", href: "/flotte/helicoptere" },
+  { name: "Turboprop", href: "/flotte/turbopropulseur" },
 ];
 
 const yachtNavCategories = [
-  { name: "Location", href: "/yachts/location" },
-  { name: "Achat", href: "/yachts/achat" },
+  { name: "Charter", href: "/yachts/location" },
+  { name: "Purchase", href: "/yachts/achat" },
   { name: "Motor Yacht", href: "/yachts/motor-yacht" },
   { name: "Sailing Yacht", href: "/yachts/sailing-yacht" },
 ];
 
 const navLinks = [
   { name: "Services", href: "/services", hasMega: "services" },
-  { name: "Flotte", href: "/flotte", hasMega: "fleet" },
+  { name: "Fleet", href: "/flotte", hasMega: "fleet" },
   { name: "Yachts", href: "/yachts", hasMega: "yachts" },
   { name: "Destinations", href: "/destinations" },
-  { name: "Expériences", href: "/experiences" },
+  { name: "Experiences", href: "/experiences" },
 ];
 
 export default function Header() {
@@ -168,7 +168,7 @@ export default function Header() {
 
           {/* Desktop CTA + Icons */}
           <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:+33100000000" className="text-[#FFFFFF] hover:text-[#F4DDC3] transition-colors" aria-label="Appeler">
+            <a href="tel:+33100000000" className="text-[#FFFFFF] hover:text-[#F4DDC3] transition-colors" aria-label="Call">
               <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
             </a>
             <a href="https://wa.me/33676765511" target="_blank" rel="noopener noreferrer" className="text-[#FFFFFF] hover:text-[#25D366] transition-colors" aria-label="WhatsApp">
@@ -191,7 +191,7 @@ export default function Header() {
               onMouseEnter={(e) => { e.currentTarget.style.background = "#F4DDC3"; e.currentTarget.style.color = "#0E202D"; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#F4DDC3"; }}
             >
-              Demander un devis
+              Request a Quote
             </Link>
           </div>
 
@@ -270,7 +270,7 @@ export default function Header() {
                 {/* Categories */}
                 <div style={{ flex: "1 1 0" }}>
                   <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
-                    Catégories
+                    Categories
                   </h4>
                   <div className="grid grid-cols-2" style={{ gap: "6px 40px" }}>
                     {fleetCategories.map((c) => (
@@ -288,20 +288,20 @@ export default function Header() {
                 {/* Outils */}
                 <div style={{ minWidth: "220px" }}>
                   <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
-                    Outils
+                    Tools
                   </h4>
                   <div className="flex flex-col" style={{ gap: "4px" }}>
                     <Link href="/flotte" className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                       style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, padding: "8px 0" }}>
-                      Voir toute la flotte →
+                      View Entire Fleet →
                     </Link>
                     <Link href="/flotte/comparateur" className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                       style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, padding: "8px 0" }}>
-                      Comparateur de jets →
+                      Jet Comparison Tool →
                     </Link>
                     <Link href="/empty-legs" className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                       style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, padding: "8px 0" }}>
-                      Vols à vide disponibles →
+                      Available Empty Legs →
                     </Link>
                   </div>
                 </div>
@@ -323,7 +323,7 @@ export default function Header() {
               <div className="flex" style={{ maxWidth: "1400px", margin: "0 auto", padding: "40px 5vw", gap: "60px" }}>
                 <div style={{ flex: "1 1 0" }}>
                   <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
-                    Catégories
+                    Categories
                   </h4>
                   <div className="flex flex-col" style={{ gap: "6px" }}>
                     {yachtNavCategories.map((c) => (
@@ -337,20 +337,20 @@ export default function Header() {
                 <div style={{ width: "1px", background: "rgba(244,221,195,0.15)", flexShrink: 0 }} />
                 <div style={{ minWidth: "220px" }}>
                   <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
-                    Outils
+                    Tools
                   </h4>
                   <div className="flex flex-col" style={{ gap: "4px" }}>
                     <Link href="/yachts" className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                       style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, padding: "8px 0" }}>
-                      Voir tous les yachts →
+                      View All Yachts →
                     </Link>
                     <Link href="/yachts/comparateur" className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                       style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, padding: "8px 0" }}>
-                      Comparateur de yachts →
+                      Yacht Comparison Tool →
                     </Link>
                     <Link href="/devis" className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                       style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, padding: "8px 0" }}>
-                      Demander un devis →
+                      Request a Quote →
                     </Link>
                   </div>
                 </div>
@@ -493,7 +493,7 @@ export default function Header() {
                     fontWeight: 600,
                   }}
                 >
-                  Demander un devis
+                  Request a Quote
                 </Link>
 
                 {/* Contact Row */}

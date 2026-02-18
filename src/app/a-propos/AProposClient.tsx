@@ -30,7 +30,7 @@ function HeroSection() {
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <Image
           src="/images/fleet/falcon-8x/main.png"
-          alt="Skyseaker aviation privee"
+          alt="Skyseaker private aviation"
           fill
           style={{ objectFit: 'cover', objectPosition: 'center' }}
           priority
@@ -97,7 +97,7 @@ function HeroSection() {
             color: '#F4DDC3',
           }}
         >
-          &Agrave; Propos
+          About Us
         </motion.p>
 
         <motion.h1
@@ -113,7 +113,7 @@ function HeroSection() {
             lineHeight: 1.1,
           }}
         >
-          L&apos;excellence depuis le premier jour
+          Excellence from day one
         </motion.h1>
 
         <motion.p
@@ -129,7 +129,7 @@ function HeroSection() {
             color: '#A0A0A0',
           }}
         >
-          Depuis notre cr&eacute;ation, nous red&eacute;finissons les standards de l&apos;aviation priv&eacute;e avec passion et d&eacute;termination
+          Since our inception, we have been redefining the standards of private aviation with passion and determination
         </motion.p>
       </div>
     </section>
@@ -144,33 +144,33 @@ function HistorySection() {
   const milestones = [
     {
       year: '2015',
-      title: 'Fondation de Skyseaker',
-      desc: "Création de Skyseaker à Paris avec la vision de révolutionner l'aviation privée en France. Nos trois fondateurs, issus de l'aéronautique et du luxe, posent les bases d'un service d'exception.",
+      title: 'Skyseaker Founded',
+      desc: "Skyseaker was established in Paris with the vision of revolutionising private aviation in France. Our three founders, from the aeronautics and luxury industries, laid the foundations for an exceptional service.",
     },
     {
       year: '2017',
-      title: 'Expansion européenne',
-      desc: "Ouverture de bureaux à Genève et Londres. Partenariats avec plus de 200 opérateurs certifiés à travers l'Europe.",
+      title: 'European Expansion',
+      desc: "Opening of offices in Geneva and London. Partnerships with over 200 certified operators across Europe.",
     },
     {
       year: '2019',
-      title: 'Certification IS-BAO',
-      desc: "Obtention de la certification IS-BAO et adhésion à l'EBAA. Lancement du programme Empty Legs et de la conciergerie de luxe.",
+      title: 'IS-BAO Certification',
+      desc: "IS-BAO certification obtained and EBAA membership secured. Launch of the Empty Legs programme and luxury concierge service.",
     },
     {
       year: '2021',
-      title: 'Innovation technologique',
-      desc: "Lancement de notre plateforme de réservation en ligne et de l'application mobile. Intégration de l'IA pour l'optimisation des itinéraires.",
+      title: 'Technological Innovation',
+      desc: "Launch of our online booking platform and mobile application. Integration of AI for route optimisation.",
     },
     {
       year: '2023',
-      title: 'Engagement RSE',
-      desc: 'Mise en place du programme de compensation carbone intégral. Partenariat avec des acteurs du carburant durable (SAF).',
+      title: 'CSR Commitment',
+      desc: 'Implementation of a full carbon offset programme. Partnership with sustainable aviation fuel (SAF) providers.',
     },
     {
       year: '2025',
-      title: '10 000ème vol',
-      desc: "Franchissement du cap des 10 000 vols. Expansion vers le Moyen-Orient et l'Asie. Lancement des Expériences Exclusives.",
+      title: '10,000th Flight',
+      desc: "Reaching the milestone of 10,000 flights. Expansion into the Middle East and Asia. Launch of Exclusive Experiences.",
     },
   ];
 
@@ -178,9 +178,9 @@ function HistorySection() {
     <section style={{ background: '#0E202D', padding: 'clamp(60px, 8vw, 120px) 0' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         <SectionTitle
-          preTitle="NOTRE HISTOIRE"
-          title="Une décennie d'excellence"
-          subtitle="De Paris au reste du monde, chaque année a été une nouvelle étape vers la perfection."
+          preTitle="OUR HISTORY"
+          title="A decade of excellence"
+          subtitle="From Paris to the rest of the world, each year has been a new step towards perfection."
           centered
           mb="80px"
         />
@@ -384,22 +384,22 @@ function ValuesSection() {
   const values = [
     {
       title: 'Excellence',
-      desc: "Chaque détail compte. Nous visons la perfection dans tous les aspects de notre service, de la réservation à l'atterrissage.",
+      desc: "Every detail matters. We strive for perfection in every aspect of our service, from booking to landing.",
       icon: 'M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z',
     },
     {
-      title: 'Discrétion',
-      desc: 'La confidentialité est au cœur de notre ADN. Vos données, vos itinéraires et votre vie privée sont protégés en toutes circonstances.',
+      title: 'Discretion',
+      desc: 'Confidentiality is at the heart of our DNA. Your data, itineraries and privacy are protected at all times.',
       icon: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z',
     },
     {
       title: 'Innovation',
-      desc: 'Nous investissons continuellement dans la technologie pour offrir une expérience de réservation fluide et un service toujours plus performant.',
+      desc: 'We continuously invest in technology to deliver a seamless booking experience and an ever more efficient service.',
       icon: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z',
     },
     {
-      title: 'Engagement',
-      desc: 'Responsabilité environnementale, sécurité sans compromis et satisfaction client sont les piliers de notre engagement quotidien.',
+      title: 'Commitment',
+      desc: 'Environmental responsibility, uncompromising safety and client satisfaction are the pillars of our daily commitment.',
       icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
     },
   ];
@@ -408,8 +408,8 @@ function ValuesSection() {
     <section style={{ background: '#132A3A', padding: 'clamp(60px, 8vw, 120px) 0' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         <SectionTitle
-          preTitle="NOS VALEURS"
-          title="Les piliers de notre excellence"
+          preTitle="OUR VALUES"
+          title="The pillars of our excellence"
           centered
           mb="64px"
         />
@@ -494,26 +494,26 @@ function TeamSection() {
   const team = [
     {
       name: 'Alexandre Dubois',
-      role: 'Fondateur & CEO',
-      bio: "Ancien pilote de ligne et entrepreneur, Alexandre a fondé Skyseaker avec la vision de démocratiser l'excellence dans l'aviation privée.",
+      role: 'Founder & CEO',
+      bio: "Former airline pilot and entrepreneur, Alexandre founded Skyseaker with the vision of democratising excellence in private aviation.",
       photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=75',
     },
     {
       name: 'Camille Laurent',
-      role: 'Directrice des Opérations',
-      bio: "15 ans d'expérience dans l'aviation d'affaires. Camille supervise chaque vol pour garantir un service irréprochable.",
+      role: 'Director of Operations',
+      bio: "15 years of experience in business aviation. Camille oversees every flight to guarantee flawless service.",
       photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=75',
     },
     {
       name: 'Nicolas Mercier',
-      role: 'Directeur Commercial',
-      bio: 'Spécialiste du luxe et de la relation client, Nicolas veille à ce que chaque client reçoive un accompagnement sur mesure.',
+      role: 'Commercial Director',
+      bio: 'A luxury and client relations specialist, Nicolas ensures every client receives bespoke support.',
       photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=75',
     },
     {
       name: 'Sophie Archambault',
-      role: 'Responsable Conciergerie',
-      bio: "Ancienne directrice d'hôtel 5 étoiles, Sophie orchestre les expériences exclusives et la conciergerie de luxe Skyseaker.",
+      role: 'Head of Concierge Services',
+      bio: "Former 5-star hotel director, Sophie orchestrates the exclusive experiences and luxury concierge services at Skyseaker.",
       photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=75',
     },
   ];
@@ -522,9 +522,9 @@ function TeamSection() {
     <section style={{ background: '#0E202D', padding: 'clamp(60px, 8vw, 120px) 0' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         <SectionTitle
-          preTitle="NOTRE ÉQUIPE"
-          title="Les visages de Skyseaker"
-          subtitle="Une équipe de passionnés dédiés à votre satisfaction"
+          preTitle="OUR TEAM"
+          title="The faces of Skyseaker"
+          subtitle="A team of passionate professionals dedicated to your satisfaction"
           centered
           mb="64px"
         />
@@ -619,10 +619,10 @@ function TeamSection() {
 
 function KeyFiguresSection() {
   const stats = [
-    { value: 15000, suffix: '+', label: 'Vols réalisés' },
-    { value: 120000, suffix: '+', label: 'Passagers transportés' },
+    { value: 15000, suffix: '+', label: 'Flights Completed' },
+    { value: 120000, suffix: '+', label: 'Passengers Carried' },
     { value: 50, suffix: '+', label: 'Destinations' },
-    { value: 24, suffix: '/7', label: 'Disponibilité' },
+    { value: 24, suffix: '/7', label: 'Availability' },
   ];
 
   return (
@@ -645,8 +645,8 @@ function KeyFiguresSection() {
       </div>
       <div style={{ position: 'relative', maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         <SectionTitle
-          preTitle="CHIFFRES CLÉS"
-          title="L'excellence en chiffres"
+          preTitle="KEY FIGURES"
+          title="Excellence in numbers"
           centered
           mb="64px"
         />
@@ -695,17 +695,17 @@ function CertificationsSection() {
     {
       name: 'EBAA',
       fullName: 'European Business Aviation Association',
-      desc: "Membre actif de l'EBAA, garantissant les plus hauts standards de l'aviation d'affaires européenne.",
+      desc: "Active member of the EBAA, guaranteeing the highest standards in European business aviation.",
     },
     {
       name: 'IS-BAO',
       fullName: 'International Standard for Business Aircraft Operations',
-      desc: 'Certification internationale assurant le respect des meilleures pratiques en matière de sécurité opérationnelle.',
+      desc: 'International certification ensuring compliance with best practices in operational safety.',
     },
     {
       name: 'Wyvern',
       fullName: 'Wyvern Wingman Certified',
-      desc: 'Tous nos opérateurs partenaires sont audités selon le programme Wyvern Wingman, référence en matière de sécurité.',
+      desc: 'All our partner operators are audited under the Wyvern Wingman programme, the benchmark in aviation safety.',
     },
   ];
 
@@ -714,7 +714,7 @@ function CertificationsSection() {
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         <SectionTitle
           preTitle="CERTIFICATIONS"
-          title="Des standards de sécurité inégalés"
+          title="Unmatched safety standards"
           centered
           mb="64px"
         />
@@ -821,7 +821,7 @@ function RSESection() {
             >
               <Image
                 src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=800&q=75"
-                alt="Engagement environnemental Skyseaker"
+                alt="Skyseaker environmental commitment"
                 fill
                 style={{ objectFit: 'cover' }}
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -832,8 +832,8 @@ function RSESection() {
           {/* Content */}
           <div>
             <SectionTitle
-              preTitle="RESPONSABILITÉ ENVIRONNEMENTALE"
-              title="Notre engagement pour la planète"
+              preTitle="ENVIRONMENTAL RESPONSIBILITY"
+              title="Our commitment to the planet"
               mb="32px"
             />
 
@@ -866,7 +866,7 @@ function RSESection() {
                         color: '#FFFFFF',
                       }}
                     >
-                      Compensation carbone int&eacute;grale
+                      Full Carbon Offsetting
                     </h4>
                     <p
                       style={{
@@ -877,7 +877,7 @@ function RSESection() {
                         lineHeight: 1.7,
                       }}
                     >
-                      100&nbsp;% des &eacute;missions de CO&#x2082; de chaque vol sont compens&eacute;es via des projets certifi&eacute;s de reforestation et d&apos;&eacute;nergie renouvelable.
+                      100% of CO&#x2082; emissions from every flight are offset through certified reforestation and renewable energy projects.
                     </p>
                   </div>
                 </div>
@@ -911,7 +911,7 @@ function RSESection() {
                         color: '#FFFFFF',
                       }}
                     >
-                      Carburant durable (SAF)
+                      Sustainable Aviation Fuel (SAF)
                     </h4>
                     <p
                       style={{
@@ -922,7 +922,7 @@ function RSESection() {
                         lineHeight: 1.7,
                       }}
                     >
-                      Nous proposons l&apos;option SAF (Sustainable Aviation Fuel) sur un nombre croissant de nos vols, r&eacute;duisant jusqu&apos;&agrave; 80&nbsp;% les &eacute;missions nettes.
+                      We offer the SAF option on a growing number of our flights, reducing net emissions by up to 80%.
                     </p>
                   </div>
                 </div>
@@ -956,7 +956,7 @@ function RSESection() {
                         color: '#FFFFFF',
                       }}
                     >
-                      Optimisation des itin&eacute;raires
+                      Route Optimisation
                     </h4>
                     <p
                       style={{
@@ -967,7 +967,7 @@ function RSESection() {
                         lineHeight: 1.7,
                       }}
                     >
-                      Notre technologie d&apos;IA optimise chaque trajet pour r&eacute;duire la consommation de carburant et minimiser l&apos;empreinte environnementale.
+                      Our AI technology optimises every journey to reduce fuel consumption and minimise our environmental footprint.
                     </p>
                   </div>
                 </div>
@@ -1026,7 +1026,7 @@ function CTASection() {
               color: '#FFFFFF',
             }}
           >
-            Rejoignez l&apos;excellence Skyseaker
+            Experience the Skyseaker difference
           </h2>
           <p
             style={{
@@ -1037,7 +1037,7 @@ function CTASection() {
               fontStyle: 'italic',
             }}
           >
-            D&eacute;couvrez ce que signifie voyager sans compromis
+            Discover what it means to travel without compromise
           </p>
           <div
             style={{
@@ -1049,10 +1049,10 @@ function CTASection() {
             }}
           >
             <Button href="/devis" variant="primary" size="lg">
-              Demander un devis
+              Request a Quote
             </Button>
             <Button href="/contact" variant="secondary" size="lg">
-              Nous contacter
+              Contact Us
             </Button>
           </div>
         </ScrollReveal>

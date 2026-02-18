@@ -5,50 +5,50 @@ import Image from "next/image";
 import { useState } from "react";
 
 const footerServices = [
-  { name: "Affrètement", href: "/services/affretement-jet-prive" },
+  { name: "Charter", href: "/services/affretement-jet-prive" },
   { name: "Empty Legs", href: "/services/vols-a-vide-empty-legs" },
-  { name: "Voyages de groupe", href: "/services/voyage-groupe" },
-  { name: "Fret urgent", href: "/services/fret-urgent" },
-  { name: "Conciergerie", href: "/services/conciergerie-lifestyle" },
-  { name: "Transferts VIP", href: "/services/transferts-vip" },
-  { name: "Gestion d'appareil", href: "/services/gestion-appareil" },
-  { name: "Achat/Vente", href: "/services/achat-vente-jet" },
+  { name: "Group Travel", href: "/services/voyage-groupe" },
+  { name: "Urgent Cargo", href: "/services/fret-urgent" },
+  { name: "Concierge", href: "/services/conciergerie-lifestyle" },
+  { name: "VIP Transfers", href: "/services/transferts-vip" },
+  { name: "Aircraft Management", href: "/services/gestion-appareil" },
+  { name: "Sales & Acquisitions", href: "/services/achat-vente-jet" },
 ];
 
 const footerFleet = [
-  { name: "Toute la flotte", href: "/flotte" },
+  { name: "Entire Fleet", href: "/flotte" },
   { name: "Light Jet", href: "/flotte/light-jet" },
   { name: "Super Midsize", href: "/flotte/super-midsize-jet" },
   { name: "Heavy Jet", href: "/flotte/heavy-jet" },
   { name: "Ultra Long Range", href: "/flotte/ultra-long-range" },
-  { name: "Comparateur", href: "/flotte/comparateur" },
+  { name: "Comparison Tool", href: "/flotte/comparateur" },
 ];
 
 const footerYachts = [
-  { name: "Location", href: "/yachts/location" },
-  { name: "Achat", href: "/yachts/achat" },
+  { name: "Charter", href: "/yachts/location" },
+  { name: "Purchase", href: "/yachts/achat" },
   { name: "Motor Yacht", href: "/yachts/motor-yacht" },
   { name: "Sailing Yacht", href: "/yachts/sailing-yacht" },
-  { name: "Comparateur", href: "/yachts/comparateur" },
+  { name: "Comparison Tool", href: "/yachts/comparateur" },
 ];
 
 const footerDestinations = [
-  { name: "Genève", href: "/destinations/geneve" },
-  { name: "Londres", href: "/destinations/londres" },
+  { name: "Geneva", href: "/destinations/geneve" },
+  { name: "London", href: "/destinations/londres" },
   { name: "Mykonos", href: "/destinations/mykonos" },
-  { name: "Dubaï", href: "/destinations/dubai" },
+  { name: "Dubai", href: "/destinations/dubai" },
   { name: "Marrakech", href: "/destinations/marrakech" },
   { name: "Nice", href: "/destinations/nice" },
   { name: "Ibiza", href: "/destinations/ibiza" },
-  { name: "Toutes les destinations", href: "/destinations" },
+  { name: "All Destinations", href: "/destinations" },
 ];
 
 const footerResources = [
   { name: "Blog", href: "/blog" },
   { name: "FAQ", href: "/faq" },
-  { name: "Glossaire aviation", href: "/glossaire-aviation" },
-  { name: "Expériences", href: "/experiences" },
-  { name: "À propos", href: "/a-propos" },
+  { name: "Aviation Glossary", href: "/glossaire-aviation" },
+  { name: "Experiences", href: "/experiences" },
+  { name: "About Us", href: "/a-propos" },
 ];
 
 export default function Footer() {
@@ -77,14 +77,14 @@ export default function Footer() {
           {/* Newsletter */}
           <div className="w-full md:w-auto">
             <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#8A8A8A", marginBottom: "12px" }}>
-              Recevez nos offres exclusives
+              Receive our exclusive offers
             </p>
             <form onSubmit={handleNewsletter} style={{ display: "flex", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "2px", overflow: "hidden" }}>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Votre adresse email"
+                placeholder="Your email address"
                 required
                 style={{
                   flex: 1,
@@ -118,7 +118,7 @@ export default function Footer() {
                 onMouseEnter={(e) => { e.currentTarget.style.background = "#F4DDC3"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = "#F4DDC3"; }}
               >
-                S&apos;inscrire
+                Subscribe
               </button>
             </form>
           </div>
@@ -149,7 +149,7 @@ export default function Footer() {
           {/* Flotte */}
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
-              Flotte
+              Fleet
             </h4>
             <ul className="space-y-3">
               {footerFleet.map((item) => (
@@ -200,7 +200,7 @@ export default function Footer() {
           {/* Resources */}
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
-              Ressources
+              Resources
             </h4>
             <ul className="space-y-3">
               {footerResources.map((item) => (
@@ -239,7 +239,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-[13px] text-[#6B6B6B] pt-2" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
-                Paris • Monaco • Genève • Dubaï
+                Paris • Monaco • Geneva • Dubai
               </li>
               <li className="pt-2">
                 <a href="https://wa.me/33676765511" target="_blank" rel="noopener noreferrer"
@@ -276,17 +276,17 @@ export default function Footer() {
           {/* Copyright */}
           <div className="text-center md:text-right">
             <p className="text-[12px] text-[#6B6B6B]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
-              © {new Date().getFullYear()} Skyseaker. Tous droits réservés.
+              © {new Date().getFullYear()} Skyseaker. All rights reserved.
             </p>
             <div className="flex items-center gap-4 mt-2 justify-center md:justify-end">
               <Link href="/mentions-legales" className="text-[11px] text-[#6B6B6B] hover:text-[#F4DDC3] transition-colors">
-                Mentions légales
+                Legal Notice
               </Link>
               <Link href="/politique-confidentialite" className="text-[11px] text-[#6B6B6B] hover:text-[#F4DDC3] transition-colors">
-                Confidentialité
+                Privacy Policy
               </Link>
               <Link href="/conditions-generales" className="text-[11px] text-[#6B6B6B] hover:text-[#F4DDC3] transition-colors">
-                CGV
+                Terms & Conditions
               </Link>
             </div>
           </div>

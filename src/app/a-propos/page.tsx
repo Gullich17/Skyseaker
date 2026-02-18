@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import AProposClient from './AProposClient';
 
 export const metadata: Metadata = {
-  title: '\u00c0 Propos',
+  title: 'About Us',
   description:
-    'D\u00e9couvrez Skyseaker, votre partenaire en aviation priv\u00e9e de luxe. Notre histoire, nos valeurs, notre \u00e9quipe et notre engagement pour l\u2019excellence.',
+    'Discover Skyseaker, your luxury private aviation partner. Our history, values, team and commitment to excellence.',
   openGraph: {
-    title: '\u00c0 Propos | Skyseaker',
+    title: 'About Us | Skyseaker',
     description:
-      'L\u2019excellence depuis le premier jour. Plus de 15\u202f000 vols, 120\u202f000 passagers et un engagement in\u00e9branlable pour la qualit\u00e9.',
+      'Excellence from day one. Over 15,000 flights, 120,000 passengers and an unwavering commitment to quality.',
     url: 'https://skyseaker.com/a-propos',
   },
 };
