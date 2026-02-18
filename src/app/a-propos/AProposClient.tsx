@@ -145,32 +145,32 @@ function HistorySection() {
     {
       year: '2015',
       title: 'Fondation de Skyseaker',
-      desc: 'Cr\u00e9ation de Skyseaker \u00e0 Paris avec la vision de r\u00e9volutionner l\u2019aviation priv\u00e9e en France. Nos trois fondateurs, issus de l\u2019a\u00e9ronautique et du luxe, posent les bases d\u2019un service d\u2019exception.',
+      desc: "Création de Skyseaker à Paris avec la vision de révolutionner l'aviation privée en France. Nos trois fondateurs, issus de l'aéronautique et du luxe, posent les bases d'un service d'exception.",
     },
     {
       year: '2017',
-      title: 'Expansion europ\u00e9enne',
-      desc: 'Ouverture de bureaux \u00e0 Gen\u00e8ve et Londres. Partenariats avec plus de 200 op\u00e9rateurs certifi\u00e9s \u00e0 travers l\u2019Europe.',
+      title: 'Expansion européenne',
+      desc: "Ouverture de bureaux à Genève et Londres. Partenariats avec plus de 200 opérateurs certifiés à travers l'Europe.",
     },
     {
       year: '2019',
       title: 'Certification IS-BAO',
-      desc: 'Obtention de la certification IS-BAO et adh\u00e9sion \u00e0 l\u2019EBAA. Lancement du programme Empty Legs et de la conciergerie de luxe.',
+      desc: "Obtention de la certification IS-BAO et adhésion à l'EBAA. Lancement du programme Empty Legs et de la conciergerie de luxe.",
     },
     {
       year: '2021',
       title: 'Innovation technologique',
-      desc: 'Lancement de notre plateforme de r\u00e9servation en ligne et de l\u2019application mobile. Int\u00e9gration de l\u2019IA pour l\u2019optimisation des itin\u00e9raires.',
+      desc: "Lancement de notre plateforme de réservation en ligne et de l'application mobile. Intégration de l'IA pour l'optimisation des itinéraires.",
     },
     {
       year: '2023',
       title: 'Engagement RSE',
-      desc: 'Mise en place du programme de compensation carbone int\u00e9gral. Partenariat avec des acteurs du carburant durable (SAF).',
+      desc: 'Mise en place du programme de compensation carbone intégral. Partenariat avec des acteurs du carburant durable (SAF).',
     },
     {
       year: '2025',
-      title: '10\u202f000\u00e8me vol',
-      desc: 'Franchissement du cap des 10\u202f000 vols. Expansion vers le Moyen-Orient et l\u2019Asie. Lancement des Exp\u00e9riences Exclusives.',
+      title: '10 000ème vol',
+      desc: "Franchissement du cap des 10 000 vols. Expansion vers le Moyen-Orient et l'Asie. Lancement des Expériences Exclusives.",
     },
   ];
 
@@ -179,26 +179,15 @@ function HistorySection() {
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         <SectionTitle
           preTitle="NOTRE HISTOIRE"
-          title="Une d\u00e9cennie d\u2019excellence"
-          subtitle="De Paris au reste du monde, chaque ann\u00e9e a \u00e9t\u00e9 une nouvelle \u00e9tape vers la perfection."
+          title="Une décennie d'excellence"
+          subtitle="De Paris au reste du monde, chaque année a été une nouvelle étape vers la perfection."
           centered
           mb="80px"
         />
 
         {/* Timeline */}
         <div style={{ position: 'relative' }}>
-          {/* Vertical line - centered on desktop, left on mobile */}
-          <div
-            style={{
-              position: 'absolute',
-              left: '16px',
-              top: 0,
-              bottom: 0,
-              width: '1px',
-              background: 'rgba(244,221,195,0.2)',
-            }}
-          />
-          {/* Desktop centered line via CSS media query workaround: we use a second line visible only on wider screens */}
+          {/* Vertical line - centered on desktop */}
           <div
             className="hidden md:block"
             style={{
@@ -210,7 +199,7 @@ function HistorySection() {
               background: 'rgba(244,221,195,0.2)',
             }}
           />
-          {/* Hide mobile line on desktop */}
+          {/* Vertical line - left on mobile */}
           <div
             className="md:hidden"
             style={{
@@ -342,22 +331,22 @@ function ValuesSection() {
   const values = [
     {
       title: 'Excellence',
-      desc: 'Chaque d\u00e9tail compte. Nous visons la perfection dans tous les aspects de notre service, de la r\u00e9servation \u00e0 l\u2019atterrissage.',
+      desc: "Chaque détail compte. Nous visons la perfection dans tous les aspects de notre service, de la réservation à l'atterrissage.",
       icon: 'M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z',
     },
     {
-      title: 'Discr\u00e9tion',
-      desc: 'La confidentialit\u00e9 est au c\u0153ur de notre ADN. Vos donn\u00e9es, vos itin\u00e9raires et votre vie priv\u00e9e sont prot\u00e9g\u00e9s en toutes circonstances.',
+      title: 'Discrétion',
+      desc: 'La confidentialité est au cœur de notre ADN. Vos données, vos itinéraires et votre vie privée sont protégés en toutes circonstances.',
       icon: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z',
     },
     {
       title: 'Innovation',
-      desc: 'Nous investissons continuellement dans la technologie pour offrir une exp\u00e9rience de r\u00e9servation fluide et un service toujours plus performant.',
+      desc: 'Nous investissons continuellement dans la technologie pour offrir une expérience de réservation fluide et un service toujours plus performant.',
       icon: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z',
     },
     {
       title: 'Engagement',
-      desc: 'Responsabilit\u00e9 environnementale, s\u00e9curit\u00e9 sans compromis et satisfaction client sont les piliers de notre engagement quotidien.',
+      desc: 'Responsabilité environnementale, sécurité sans compromis et satisfaction client sont les piliers de notre engagement quotidien.',
       icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
     },
   ];
@@ -452,25 +441,25 @@ function TeamSection() {
     {
       name: 'Alexandre Dubois',
       role: 'Fondateur & CEO',
-      bio: 'Ancien pilote de ligne et entrepreneur, Alexandre a fond\u00e9 Skyseaker avec la vision de d\u00e9mocratiser l\u2019excellence dans l\u2019aviation priv\u00e9e.',
+      bio: "Ancien pilote de ligne et entrepreneur, Alexandre a fondé Skyseaker avec la vision de démocratiser l'excellence dans l'aviation privée.",
       photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=75',
     },
     {
       name: 'Camille Laurent',
-      role: 'Directrice des Op\u00e9rations',
-      bio: '15 ans d\u2019exp\u00e9rience dans l\u2019aviation d\u2019affaires. Camille supervise chaque vol pour garantir un service irr\u00e9prochable.',
+      role: 'Directrice des Opérations',
+      bio: "15 ans d'expérience dans l'aviation d'affaires. Camille supervise chaque vol pour garantir un service irréprochable.",
       photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=75',
     },
     {
       name: 'Nicolas Mercier',
       role: 'Directeur Commercial',
-      bio: 'Sp\u00e9cialiste du luxe et de la relation client, Nicolas veille \u00e0 ce que chaque client re\u00e7oive un accompagnement sur mesure.',
+      bio: 'Spécialiste du luxe et de la relation client, Nicolas veille à ce que chaque client reçoive un accompagnement sur mesure.',
       photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=75',
     },
     {
       name: 'Sophie Archambault',
       role: 'Responsable Conciergerie',
-      bio: 'Ancienne directrice d\u2019h\u00f4tel 5 \u00e9toiles, Sophie orchestre les exp\u00e9riences exclusives et la conciergerie de luxe Skyseaker.',
+      bio: "Ancienne directrice d'hôtel 5 étoiles, Sophie orchestre les expériences exclusives et la conciergerie de luxe Skyseaker.",
       photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=75',
     },
   ];
@@ -479,9 +468,9 @@ function TeamSection() {
     <section style={{ background: '#0E202D', padding: 'clamp(60px, 8vw, 120px) 0' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         <SectionTitle
-          preTitle="NOTRE \u00c9QUIPE"
+          preTitle="NOTRE ÉQUIPE"
           title="Les visages de Skyseaker"
-          subtitle="Une \u00e9quipe de passionn\u00e9s d\u00e9di\u00e9s \u00e0 votre satisfaction"
+          subtitle="Une équipe de passionnés dédiés à votre satisfaction"
           centered
           mb="64px"
         />
@@ -576,10 +565,10 @@ function TeamSection() {
 
 function KeyFiguresSection() {
   const stats = [
-    { value: 15000, suffix: '+', label: 'Vols r\u00e9alis\u00e9s' },
-    { value: 120000, suffix: '+', label: 'Passagers transport\u00e9s' },
+    { value: 15000, suffix: '+', label: 'Vols réalisés' },
+    { value: 120000, suffix: '+', label: 'Passagers transportés' },
     { value: 50, suffix: '+', label: 'Destinations' },
-    { value: 24, suffix: '/7', label: 'Disponibilit\u00e9' },
+    { value: 24, suffix: '/7', label: 'Disponibilité' },
   ];
 
   return (
@@ -602,8 +591,8 @@ function KeyFiguresSection() {
       </div>
       <div style={{ position: 'relative', maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         <SectionTitle
-          preTitle="CHIFFRES CL\u00c9S"
-          title="L\u2019excellence en chiffres"
+          preTitle="CHIFFRES CLÉS"
+          title="L'excellence en chiffres"
           centered
           mb="64px"
         />
@@ -652,17 +641,17 @@ function CertificationsSection() {
     {
       name: 'EBAA',
       fullName: 'European Business Aviation Association',
-      desc: 'Membre actif de l\u2019EBAA, garantissant les plus hauts standards de l\u2019aviation d\u2019affaires europ\u00e9enne.',
+      desc: "Membre actif de l'EBAA, garantissant les plus hauts standards de l'aviation d'affaires européenne.",
     },
     {
       name: 'IS-BAO',
       fullName: 'International Standard for Business Aircraft Operations',
-      desc: 'Certification internationale assurant le respect des meilleures pratiques en mati\u00e8re de s\u00e9curit\u00e9 op\u00e9rationnelle.',
+      desc: 'Certification internationale assurant le respect des meilleures pratiques en matière de sécurité opérationnelle.',
     },
     {
       name: 'Wyvern',
       fullName: 'Wyvern Wingman Certified',
-      desc: 'Tous nos op\u00e9rateurs partenaires sont audit\u00e9s selon le programme Wyvern Wingman, r\u00e9f\u00e9rence en mati\u00e8re de s\u00e9curit\u00e9.',
+      desc: 'Tous nos opérateurs partenaires sont audités selon le programme Wyvern Wingman, référence en matière de sécurité.',
     },
   ];
 
@@ -671,7 +660,7 @@ function CertificationsSection() {
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw' }}>
         <SectionTitle
           preTitle="CERTIFICATIONS"
-          title="Des standards de s\u00e9curit\u00e9 in\u00e9gal\u00e9s"
+          title="Des standards de sécurité inégalés"
           centered
           mb="64px"
         />
@@ -789,8 +778,8 @@ function RSESection() {
           {/* Content */}
           <div>
             <SectionTitle
-              preTitle="RESPONSABILIT\u00c9 ENVIRONNEMENTALE"
-              title="Notre engagement pour la plan\u00e8te"
+              preTitle="RESPONSABILITÉ ENVIRONNEMENTALE"
+              title="Notre engagement pour la planète"
               mb="32px"
             />
 
