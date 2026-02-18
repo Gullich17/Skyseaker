@@ -13,6 +13,7 @@ import Badge from "@/components/ui/Badge";
 import { emptyLegs } from "@/data/emptyLegs";
 import { yachts } from "@/data/yachts";
 import { fleet } from "@/data/fleet";
+import CityAutocomplete from "@/components/ui/CityAutocomplete";
 
 /* ============================================
    HERO SECTION
@@ -202,42 +203,24 @@ function HeroSection() {
             <>
               {tripType !== "multi" ? (
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "20px", marginBottom: "24px" }}>
-                  <div>
-                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                      Départ
-                    </label>
-                    <div className="relative">
-                      <svg style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)" }} width="16" height="16" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24">
-                        <path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12" />
-                        <path d="M3 20h18" />
-                      </svg>
-                      <input
-                        type="text"
-                        placeholder="Ville ou aéroport"
-                        value={depart}
-                        onChange={(e) => setDepart(e.target.value)}
-                        style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                      Destination
-                    </label>
-                    <div className="relative">
-                      <svg style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)" }} width="16" height="16" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24">
-                        <path d="M18 12L20.73 20.87a1 1 0 01-.89 1.38L12 22l-7.84.25a1 1 0 01-.89-1.38L6 12" />
-                        <path d="M3 4h18" />
-                      </svg>
-                      <input
-                        type="text"
-                        placeholder="Ville ou aéroport"
-                        value={destination}
-                        onChange={(e) => setDestination(e.target.value)}
-                        style={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
-                      />
-                    </div>
-                  </div>
+                  <CityAutocomplete
+                    value={depart}
+                    onChange={setDepart}
+                    placeholder="Ville ou aéroport"
+                    label="Départ"
+                    labelStyle={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}
+                    inputStyle={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
+                    icon={<svg style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)" }} width="16" height="16" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12" /><path d="M3 20h18" /></svg>}
+                  />
+                  <CityAutocomplete
+                    value={destination}
+                    onChange={setDestination}
+                    placeholder="Ville ou aéroport"
+                    label="Destination"
+                    labelStyle={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}
+                    inputStyle={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
+                    icon={<svg style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)" }} width="16" height="16" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M18 12L20.73 20.87a1 1 0 01-.89 1.38L12 22l-7.84.25a1 1 0 01-.89-1.38L6 12" /><path d="M3 4h18" /></svg>}
+                  />
                   <div>
                     <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
                       {tripType === "ar" ? "Dates" : "Date"}
@@ -282,30 +265,22 @@ function HeroSection() {
                   <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                     {legs.map((leg, idx) => (
                       <div key={idx} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "18px", alignItems: "end" }}>
-                        <div>
-                          <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                            {idx === 0 ? "Départ" : `Étape ${idx + 1}`}
-                          </label>
-                          <input
-                            type="text"
-                            placeholder="Ville ou aéroport"
-                            value={leg.from}
-                            onChange={(e) => { const n = [...legs]; n[idx].from = e.target.value; setLegs(n); }}
-                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
-                          />
-                        </div>
-                        <div>
-                          <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                            Destination
-                          </label>
-                          <input
-                            type="text"
-                            placeholder="Ville ou aéroport"
-                            value={leg.to}
-                            onChange={(e) => { const n = [...legs]; n[idx].to = e.target.value; setLegs(n); }}
-                            style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
-                          />
-                        </div>
+                        <CityAutocomplete
+                          value={leg.from}
+                          onChange={(v) => { const n = [...legs]; n[idx].from = v; setLegs(n); }}
+                          placeholder="Ville ou aéroport"
+                          label={idx === 0 ? "Départ" : `Étape ${idx + 1}`}
+                          labelStyle={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}
+                          inputStyle={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
+                        />
+                        <CityAutocomplete
+                          value={leg.to}
+                          onChange={(v) => { const n = [...legs]; n[idx].to = v; setLegs(n); }}
+                          placeholder="Ville ou aéroport"
+                          label="Destination"
+                          labelStyle={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}
+                          inputStyle={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
+                        />
                         <div style={{ display: "flex", gap: "10px" }}>
                           <input
                             type="date"
