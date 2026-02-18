@@ -1136,8 +1136,8 @@ function FinalCTA() {
     <section className="relative overflow-hidden" style={{ padding: "clamp(80px, 12vw, 140px) 0" }}>
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=1920&q=75"
-          alt="Jet privé ciel"
+          src="/images/fleet/gulfstream-g650er/main.png"
+          alt="Jet privé en vol"
           fill
           className="object-cover"
         />
