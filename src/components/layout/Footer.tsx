@@ -73,9 +73,6 @@ export default function Footer() {
                 style={{ objectFit: "contain", objectPosition: "left center" }}
               />
             </Link>
-            <span className="text-[11px] text-[#6B6B6B] tracking-[0.1em] mt-1 block" style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic" }}>
-              L&apos;excellence de l&apos;aviation privée
-            </span>
           </div>
           {/* Newsletter */}
           <div className="w-full md:w-auto">
