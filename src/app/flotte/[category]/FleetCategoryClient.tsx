@@ -14,16 +14,16 @@ const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number];
    IMAGE HELPERS
    ============================================ */
 const categoryImages: Record<string, string> = {
-  "very-light-jet": "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80",
-  "light-jet": "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=80",
-  "super-light-jet": "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80",
-  "midsize-jet": "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=1920&q=80",
-  "super-midsize-jet": "https://images.unsplash.com/photo-1559628233-100c798642d4?w=1920&q=80",
-  "heavy-jet": "https://images.unsplash.com/photo-1559628233-100c798642d4?w=1920&q=80",
-  "ultra-long-range": "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=1920&q=80",
-  "vip-airliner": "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=80",
-  "helicoptere": "https://images.unsplash.com/photo-1559628233-100c798642d4?w=1920&q=80",
-  "turbopropulseur": "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=80",
+  "very-light-jet": "/images/fleet/phenom-100/main.png",
+  "light-jet": "/images/fleet/phenom-300/main.png",
+  "super-light-jet": "/images/fleet/pilatus-pc-24/main.png",
+  "midsize-jet": "/images/fleet/citation-vi/main.png",
+  "super-midsize-jet": "/images/fleet/challenger-350/gallery-5.png",
+  "heavy-jet": "/images/fleet/falcon-900lx/main.png",
+  "ultra-long-range": "/images/fleet/gulfstream-g650er/main.png",
+  "vip-airliner": "/images/fleet/global-7500/main.png",
+  "helicoptere": "/images/fleet/agusta-109/gallery-1.jpg",
+  "turbopropulseur": "/images/fleet/pilatus-pc-12/main.png",
 };
 
 const categoryDescriptions: Record<string, string> = {

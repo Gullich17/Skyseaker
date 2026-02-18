@@ -36,16 +36,16 @@ function getDestImage(dest: Destination): string {
 }
 
 const aircraftFallbacks: Record<string, string> = {
-  "very-light-jet": "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&q=75",
-  "light-jet": "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=75",
-  "super-light-jet": "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&q=75",
-  "midsize-jet": "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=600&q=75",
-  "super-midsize-jet": "https://images.unsplash.com/photo-1559628233-100c798642d4?w=600&q=75",
-  "heavy-jet": "https://images.unsplash.com/photo-1559628233-100c798642d4?w=600&q=75",
-  "ultra-long-range": "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=600&q=75",
-  "vip-airliner": "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=75",
-  "helicoptere": "https://images.unsplash.com/photo-1559628233-100c798642d4?w=600&q=75",
-  "turbopropulseur": "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=75",
+  "very-light-jet": "/images/fleet/phenom-100/main.png",
+  "light-jet": "/images/fleet/phenom-300/main.png",
+  "super-light-jet": "/images/fleet/pilatus-pc-24/main.png",
+  "midsize-jet": "/images/fleet/citation-vi/main.png",
+  "super-midsize-jet": "/images/fleet/challenger-350/gallery-5.png",
+  "heavy-jet": "/images/fleet/falcon-900lx/main.png",
+  "ultra-long-range": "/images/fleet/gulfstream-g650er/main.png",
+  "vip-airliner": "/images/fleet/global-7500/main.png",
+  "helicoptere": "/images/fleet/agusta-109/gallery-1.jpg",
+  "turbopropulseur": "/images/fleet/pilatus-pc-12/main.png",
 };
 
 function getAircraftImage(a: Aircraft): string {

@@ -73,7 +73,7 @@ function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80"
+          src="/images/fleet/falcon-8x/main.png"
           alt="Jet privé en vol"
           fill
           className="object-cover"

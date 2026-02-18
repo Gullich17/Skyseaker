@@ -73,7 +73,7 @@ export default function GlossairePage() {
       >
         <div className="absolute inset-0" style={{ zIndex: 0 }}>
           <Image
-            src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=80"
+            src="/images/fleet/challenger-605/main.png"
             alt="Glossaire aviation d'affaires"
             fill
             priority
