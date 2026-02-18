@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { emptyLegs, type EmptyLeg } from '@/data/emptyLegs';
@@ -9,6 +9,241 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 import Button from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
 import AnimatedCounter from '@/components/ui/AnimatedCounter';
+
+/* ============================================
+   CITIES & AIRPORTS DATABASE
+   ============================================ */
+interface Airport {
+  name: string;
+  code: string;
+}
+
+interface CityEntry {
+  city: string;
+  country: string;
+  airports: Airport[];
+}
+
+const CITIES_DB: CityEntry[] = [
+  // ── France ──
+  { city: "Paris", country: "France", airports: [{ name: "Paris-Le Bourget", code: "LFPB" }, { name: "Paris-Orly", code: "LFPO" }, { name: "Paris-CDG", code: "LFPG" }] },
+  { city: "Nice", country: "France", airports: [{ name: "Nice Côte d'Azur", code: "LFMN" }] },
+  { city: "Cannes", country: "France", airports: [{ name: "Cannes-Mandelieu", code: "LFMD" }] },
+  { city: "Saint-Tropez", country: "France", airports: [{ name: "La Môle Saint-Tropez", code: "LFTZ" }] },
+  { city: "Lyon", country: "France", airports: [{ name: "Lyon-Bron", code: "LFLY" }, { name: "Lyon-Saint Exupéry", code: "LFLL" }] },
+  { city: "Marseille", country: "France", airports: [{ name: "Marseille Provence", code: "LFML" }] },
+  { city: "Toulouse", country: "France", airports: [{ name: "Toulouse-Blagnac", code: "LFBO" }] },
+  { city: "Bordeaux", country: "France", airports: [{ name: "Bordeaux-Mérignac", code: "LFBD" }] },
+  { city: "Strasbourg", country: "France", airports: [{ name: "Strasbourg-Entzheim", code: "LFST" }] },
+  { city: "Nantes", country: "France", airports: [{ name: "Nantes Atlantique", code: "LFRS" }] },
+  { city: "Biarritz", country: "France", airports: [{ name: "Biarritz-Anglet-Bayonne", code: "LFBZ" }] },
+  { city: "Montpellier", country: "France", airports: [{ name: "Montpellier-Méditerranée", code: "LFMT" }] },
+  { city: "Ajaccio", country: "France", airports: [{ name: "Ajaccio Napoléon Bonaparte", code: "LFKJ" }] },
+  { city: "Figari", country: "France", airports: [{ name: "Figari Sud-Corse", code: "LFKF" }] },
+  { city: "Bastia", country: "France", airports: [{ name: "Bastia-Poretta", code: "LFKB" }] },
+  { city: "Calvi", country: "France", airports: [{ name: "Calvi Sainte-Catherine", code: "LFKC" }] },
+  { city: "Courchevel", country: "France", airports: [{ name: "Courchevel Altiport", code: "LFLJ" }] },
+  { city: "Chambéry", country: "France", airports: [{ name: "Chambéry-Savoie", code: "LFLB" }] },
+  { city: "Grenoble", country: "France", airports: [{ name: "Grenoble-Isère", code: "LFLS" }] },
+  { city: "Avignon", country: "France", airports: [{ name: "Avignon-Caumont", code: "LFMV" }] },
+  { city: "La Rochelle", country: "France", airports: [{ name: "La Rochelle-Île de Ré", code: "LFBH" }] },
+  { city: "Deauville", country: "France", airports: [{ name: "Deauville-Normandie", code: "LFRG" }] },
+  { city: "Lille", country: "France", airports: [{ name: "Lille-Lesquin", code: "LFQQ" }] },
+  { city: "Rennes", country: "France", airports: [{ name: "Rennes-Saint-Jacques", code: "LFRN" }] },
+  { city: "Toulon", country: "France", airports: [{ name: "Toulon-Hyères", code: "LFTH" }] },
+  { city: "Perpignan", country: "France", airports: [{ name: "Perpignan-Rivesaltes", code: "LFMP" }] },
+  { city: "Pau", country: "France", airports: [{ name: "Pau-Pyrénées", code: "LFBP" }] },
+  // ── Monaco ──
+  { city: "Monaco", country: "Monaco", airports: [{ name: "Monaco Héliport", code: "LNMC" }, { name: "Nice Côte d'Azur", code: "LFMN" }] },
+  // ── Suisse ──
+  { city: "Genève", country: "Suisse", airports: [{ name: "Genève Aéroport", code: "LSGG" }] },
+  { city: "Zurich", country: "Suisse", airports: [{ name: "Zürich Airport", code: "LSZH" }] },
+  { city: "Berne", country: "Suisse", airports: [{ name: "Bern-Belp", code: "LSZB" }] },
+  { city: "Bâle", country: "Suisse", airports: [{ name: "EuroAirport Basel-Mulhouse", code: "LFSB" }] },
+  { city: "Lugano", country: "Suisse", airports: [{ name: "Lugano Airport", code: "LSZA" }] },
+  { city: "Sion", country: "Suisse", airports: [{ name: "Sion Airport", code: "LSGS" }] },
+  { city: "Saint-Moritz", country: "Suisse", airports: [{ name: "Samedan Engadin", code: "LSZS" }] },
+  { city: "Gstaad", country: "Suisse", airports: [{ name: "Saanen-Gstaad", code: "LSGK" }] },
+  // ── Royaume-Uni ──
+  { city: "Londres", country: "Royaume-Uni", airports: [{ name: "London Luton", code: "EGGW" }, { name: "London Biggin Hill", code: "EGKB" }, { name: "Farnborough", code: "EGLF" }, { name: "London Stansted", code: "EGSS" }, { name: "London City", code: "EGLC" }, { name: "RAF Northolt", code: "EGWU" }] },
+  { city: "Manchester", country: "Royaume-Uni", airports: [{ name: "Manchester Airport", code: "EGCC" }] },
+  { city: "Édimbourg", country: "Royaume-Uni", airports: [{ name: "Edinburgh Airport", code: "EGPH" }] },
+  { city: "Birmingham", country: "Royaume-Uni", airports: [{ name: "Birmingham Airport", code: "EGBB" }] },
+  { city: "Oxford", country: "Royaume-Uni", airports: [{ name: "London Oxford", code: "EGTK" }] },
+  { city: "Cambridge", country: "Royaume-Uni", airports: [{ name: "Cambridge Airport", code: "EGSC" }] },
+  { city: "Jersey", country: "Royaume-Uni", airports: [{ name: "Jersey Airport", code: "EGJJ" }] },
+  // ── Espagne ──
+  { city: "Ibiza", country: "Espagne", airports: [{ name: "Ibiza Airport", code: "LEIB" }] },
+  { city: "Barcelone", country: "Espagne", airports: [{ name: "Barcelona-El Prat", code: "LEBL" }] },
+  { city: "Madrid", country: "Espagne", airports: [{ name: "Madrid-Barajas", code: "LEMD" }, { name: "Madrid-Torrejón", code: "LETO" }] },
+  { city: "Majorque", country: "Espagne", airports: [{ name: "Palma de Mallorca", code: "LEPA" }] },
+  { city: "Malaga", country: "Espagne", airports: [{ name: "Málaga-Costa del Sol", code: "LEMG" }] },
+  { city: "Marbella", country: "Espagne", airports: [{ name: "Málaga-Costa del Sol", code: "LEMG" }] },
+  { city: "Valence", country: "Espagne", airports: [{ name: "Valencia Airport", code: "LEVC" }] },
+  { city: "Séville", country: "Espagne", airports: [{ name: "Sevilla-San Pablo", code: "LEZL" }] },
+  { city: "Tenerife", country: "Espagne", airports: [{ name: "Tenerife Sur", code: "GCTS" }, { name: "Tenerife Norte", code: "GCXO" }] },
+  { city: "Bilbao", country: "Espagne", airports: [{ name: "Bilbao Airport", code: "LEBB" }] },
+  { city: "Saint-Jacques-de-Compostelle", country: "Espagne", airports: [{ name: "Santiago Airport", code: "LEST" }] },
+  // ── Italie ──
+  { city: "Milan", country: "Italie", airports: [{ name: "Milano Linate", code: "LIML" }, { name: "Milano Malpensa", code: "LIMC" }] },
+  { city: "Rome", country: "Italie", airports: [{ name: "Roma Ciampino", code: "LIRA" }, { name: "Roma Fiumicino", code: "LIRF" }] },
+  { city: "Sardaigne", country: "Italie", airports: [{ name: "Olbia Costa Smeralda", code: "LIEO" }] },
+  { city: "Naples", country: "Italie", airports: [{ name: "Napoli Capodichino", code: "LIRN" }] },
+  { city: "Venise", country: "Italie", airports: [{ name: "Venezia Marco Polo", code: "LIPZ" }, { name: "Venezia Lido", code: "LIPV" }] },
+  { city: "Florence", country: "Italie", airports: [{ name: "Firenze Peretola", code: "LIRQ" }] },
+  { city: "Turin", country: "Italie", airports: [{ name: "Torino Caselle", code: "LIMF" }] },
+  { city: "Bologne", country: "Italie", airports: [{ name: "Bologna Guglielmo Marconi", code: "LIPE" }] },
+  { city: "Pise", country: "Italie", airports: [{ name: "Pisa Galileo Galilei", code: "LIRP" }] },
+  { city: "Côme", country: "Italie", airports: [{ name: "Milano Linate", code: "LIML" }] },
+  { city: "Capri", country: "Italie", airports: [{ name: "Napoli Capodichino", code: "LIRN" }] },
+  { city: "Palerme", country: "Italie", airports: [{ name: "Palermo Punta Raisi", code: "LICJ" }] },
+  { city: "Catane", country: "Italie", airports: [{ name: "Catania-Fontanarossa", code: "LICC" }] },
+  // ── Portugal ──
+  { city: "Lisbonne", country: "Portugal", airports: [{ name: "Lisbon Humberto Delgado", code: "LPPT" }] },
+  { city: "Porto", country: "Portugal", airports: [{ name: "Porto Francisco Sá Carneiro", code: "LPPR" }] },
+  { city: "Faro", country: "Portugal", airports: [{ name: "Faro Airport", code: "LPFR" }] },
+  { city: "Madère", country: "Portugal", airports: [{ name: "Madeira Cristiano Ronaldo", code: "LPMA" }] },
+  // ── Allemagne ──
+  { city: "Berlin", country: "Allemagne", airports: [{ name: "Berlin Brandenburg", code: "EDDB" }] },
+  { city: "Munich", country: "Allemagne", airports: [{ name: "München Franz Josef Strauss", code: "EDDM" }, { name: "Oberpfaffenhofen", code: "EDMO" }] },
+  { city: "Francfort", country: "Allemagne", airports: [{ name: "Frankfurt am Main", code: "EDDF" }, { name: "Egelsbach", code: "EDFE" }] },
+  { city: "Hambourg", country: "Allemagne", airports: [{ name: "Hamburg Airport", code: "EDDH" }] },
+  { city: "Düsseldorf", country: "Allemagne", airports: [{ name: "Düsseldorf Airport", code: "EDDL" }] },
+  { city: "Stuttgart", country: "Allemagne", airports: [{ name: "Stuttgart Airport", code: "EDDS" }] },
+  { city: "Cologne", country: "Allemagne", airports: [{ name: "Köln/Bonn", code: "EDDK" }] },
+  // ── Autriche ──
+  { city: "Vienne", country: "Autriche", airports: [{ name: "Wien-Schwechat", code: "LOWW" }] },
+  { city: "Salzbourg", country: "Autriche", airports: [{ name: "Salzburg W. A. Mozart", code: "LOWS" }] },
+  { city: "Innsbruck", country: "Autriche", airports: [{ name: "Innsbruck Kranebitten", code: "LOWI" }] },
+  // ── Grèce ──
+  { city: "Athènes", country: "Grèce", airports: [{ name: "Athens Eleftherios Venizelos", code: "LGAV" }] },
+  { city: "Mykonos", country: "Grèce", airports: [{ name: "Mykonos Island National", code: "LGMK" }] },
+  { city: "Santorin", country: "Grèce", airports: [{ name: "Santorini National", code: "LGSR" }] },
+  { city: "Corfou", country: "Grèce", airports: [{ name: "Corfu Ioannis Kapodistrias", code: "LGKR" }] },
+  { city: "Crète", country: "Grèce", airports: [{ name: "Héraklion Nikos Kazantzakis", code: "LGIR" }, { name: "Chania Daskalogiannis", code: "LGSA" }] },
+  { city: "Rhodes", country: "Grèce", airports: [{ name: "Rhodes Diagoras", code: "LGRP" }] },
+  { city: "Zakynthos", country: "Grèce", airports: [{ name: "Zakynthos Dionysios Solomos", code: "LGZA" }] },
+  { city: "Skiathos", country: "Grèce", airports: [{ name: "Skiathos Alexandros Papadiamantis", code: "LGSK" }] },
+  // ── Croatie ──
+  { city: "Dubrovnik", country: "Croatie", airports: [{ name: "Dubrovnik Airport", code: "LDDU" }] },
+  { city: "Split", country: "Croatie", airports: [{ name: "Split Airport", code: "LDSP" }] },
+  // ── Monténégro ──
+  { city: "Tivat", country: "Monténégro", airports: [{ name: "Tivat Airport", code: "LYTV" }] },
+  { city: "Podgorica", country: "Monténégro", airports: [{ name: "Podgorica Airport", code: "LYPG" }] },
+  // ── Turquie ──
+  { city: "Istanbul", country: "Turquie", airports: [{ name: "Istanbul Airport", code: "LTFM" }, { name: "Sabiha Gökçen", code: "LTFJ" }] },
+  { city: "Bodrum", country: "Turquie", airports: [{ name: "Bodrum-Milas", code: "LTFE" }] },
+  { city: "Antalya", country: "Turquie", airports: [{ name: "Antalya Airport", code: "LTAI" }] },
+  // ── Pays-Bas & Belgique ──
+  { city: "Amsterdam", country: "Pays-Bas", airports: [{ name: "Schiphol", code: "EHAM" }, { name: "Rotterdam The Hague", code: "EHRD" }] },
+  { city: "Bruxelles", country: "Belgique", airports: [{ name: "Brussels Airport", code: "EBBR" }, { name: "Brussels South Charleroi", code: "EBCI" }] },
+  { city: "Anvers", country: "Belgique", airports: [{ name: "Antwerp Airport", code: "EBAW" }] },
+  // ── Scandinavie ──
+  { city: "Copenhague", country: "Danemark", airports: [{ name: "Copenhagen Kastrup", code: "EKCH" }] },
+  { city: "Stockholm", country: "Suède", airports: [{ name: "Stockholm Bromma", code: "ESSB" }, { name: "Stockholm Arlanda", code: "ESSA" }] },
+  { city: "Oslo", country: "Norvège", airports: [{ name: "Oslo Gardermoen", code: "ENGM" }] },
+  { city: "Helsinki", country: "Finlande", airports: [{ name: "Helsinki-Vantaa", code: "EFHK" }] },
+  // ── Europe de l'Est ──
+  { city: "Prague", country: "République Tchèque", airports: [{ name: "Prague Václav Havel", code: "LKPR" }] },
+  { city: "Varsovie", country: "Pologne", airports: [{ name: "Warsaw Chopin", code: "EPWA" }] },
+  { city: "Budapest", country: "Hongrie", airports: [{ name: "Budapest Ferenc Liszt", code: "LHBP" }] },
+  { city: "Bucarest", country: "Roumanie", airports: [{ name: "Bucharest Henri Coandă", code: "LROP" }] },
+  // ── Russie & CEI ──
+  { city: "Moscou", country: "Russie", airports: [{ name: "Vnukovo", code: "UUWW" }, { name: "Sheremetyevo", code: "UUEE" }, { name: "Domodedovo", code: "UUDD" }] },
+  { city: "Saint-Pétersbourg", country: "Russie", airports: [{ name: "Pulkovo", code: "ULLI" }] },
+  // ── Moyen-Orient ──
+  { city: "Dubaï", country: "Émirats Arabes Unis", airports: [{ name: "Al Maktoum International", code: "OMDW" }, { name: "Dubai International", code: "OMDB" }] },
+  { city: "Abu Dhabi", country: "Émirats Arabes Unis", airports: [{ name: "Abu Dhabi International", code: "OMAA" }, { name: "Al Bateen Executive", code: "OMAD" }] },
+  { city: "Doha", country: "Qatar", airports: [{ name: "Hamad International", code: "OTHH" }] },
+  { city: "Riyad", country: "Arabie Saoudite", airports: [{ name: "King Khalid International", code: "OERK" }] },
+  { city: "Djeddah", country: "Arabie Saoudite", airports: [{ name: "King Abdulaziz International", code: "OEJN" }] },
+  { city: "Bahreïn", country: "Bahreïn", airports: [{ name: "Bahrain International", code: "OBBI" }] },
+  { city: "Koweït", country: "Koweït", airports: [{ name: "Kuwait International", code: "OKBK" }] },
+  { city: "Oman", country: "Oman", airports: [{ name: "Muscat International", code: "OOMS" }] },
+  { city: "Tel Aviv", country: "Israël", airports: [{ name: "Ben Gurion International", code: "LLBG" }, { name: "Sde Dov", code: "LLSD" }] },
+  { city: "Amman", country: "Jordanie", airports: [{ name: "Queen Alia International", code: "OJAI" }] },
+  { city: "Beyrouth", country: "Liban", airports: [{ name: "Rafic Hariri International", code: "OLBA" }] },
+  // ── Afrique du Nord ──
+  { city: "Marrakech", country: "Maroc", airports: [{ name: "Marrakech-Ménara", code: "GMMX" }] },
+  { city: "Casablanca", country: "Maroc", airports: [{ name: "Mohammed V International", code: "GMMN" }] },
+  { city: "Tanger", country: "Maroc", airports: [{ name: "Tanger Ibn Battouta", code: "GMTT" }] },
+  { city: "Rabat", country: "Maroc", airports: [{ name: "Rabat-Salé", code: "GMME" }] },
+  { city: "Agadir", country: "Maroc", airports: [{ name: "Agadir Al Massira", code: "GMAD" }] },
+  { city: "Tunis", country: "Tunisie", airports: [{ name: "Tunis-Carthage", code: "DTTA" }] },
+  { city: "Djerba", country: "Tunisie", airports: [{ name: "Djerba-Zarzis", code: "DTTJ" }] },
+  { city: "Alger", country: "Algérie", airports: [{ name: "Houari Boumediene", code: "DAAG" }] },
+  { city: "Le Caire", country: "Égypte", airports: [{ name: "Cairo International", code: "HECA" }] },
+  { city: "Charm el-Cheikh", country: "Égypte", airports: [{ name: "Sharm El Sheikh International", code: "HESH" }] },
+  // ── Afrique subsaharienne ──
+  { city: "Dakar", country: "Sénégal", airports: [{ name: "Blaise Diagne International", code: "GOBD" }] },
+  { city: "Abidjan", country: "Côte d'Ivoire", airports: [{ name: "Félix-Houphouët-Boigny", code: "DIAP" }] },
+  { city: "Lagos", country: "Nigeria", airports: [{ name: "Murtala Muhammed", code: "DNMM" }] },
+  { city: "Nairobi", country: "Kenya", airports: [{ name: "Jomo Kenyatta International", code: "HKJK" }, { name: "Wilson Airport", code: "HKNW" }] },
+  { city: "Le Cap", country: "Afrique du Sud", airports: [{ name: "Cape Town International", code: "FACT" }] },
+  { city: "Johannesburg", country: "Afrique du Sud", airports: [{ name: "O.R. Tambo International", code: "FAOR" }, { name: "Lanseria International", code: "FALA" }] },
+  { city: "Luanda", country: "Angola", airports: [{ name: "Quatro de Fevereiro", code: "FNLU" }] },
+  { city: "Kinshasa", country: "RD Congo", airports: [{ name: "N'Djili International", code: "FZAA" }] },
+  { city: "Addis-Abeba", country: "Éthiopie", airports: [{ name: "Bole International", code: "HAAB" }] },
+  // ── Océan Indien ──
+  { city: "Maldives", country: "Maldives", airports: [{ name: "Velana International", code: "VRMM" }] },
+  { city: "Maurice", country: "Maurice", airports: [{ name: "Sir Seewoosagur Ramgoolam", code: "FIMP" }] },
+  { city: "Seychelles", country: "Seychelles", airports: [{ name: "Seychelles International", code: "FSIA" }] },
+  { city: "Madagascar", country: "Madagascar", airports: [{ name: "Ivato International", code: "FMMI" }] },
+  { city: "La Réunion", country: "France", airports: [{ name: "Roland Garros", code: "FMEE" }] },
+  // ── Amérique du Nord ──
+  { city: "New York", country: "États-Unis", airports: [{ name: "Teterboro", code: "KTEB" }, { name: "Westchester County", code: "KHPN" }, { name: "Republic Airport", code: "KFRG" }] },
+  { city: "Los Angeles", country: "États-Unis", airports: [{ name: "Van Nuys", code: "KVNY" }, { name: "Santa Monica", code: "KSMO" }, { name: "Burbank", code: "KBUR" }] },
+  { city: "Miami", country: "États-Unis", airports: [{ name: "Miami Opa-Locka", code: "KOPF" }, { name: "Fort Lauderdale Executive", code: "KFXE" }, { name: "Fort Lauderdale-Hollywood", code: "KFLL" }] },
+  { city: "Las Vegas", country: "États-Unis", airports: [{ name: "Henderson Executive", code: "KHND" }, { name: "Las Vegas McCarran", code: "KLAS" }] },
+  { city: "Chicago", country: "États-Unis", airports: [{ name: "Chicago Midway", code: "KMDW" }, { name: "DuPage Airport", code: "KDPA" }] },
+  { city: "San Francisco", country: "États-Unis", airports: [{ name: "San Francisco International", code: "KSFO" }, { name: "San Carlos", code: "KSQL" }] },
+  { city: "Washington", country: "États-Unis", airports: [{ name: "Dulles International", code: "KIAD" }, { name: "Reagan National", code: "KDCA" }] },
+  { city: "Dallas", country: "États-Unis", airports: [{ name: "Dallas Love Field", code: "KDAL" }, { name: "Addison Airport", code: "KADS" }] },
+  { city: "Houston", country: "États-Unis", airports: [{ name: "William P. Hobby", code: "KHOU" }, { name: "Sugar Land", code: "KSGR" }] },
+  { city: "Denver", country: "États-Unis", airports: [{ name: "Centennial Airport", code: "KAPA" }, { name: "Rocky Mountain Metro", code: "KBJC" }] },
+  { city: "Aspen", country: "États-Unis", airports: [{ name: "Aspen-Pitkin County", code: "KASE" }] },
+  { city: "Palm Beach", country: "États-Unis", airports: [{ name: "Palm Beach International", code: "KPBI" }] },
+  { city: "Scottsdale", country: "États-Unis", airports: [{ name: "Scottsdale Airport", code: "KSDL" }] },
+  { city: "Boston", country: "États-Unis", airports: [{ name: "Boston Logan", code: "KBOS" }, { name: "Hanscom Field", code: "KBED" }] },
+  { city: "Atlanta", country: "États-Unis", airports: [{ name: "DeKalb-Peachtree", code: "KPDK" }] },
+  { city: "Seattle", country: "États-Unis", airports: [{ name: "Boeing Field", code: "KBFI" }] },
+  { city: "Montréal", country: "Canada", airports: [{ name: "Montréal-Trudeau", code: "CYUL" }, { name: "Saint-Hubert", code: "CYHU" }] },
+  { city: "Toronto", country: "Canada", airports: [{ name: "Toronto Pearson", code: "CYYZ" }, { name: "Billy Bishop Toronto City", code: "CYTZ" }] },
+  { city: "Vancouver", country: "Canada", airports: [{ name: "Vancouver International", code: "CYVR" }] },
+  // ── Caraïbes ──
+  { city: "Saint-Barthélemy", country: "France", airports: [{ name: "Gustaf III", code: "TFFJ" }] },
+  { city: "Saint-Martin", country: "France", airports: [{ name: "Grand Case-Espérance", code: "TFFG" }, { name: "Princess Juliana", code: "TNCM" }] },
+  { city: "Guadeloupe", country: "France", airports: [{ name: "Pôle Caraïbes", code: "TFFR" }] },
+  { city: "Martinique", country: "France", airports: [{ name: "Aimé Césaire", code: "TFFF" }] },
+  { city: "Nassau", country: "Bahamas", airports: [{ name: "Lynden Pindling International", code: "MYNN" }] },
+  { city: "Turks-et-Caïcos", country: "Turks-et-Caïcos", airports: [{ name: "Providenciales International", code: "MBPV" }] },
+  { city: "La Barbade", country: "Barbade", airports: [{ name: "Grantley Adams International", code: "TBPB" }] },
+  { city: "Îles Caïmans", country: "Îles Caïmans", airports: [{ name: "Owen Roberts International", code: "MWCR" }] },
+  // ── Amérique Latine ──
+  { city: "Mexico", country: "Mexique", airports: [{ name: "Mexico City International", code: "MMMX" }, { name: "Toluca International", code: "MMTO" }] },
+  { city: "Cancún", country: "Mexique", airports: [{ name: "Cancún International", code: "MMUN" }] },
+  { city: "São Paulo", country: "Brésil", airports: [{ name: "Congonhas", code: "SBSP" }, { name: "Guarulhos", code: "SBGR" }] },
+  { city: "Rio de Janeiro", country: "Brésil", airports: [{ name: "Santos Dumont", code: "SBRJ" }, { name: "Galeão", code: "SBGL" }] },
+  { city: "Buenos Aires", country: "Argentine", airports: [{ name: "Jorge Newbery Aeroparque", code: "SABE" }, { name: "Ezeiza", code: "SAEZ" }] },
+  { city: "Bogotá", country: "Colombie", airports: [{ name: "El Dorado", code: "SKBO" }] },
+  { city: "Panama", country: "Panama", airports: [{ name: "Tocumen International", code: "MPTO" }] },
+  // ── Asie ──
+  { city: "Singapour", country: "Singapour", airports: [{ name: "Changi Airport", code: "WSSS" }, { name: "Seletar Airport", code: "WSSL" }] },
+  { city: "Hong Kong", country: "Chine", airports: [{ name: "Hong Kong International", code: "VHHH" }] },
+  { city: "Tokyo", country: "Japon", airports: [{ name: "Haneda", code: "RJTT" }, { name: "Narita", code: "RJAA" }] },
+  { city: "Séoul", country: "Corée du Sud", airports: [{ name: "Gimpo International", code: "RKSS" }] },
+  { city: "Shanghai", country: "Chine", airports: [{ name: "Hongqiao", code: "ZSSS" }, { name: "Pudong", code: "ZSPD" }] },
+  { city: "Pékin", country: "Chine", airports: [{ name: "Capital International", code: "ZBAA" }, { name: "Daxing", code: "ZBAD" }] },
+  { city: "Mumbai", country: "Inde", airports: [{ name: "Chhatrapati Shivaji Maharaj", code: "VABB" }] },
+  { city: "New Delhi", country: "Inde", airports: [{ name: "Indira Gandhi International", code: "VIDP" }] },
+  { city: "Bangkok", country: "Thaïlande", airports: [{ name: "Don Mueang", code: "VTBD" }, { name: "Suvarnabhumi", code: "VTBS" }] },
+  { city: "Bali", country: "Indonésie", airports: [{ name: "Ngurah Rai International", code: "WADD" }] },
+  { city: "Kuala Lumpur", country: "Malaisie", airports: [{ name: "Sultan Abdul Aziz Shah", code: "WMSA" }, { name: "KLIA", code: "WMKK" }] },
+  // ── Océanie ──
+  { city: "Sydney", country: "Australie", airports: [{ name: "Sydney Kingsford Smith", code: "YSSY" }, { name: "Bankstown", code: "YSBK" }] },
+  { city: "Melbourne", country: "Australie", airports: [{ name: "Essendon Fields", code: "YMEN" }, { name: "Melbourne Tullamarine", code: "YMML" }] },
+  { city: "Auckland", country: "Nouvelle-Zélande", airports: [{ name: "Auckland Airport", code: "NZAA" }] },
+];
 
 /* ============================================
    ICONS
@@ -179,6 +414,181 @@ function CheckCircleIcon() {
       <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
       <polyline points="22 4 12 14.01 9 11.01" />
     </svg>
+  );
+}
+
+/* ============================================
+   CITY AUTOCOMPLETE COMPONENT
+   ============================================ */
+function CityAutocomplete({
+  value,
+  onChange,
+  placeholder,
+  label,
+}: {
+  value: string;
+  onChange: (val: string) => void;
+  placeholder: string;
+  label: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const suggestions = useMemo(() => {
+    if (!value || value.length < 1) return [];
+    const q = value.toLowerCase();
+    return CITIES_DB.filter(
+      (c) =>
+        c.city.toLowerCase().includes(q) ||
+        c.country.toLowerCase().includes(q) ||
+        c.airports.some(
+          (a) =>
+            a.name.toLowerCase().includes(q) ||
+            a.code.toLowerCase().includes(q)
+        )
+    ).slice(0, 8);
+  }, [value]);
+
+  const handleClickOutside = useCallback((e: MouseEvent) => {
+    if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+      setOpen(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [handleClickOutside]);
+
+  const selectCity = (city: string) => {
+    onChange(city);
+    setOpen(false);
+  };
+
+  return (
+    <div ref={wrapperRef} style={{ position: 'relative' }}>
+      <label style={labelStyle}>{label}</label>
+      <input
+        type="text"
+        placeholder={placeholder}
+        value={value}
+        onChange={(e) => {
+          onChange(e.target.value);
+          setOpen(true);
+        }}
+        onFocus={(e) => {
+          setFocused(true);
+          e.currentTarget.style.borderColor = 'rgba(244,221,195,0.4)';
+          if (value.length >= 1) setOpen(true);
+        }}
+        onBlur={(e) => {
+          setFocused(false);
+          e.currentTarget.style.borderColor = 'rgba(244,221,195,0.12)';
+        }}
+        style={inputStyle}
+        autoComplete="off"
+      />
+      <AnimatePresence>
+        {open && suggestions.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.2 }}
+            style={{
+              position: 'absolute',
+              top: '100%',
+              left: 0,
+              right: 0,
+              zIndex: 50,
+              marginTop: '4px',
+              backgroundColor: '#0E202D',
+              border: '1px solid rgba(244,221,195,0.15)',
+              maxHeight: '280px',
+              overflowY: 'auto',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+            }}
+            className="scrollbar-hide"
+          >
+            {suggestions.map((entry) => (
+              <button
+                key={entry.city}
+                type="button"
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  selectCity(entry.city);
+                }}
+                style={{
+                  width: '100%',
+                  display: 'block',
+                  padding: '12px 16px',
+                  textAlign: 'left',
+                  background: 'transparent',
+                  border: 'none',
+                  borderBottom: '1px solid rgba(244,221,195,0.06)',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.2s ease',
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(244,221,195,0.06)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent';
+                }}
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
+                        fontWeight: 500,
+                        fontSize: '14px',
+                        color: '#FFFFFF',
+                      }}
+                    >
+                      {entry.city}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
+                        fontWeight: 300,
+                        fontSize: '12px',
+                        color: '#6B6B6B',
+                        marginLeft: '8px',
+                      }}
+                    >
+                      {entry.country}
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="flex flex-wrap gap-2 mt-1"
+                >
+                  {entry.airports.map((apt) => (
+                    <span
+                      key={apt.code}
+                      style={{
+                        fontFamily: 'var(--font-montserrat), Montserrat, sans-serif',
+                        fontWeight: 400,
+                        fontSize: '11px',
+                        color: '#F4DDC3',
+                        backgroundColor: 'rgba(244,221,195,0.08)',
+                        padding: '2px 8px',
+                        borderRadius: '2px',
+                        letterSpacing: '0.03em',
+                      }}
+                    >
+                      {apt.code} — {apt.name}
+                    </span>
+                  ))}
+                </div>
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
 
@@ -650,32 +1060,20 @@ function FilterAndListingSection() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
               {/* Departure */}
-              <div>
-                <label style={labelStyle}>Départ</label>
-                <input
-                  type="text"
-                  placeholder="Ville de départ"
-                  value={departure}
-                  onChange={(e) => setDeparture(e.target.value)}
-                  style={inputStyle}
-                  onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.4)'; }}
-                  onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.12)'; }}
-                />
-              </div>
+              <CityAutocomplete
+                value={departure}
+                onChange={setDeparture}
+                placeholder="Ville de départ"
+                label="Départ"
+              />
 
               {/* Arrival */}
-              <div>
-                <label style={labelStyle}>Arrivée</label>
-                <input
-                  type="text"
-                  placeholder="Ville d'arrivée"
-                  value={arrival}
-                  onChange={(e) => setArrival(e.target.value)}
-                  style={inputStyle}
-                  onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.4)'; }}
-                  onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.12)'; }}
-                />
-              </div>
+              <CityAutocomplete
+                value={arrival}
+                onChange={setArrival}
+                placeholder="Ville d'arrivée"
+                label="Arrivée"
+              />
 
               {/* Date from */}
               <div>
