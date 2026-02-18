@@ -241,11 +241,9 @@ function formatDateShort(dateStr: string): string {
 }
 
 /* ============================================
-   UNIQUE CATEGORIES
+   SEAT OPTIONS
    ============================================ */
-const categories = Array.from(
-  new Set(emptyLegs.map((el) => el.category))
-).sort();
+const seatOptions = [2, 4, 6, 8, 10, 12];
 
 /* ============================================
    HERO SECTION
@@ -538,7 +536,7 @@ function FilterAndListingSection() {
   const [arrival, setArrival] = useState('');
   const [dateFrom, setDateFrom] = useState('');
   const [dateTo, setDateTo] = useState('');
-  const [category, setCategory] = useState('');
+  const [minSeats, setMinSeats] = useState('');
   const [maxBudget, setMaxBudget] = useState('');
 
   const filteredLegs = useMemo(() => {
@@ -561,7 +559,7 @@ function FilterAndListingSection() {
       if (dateTo && leg.date > dateTo) {
         return false;
       }
-      if (category && leg.category !== category) {
+      if (minSeats && leg.seats < Number(minSeats)) {
         return false;
       }
       if (maxBudget && leg.emptyLegPrice > Number(maxBudget)) {
@@ -569,18 +567,18 @@ function FilterAndListingSection() {
       }
       return true;
     });
-  }, [departure, arrival, dateFrom, dateTo, category, maxBudget]);
+  }, [departure, arrival, dateFrom, dateTo, minSeats, maxBudget]);
 
   const resetFilters = () => {
     setDeparture('');
     setArrival('');
     setDateFrom('');
     setDateTo('');
-    setCategory('');
+    setMinSeats('');
     setMaxBudget('');
   };
 
-  const hasFilters = departure || arrival || dateFrom || dateTo || category || maxBudget;
+  const hasFilters = departure || arrival || dateFrom || dateTo || minSeats || maxBudget;
 
   return (
     <section
@@ -692,12 +690,12 @@ function FilterAndListingSection() {
                 />
               </div>
 
-              {/* Category */}
+              {/* Min seats */}
               <div>
-                <label style={labelStyle}>Catégorie</label>
+                <label style={labelStyle}>Places minimum</label>
                 <select
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
+                  value={minSeats}
+                  onChange={(e) => setMinSeats(e.target.value)}
                   style={{
                     ...inputStyle,
                     appearance: 'none',
@@ -710,8 +708,8 @@ function FilterAndListingSection() {
                   onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.12)'; }}
                 >
                   <option value="">Toutes</option>
-                  {categories.map((cat) => (
-                    <option key={cat} value={cat}>{cat}</option>
+                  {seatOptions.map((n) => (
+                    <option key={n} value={n}>{n}+ places</option>
                   ))}
                 </select>
               </div>
