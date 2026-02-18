@@ -129,10 +129,10 @@ export default function AircraftPageClient({
       </AnimatePresence>
 
       {/* ====== HERO ====== */}
-      <section style={{ position: "relative", minHeight: "clamp(420px, 65vh, 720px)", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
+      <section style={{ position: "relative", minHeight: "clamp(350px, 55vh, 720px)", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
         {/* Background image */}
         <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-          <Image src={heroImg} alt={aircraft.name} fill style={{ objectFit: "cover" }} priority />
+          <Image src={heroImg} alt={aircraft.name} fill style={{ objectFit: "cover", objectPosition: "center 30%" }} priority />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(14,32,45,0.95) 0%, rgba(14,32,45,0.4) 40%, rgba(14,32,45,0.6) 100%)" }} />
         </div>
 
