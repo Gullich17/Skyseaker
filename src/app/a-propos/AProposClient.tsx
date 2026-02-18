@@ -259,16 +259,30 @@ function TimelineItem({
         isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
       }`}
     >
+      {/* Mobile year badge next to dot */}
+      <div className="md:hidden absolute left-10 top-0 flex items-center" style={{ height: '12px' }}>
+        <span
+          style={{
+            fontSize: '13px',
+            fontFamily: 'var(--font-cormorant)',
+            fontWeight: 600,
+            color: '#F4DDC3',
+          }}
+        >
+          {year}
+        </span>
+      </div>
+
       {/* Content */}
       <div
-        className={`ml-12 md:ml-0 md:w-[calc(50%-40px)] ${
+        className={`ml-12 md:ml-0 pt-6 md:pt-0 md:w-[calc(50%-40px)] ${
           isLeft ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'
         }`}
       >
         <span
+          className="hidden md:block"
           style={{
             fontSize: '14px',
-            display: 'block',
             marginBottom: '8px',
             fontFamily: 'var(--font-cormorant)',
             fontWeight: 600,
@@ -369,13 +383,14 @@ function ValuesSection() {
           }}
         >
           {values.map((v, i) => (
-            <ScrollReveal key={v.title} delay={i * 0.15}>
+            <ScrollReveal key={v.title} delay={i * 0.15} style={{ height: '100%' }}>
               <div
                 style={{
                   textAlign: 'center',
                   padding: '32px',
                   background: '#0E202D',
                   border: '1px solid #1A3448',
+                  height: '100%',
                 }}
               >
                 <div
