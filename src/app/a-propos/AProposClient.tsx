@@ -204,7 +204,7 @@ function HistorySection() {
             className="md:hidden"
             style={{
               position: 'absolute',
-              left: '16px',
+              left: '5px',
               top: 0,
               bottom: 0,
               width: '1px',
@@ -255,34 +255,20 @@ function TimelineItem({
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
-      className={`relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0 ${
+      className={`relative flex flex-col md:flex-row items-start md:items-center gap-0 ${
         isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
       }`}
     >
-      {/* Mobile year badge next to dot */}
-      <div className="md:hidden absolute left-10 top-0 flex items-center" style={{ height: '12px' }}>
-        <span
-          style={{
-            fontSize: '13px',
-            fontFamily: 'var(--font-cormorant)',
-            fontWeight: 600,
-            color: '#F4DDC3',
-          }}
-        >
-          {year}
-        </span>
-      </div>
-
       {/* Content */}
       <div
-        className={`ml-12 md:ml-0 pt-6 md:pt-0 md:w-[calc(50%-40px)] ${
+        className={`pl-10 md:pl-0 md:w-[calc(50%-40px)] ${
           isLeft ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'
         }`}
       >
         <span
-          className="hidden md:block"
           style={{
             fontSize: '14px',
+            display: 'block',
             marginBottom: '8px',
             fontFamily: 'var(--font-cormorant)',
             fontWeight: 600,
@@ -316,7 +302,7 @@ function TimelineItem({
       </div>
 
       {/* Dot */}
-      <div className="absolute left-4 md:left-1/2 top-0 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2">
+      <div className="absolute left-0 md:left-1/2 top-1 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
         <motion.div
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
