@@ -2,131 +2,131 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Conditions Générales de Vente",
-  description: "Conditions générales de vente de Skyseaker. Modalités de réservation, d'annulation, de paiement et responsabilités pour vos vols en jet privé.",
+  title: "General Terms and Conditions of Sale",
+  description: "General terms and conditions of sale for Skyseaker. Booking, cancellation, payment terms and liability for your private jet flights.",
 };
 
 export default function ConditionsGeneralesPage() {
   const sections = [
     {
-      title: "1. Objet",
+      title: "1. Purpose",
       content: [
-        "Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre Skyseaker SAS (ci-après « Skyseaker ») et toute personne physique ou morale (ci-après « le Client ») souhaitant bénéficier des services de courtage en aviation privée proposés par Skyseaker.",
-        "Skyseaker agit en qualité de courtier aérien et met en relation le Client avec des opérateurs aériens détenteurs d'un AOC (Air Operator Certificate) en vigueur.",
+        "These General Terms and Conditions of Sale (GTC) govern the contractual relationship between Skyseaker SAS (hereinafter \"Skyseaker\") and any individual or legal entity (hereinafter \"the Client\") wishing to use the private aviation brokerage services offered by Skyseaker.",
+        "Skyseaker acts as an air charter broker and connects the Client with air operators holding a valid AOC (Air Operator Certificate).",
       ],
     },
     {
-      title: "2. Services proposés",
+      title: "2. Services Offered",
       content: [
-        "Skyseaker propose les services suivants :",
+        "Skyseaker offers the following services:",
       ],
       list: [
-        "Affrètement de jets privés et hélicoptères",
-        "Commercialisation de vols à vide (empty legs)",
-        "Organisation de voyages de groupe",
-        "Service de fret aérien urgent",
-        "Conciergerie et services lifestyle",
-        "Transferts VIP",
-        "Gestion d'appareils",
-        "Conseil en achat et vente d'avions",
+        "Chartering of private jets and helicopters",
+        "Sale of empty leg flights",
+        "Group travel organization",
+        "Urgent air freight service",
+        "Concierge and lifestyle services",
+        "VIP transfers",
+        "Aircraft management",
+        "Aircraft acquisition and sales consulting",
       ],
     },
     {
-      title: "3. Demande de devis et réservation",
+      title: "3. Quote Request and Booking",
       content: [
-        "Le Client peut soumettre une demande de devis via le formulaire en ligne, par téléphone ou par email. Le devis est fourni à titre informatif et n'engage Skyseaker qu'après confirmation écrite.",
-        "La réservation est considérée comme ferme et définitive après :",
-        "1. Acceptation écrite du devis par le Client (email, signature électronique ou manuscrite).",
-        "2. Réception du paiement de l'acompte selon les conditions spécifiées dans le devis.",
-        "Skyseaker se réserve le droit de refuser une réservation sans avoir à justifier sa décision.",
+        "The Client may submit a quote request via the online form, by phone or by email. The quote is provided for informational purposes and is only binding on Skyseaker after written confirmation.",
+        "The booking is considered firm and final after:",
+        "1. Written acceptance of the quote by the Client (email, electronic or handwritten signature).",
+        "2. Receipt of the deposit payment as specified in the quote.",
+        "Skyseaker reserves the right to refuse a booking without having to justify its decision.",
       ],
     },
     {
-      title: "4. Tarifs et paiement",
+      title: "4. Pricing and Payment",
       content: [
-        "Les prix indiqués dans les devis sont en euros, toutes taxes comprises, sauf mention contraire. Ils incluent les éléments spécifiés dans le devis (heures de vol, taxes aéroportuaires, positionnement, etc.).",
-        "Les tarifs affichés sur le site sont donnés à titre indicatif et peuvent varier en fonction de la disponibilité, de la saison et des conditions du marché.",
-        "Le paiement s'effectue par virement bancaire. Les modalités de paiement sont les suivantes :",
-        "Acompte de 100% du montant total à la réservation pour les vols de moins de 30 000 €.",
-        "Acompte de 50% à la réservation et solde 72 heures avant le vol pour les vols de plus de 30 000 €.",
-        "Les frais supplémentaires non prévus au devis initial (attente prolongée, modification d'itinéraire, catering supplémentaire, etc.) seront facturés séparément.",
+        "Prices stated in quotes are in euros, all taxes included, unless otherwise specified. They include the elements specified in the quote (flight hours, airport taxes, positioning, etc.).",
+        "Prices displayed on the website are provided for indicative purposes and may vary depending on availability, season and market conditions.",
+        "Payment is made by bank transfer. Payment terms are as follows:",
+        "100% deposit of the total amount at booking for flights under 30,000 euros.",
+        "50% deposit at booking and balance due 72 hours before the flight for flights over 30,000 euros.",
+        "Additional charges not included in the initial quote (extended waiting time, itinerary changes, additional catering, etc.) will be invoiced separately.",
       ],
     },
     {
-      title: "5. Annulation et modification",
+      title: "5. Cancellation and Modification",
       content: [
-        "En cas d'annulation par le Client, les conditions suivantes s'appliquent :",
+        "In the event of cancellation by the Client, the following conditions apply:",
       ],
       list: [
-        "Annulation plus de 72 heures avant le départ : remboursement intégral moins les frais administratifs (5% du montant total, plafonnés à 2 000 €)",
-        "Annulation entre 24 et 72 heures avant le départ : retenue de 50% du montant total",
-        "Annulation moins de 24 heures avant le départ : aucun remboursement",
-        "No-show (absence sans annulation préalable) : aucun remboursement",
+        "Cancellation more than 72 hours before departure: full refund minus administrative fees (5% of total amount, capped at 2,000 euros)",
+        "Cancellation between 24 and 72 hours before departure: 50% of total amount retained",
+        "Cancellation less than 24 hours before departure: no refund",
+        "No-show (absence without prior cancellation): no refund",
       ],
-      after: "Les modifications d'itinéraire, d'horaires ou de nombre de passagers sont possibles sous réserve de disponibilité et pourront entraîner un ajustement tarifaire.",
+      after: "Itinerary, schedule or passenger number modifications are possible subject to availability and may result in a price adjustment.",
     },
     {
-      title: "6. Annulation par Skyseaker ou l'opérateur",
+      title: "6. Cancellation by Skyseaker or the Operator",
       content: [
-        "En cas d'annulation par Skyseaker ou l'opérateur pour raisons techniques, météorologiques ou de sécurité, Skyseaker s'engage à proposer une solution alternative (avion de remplacement, report du vol) ou à procéder au remboursement intégral des sommes versées.",
-        "Skyseaker ne pourra être tenue responsable des conséquences indirectes de l'annulation (frais d'hôtel, événements manqués, etc.).",
-      ],
-    },
-    {
-      title: "7. Responsabilité",
-      content: [
-        "Skyseaker agit en qualité de courtier aérien et n'est pas un transporteur aérien. La responsabilité du transport incombe exclusivement à l'opérateur aérien.",
-        "Skyseaker s'engage à sélectionner des opérateurs disposant de toutes les certifications requises (AOC, assurances) et respectant les normes de sécurité les plus strictes.",
-        "La responsabilité de Skyseaker est limitée au montant des commissions perçues au titre de la prestation concernée, sauf faute lourde ou intentionnelle.",
+        "In the event of cancellation by Skyseaker or the operator for technical, meteorological or safety reasons, Skyseaker commits to offering an alternative solution (replacement aircraft, flight rescheduling) or to providing a full refund of all amounts paid.",
+        "Skyseaker cannot be held liable for indirect consequences of the cancellation (hotel costs, missed events, etc.).",
       ],
     },
     {
-      title: "8. Assurance",
+      title: "7. Liability",
       content: [
-        "L'ensemble des vols organisés par Skyseaker sont couverts par l'assurance responsabilité civile de l'opérateur aérien, conformément aux exigences réglementaires en vigueur.",
-        "Skyseaker recommande au Client de souscrire une assurance voyage complémentaire couvrant les risques d'annulation, de perte de bagages et de responsabilité civile personnelle.",
+        "Skyseaker acts as an air charter broker and is not an air carrier. Liability for transportation lies exclusively with the air operator.",
+        "Skyseaker commits to selecting operators that hold all required certifications (AOC, insurance) and comply with the strictest safety standards.",
+        "Skyseaker's liability is limited to the amount of commissions received for the service in question, except in cases of gross negligence or willful misconduct.",
       ],
     },
     {
-      title: "9. Documents de voyage",
+      title: "8. Insurance",
       content: [
-        "Le Client est responsable de la validité de ses documents de voyage (passeport, visa, carte d'identité) ainsi que du respect des formalités d'entrée et de sortie du territoire des pays concernés.",
-        "Skyseaker peut assister le Client dans ses démarches administratives (overflight permits, slots aéroportuaires) mais ne saurait être tenue responsable en cas de refus d'embarquement ou d'entrée sur un territoire.",
+        "All flights organized by Skyseaker are covered by the air operator's civil liability insurance, in accordance with applicable regulatory requirements.",
+        "Skyseaker recommends that the Client take out supplementary travel insurance covering cancellation risks, lost luggage and personal civil liability.",
       ],
     },
     {
-      title: "10. Bagages",
+      title: "9. Travel Documents",
       content: [
-        "La capacité bagages varie selon le type d'appareil et est précisée dans le devis. Le Client s'engage à respecter les limitations de poids et de volume indiquées.",
-        "Le transport de matières dangereuses, d'armes et de substances illicites est strictement interdit.",
+        "The Client is responsible for the validity of their travel documents (passport, visa, identity card) as well as compliance with entry and exit formalities for the countries concerned.",
+        "Skyseaker may assist the Client with administrative procedures (overflight permits, airport slots) but cannot be held liable in the event of denied boarding or entry to a territory.",
       ],
     },
     {
-      title: "11. Force majeure",
+      title: "10. Luggage",
       content: [
-        "Skyseaker ne pourra être tenue responsable de l'inexécution totale ou partielle de ses obligations si cette inexécution résulte d'un cas de force majeure au sens de l'article 1218 du Code civil.",
-        "Sont notamment considérés comme cas de force majeure : les conditions météorologiques extrêmes, les fermetures d'espace aérien, les grèves, les conflits armés, les épidémies, les actes de terrorisme et les décisions des autorités publiques.",
+        "Luggage capacity varies depending on the type of aircraft and is specified in the quote. The Client agrees to comply with the weight and volume limitations indicated.",
+        "The transport of hazardous materials, weapons and illicit substances is strictly prohibited.",
       ],
     },
     {
-      title: "12. Réclamations",
+      title: "11. Force Majeure",
       content: [
-        "Toute réclamation doit être adressée par écrit à Skyseaker dans un délai de 30 jours suivant la date du vol concerné.",
-        "Email : reclamations@skyseaker.com",
-        "Courrier : Skyseaker SAS, Service Réclamations, 8 Avenue de l'Opéra, 75001 Paris, France.",
+        "Skyseaker cannot be held liable for total or partial failure to fulfill its obligations if such failure results from a force majeure event as defined by Article 1218 of the French Civil Code.",
+        "Force majeure events include, but are not limited to: extreme weather conditions, airspace closures, strikes, armed conflicts, epidemics, acts of terrorism and decisions by public authorities.",
       ],
     },
     {
-      title: "13. Médiation",
+      title: "12. Complaints",
       content: [
-        "En cas de litige non résolu à l'amiable, le Client peut recourir gratuitement au service de médiation de la consommation. Le médiateur compétent est le Médiateur du Tourisme et du Voyage (MTV).",
-        "Site web : www.mtv.travel",
+        "Any complaint must be submitted in writing to Skyseaker within 30 days following the date of the flight in question.",
+        "Email: reclamations@skyseaker.com",
+        "Mail: Skyseaker SAS, Complaints Department, 8 Avenue de l'Opera, 75001 Paris, France.",
       ],
     },
     {
-      title: "14. Droit applicable et juridiction compétente",
+      title: "13. Mediation",
       content: [
-        "Les présentes CGV sont soumises au droit français. Tout litige relatif à leur interprétation ou à leur exécution relève de la compétence exclusive des tribunaux de Paris, France.",
+        "In the event of a dispute that cannot be resolved amicably, the Client may use the consumer mediation service free of charge. The competent mediator is the Tourism and Travel Mediator (MTV).",
+        "Website: www.mtv.travel",
+      ],
+    },
+    {
+      title: "14. Applicable Law and Jurisdiction",
+      content: [
+        "These GTC are governed by French law. Any dispute relating to their interpretation or execution falls under the exclusive jurisdiction of the courts of Paris, France.",
       ],
     },
   ];
@@ -136,13 +136,13 @@ export default function ConditionsGeneralesPage() {
       <section className="pt-32 pb-12" style={{ background: "#0E202D" }}>
         <div className="px-[5vw] text-center" style={{ maxWidth: "1400px", margin: "0 auto" }}>
           <p className="text-[12px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-4" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>
-            CONDITIONS CONTRACTUELLES
+            CONTRACTUAL TERMS
           </p>
           <h1 className="text-[36px] md:text-[48px] mb-4" style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF" }}>
-            Conditions Générales de Vente
+            General Terms and Conditions of Sale
           </h1>
           <p className="text-[14px] text-[#6B6B6B]" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
-            Dernière mise à jour : février 2026
+            Last updated: February 2026
           </p>
         </div>
       </section>
@@ -192,14 +192,14 @@ export default function ConditionsGeneralesPage() {
 
           <div className="mt-16 p-8" style={{ background: "#132A3A", border: "1px solid #1A3448" }}>
             <p className="text-[14px] text-[#A0A0A0] mb-4" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
-              Voir aussi :
+              See also:
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/mentions-legales" className="text-[13px] text-[#F4DDC3] hover:text-[#F4DDC3] transition-colors" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400 }}>
-                Mentions Légales →
+                Legal Notice →
               </Link>
               <Link href="/politique-confidentialite" className="text-[13px] text-[#F4DDC3] hover:text-[#F4DDC3] transition-colors" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400 }}>
-                Politique de Confidentialité →
+                Privacy Policy →
               </Link>
             </div>
           </div>

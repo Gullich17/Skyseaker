@@ -273,7 +273,7 @@ function DescriptionSection({ service }: { service: Service }) {
                       marginBottom: '16px',
                     }}
                   >
-                    Présentation
+                    Overview
                   </p>
                   <div
                     style={{
@@ -326,8 +326,8 @@ function AdvantagesSection({ service }: { service: Service }) {
         }}
       >
         <SectionTitle
-          preTitle="Pourquoi nous choisir"
-          title="Les avantages"
+          preTitle="Why Choose Us"
+          title="Advantages"
           centered
           mb="64px"
         />
@@ -439,8 +439,8 @@ function ProcessSection({ service }: { service: Service }) {
         }}
       >
         <SectionTitle
-          preTitle="Comment ça fonctionne"
-          title="Le processus"
+          preTitle="How It Works"
+          title="The Process"
           centered
           mb="64px"
         />
@@ -643,7 +643,7 @@ function FaqSection({ service }: { service: Service }) {
         }}
       >
         <SectionTitle
-          preTitle="Questions fréquentes"
+          preTitle="Frequently Asked Questions"
           title="FAQ"
           centered
           mb="48px"
@@ -729,7 +729,7 @@ function CtaSection({ service }: { service: Service }) {
               marginBottom: '16px',
             }}
           >
-            Prêt à décoller&nbsp;?
+            Ready for Takeoff?
           </h2>
           <p
             style={{
@@ -740,8 +740,8 @@ function CtaSection({ service }: { service: Service }) {
               marginBottom: '40px',
             }}
           >
-            Contactez-nous pour obtenir un devis personnalisé sous 30
-            minutes. Disponible 24h/24 et 7j/7.
+            Contact us for a personalized quote within 30
+            minutes. Available 24/7.
           </p>
           <div
             style={{
@@ -753,10 +753,10 @@ function CtaSection({ service }: { service: Service }) {
             }}
           >
             <Button href="/devis" variant="primary" size="lg">
-              Demander un devis
+              Request a Quote
             </Button>
             <Button href="tel:+33676765511" variant="secondary" size="lg">
-              Nous appeler
+              Call Us
             </Button>
           </div>
           <p
@@ -768,7 +768,7 @@ function CtaSection({ service }: { service: Service }) {
               color: '#6B6B6B',
             }}
           >
-            Réponse sous 30 minutes &bull; Disponible 24/7
+            Response within 30 minutes &bull; Available 24/7
           </p>
         </ScrollReveal>
       </div>

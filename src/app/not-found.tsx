@@ -99,7 +99,7 @@ export default function NotFound() {
             marginBottom: "16px",
           }}
         >
-          Destination introuvable
+          Destination Not Found
         </motion.h1>
 
         {/* Subtitle */}
@@ -115,7 +115,7 @@ export default function NotFound() {
             marginBottom: "12px",
           }}
         >
-          La page que vous recherchez semble avoir pris son envol
+          The page you&apos;re looking for seems to have taken flight
         </motion.p>
 
         <motion.p
@@ -130,8 +130,7 @@ export default function NotFound() {
             marginBottom: "40px",
           }}
         >
-          Vérifiez l&apos;URL ou laissez-nous vous guider vers votre prochaine
-          destination.
+          Check the URL or let us guide you to your next destination.
         </motion.p>
 
         {/* Decorative line */}
@@ -183,7 +182,7 @@ export default function NotFound() {
               e.currentTarget.style.color = "#F4DDC3";
             }}
           >
-            Retour à l&apos;accueil
+            Back to Home
           </Link>
           <Link
             href="/devis"
@@ -207,7 +206,7 @@ export default function NotFound() {
               e.currentTarget.style.color = "#FFFFFF";
             }}
           >
-            Demander un devis
+            Request a Quote
           </Link>
         </motion.div>
 
@@ -229,7 +228,7 @@ export default function NotFound() {
               color: "#6B6B6B",
             }}
           >
-            Pages populaires
+            Popular Pages
           </p>
           <div
             style={{
@@ -240,8 +239,8 @@ export default function NotFound() {
             }}
           >
             {[
-              { label: "Nos Services", href: "/services" },
-              { label: "Notre Flotte", href: "/flotte" },
+              { label: "Our Services", href: "/services" },
+              { label: "Our Fleet", href: "/flotte" },
               { label: "Yachts", href: "/yachts" },
               { label: "Destinations", href: "/destinations" },
               { label: "Empty Legs", href: "/empty-legs" },

@@ -6,7 +6,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    nom: "", prenom: "", email: "", telephone: "", sujet: "devis", message: "",
+    lastName: "", firstName: "", email: "", phone: "", subject: "quote", message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -14,11 +14,11 @@ export default function ContactPage() {
     // Handle form submission
   };
 
-  const bureaux = [
+  const offices = [
     { city: "Paris", address: "Avenue des Champs-Élysées, 75008 Paris", phone: "+33 1 00 00 00 00" },
     { city: "Monaco", address: "Boulevard des Moulins, 98000 Monaco", phone: "+377 00 00 00 00" },
-    { city: "Genève", address: "Rue du Rhône, 1204 Genève", phone: "+41 00 000 00 00" },
-    { city: "Dubaï", address: "DIFC, Sheikh Zayed Road, Dubai", phone: "+971 0 000 0000" },
+    { city: "Geneva", address: "Rue du Rhône, 1204 Geneva", phone: "+41 00 000 00 00" },
+    { city: "Dubai", address: "DIFC, Sheikh Zayed Road, Dubai", phone: "+971 0 000 0000" },
   ];
 
   return (
@@ -26,7 +26,7 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="pt-32 pb-20" style={{ background: "#0E202D" }}>
         <div className="px-[5vw] text-center" style={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <SectionTitle preTitle="CONTACT" title="Parlons de votre prochain vol" subtitle="Notre équipe est à votre disposition 24h/24 pour répondre à toutes vos questions" centered />
+          <SectionTitle preTitle="CONTACT" title="Let's talk about your next flight" subtitle="Our team is available 24/7 to answer all your questions" centered />
         </div>
       </section>
 
@@ -39,13 +39,13 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0", fontFamily: "var(--font-montserrat)", fontWeight: 500, marginBottom: "8px" }}>Nom</label>
-                    <input type="text" value={formData.nom} onChange={(e) => setFormData({ ...formData, nom: e.target.value })} required
+                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0", fontFamily: "var(--font-montserrat)", fontWeight: 500, marginBottom: "8px" }}>Last Name</label>
+                    <input type="text" value={formData.lastName} onChange={(e) => setFormData({ ...formData, lastName: e.target.value })} required
                       className="w-full" />
                   </div>
                   <div>
-                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0", fontFamily: "var(--font-montserrat)", fontWeight: 500, marginBottom: "8px" }}>Prénom</label>
-                    <input type="text" value={formData.prenom} onChange={(e) => setFormData({ ...formData, prenom: e.target.value })} required
+                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0", fontFamily: "var(--font-montserrat)", fontWeight: 500, marginBottom: "8px" }}>First Name</label>
+                    <input type="text" value={formData.firstName} onChange={(e) => setFormData({ ...formData, firstName: e.target.value })} required
                       className="w-full" />
                   </div>
                 </div>
@@ -56,20 +56,20 @@ export default function ContactPage() {
                       className="w-full" />
                   </div>
                   <div>
-                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0", fontFamily: "var(--font-montserrat)", fontWeight: 500, marginBottom: "8px" }}>Téléphone</label>
-                    <input type="tel" value={formData.telephone} onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
+                    <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0", fontFamily: "var(--font-montserrat)", fontWeight: 500, marginBottom: "8px" }}>Phone</label>
+                    <input type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full" />
                   </div>
                 </div>
                 <div>
-                  <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0", fontFamily: "var(--font-montserrat)", fontWeight: 500, marginBottom: "8px" }}>Sujet</label>
-                  <select value={formData.sujet} onChange={(e) => setFormData({ ...formData, sujet: e.target.value })}
+                  <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0", fontFamily: "var(--font-montserrat)", fontWeight: 500, marginBottom: "8px" }}>Subject</label>
+                  <select value={formData.subject} onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full">
-                    <option value="devis" style={{ background: "#132A3A" }}>Demande de devis</option>
-                    <option value="partenariat" style={{ background: "#132A3A" }}>Partenariat</option>
-                    <option value="presse" style={{ background: "#132A3A" }}>Presse</option>
-                    <option value="recrutement" style={{ background: "#132A3A" }}>Recrutement</option>
-                    <option value="autre" style={{ background: "#132A3A" }}>Autre</option>
+                    <option value="quote" style={{ background: "#132A3A" }}>Quote Request</option>
+                    <option value="partnership" style={{ background: "#132A3A" }}>Partnership</option>
+                    <option value="press" style={{ background: "#132A3A" }}>Press</option>
+                    <option value="careers" style={{ background: "#132A3A" }}>Careers</option>
+                    <option value="other" style={{ background: "#132A3A" }}>Other</option>
                   </select>
                 </div>
                 <div>
@@ -93,7 +93,7 @@ export default function ContactPage() {
                     cursor: "pointer",
                     boxShadow: "0 4px 20px rgba(244,221,195,0.3)",
                   }}>
-                  Envoyer
+                  Send
                 </button>
               </form>
             </ScrollReveal>
@@ -103,7 +103,7 @@ export default function ContactPage() {
               <div className="space-y-10">
                 {/* Direct Contact */}
                 <div>
-                  <h3 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600 }}>Contact direct</h3>
+                  <h3 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600 }}>Direct Contact</h3>
                   <div className="space-y-4">
                     <a href="tel:+33100000000" className="flex items-center gap-3 text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors">
                       <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
@@ -119,15 +119,15 @@ export default function ContactPage() {
                     </a>
                   </div>
                   <p className="text-[12px] text-[#6B6B6B] mt-4" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
-                    Disponible 24h/24, 7j/7
+                    Available 24/7
                   </p>
                 </div>
 
                 {/* Offices */}
                 <div>
-                  <h3 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600 }}>Nos bureaux</h3>
+                  <h3 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600 }}>Our Offices</h3>
                   <div className="space-y-6">
-                    {bureaux.map((b) => (
+                    {offices.map((b) => (
                       <div key={b.city}>
                         <h4 className="text-[15px] text-[#FFFFFF] mb-1" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>{b.city}</h4>
                         <p className="text-[13px] text-[#6B6B6B]" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>{b.address}</p>
@@ -140,7 +140,7 @@ export default function ContactPage() {
                 {/* Map placeholder */}
                 <div className="aspect-[4/3] relative" style={{ background: "#1A3448", border: "1px solid #1A3448" }}>
                   <div className="absolute inset-0 flex items-center justify-center text-[#6B6B6B] text-sm">
-                    [Google Maps — Style sombre]
+                    [Google Maps — Dark Style]
                   </div>
                 </div>
               </div>

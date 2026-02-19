@@ -29,46 +29,45 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: "Skyseaker — Location de Jet Privé | Aviation d'Affaires de Luxe",
-    template: "%s | Skyseaker — Aviation Privée",
+    default: "Skyseaker — Private Jet Charter | Luxury Business Aviation",
+    template: "%s | Skyseaker — Private Aviation",
   },
   description:
-    "Skyseaker, votre partenaire en aviation privée de luxe. Affrètement de jet privé, vols à vide, conciergerie et expériences exclusives. Disponible 24/7 avec plus de 8 500 appareils.",
+    "Skyseaker, your luxury private aviation partner. Private jet charter, empty legs, concierge services and exclusive experiences. Available 24/7 with over 8,500 aircraft.",
   keywords: [
-    "jet privé",
-    "location jet privé",
-    "aviation privée",
-    "affrètement",
-    "charter avion",
-    "vol privé",
+    "private jet",
+    "private jet charter",
+    "private aviation",
+    "charter",
+    "aircraft charter",
+    "private flight",
     "empty leg",
-    "vol à vide",
-    "avion privé luxe",
+    "empty leg flights",
+    "luxury private jet",
   ],
   metadataBase: new URL("https://skyseaker.com"),
   openGraph: {
     type: "website",
-    locale: "fr_FR",
+    locale: "en_US",
     url: "https://skyseaker.com",
     siteName: "Skyseaker",
-    title: "Skyseaker — Location de Jet Privé | Aviation d'Affaires de Luxe",
+    title: "Skyseaker — Private Jet Charter | Luxury Business Aviation",
     description:
-      "Votre partenaire en aviation privée de luxe. Plus de 8 500 appareils certifiés. Disponible 24/7.",
-    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630, alt: "Skyseaker Aviation Privée" }],
+      "Your luxury private aviation partner. Over 8,500 certified aircraft. Available 24/7.",
+    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630, alt: "Skyseaker Private Aviation" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Skyseaker — Location de Jet Privé",
-    description: "Aviation privée de luxe. 8 500+ appareils. Disponible 24/7.",
+    title: "Skyseaker — Private Jet Charter",
+    description: "Luxury private aviation. 8,500+ aircraft. Available 24/7.",
     images: ["/images/og-image.jpg"],
   },
   robots: { index: true, follow: true },
   alternates: {
     canonical: "https://skyseaker.com",
     languages: {
-      "fr-FR": "https://skyseaker.com/fr",
       "en-US": "https://skyseaker.com/en",
-      "ar-SA": "https://skyseaker.com/ar",
+      "fr-FR": "https://skyseaker.com/fr",
     },
   },
 };
@@ -79,7 +78,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="en">
       <head>
         <script
           type="application/ld+json"
@@ -90,12 +89,12 @@ export default function RootLayout({
               name: "Skyseaker",
               url: "https://skyseaker.com",
               logo: "https://skyseaker.com/images/logo.svg",
-              description: "Location de jet privé et aviation d'affaires de luxe",
+              description: "Private jet charter and luxury business aviation",
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+33-1-00-00-00-00",
                 contactType: "customer service",
-                availableLanguage: ["French", "English", "Arabic"],
+                availableLanguage: ["English", "French"],
                 areaServed: "Worldwide",
               },
               sameAs: [

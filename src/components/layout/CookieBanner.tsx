@@ -37,8 +37,8 @@ export default function CookieBanner() {
         >
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4" style={{ maxWidth: "1400px", margin: "0 auto" }}>
             <p className="text-[13px] text-[#A0A0A0] max-w-2xl" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
-              Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant, vous acceptez notre{" "}
-              <a href="/politique-confidentialite" className="text-[#F4DDC3] hover:underline">politique de confidentialité</a>.
+              We use cookies to improve your experience on our site. By continuing, you accept our{" "}
+              <a href="/politique-confidentialite" className="text-[#F4DDC3] hover:underline">privacy policy</a>.
             </p>
             <div className="flex items-center gap-3 shrink-0">
               <button
@@ -51,7 +51,7 @@ export default function CookieBanner() {
                   fontWeight: 600,
                 }}
               >
-                Personnaliser
+                Customize
               </button>
               <button
                 onClick={handleAccept}
@@ -63,7 +63,7 @@ export default function CookieBanner() {
                   fontWeight: 600,
                 }}
               >
-                Accepter
+                Accept
               </button>
             </div>
           </div>

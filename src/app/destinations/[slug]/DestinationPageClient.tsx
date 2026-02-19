@@ -216,10 +216,10 @@ export default function DestinationPageClient({
             style={{ display: "flex", flexWrap: "wrap", gap: "clamp(16px, 3vw, 32px)" }}
           >
             {[
-              { label: "Temps de vol depuis Paris", value: destination.flightTimeFromParis, icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" },
-              { label: "Aéroports", value: `${destination.airports.length} aéroport${destination.airports.length > 1 ? "s" : ""}`, icon: "M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12M3 20h18" },
-              { label: "Fuseau horaire", value: content.timezone, icon: "M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" },
-              { label: "À partir de", value: `${destination.priceFrom}€`, icon: "M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" },
+              { label: "Flight time from Paris", value: destination.flightTimeFromParis, icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" },
+              { label: "Airports", value: `${destination.airports.length} airport${destination.airports.length > 1 ? "s" : ""}`, icon: "M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12M3 20h18" },
+              { label: "Timezone", value: content.timezone, icon: "M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" },
+              { label: "Starting from", value: `${destination.priceFrom}€`, icon: "M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" },
             ].map((info) => (
               <div key={info.label} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                 <div style={{ width: "40px", height: "40px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, background: "rgba(244, 221, 195, 0.05)", border: "1px solid rgba(244, 221, 195, 0.2)" }}>
@@ -252,8 +252,8 @@ export default function DestinationPageClient({
             <div>
               <ScrollReveal>
                 <SectionHeader
-                  preTitle={`VOL PRIVÉ ${destination.name.toUpperCase()}`}
-                  title={`Votre vol en jet privé vers ${destination.name}`}
+                  preTitle={`PRIVATE FLIGHT ${destination.name.toUpperCase()}`}
+                  title={`Your Private Jet Flight to ${destination.name}`}
                 />
                 <div style={{ fontSize: "15px", lineHeight: 1.9, fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#A0A0A0" }}>
                   {content.seoText.split(". ").reduce<{ paragraphs: string[]; current: string }>(
@@ -279,17 +279,17 @@ export default function DestinationPageClient({
               <ScrollReveal delay={0.15}>
                 <div style={{ padding: "clamp(20px, 3vw, 24px)", backgroundColor: "#132A3A", border: "1px solid #1A3448", position: "sticky", top: "100px" }}>
                   <h3 style={{ fontSize: "14px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "24px", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F4DDC3" }}>
-                    Informations clés
+                    Key Information
                   </h3>
 
-                  <InfoRow label="Temps de vol" value={destination.flightTimeFromParis} />
-                  <InfoRow label="Fuseau horaire" value={content.timezone} />
-                  <InfoRow label="Fourchette de prix" value={`${content.priceRange}€`} gold />
-                  <InfoRow label="Région" value={destination.region} />
+                  <InfoRow label="Flight time" value={destination.flightTimeFromParis} />
+                  <InfoRow label="Timezone" value={content.timezone} />
+                  <InfoRow label="Price range" value={`${content.priceRange}€`} gold />
+                  <InfoRow label="Region" value={destination.region} />
 
                   <div style={{ marginTop: "32px" }}>
                     <Button href={`/devis?destination=${destination.id}`} variant="primary" size="sm" className="w-full">
-                      Demander un devis
+                      Request a Quote
                     </Button>
                   </div>
                 </div>
@@ -305,8 +305,8 @@ export default function DestinationPageClient({
       <section style={{ background: "#132A3A", padding: "clamp(60px, 10vw, 120px) 0" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
           <SectionHeader
-            preTitle="AÉROPORTS"
-            title={`Aéroports desservis à ${destination.name}`}
+            preTitle="AIRPORTS"
+            title={`Airports Serving ${destination.name}`}
           />
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "clamp(16px, 2vw, 24px)" }}>
             {destination.airports.map((airport, i) => (
@@ -324,7 +324,7 @@ export default function DestinationPageClient({
                     {airport.name}
                   </h4>
                   <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B", fontSize: "13px" }}>
-                    Code OACI : {airport.code}
+                    ICAO Code: {airport.code}
                   </p>
                 </div>
               </ScrollReveal>
@@ -340,8 +340,8 @@ export default function DestinationPageClient({
         <section style={{ background: "#0E202D", padding: "clamp(60px, 10vw, 120px) 0" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
             <SectionHeader
-              preTitle="APPAREILS RECOMMANDÉS"
-              title={`Les jets idéaux pour ${destination.name}`}
+              preTitle="RECOMMENDED AIRCRAFT"
+              title={`Ideal Jets for ${destination.name}`}
               centered
             />
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "clamp(16px, 2vw, 24px)" }}>
@@ -374,12 +374,12 @@ export default function DestinationPageClient({
                         <div style={{ display: "flex", alignItems: "center", gap: "16px", fontSize: "12px", fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#A0A0A0" }}>
                           <span>{aircraft.passengers} pax</span>
                           <span style={{ width: "1px", height: "12px", background: "#1A3448" }} />
-                          <span>{aircraft.range.toLocaleString("fr-FR")} km</span>
+                          <span>{aircraft.range.toLocaleString("en-US")} km</span>
                           <span style={{ width: "1px", height: "12px", background: "#1A3448" }} />
                           <span>{aircraft.speed} km/h</span>
                         </div>
                         <span style={{ display: "block", marginTop: "16px", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>
-                          Voir la fiche →
+                          View Details →
                         </span>
                       </div>
                     </div>
@@ -397,8 +397,8 @@ export default function DestinationPageClient({
       <section style={{ background: "#132A3A", padding: "clamp(60px, 10vw, 120px) 0" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", padding: "0 24px" }}>
           <SectionHeader
-            preTitle="QUESTIONS FRÉQUENTES"
-            title={`Tout savoir sur les vols vers ${destination.name}`}
+            preTitle="FREQUENTLY ASKED QUESTIONS"
+            title={`Everything About Flights to ${destination.name}`}
             centered
           />
           <div>
@@ -418,24 +418,24 @@ export default function DestinationPageClient({
         <div style={{ position: "relative", maxWidth: "800px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
           <ScrollReveal>
             <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", fontSize: "clamp(28px, 5vw, 48px)", marginBottom: "16px" }}>
-              Envolez-vous vers {destination.name}
+              Fly to {destination.name}
             </h2>
             <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", fontSize: "clamp(16px, 2.5vw, 20px)", marginBottom: "12px" }}>
               Paris → {destination.name} en {destination.flightTimeFromParis}
             </p>
             <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B", fontSize: "16px", marginBottom: "40px" }}>
-              À partir de {destination.priceFrom}€ en aller simple
+              Starting from {destination.priceFrom}€ one-way
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "16px" }}>
               <Button href={`/devis?destination=${destination.id}`} variant="primary" size="lg">
-                Réserver ce vol
+                Book This Flight
               </Button>
               <Button href="tel:+33100000000" variant="secondary">
-                Nous appeler
+                Call Us
               </Button>
             </div>
             <p style={{ marginTop: "24px", fontSize: "12px", fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B" }}>
-              Réponse sous 30 minutes &bull; Disponible 24/7
+              Response within 30 minutes &bull; Available 24/7
             </p>
           </ScrollReveal>
         </div>

@@ -123,7 +123,7 @@ function CheckboxField({ checked, onChange, label }: { checked: boolean; onChang
 /* ============================================
    MAIN FORM COMPONENT
    ============================================ */
-function DevisForm() {
+function QuoteForm() {
   const searchParams = useSearchParams();
   const [currentStep, setCurrentStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
@@ -132,66 +132,66 @@ function DevisForm() {
     // Service type
     serviceType: "aviation" as "aviation" | "yacht",
     // Aviation
-    type: "aller-simple",
-    depart: "",
+    type: "one-way",
+    departure: "",
     destination: "",
     date: "",
-    dateRetour: "",
-    passagers: "2",
-    flexibilite: false,
+    returnDate: "",
+    passengers: "2",
+    flexibility: false,
     // Yacht
-    zoneNavigation: "",
-    dateEmbarquement: "",
-    dateDebarquement: "",
-    nombreInvites: "6",
-    dureeJours: "",
+    navigationZone: "",
+    embarkationDate: "",
+    disembarkationDate: "",
+    numberOfGuests: "6",
+    durationDays: "",
     // Preferences Aviation
-    categorie: "",
+    category: "",
     catering: "standard",
-    animaux: false,
-    bagagesSpeciaux: false,
-    transfert: "aucun",
-    besoins: "",
+    pets: false,
+    specialLuggage: false,
+    transfer: "none",
+    specialNeeds: "",
     // Preferences Yacht
-    categorieYacht: "",
-    cabinesSouhaitees: "",
-    equipage: "avec",
-    activitesNautiques: [] as string[],
-    cateringYacht: "standard",
-    besoinsYacht: "",
+    yachtCategory: "",
+    desiredCabins: "",
+    crew: "with",
+    waterActivities: [] as string[],
+    yachtCatering: "standard",
+    yachtSpecialNeeds: "",
     // Contact
-    nom: "",
-    prenom: "",
+    lastName: "",
+    firstName: "",
     email: "",
-    telephone: "",
-    entreprise: "",
+    phone: "",
+    company: "",
     source: "",
-    cgv: false,
+    terms: false,
   });
 
   // URL params prefill
   useEffect(() => {
     const service = searchParams.get("service");
     const type = searchParams.get("type");
-    const depart = searchParams.get("depart");
+    const departure = searchParams.get("depart");
     const destination = searchParams.get("destination");
     const date = searchParams.get("date");
-    const dateRetour = searchParams.get("dateRetour");
-    const passagers = searchParams.get("passagers");
+    const returnDate = searchParams.get("dateRetour");
+    const passengers = searchParams.get("passagers");
     const zone = searchParams.get("zone");
 
-    if (service || type || depart || destination || date || dateRetour || passagers || zone) {
+    if (service || type || departure || destination || date || returnDate || passengers || zone) {
       setForm((prev) => ({
         ...prev,
         ...(service === "yacht" ? { serviceType: "yacht" as const } : {}),
         ...(service === "aviation" ? { serviceType: "aviation" as const } : {}),
         ...(type ? { type } : {}),
-        ...(depart ? { depart } : {}),
+        ...(departure ? { departure } : {}),
         ...(destination ? { destination } : {}),
         ...(date ? { date } : {}),
-        ...(dateRetour ? { dateRetour } : {}),
-        ...(passagers ? { passagers } : {}),
-        ...(zone ? { zoneNavigation: zone } : {}),
+        ...(returnDate ? { returnDate } : {}),
+        ...(passengers ? { passengers } : {}),
+        ...(zone ? { navigationZone: zone } : {}),
       }));
     }
   }, [searchParams]);
@@ -201,14 +201,14 @@ function DevisForm() {
   const toggleActivity = (activity: string) => {
     setForm((prev) => ({
       ...prev,
-      activitesNautiques: prev.activitesNautiques.includes(activity)
-        ? prev.activitesNautiques.filter((a) => a !== activity)
-        : [...prev.activitesNautiques, activity],
+      waterActivities: prev.waterActivities.includes(activity)
+        ? prev.waterActivities.filter((a) => a !== activity)
+        : [...prev.waterActivities, activity],
     }));
   };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [devisRef, setDevisRef] = useState("");
+  const [quoteRef, setQuoteRef] = useState("");
   const [waUrl, setWaUrl] = useState("");
 
   /* Build WhatsApp message client-side (avoids popup blocker) */
@@ -217,54 +217,54 @@ function DevisForm() {
     const ref = `SKY-${Date.now().toString().slice(-6)}`;
     const lines: string[] = [];
 
-    lines.push("🔔 *NOUVELLE DEMANDE DE DEVIS*");
-    lines.push(`📋 Réf: #${ref}`);
+    lines.push("*NEW QUOTE REQUEST*");
+    lines.push(`Ref: #${ref}`);
     lines.push("");
 
     if (form.serviceType === "yacht") {
-      lines.push("🛥️ *CHARTER NAUTIQUE*");
+      lines.push("*YACHT CHARTER*");
       lines.push("");
-      if (form.zoneNavigation) lines.push(`📍 Zone: ${form.zoneNavigation}`);
-      if (form.dateEmbarquement) lines.push(`📅 Embarquement: ${form.dateEmbarquement}`);
-      if (form.dateDebarquement) lines.push(`📅 Débarquement: ${form.dateDebarquement}`);
-      if (form.nombreInvites) lines.push(`👥 Invités: ${form.nombreInvites}`);
-      if (form.dureeJours) lines.push(`⏱️ Durée: ${form.dureeJours} jours`);
-      if (form.categorieYacht) lines.push(`🚢 Catégorie: ${form.categorieYacht}`);
-      if (form.equipage) lines.push(`👨‍✈️ Équipage: ${form.equipage}`);
-      if (form.activitesNautiques.length > 0) lines.push(`🏄 Activités: ${form.activitesNautiques.join(", ")}`);
-      if (form.cateringYacht && form.cateringYacht !== "sans") lines.push(`🍽️ Catering: ${form.cateringYacht}`);
-      if (form.besoinsYacht) lines.push(`📝 Notes: ${form.besoinsYacht}`);
+      if (form.navigationZone) lines.push(`Zone: ${form.navigationZone}`);
+      if (form.embarkationDate) lines.push(`Embarkation: ${form.embarkationDate}`);
+      if (form.disembarkationDate) lines.push(`Disembarkation: ${form.disembarkationDate}`);
+      if (form.numberOfGuests) lines.push(`Guests: ${form.numberOfGuests}`);
+      if (form.durationDays) lines.push(`Duration: ${form.durationDays} days`);
+      if (form.yachtCategory) lines.push(`Category: ${form.yachtCategory}`);
+      if (form.crew) lines.push(`Crew: ${form.crew}`);
+      if (form.waterActivities.length > 0) lines.push(`Activities: ${form.waterActivities.join(", ")}`);
+      if (form.yachtCatering && form.yachtCatering !== "without") lines.push(`Catering: ${form.yachtCatering}`);
+      if (form.yachtSpecialNeeds) lines.push(`Notes: ${form.yachtSpecialNeeds}`);
     } else {
-      lines.push("✈️ *AVIATION PRIVÉE*");
+      lines.push("*PRIVATE AVIATION*");
       lines.push("");
-      if (form.type) lines.push(`🔄 Type: ${form.type}`);
-      if (form.depart || form.destination) lines.push(`📍 Trajet: ${form.depart || "—"} → ${form.destination || "—"}`);
+      if (form.type) lines.push(`Type: ${form.type}`);
+      if (form.departure || form.destination) lines.push(`Route: ${form.departure || "—"} → ${form.destination || "—"}`);
       if (form.date) {
-        if (form.type === "aller-retour" && form.dateRetour) {
-          lines.push(`📅 Dates: ${form.date} → ${form.dateRetour}`);
+        if (form.type === "round-trip" && form.returnDate) {
+          lines.push(`Dates: ${form.date} → ${form.returnDate}`);
         } else {
-          lines.push(`📅 Date: ${form.date}`);
+          lines.push(`Date: ${form.date}`);
         }
       }
-      if (form.passagers) lines.push(`👥 Passagers: ${form.passagers}`);
-      if (form.flexibilite) lines.push("📆 Dates flexibles: Oui");
-      if (form.categorie) lines.push(`🛩️ Catégorie: ${form.categorie}`);
-      if (form.catering && form.catering !== "aucun") lines.push(`🍽️ Catering: ${form.catering}`);
-      if (form.animaux) lines.push("🐾 Animaux: Oui");
-      if (form.bagagesSpeciaux) lines.push("🧳 Bagages spéciaux: Oui");
-      if (form.transfert && form.transfert !== "aucun") lines.push(`🚗 Transfert: ${form.transfert}`);
-      if (form.besoins) lines.push(`📝 Notes: ${form.besoins}`);
+      if (form.passengers) lines.push(`Passengers: ${form.passengers}`);
+      if (form.flexibility) lines.push("Flexible dates: Yes");
+      if (form.category) lines.push(`Category: ${form.category}`);
+      if (form.catering && form.catering !== "none") lines.push(`Catering: ${form.catering}`);
+      if (form.pets) lines.push("Pets: Yes");
+      if (form.specialLuggage) lines.push("Special luggage: Yes");
+      if (form.transfer && form.transfer !== "none") lines.push(`Transfer: ${form.transfer}`);
+      if (form.specialNeeds) lines.push(`Notes: ${form.specialNeeds}`);
     }
 
     lines.push("");
-    lines.push("👤 *CONTACT*");
-    const fullName = `${form.prenom || ""} ${form.nom || ""}`.trim();
-    if (fullName) lines.push(`Nom: ${fullName}`);
+    lines.push("*CONTACT*");
+    const fullName = `${form.firstName || ""} ${form.lastName || ""}`.trim();
+    if (fullName) lines.push(`Name: ${fullName}`);
     if (form.email) lines.push(`Email: ${form.email}`);
-    if (form.telephone) lines.push(`Tél: ${form.telephone}`);
-    if (form.entreprise) lines.push(`Entreprise: ${form.entreprise}`);
+    if (form.phone) lines.push(`Phone: ${form.phone}`);
+    if (form.company) lines.push(`Company: ${form.company}`);
 
-    setDevisRef(ref);
+    setQuoteRef(ref);
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
     setWaUrl(url);
     return url;
@@ -298,8 +298,8 @@ function DevisForm() {
   };
 
   const isYacht = form.serviceType === "yacht";
-  const stepsAviation = ["Votre vol", "Vos préférences", "Vos coordonnées", "Confirmation"];
-  const stepsYacht = ["Votre croisière", "Vos préférences", "Vos coordonnées", "Confirmation"];
+  const stepsAviation = ["Your Flight", "Your Preferences", "Your Details", "Confirmation"];
+  const stepsYacht = ["Your Cruise", "Your Preferences", "Your Details", "Confirmation"];
   const steps = isYacht ? stepsYacht : stepsAviation;
 
   const fleetCats = categories.filter((c) => c.slug !== "tous");
@@ -309,26 +309,26 @@ function DevisForm() {
      ZONE OPTIONS
      ============================================ */
   const zones = [
-    { v: "mediterranee", l: "Méditerranée" },
-    { v: "caraibes", l: "Caraïbes" },
-    { v: "asie-pacifique", l: "Asie & Pacifique" },
-    { v: "nord-europe", l: "Europe du Nord" },
-    { v: "ocean-indien", l: "Océan Indien" },
-    { v: "autre", l: "Autre" },
+    { v: "mediterranean", l: "Mediterranean" },
+    { v: "caribbean", l: "Caribbean" },
+    { v: "asia-pacific", l: "Asia & Pacific" },
+    { v: "northern-europe", l: "Northern Europe" },
+    { v: "indian-ocean", l: "Indian Ocean" },
+    { v: "other", l: "Other" },
   ];
 
-  const durees = [
-    { v: "1", l: "1 jour" },
-    { v: "2", l: "2 jours" },
-    { v: "3", l: "3 jours" },
-    { v: "7", l: "1 semaine" },
-    { v: "14", l: "2 semaines" },
-    { v: "21", l: "3 semaines" },
-    { v: "30", l: "1 mois" },
-    { v: "custom", l: "Sur mesure" },
+  const durations = [
+    { v: "1", l: "1 day" },
+    { v: "2", l: "2 days" },
+    { v: "3", l: "3 days" },
+    { v: "7", l: "1 week" },
+    { v: "14", l: "2 weeks" },
+    { v: "21", l: "3 weeks" },
+    { v: "30", l: "1 month" },
+    { v: "custom", l: "Custom" },
   ];
 
-  const activites = ["Jet-ski", "Plongée sous-marine", "Paddle", "Snorkeling", "Pêche sportive", "Wakeboard"];
+  const activities = ["Jet-ski", "Scuba Diving", "Paddleboard", "Snorkeling", "Sport Fishing", "Wakeboard"];
 
   return (
     <>
@@ -336,9 +336,9 @@ function DevisForm() {
       <section style={{ paddingTop: "clamp(100px, 15vh, 128px)", paddingBottom: "32px", background: "#0E202D" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
           <SectionTitle
-            preTitle="DEVIS EN LIGNE"
-            title="Obtenez votre devis personnalisé"
-            subtitle="Réponse garantie sous 30 minutes, 24h/24"
+            preTitle="ONLINE QUOTE"
+            title="Get your personalized quote"
+            subtitle="Guaranteed response within 30 minutes, 24/7"
             centered
           />
         </div>
@@ -355,10 +355,10 @@ function DevisForm() {
                 <path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12M3 20h18" />
               </svg>
               <span style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, fontSize: "clamp(16px, 2.5vw, 20px)", color: !isYacht ? "#FFFFFF" : "#6B6B6B", transition: "color 0.3s ease" }}>
-                Aviation Privée
+                Private Aviation
               </span>
               <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "12px", color: !isYacht ? "#A0A0A0" : "#4A4A4A", transition: "color 0.3s ease" }}>
-                Jets, hélicoptères, turboprops
+                Jets, helicopters, turboprops
               </span>
             </button>
 
@@ -370,10 +370,10 @@ function DevisForm() {
                 <path d="M8 9h8" />
               </svg>
               <span style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, fontSize: "clamp(16px, 2.5vw, 20px)", color: isYacht ? "#FFFFFF" : "#6B6B6B", transition: "color 0.3s ease" }}>
-                Charter Nautique
+                Yacht Charter
               </span>
               <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "12px", color: isYacht ? "#A0A0A0" : "#4A4A4A", transition: "color 0.3s ease" }}>
-                Yachts, voiliers, catamarans
+                Yachts, sailboats, catamarans
               </span>
             </button>
           </div>
@@ -433,13 +433,13 @@ function DevisForm() {
                   {/* ====== STEP 0 — DETAILS ====== */}
                   {currentStep === 0 && !isYacht && (
                     <div style={colFlex()}>
-                      <h3 style={stepTitleCSS}>Détails de votre vol</h3>
+                      <h3 style={stepTitleCSS}>Your flight details</h3>
 
-                      {/* Type de vol */}
+                      {/* Flight type */}
                       <div>
-                        <label style={labelCSS}>Type de vol</label>
+                        <label style={labelCSS}>Flight Type</label>
                         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-                          {[{ v: "aller-simple", l: "Aller simple" }, { v: "aller-retour", l: "Aller-retour" }, { v: "multi", l: "Multi-destinations" }].map((t) => (
+                          {[{ v: "one-way", l: "One Way" }, { v: "round-trip", l: "Round Trip" }, { v: "multi", l: "Multi-City" }].map((t) => (
                             <button key={t.v} onClick={() => update("type", t.v)} style={optionBtn(form.type === t.v)}>
                               {t.l}
                             </button>
@@ -447,55 +447,55 @@ function DevisForm() {
                         </div>
                       </div>
 
-                      {/* Départ / Destination */}
+                      {/* Departure / Destination */}
                       <div style={gridTwoCol}>
                         <div>
-                          <label style={labelCSS}>Départ</label>
-                          <input type="text" placeholder="Ville ou aéroport" value={form.depart} onChange={(e) => update("depart", e.target.value)} style={inputCSS} />
+                          <label style={labelCSS}>Departure</label>
+                          <input type="text" placeholder="City or airport" value={form.departure} onChange={(e) => update("departure", e.target.value)} style={inputCSS} />
                         </div>
                         <div>
                           <label style={labelCSS}>Destination</label>
-                          <input type="text" placeholder="Ville ou aéroport" value={form.destination} onChange={(e) => update("destination", e.target.value)} style={inputCSS} />
+                          <input type="text" placeholder="City or airport" value={form.destination} onChange={(e) => update("destination", e.target.value)} style={inputCSS} />
                         </div>
                       </div>
 
-                      {/* Dates + Passagers */}
+                      {/* Dates + Passengers */}
                       <div style={gridTwoCol}>
                         <div>
-                          <label style={labelCSS}>{form.type === "aller-retour" ? "Date aller" : "Date de départ"}</label>
+                          <label style={labelCSS}>{form.type === "round-trip" ? "Departure Date" : "Departure Date"}</label>
                           <input type="date" value={form.date} onChange={(e) => update("date", e.target.value)} style={dateCSS} />
                         </div>
-                        {form.type === "aller-retour" && (
+                        {form.type === "round-trip" && (
                           <div>
-                            <label style={labelCSS}>Date retour</label>
-                            <input type="date" value={form.dateRetour} onChange={(e) => update("dateRetour", e.target.value)} style={dateCSS} />
+                            <label style={labelCSS}>Return Date</label>
+                            <input type="date" value={form.returnDate} onChange={(e) => update("returnDate", e.target.value)} style={dateCSS} />
                           </div>
                         )}
                         <div>
-                          <label style={labelCSS}>Passagers</label>
-                          <select value={form.passagers} onChange={(e) => update("passagers", e.target.value)} style={selectCSS}>
+                          <label style={labelCSS}>Passengers</label>
+                          <select value={form.passengers} onChange={(e) => update("passengers", e.target.value)} style={selectCSS}>
                             {Array.from({ length: 19 }, (_, i) => (
                               <option key={i + 1} value={i + 1} style={{ background: "#132A3A" }}>
-                                {i + 1} passager{i > 0 ? "s" : ""}
+                                {i + 1} passenger{i > 0 ? "s" : ""}
                               </option>
                             ))}
                           </select>
                         </div>
                       </div>
 
-                      <CheckboxField checked={form.flexibilite} onChange={(v) => update("flexibilite", v)} label="Mes dates sont flexibles (+/- 2 jours)" />
+                      <CheckboxField checked={form.flexibility} onChange={(v) => update("flexibility", v)} label="My dates are flexible (+/- 2 days)" />
                     </div>
                   )}
 
                   {currentStep === 0 && isYacht && (
                     <div style={colFlex()}>
-                      <h3 style={stepTitleCSS}>Détails de votre croisière</h3>
+                      <h3 style={stepTitleCSS}>Your cruise details</h3>
 
-                      {/* Zone de navigation */}
+                      {/* Navigation zone */}
                       <div>
-                        <label style={labelCSS}>Zone de navigation</label>
-                        <select value={form.zoneNavigation} onChange={(e) => update("zoneNavigation", e.target.value)} style={selectCSS}>
-                          <option value="" style={{ background: "#132A3A" }}>Sélectionnez une zone</option>
+                        <label style={labelCSS}>Navigation Zone</label>
+                        <select value={form.navigationZone} onChange={(e) => update("navigationZone", e.target.value)} style={selectCSS}>
+                          <option value="" style={{ background: "#132A3A" }}>Select a zone</option>
                           {zones.map((z) => (
                             <option key={z.v} value={z.v} style={{ background: "#132A3A" }}>{z.l}</option>
                           ))}
@@ -505,32 +505,32 @@ function DevisForm() {
                       {/* Dates */}
                       <div style={gridTwoCol}>
                         <div>
-                          <label style={labelCSS}>Date d&apos;embarquement</label>
-                          <input type="date" value={form.dateEmbarquement} onChange={(e) => update("dateEmbarquement", e.target.value)} style={dateCSS} />
+                          <label style={labelCSS}>Embarkation Date</label>
+                          <input type="date" value={form.embarkationDate} onChange={(e) => update("embarkationDate", e.target.value)} style={dateCSS} />
                         </div>
                         <div>
-                          <label style={labelCSS}>Date de débarquement</label>
-                          <input type="date" value={form.dateDebarquement} onChange={(e) => update("dateDebarquement", e.target.value)} style={dateCSS} />
+                          <label style={labelCSS}>Disembarkation Date</label>
+                          <input type="date" value={form.disembarkationDate} onChange={(e) => update("disembarkationDate", e.target.value)} style={dateCSS} />
                         </div>
                       </div>
 
-                      {/* Invités + Durée */}
+                      {/* Guests + Duration */}
                       <div style={gridTwoCol}>
                         <div>
-                          <label style={labelCSS}>Nombre d&apos;invités</label>
-                          <select value={form.nombreInvites} onChange={(e) => update("nombreInvites", e.target.value)} style={selectCSS}>
+                          <label style={labelCSS}>Number of Guests</label>
+                          <select value={form.numberOfGuests} onChange={(e) => update("numberOfGuests", e.target.value)} style={selectCSS}>
                             {Array.from({ length: 30 }, (_, i) => (
                               <option key={i + 1} value={i + 1} style={{ background: "#132A3A" }}>
-                                {i + 1} invité{i > 0 ? "s" : ""}
+                                {i + 1} guest{i > 0 ? "s" : ""}
                               </option>
                             ))}
                           </select>
                         </div>
                         <div>
-                          <label style={labelCSS}>Durée souhaitée</label>
-                          <select value={form.dureeJours} onChange={(e) => update("dureeJours", e.target.value)} style={selectCSS}>
-                            <option value="" style={{ background: "#132A3A" }}>Sélectionnez</option>
-                            {durees.map((d) => (
+                          <label style={labelCSS}>Desired Duration</label>
+                          <select value={form.durationDays} onChange={(e) => update("durationDays", e.target.value)} style={selectCSS}>
+                            <option value="" style={{ background: "#132A3A" }}>Select</option>
+                            {durations.map((d) => (
                               <option key={d.v} value={d.v} style={{ background: "#132A3A" }}>{d.l}</option>
                             ))}
                           </select>
@@ -542,12 +542,12 @@ function DevisForm() {
                   {/* ====== STEP 1 — PREFERENCES ====== */}
                   {currentStep === 1 && !isYacht && (
                     <div style={colFlex()}>
-                      <h3 style={stepTitleCSS}>Vos préférences</h3>
+                      <h3 style={stepTitleCSS}>Your preferences</h3>
 
                       <div>
-                        <label style={labelCSS}>Catégorie d&apos;appareil souhaitée</label>
-                        <select value={form.categorie} onChange={(e) => update("categorie", e.target.value)} style={selectCSS}>
-                          <option value="" style={{ background: "#132A3A" }}>Je ne sais pas / Peu importe</option>
+                        <label style={labelCSS}>Preferred Aircraft Category</label>
+                        <select value={form.category} onChange={(e) => update("category", e.target.value)} style={selectCSS}>
+                          <option value="" style={{ background: "#132A3A" }}>Not sure / No preference</option>
                           {fleetCats.map((c) => (
                             <option key={c.slug} value={c.name} style={{ background: "#132A3A" }}>{c.name}</option>
                           ))}
@@ -557,7 +557,7 @@ function DevisForm() {
                       <div>
                         <label style={labelCSS}>Catering</label>
                         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-                          {[{ v: "aucun", l: "Aucun" }, { v: "standard", l: "Standard" }, { v: "premium", l: "Premium" }, { v: "gastronomique", l: "Gastronomique" }].map((c) => (
+                          {[{ v: "none", l: "None" }, { v: "standard", l: "Standard" }, { v: "premium", l: "Premium" }, { v: "gourmet", l: "Gourmet" }].map((c) => (
                             <button key={c.v} onClick={() => update("catering", c.v)} style={optionBtn(form.catering === c.v)}>
                               {c.l}
                             </button>
@@ -566,34 +566,34 @@ function DevisForm() {
                       </div>
 
                       <div style={colFlex("12px")}>
-                        <CheckboxField checked={form.animaux} onChange={(v) => update("animaux", v)} label="Animaux à bord" />
-                        <CheckboxField checked={form.bagagesSpeciaux} onChange={(v) => update("bagagesSpeciaux", v)} label="Bagages volumineux / spéciaux" />
+                        <CheckboxField checked={form.pets} onChange={(v) => update("pets", v)} label="Pets on board" />
+                        <CheckboxField checked={form.specialLuggage} onChange={(v) => update("specialLuggage", v)} label="Oversized / special luggage" />
                       </div>
 
                       <div>
-                        <label style={labelCSS}>Transfert terrestre</label>
-                        <select value={form.transfert} onChange={(e) => update("transfert", e.target.value)} style={selectCSS}>
-                          <option value="aucun" style={{ background: "#132A3A" }}>Aucun</option>
-                          <option value="voiture" style={{ background: "#132A3A" }}>Voiture de luxe</option>
-                          <option value="helicoptere" style={{ background: "#132A3A" }}>Hélicoptère</option>
+                        <label style={labelCSS}>Ground Transfer</label>
+                        <select value={form.transfer} onChange={(e) => update("transfer", e.target.value)} style={selectCSS}>
+                          <option value="none" style={{ background: "#132A3A" }}>None</option>
+                          <option value="luxury-car" style={{ background: "#132A3A" }}>Luxury Car</option>
+                          <option value="helicopter" style={{ background: "#132A3A" }}>Helicopter</option>
                         </select>
                       </div>
 
                       <div>
-                        <label style={labelCSS}>Besoins spéciaux</label>
-                        <textarea value={form.besoins} onChange={(e) => update("besoins", e.target.value)} rows={3} placeholder="Décrivez vos besoins particuliers..." style={textareaCSS} />
+                        <label style={labelCSS}>Special Requirements</label>
+                        <textarea value={form.specialNeeds} onChange={(e) => update("specialNeeds", e.target.value)} rows={3} placeholder="Describe your specific requirements..." style={textareaCSS} />
                       </div>
                     </div>
                   )}
 
                   {currentStep === 1 && isYacht && (
                     <div style={colFlex()}>
-                      <h3 style={stepTitleCSS}>Vos préférences</h3>
+                      <h3 style={stepTitleCSS}>Your preferences</h3>
 
                       <div>
-                        <label style={labelCSS}>Catégorie de yacht</label>
-                        <select value={form.categorieYacht} onChange={(e) => update("categorieYacht", e.target.value)} style={selectCSS}>
-                          <option value="" style={{ background: "#132A3A" }}>Peu importe</option>
+                        <label style={labelCSS}>Yacht Category</label>
+                        <select value={form.yachtCategory} onChange={(e) => update("yachtCategory", e.target.value)} style={selectCSS}>
+                          <option value="" style={{ background: "#132A3A" }}>No preference</option>
                           {yachtCats.map((c) => (
                             <option key={c.slug} value={c.name} style={{ background: "#132A3A" }}>{c.name}</option>
                           ))}
@@ -602,39 +602,39 @@ function DevisForm() {
 
                       <div style={gridTwoCol}>
                         <div>
-                          <label style={labelCSS}>Cabines souhaitées</label>
-                          <select value={form.cabinesSouhaitees} onChange={(e) => update("cabinesSouhaitees", e.target.value)} style={selectCSS}>
-                            <option value="" style={{ background: "#132A3A" }}>Peu importe</option>
+                          <label style={labelCSS}>Desired Cabins</label>
+                          <select value={form.desiredCabins} onChange={(e) => update("desiredCabins", e.target.value)} style={selectCSS}>
+                            <option value="" style={{ background: "#132A3A" }}>No preference</option>
                             {Array.from({ length: 12 }, (_, i) => (
                               <option key={i + 1} value={i + 1} style={{ background: "#132A3A" }}>
-                                {i + 1} cabine{i > 0 ? "s" : ""}
+                                {i + 1} cabin{i > 0 ? "s" : ""}
                               </option>
                             ))}
                           </select>
                         </div>
                         <div>
-                          <label style={labelCSS}>Équipage</label>
+                          <label style={labelCSS}>Crew</label>
                           <div style={{ display: "flex", gap: "12px" }}>
-                            <button onClick={() => update("equipage", "avec")} style={optionBtn(form.equipage === "avec")}>Avec équipage</button>
-                            <button onClick={() => update("equipage", "sans")} style={optionBtn(form.equipage === "sans")}>Sans (bareboat)</button>
+                            <button onClick={() => update("crew", "with")} style={optionBtn(form.crew === "with")}>With crew</button>
+                            <button onClick={() => update("crew", "without")} style={optionBtn(form.crew === "without")}>Without (bareboat)</button>
                           </div>
                         </div>
                       </div>
 
                       <div>
-                        <label style={labelCSS}>Activités nautiques souhaitées</label>
+                        <label style={labelCSS}>Desired Water Activities</label>
                         <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                          {activites.map((a) => (
-                            <CheckboxField key={a} checked={form.activitesNautiques.includes(a)} onChange={() => toggleActivity(a)} label={a} />
+                          {activities.map((a) => (
+                            <CheckboxField key={a} checked={form.waterActivities.includes(a)} onChange={() => toggleActivity(a)} label={a} />
                           ))}
                         </div>
                       </div>
 
                       <div>
-                        <label style={labelCSS}>Catering / Chef à bord</label>
+                        <label style={labelCSS}>Catering / Onboard Chef</label>
                         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-                          {[{ v: "sans", l: "Sans" }, { v: "standard", l: "Standard" }, { v: "chef-prive", l: "Chef privé" }, { v: "gastronomique", l: "Gastronomique" }].map((c) => (
-                            <button key={c.v} onClick={() => update("cateringYacht", c.v)} style={optionBtn(form.cateringYacht === c.v)}>
+                          {[{ v: "without", l: "Without" }, { v: "standard", l: "Standard" }, { v: "private-chef", l: "Private Chef" }, { v: "gourmet", l: "Gourmet" }].map((c) => (
+                            <button key={c.v} onClick={() => update("yachtCatering", c.v)} style={optionBtn(form.yachtCatering === c.v)}>
                               {c.l}
                             </button>
                           ))}
@@ -642,8 +642,8 @@ function DevisForm() {
                       </div>
 
                       <div>
-                        <label style={labelCSS}>Besoins spéciaux</label>
-                        <textarea value={form.besoinsYacht} onChange={(e) => update("besoinsYacht", e.target.value)} rows={3} placeholder="Décrivez vos besoins particuliers..." style={textareaCSS} />
+                        <label style={labelCSS}>Special Requirements</label>
+                        <textarea value={form.yachtSpecialNeeds} onChange={(e) => update("yachtSpecialNeeds", e.target.value)} rows={3} placeholder="Describe your specific requirements..." style={textareaCSS} />
                       </div>
                     </div>
                   )}
@@ -651,16 +651,16 @@ function DevisForm() {
                   {/* ====== STEP 2 — CONTACT ====== */}
                   {currentStep === 2 && (
                     <div style={colFlex()}>
-                      <h3 style={stepTitleCSS}>Vos coordonnées</h3>
+                      <h3 style={stepTitleCSS}>Your contact details</h3>
 
                       <div style={gridTwoCol}>
                         <div>
-                          <label style={labelCSS}>Nom</label>
-                          <input type="text" value={form.nom} onChange={(e) => update("nom", e.target.value)} style={inputCSS} />
+                          <label style={labelCSS}>Last Name</label>
+                          <input type="text" value={form.lastName} onChange={(e) => update("lastName", e.target.value)} style={inputCSS} />
                         </div>
                         <div>
-                          <label style={labelCSS}>Prénom</label>
-                          <input type="text" value={form.prenom} onChange={(e) => update("prenom", e.target.value)} style={inputCSS} />
+                          <label style={labelCSS}>First Name</label>
+                          <input type="text" value={form.firstName} onChange={(e) => update("firstName", e.target.value)} style={inputCSS} />
                         </div>
                       </div>
 
@@ -670,40 +670,40 @@ function DevisForm() {
                           <input type="email" value={form.email} onChange={(e) => update("email", e.target.value)} style={inputCSS} />
                         </div>
                         <div>
-                          <label style={labelCSS}>Téléphone</label>
-                          <input type="tel" value={form.telephone} onChange={(e) => update("telephone", e.target.value)} style={inputCSS} />
+                          <label style={labelCSS}>Phone</label>
+                          <input type="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} style={inputCSS} />
                         </div>
                       </div>
 
                       <div>
-                        <label style={labelCSS}>Entreprise (optionnel)</label>
-                        <input type="text" value={form.entreprise} onChange={(e) => update("entreprise", e.target.value)} style={inputCSS} />
+                        <label style={labelCSS}>Company (optional)</label>
+                        <input type="text" value={form.company} onChange={(e) => update("company", e.target.value)} style={inputCSS} />
                       </div>
 
                       <div>
-                        <label style={labelCSS}>Comment nous avez-vous connu ?</label>
+                        <label style={labelCSS}>How did you hear about us?</label>
                         <select value={form.source} onChange={(e) => update("source", e.target.value)} style={selectCSS}>
-                          <option value="" style={{ background: "#132A3A" }}>Sélectionnez</option>
+                          <option value="" style={{ background: "#132A3A" }}>Select</option>
                           <option value="google" style={{ background: "#132A3A" }}>Google</option>
-                          <option value="recommandation" style={{ background: "#132A3A" }}>Recommandation</option>
-                          <option value="reseaux" style={{ background: "#132A3A" }}>Réseaux sociaux</option>
-                          <option value="presse" style={{ background: "#132A3A" }}>Presse</option>
-                          <option value="autre" style={{ background: "#132A3A" }}>Autre</option>
+                          <option value="referral" style={{ background: "#132A3A" }}>Referral</option>
+                          <option value="social-media" style={{ background: "#132A3A" }}>Social Media</option>
+                          <option value="press" style={{ background: "#132A3A" }}>Press</option>
+                          <option value="other" style={{ background: "#132A3A" }}>Other</option>
                         </select>
                       </div>
 
                       <CheckboxField
-                        checked={form.cgv}
-                        onChange={(v) => update("cgv", v)}
+                        checked={form.terms}
+                        onChange={(v) => update("terms", v)}
                         label=""
                       />
-                      {/* CGV label with links — rendered separately for proper HTML */}
+                      {/* Terms label with links — rendered separately for proper HTML */}
                       <div style={{ marginTop: "-16px", paddingLeft: "30px" }}>
                         <span style={{ fontSize: "12px", color: "#A0A0A0", fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
-                          J&apos;accepte les{" "}
-                          <a href="/conditions-generales" style={{ color: "#F4DDC3", textDecoration: "none" }}>conditions générales</a>
-                          {" "}et la{" "}
-                          <a href="/politique-confidentialite" style={{ color: "#F4DDC3", textDecoration: "none" }}>politique de confidentialité</a>
+                          I accept the{" "}
+                          <a href="/conditions-generales" style={{ color: "#F4DDC3", textDecoration: "none" }}>terms and conditions</a>
+                          {" "}and the{" "}
+                          <a href="/politique-confidentialite" style={{ color: "#F4DDC3", textDecoration: "none" }}>privacy policy</a>
                         </span>
                       </div>
                     </div>
@@ -712,36 +712,36 @@ function DevisForm() {
                   {/* ====== STEP 3 — RECAP ====== */}
                   {currentStep === 3 && (
                     <div style={colFlex()}>
-                      <h3 style={stepTitleCSS}>Récapitulatif</h3>
+                      <h3 style={stepTitleCSS}>Summary</h3>
 
                       <div style={colFlex("0px")}>
                         {(isYacht
                           ? [
-                              { label: "Service", value: "Charter Nautique" },
-                              { label: "Zone", value: zones.find((z) => z.v === form.zoneNavigation)?.l || "—" },
-                              { label: "Embarquement", value: form.dateEmbarquement || "—" },
-                              { label: "Débarquement", value: form.dateDebarquement || "—" },
-                              { label: "Invités", value: form.nombreInvites },
-                              { label: "Durée", value: durees.find((d) => d.v === form.dureeJours)?.l || "—" },
-                              { label: "Catégorie", value: form.categorieYacht || "À déterminer" },
-                              { label: "Équipage", value: form.equipage === "avec" ? "Avec équipage" : "Sans (bareboat)" },
-                              { label: "Activités", value: form.activitesNautiques.length > 0 ? form.activitesNautiques.join(", ") : "Aucune" },
-                              { label: "Catering", value: form.cateringYacht },
-                              { label: "Contact", value: `${form.prenom} ${form.nom}`.trim() || "—" },
+                              { label: "Service", value: "Yacht Charter" },
+                              { label: "Zone", value: zones.find((z) => z.v === form.navigationZone)?.l || "—" },
+                              { label: "Embarkation", value: form.embarkationDate || "—" },
+                              { label: "Disembarkation", value: form.disembarkationDate || "—" },
+                              { label: "Guests", value: form.numberOfGuests },
+                              { label: "Duration", value: durations.find((d) => d.v === form.durationDays)?.l || "—" },
+                              { label: "Category", value: form.yachtCategory || "To be determined" },
+                              { label: "Crew", value: form.crew === "with" ? "With crew" : "Without (bareboat)" },
+                              { label: "Activities", value: form.waterActivities.length > 0 ? form.waterActivities.join(", ") : "None" },
+                              { label: "Catering", value: form.yachtCatering },
+                              { label: "Contact", value: `${form.firstName} ${form.lastName}`.trim() || "—" },
                               { label: "Email", value: form.email || "—" },
-                              { label: "Téléphone", value: form.telephone || "—" },
+                              { label: "Phone", value: form.phone || "—" },
                             ]
                           : [
-                              { label: "Service", value: "Aviation Privée" },
-                              { label: "Type de vol", value: form.type },
-                              { label: "Trajet", value: `${form.depart || "—"} → ${form.destination || "—"}` },
-                              { label: "Date", value: form.date ? (form.type === "aller-retour" ? `${form.date} → ${form.dateRetour || "—"}` : form.date) : "—" },
-                              { label: "Passagers", value: form.passagers },
-                              { label: "Catégorie", value: form.categorie || "À déterminer" },
+                              { label: "Service", value: "Private Aviation" },
+                              { label: "Flight Type", value: form.type },
+                              { label: "Route", value: `${form.departure || "—"} → ${form.destination || "—"}` },
+                              { label: "Date", value: form.date ? (form.type === "round-trip" ? `${form.date} → ${form.returnDate || "—"}` : form.date) : "—" },
+                              { label: "Passengers", value: form.passengers },
+                              { label: "Category", value: form.category || "To be determined" },
                               { label: "Catering", value: form.catering },
-                              { label: "Contact", value: `${form.prenom} ${form.nom}`.trim() || "—" },
+                              { label: "Contact", value: `${form.firstName} ${form.lastName}`.trim() || "—" },
                               { label: "Email", value: form.email || "—" },
-                              { label: "Téléphone", value: form.telephone || "—" },
+                              { label: "Phone", value: form.phone || "—" },
                             ]
                         ).map((item) => (
                           <div key={item.label} style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid #1A3448" }}>
@@ -779,7 +779,7 @@ function DevisForm() {
                       borderRadius: "2px",
                     }}
                   >
-                    Retour
+                    Back
                   </button>
                 ) : (
                   <div />
@@ -802,7 +802,7 @@ function DevisForm() {
                     borderRadius: "2px",
                   }}
                 >
-                  {currentStep === 3 ? (isSubmitting ? "Envoi en cours..." : "Envoyer ma demande") : "Suivant"}
+                  {currentStep === 3 ? (isSubmitting ? "Sending..." : "Submit my request") : "Next"}
                 </button>
               </div>
             </div>
@@ -828,24 +828,24 @@ function DevisForm() {
                 <svg width="32" height="32" fill="none" stroke="#2D8B6F" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" /></svg>
               </div>
               <h3 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "clamp(24px, 4vw, 32px)", marginBottom: "16px" }}>
-                Demande envoyée
+                Request Sent
               </h3>
               <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontSize: "clamp(16px, 2.5vw, 18px)", color: "#A0A0A0", marginBottom: "8px" }}>
-                Notre équipe vous contactera sous 30 minutes
+                Our team will contact you within 30 minutes
               </p>
               <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "13px", color: "#6B6B6B", marginBottom: "24px" }}>
-                Numéro de demande : #{devisRef || `SKY-${Date.now().toString().slice(-6)}`}
+                Request number: #{quoteRef || `SKY-${Date.now().toString().slice(-6)}`}
               </p>
               <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "13px", color: "#A0A0A0", marginBottom: "32px" }}>
-                Votre demande a été envoyée via WhatsApp.
-                <br />Si la fenêtre ne s&apos;est pas ouverte,{" "}
+                Your request has been sent via WhatsApp.
+                <br />If the window did not open,{" "}
                 <a
-                  href={waUrl || `https://wa.me/33676765511?text=${encodeURIComponent(`Bonjour, j'ai soumis une demande de devis #${devisRef || "SKY"}. Merci de me recontacter.`)}`}
+                  href={waUrl || `https://wa.me/33676765511?text=${encodeURIComponent(`Hello, I submitted a quote request #${quoteRef || "SKY"}. Please get back to me.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: "#25D366", textDecoration: "underline" }}
                 >
-                  cliquez ici pour envoyer via WhatsApp
+                  click here to send via WhatsApp
                 </a>
               </p>
               <a
@@ -865,7 +865,7 @@ function DevisForm() {
                   borderRadius: "2px",
                 }}
               >
-                Rappel immédiat
+                Immediate Callback
               </a>
             </motion.div>
           )}
@@ -878,10 +878,10 @@ function DevisForm() {
 /* ============================================
    PAGE EXPORT
    ============================================ */
-export default function DevisPage() {
+export default function QuotePage() {
   return (
     <Suspense fallback={null}>
-      <DevisForm />
+      <QuoteForm />
     </Suspense>
   );
 }

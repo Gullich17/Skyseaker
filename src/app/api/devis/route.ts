@@ -11,96 +11,96 @@ import { NextRequest, NextResponse } from "next/server";
 
 const WHATSAPP_NUMBER = "33676765511";
 
-interface DevisPayload {
+interface QuotePayload {
   serviceType: "aviation" | "yacht";
   // Aviation
   type?: string;
-  depart?: string;
+  departure?: string;
   destination?: string;
   date?: string;
-  dateRetour?: string;
-  passagers?: string;
-  flexibilite?: boolean;
-  categorie?: string;
+  returnDate?: string;
+  passengers?: string;
+  flexibility?: boolean;
+  category?: string;
   catering?: string;
-  animaux?: boolean;
-  bagagesSpeciaux?: boolean;
-  transfert?: string;
-  besoins?: string;
+  pets?: boolean;
+  specialLuggage?: boolean;
+  transfer?: string;
+  specialNeeds?: string;
   // Yacht
-  zoneNavigation?: string;
-  dateEmbarquement?: string;
-  dateDebarquement?: string;
-  nombreInvites?: string;
-  dureeJours?: string;
-  categorieYacht?: string;
-  cabinesSouhaitees?: string;
-  equipage?: string;
-  activitesNautiques?: string[];
-  cateringYacht?: string;
-  besoinsYacht?: string;
+  navigationZone?: string;
+  embarkationDate?: string;
+  disembarkationDate?: string;
+  numberOfGuests?: string;
+  durationDays?: string;
+  yachtCategory?: string;
+  desiredCabins?: string;
+  crew?: string;
+  waterActivities?: string[];
+  yachtCatering?: string;
+  yachtSpecialNeeds?: string;
   // Contact
-  nom?: string;
-  prenom?: string;
+  lastName?: string;
+  firstName?: string;
   email?: string;
-  telephone?: string;
-  entreprise?: string;
+  phone?: string;
+  company?: string;
   source?: string;
 }
 
-function buildWhatsAppMessage(data: DevisPayload): string {
+function buildWhatsAppMessage(data: QuotePayload): string {
   const ref = `SKY-${Date.now().toString().slice(-6)}`;
   const lines: string[] = [];
 
-  lines.push(`🔔 *NOUVELLE DEMANDE DE DEVIS*`);
-  lines.push(`📋 Réf: #${ref}`);
-  lines.push(`⏰ ${new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })}`);
+  lines.push(`*NEW QUOTE REQUEST*`);
+  lines.push(`Ref: #${ref}`);
+  lines.push(`${new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" })}`);
   lines.push("");
 
   if (data.serviceType === "yacht") {
-    lines.push("🛥️ *CHARTER NAUTIQUE*");
+    lines.push("*YACHT CHARTER*");
     lines.push("");
-    if (data.zoneNavigation) lines.push(`📍 Zone: ${data.zoneNavigation}`);
-    if (data.dateEmbarquement) lines.push(`📅 Embarquement: ${data.dateEmbarquement}`);
-    if (data.dateDebarquement) lines.push(`📅 Débarquement: ${data.dateDebarquement}`);
-    if (data.nombreInvites) lines.push(`👥 Invités: ${data.nombreInvites}`);
-    if (data.dureeJours) lines.push(`⏱️ Durée: ${data.dureeJours} jours`);
-    if (data.categorieYacht) lines.push(`🚢 Catégorie: ${data.categorieYacht}`);
-    if (data.equipage) lines.push(`👨‍✈️ Équipage: ${data.equipage}`);
-    if (data.activitesNautiques && data.activitesNautiques.length > 0) {
-      lines.push(`🏄 Activités: ${data.activitesNautiques.join(", ")}`);
+    if (data.navigationZone) lines.push(`Zone: ${data.navigationZone}`);
+    if (data.embarkationDate) lines.push(`Embarkation: ${data.embarkationDate}`);
+    if (data.disembarkationDate) lines.push(`Disembarkation: ${data.disembarkationDate}`);
+    if (data.numberOfGuests) lines.push(`Guests: ${data.numberOfGuests}`);
+    if (data.durationDays) lines.push(`Duration: ${data.durationDays} days`);
+    if (data.yachtCategory) lines.push(`Category: ${data.yachtCategory}`);
+    if (data.crew) lines.push(`Crew: ${data.crew}`);
+    if (data.waterActivities && data.waterActivities.length > 0) {
+      lines.push(`Activities: ${data.waterActivities.join(", ")}`);
     }
-    if (data.cateringYacht && data.cateringYacht !== "sans") lines.push(`🍽️ Catering: ${data.cateringYacht}`);
-    if (data.besoinsYacht) lines.push(`📝 Notes: ${data.besoinsYacht}`);
+    if (data.yachtCatering && data.yachtCatering !== "without") lines.push(`Catering: ${data.yachtCatering}`);
+    if (data.yachtSpecialNeeds) lines.push(`Notes: ${data.yachtSpecialNeeds}`);
   } else {
-    lines.push("✈️ *AVIATION PRIVÉE*");
+    lines.push("*PRIVATE AVIATION*");
     lines.push("");
-    if (data.type) lines.push(`🔄 Type: ${data.type}`);
-    if (data.depart || data.destination) lines.push(`📍 Trajet: ${data.depart || "—"} → ${data.destination || "—"}`);
+    if (data.type) lines.push(`Type: ${data.type}`);
+    if (data.departure || data.destination) lines.push(`Route: ${data.departure || "—"} → ${data.destination || "—"}`);
     if (data.date) {
-      if (data.type === "aller-retour" && data.dateRetour) {
-        lines.push(`📅 Dates: ${data.date} → ${data.dateRetour}`);
+      if (data.type === "round-trip" && data.returnDate) {
+        lines.push(`Dates: ${data.date} → ${data.returnDate}`);
       } else {
-        lines.push(`📅 Date: ${data.date}`);
+        lines.push(`Date: ${data.date}`);
       }
     }
-    if (data.passagers) lines.push(`👥 Passagers: ${data.passagers}`);
-    if (data.flexibilite) lines.push(`📆 Dates flexibles: Oui`);
-    if (data.categorie) lines.push(`🛩️ Catégorie: ${data.categorie}`);
-    if (data.catering && data.catering !== "aucun") lines.push(`🍽️ Catering: ${data.catering}`);
-    if (data.animaux) lines.push(`🐾 Animaux: Oui`);
-    if (data.bagagesSpeciaux) lines.push(`🧳 Bagages spéciaux: Oui`);
-    if (data.transfert && data.transfert !== "aucun") lines.push(`🚗 Transfert: ${data.transfert}`);
-    if (data.besoins) lines.push(`📝 Notes: ${data.besoins}`);
+    if (data.passengers) lines.push(`Passengers: ${data.passengers}`);
+    if (data.flexibility) lines.push(`Flexible dates: Yes`);
+    if (data.category) lines.push(`Category: ${data.category}`);
+    if (data.catering && data.catering !== "none") lines.push(`Catering: ${data.catering}`);
+    if (data.pets) lines.push(`Pets: Yes`);
+    if (data.specialLuggage) lines.push(`Special luggage: Yes`);
+    if (data.transfer && data.transfer !== "none") lines.push(`Transfer: ${data.transfer}`);
+    if (data.specialNeeds) lines.push(`Notes: ${data.specialNeeds}`);
   }
 
   lines.push("");
-  lines.push("👤 *CONTACT*");
-  const fullName = `${data.prenom || ""} ${data.nom || ""}`.trim();
-  if (fullName) lines.push(`Nom: ${fullName}`);
+  lines.push("*CONTACT*");
+  const fullName = `${data.firstName || ""} ${data.lastName || ""}`.trim();
+  if (fullName) lines.push(`Name: ${fullName}`);
   if (data.email) lines.push(`Email: ${data.email}`);
-  if (data.telephone) lines.push(`Tél: ${data.telephone}`);
-  if (data.entreprise) lines.push(`Entreprise: ${data.entreprise}`);
+  if (data.phone) lines.push(`Phone: ${data.phone}`);
+  if (data.company) lines.push(`Company: ${data.company}`);
   if (data.source) lines.push(`Source: ${data.source}`);
 
   return lines.join("\n");
@@ -108,7 +108,7 @@ function buildWhatsAppMessage(data: DevisPayload): string {
 
 export async function POST(request: NextRequest) {
   try {
-    const data: DevisPayload = await request.json();
+    const data: QuotePayload = await request.json();
 
     // Build WhatsApp message
     const message = buildWhatsAppMessage(data);
@@ -130,9 +130,9 @@ export async function POST(request: NextRequest) {
       message,
     });
   } catch (error) {
-    console.error("Devis API error:", error);
+    console.error("Quote API error:", error);
     return NextResponse.json(
-      { success: false, error: "Erreur lors du traitement de la demande" },
+      { success: false, error: "Error processing the request" },
       { status: 500 }
     );
   }

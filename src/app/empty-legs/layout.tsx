@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Vols a Vide — Empty Legs',
+  title: 'Empty Leg Flights',
   description:
-    'Profitez de nos vols a vide (empty legs) pour voyager en jet prive a tarif reduit, jusqu\'a -75%. Offres en temps reel, alertes personnalisees.',
+    'Take advantage of our empty leg flights to travel by private jet at reduced rates, up to -75% off. Real-time offers, personalized alerts.',
   openGraph: {
-    title: 'Vols a Vide — Empty Legs | Skyseaker Aviation Privee',
+    title: 'Empty Leg Flights | Skyseaker Private Aviation',
     description:
-      'Jusqu\'a -75% sur votre jet prive grace aux empty legs. Consultez nos offres en temps reel.',
+      'Up to -75% off your private jet with empty legs. View our real-time offers.',
     url: 'https://skyseaker.com/empty-legs',
   },
   alternates: {

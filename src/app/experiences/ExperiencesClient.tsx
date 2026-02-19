@@ -46,13 +46,13 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: 'gastronomie',
-    name: 'Gastronomie',
-    tagline: 'Vol + déjeuner étoilé à Monaco',
+    name: 'Gastronomy',
+    tagline: 'Flight + Michelin-starred lunch in Monaco',
     description:
-      'Envolez-vous vers la Principauté pour un déjeuner dans un restaurant triple étoilé avec vue sur la Méditerranée. Un vol privé conjugué à une expérience culinaire inoubliable.',
-    duration: '1 journée',
+      'Fly to the Principality for lunch at a triple Michelin-starred restaurant overlooking the Mediterranean. A private flight paired with an unforgettable culinary experience.',
+    duration: '1 day',
     destination: 'Monaco',
-    priceFrom: 'à partir de 8\u202f900\u00a0€',
+    priceFrom: 'from \u20ac8,900',
     icon: 'M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 9.75l-3-3m0 0l-3 3m3-3v11.25',
     gradient: 'linear-gradient(135deg, #122838 0%, #132A3A 100%)',
     image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=75',
@@ -60,12 +60,12 @@ const experiences: Experience[] = [
   {
     id: 'ski',
     name: 'Ski',
-    tagline: 'Jet privé + transfert hélico vers Courchevel',
+    tagline: 'Private jet + helicopter transfer to Courchevel',
     description:
-      'De la piste de l\u2019aéroport aux pistes enneigées en un clin d\u2019œil. Transfert hélicoptère direct vers l\u2019altiport de Courchevel pour une expérience ski d\u2019exception.',
-    duration: '3 à 7 jours',
+      'From the airport runway to the snow-covered slopes in the blink of an eye. Direct helicopter transfer to the Courchevel altiport for an exceptional ski experience.',
+    duration: '3 to 7 days',
     destination: 'Courchevel',
-    priceFrom: 'à partir de 15\u202f500\u00a0€',
+    priceFrom: 'from \u20ac15,500',
     icon: 'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z',
     gradient: 'linear-gradient(135deg, #101418 0%, #132A3A 100%)',
     image: 'https://images.unsplash.com/photo-1551524559-8af4e6624178?w=800&q=75',
@@ -73,12 +73,12 @@ const experiences: Experience[] = [
   {
     id: 'grand-prix',
     name: 'Grand Prix',
-    tagline: 'F1 Monaco, accès VIP + vol privé',
+    tagline: 'F1 Monaco, VIP access + private flight',
     description:
-      'Vivez le Grand Prix de Monaco comme nulle part ailleurs. Accès paddock VIP, terrasse privée avec vue sur le circuit, et retour en jet privé après la course.',
-    duration: '2 à 3 jours',
+      'Experience the Monaco Grand Prix like nowhere else. VIP paddock access, private terrace overlooking the circuit, and return by private jet after the race.',
+    duration: '2 to 3 days',
     destination: 'Monaco',
-    priceFrom: 'à partir de 22\u202f000\u00a0€',
+    priceFrom: 'from \u20ac22,000',
     icon: 'M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5',
     gradient: 'linear-gradient(135deg, #18100a 0%, #132A3A 100%)',
     image: 'https://images.unsplash.com/photo-1504817343863-5092a923803e?w=800&q=75',
@@ -86,12 +86,12 @@ const experiences: Experience[] = [
   {
     id: 'wellness',
     name: 'Wellness',
-    tagline: 'Retraite bien-être à Ibiza en jet privé',
+    tagline: 'Wellness retreat in Ibiza by private jet',
     description:
-      'Un vol privé vers Ibiza suivi d\u2019une retraite bien-être exclusive\u00a0: yoga, spa, nutrition holistique et méditation dans un cadre paradisiaque.',
-    duration: '4 à 7 jours',
+      'A private flight to Ibiza followed by an exclusive wellness retreat: yoga, spa, holistic nutrition and meditation in a paradise setting.',
+    duration: '4 to 7 days',
     destination: 'Ibiza',
-    priceFrom: 'à partir de 12\u202f800\u00a0€',
+    priceFrom: 'from \u20ac12,800',
     icon: 'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z',
     gradient: 'linear-gradient(135deg, #0f1410 0%, #132A3A 100%)',
     image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=75',
@@ -99,12 +99,12 @@ const experiences: Experience[] = [
   {
     id: 'safari',
     name: 'Safari',
-    tagline: 'Vol privé + safari de luxe au Kenya',
+    tagline: 'Private flight + luxury safari in Kenya',
     description:
-      'Découvrez la savane africaine dans un confort absolu. Vol privé vers Nairobi, transfert en avion-taxi vers votre lodge de luxe et safari privé avec guide expert.',
-    duration: '7 à 10 jours',
+      'Discover the African savanna in absolute comfort. Private flight to Nairobi, bush plane transfer to your luxury lodge and private safari with an expert guide.',
+    duration: '7 to 10 days',
     destination: 'Kenya',
-    priceFrom: 'à partir de 35\u202f000\u00a0€',
+    priceFrom: 'from \u20ac35,000',
     icon: 'M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z',
     gradient: 'linear-gradient(135deg, #141008 0%, #132A3A 100%)',
     image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=75',
@@ -112,12 +112,12 @@ const experiences: Experience[] = [
   {
     id: 'yacht',
     name: 'Yacht',
-    tagline: 'Jet privé + yacht en Méditerranée',
+    tagline: 'Private jet + yacht in the Mediterranean',
     description:
-      'L\u2019ultime expérience mer et ciel. Arrivez en jet privé et embarquez directement sur un yacht de luxe pour une croisière privée en Méditerranée.',
-    duration: '5 à 14 jours',
-    destination: 'Méditerranée',
-    priceFrom: 'à partir de 28\u202f000\u00a0€',
+      'The ultimate sea and sky experience. Arrive by private jet and board directly onto a luxury yacht for a private Mediterranean cruise.',
+    duration: '5 to 14 days',
+    destination: 'Mediterranean',
+    priceFrom: 'from \u20ac28,000',
     icon: 'M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3',
     gradient: 'linear-gradient(135deg, #0a1018 0%, #132A3A 100%)',
     image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&q=75',
@@ -125,12 +125,12 @@ const experiences: Experience[] = [
   {
     id: 'golf',
     name: 'Golf',
-    tagline: 'Tournée des plus beaux parcours d\u2019Europe',
+    tagline: 'Tour of Europe\'s finest courses',
     description:
-      'Un circuit exclusif des greens les plus prestigieux d\u2019Europe. Vol privé entre chaque étape, green fees VIP et hébergement de luxe.',
-    duration: '5 à 10 jours',
+      'An exclusive tour of Europe\'s most prestigious greens. Private flight between each stop, VIP green fees and luxury accommodation.',
+    duration: '5 to 10 days',
     destination: 'Europe',
-    priceFrom: 'à partir de 18\u202f500\u00a0€',
+    priceFrom: 'from \u20ac18,500',
     icon: 'M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42',
     gradient: 'linear-gradient(135deg, #0e140a 0%, #132A3A 100%)',
     image: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&q=75',
@@ -138,12 +138,12 @@ const experiences: Experience[] = [
   {
     id: 'fashion-week',
     name: 'Fashion Week',
-    tagline: 'Paris, Milan, New York en jet privé',
+    tagline: 'Paris, Milan, New York by private jet',
     description:
-      'Suivez les Fashion Weeks les plus prestigieuses du monde. Vol privé entre chaque capitale de la mode, accès défilés et soirées exclusives.',
-    duration: '10 à 14 jours',
+      'Follow the world\'s most prestigious Fashion Weeks. Private flight between each fashion capital, runway access and exclusive parties.',
+    duration: '10 to 14 days',
     destination: 'Paris, Milan, New York',
-    priceFrom: 'à partir de 42\u202f000\u00a0€',
+    priceFrom: 'from \u20ac42,000',
     icon: 'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z',
     gradient: 'linear-gradient(135deg, #140a14 0%, #132A3A 100%)',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=75',
@@ -229,7 +229,7 @@ function HeroSection() {
             color: '#F4DDC3',
           }}
         >
-          Expériences
+          Experiences
         </motion.p>
 
         <motion.h1
@@ -245,7 +245,7 @@ function HeroSection() {
             fontSize: 'clamp(36px, 6vw, 68px)',
           }}
         >
-          Vivez l&apos;extraordinaire
+          Experience the extraordinary
         </motion.h1>
 
         <motion.p
@@ -261,8 +261,8 @@ function HeroSection() {
             fontSize: 'clamp(18px, 2.5vw, 22px)',
           }}
         >
-          Des packages exclusifs qui allient vol en jet privé et expériences de
-          luxe uniques à travers le monde
+          Exclusive packages combining private jet flights and unique luxury
+          experiences around the world
         </motion.p>
 
         {/* Scroll indicator */}
@@ -288,7 +288,7 @@ function HeroSection() {
               color: 'rgba(244,221,195,0.5)',
             }}
           >
-            Découvrir
+            Discover
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
@@ -541,7 +541,7 @@ function ExperienceCard({
               variant="primary"
               size="sm"
             >
-              Découvrir
+              Discover
             </Button>
           </motion.div>
         </div>
@@ -584,9 +584,9 @@ function ExperiencesGrid() {
         }}
       >
         <SectionTitle
-          preTitle="NOS PACKAGES"
-          title="Des expériences d'exception"
-          subtitle="Chaque package est conçu sur mesure pour offrir une expérience complète et inoubliable, du vol privé aux activités exclusives."
+          preTitle="OUR PACKAGES"
+          title="Exceptional experiences"
+          subtitle="Each package is tailor-made to deliver a complete and unforgettable experience, from the private flight to the exclusive activities."
           centered
           mb="80px"
         />
@@ -609,23 +609,23 @@ function HowItWorks() {
   const steps = [
     {
       num: '01',
-      title: 'Choisissez votre expérience',
-      desc: 'Parcourez nos packages ou contactez-nous pour une expérience 100\u00a0% sur mesure.',
+      title: 'Choose your experience',
+      desc: 'Browse our packages or contact us for a fully bespoke experience.',
     },
     {
       num: '02',
-      title: 'Personnalisation complète',
-      desc: 'Nos experts adaptent chaque détail selon vos préférences\u00a0: dates, hébergement, activités.',
+      title: 'Full customisation',
+      desc: 'Our experts tailor every detail to your preferences: dates, accommodation, activities.',
     },
     {
       num: '03',
-      title: 'Validation et préparation',
-      desc: 'Votre conseiller dédié coordonne l\u2019ensemble de la logistique pour une expérience parfaite.',
+      title: 'Confirmation and preparation',
+      desc: 'Your dedicated advisor coordinates all logistics for a flawless experience.',
     },
     {
       num: '04',
-      title: 'Vivez l\u2019extraordinaire',
-      desc: 'Profitez de votre expérience exclusive avec une assistance 24/7 tout au long du voyage.',
+      title: 'Experience the extraordinary',
+      desc: 'Enjoy your exclusive experience with 24/7 assistance throughout your journey.',
     },
   ];
 
@@ -644,8 +644,8 @@ function HowItWorks() {
         }}
       >
         <SectionTitle
-          preTitle="COMMENT ÇA MARCHE"
-          title="Votre expérience en 4 étapes"
+          preTitle="HOW IT WORKS"
+          title="Your experience in 4 steps"
           centered
           mb="64px"
         />
@@ -759,7 +759,7 @@ function CTASection() {
               fontSize: 'clamp(32px, 5vw, 48px)',
             }}
           >
-            Une expérience sur mesure&nbsp;?
+            A bespoke experience?
           </h2>
           <p
             style={{
@@ -770,8 +770,8 @@ function CTASection() {
               fontSize: 'clamp(18px, 2.5vw, 20px)',
             }}
           >
-            Nos experts concierges composent l&apos;expérience de vos rêves,
-            sans aucune limite
+            Our concierge experts craft the experience of your dreams,
+            with no limits
           </p>
           <div
             style={{
@@ -783,10 +783,10 @@ function CTASection() {
             }}
           >
             <Button href="/devis" variant="primary" size="lg">
-              Créer mon expérience
+              Create my experience
             </Button>
             <Button href="tel:+33676765511" variant="secondary" size="lg">
-              Nous appeler
+              Call us
             </Button>
           </div>
           <p
@@ -798,7 +798,7 @@ function CTASection() {
               color: '#6B6B6B',
             }}
           >
-            Réponse sous 2 heures &bull; Disponible 24/7
+            Response within 2 hours &bull; Available 24/7
           </p>
         </ScrollReveal>
       </div>

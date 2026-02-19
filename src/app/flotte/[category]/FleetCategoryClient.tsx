@@ -27,16 +27,16 @@ const categoryImages: Record<string, string> = {
 };
 
 const categoryDescriptions: Record<string, string> = {
-  "very-light-jet": "Parfaits pour les courts trajets à 2-4 passagers. Économiques et rapides pour les city-trips européens.",
-  "light-jet": "L'équilibre idéal entre confort et économie pour 4-7 passagers sur des vols de 2 à 3 heures.",
-  "super-light-jet": "Performance supérieure aux light jets avec un rayon d'action élargi et une cabine plus spacieuse.",
-  "midsize-jet": "Cabine stand-up complète pour 6-8 passagers. Le choix privilégié pour les vols moyen-courriers.",
-  "super-midsize-jet": "Autonomie transcontinentale avec le confort d'une grande cabine. Idéal pour 7-9 passagers.",
-  "heavy-jet": "Le summum du confort pour les longs courriers. Cabine spacieuse, WiFi, et jusqu'à 16 passagers.",
-  "ultra-long-range": "Les jets les plus performants au monde. Vols non-stop entre continents dans un luxe absolu.",
-  "vip-airliner": "Avions de ligne convertis en suites volantes. Pour les délégations et événements exclusifs.",
-  "helicoptere": "Transferts rapides et accès à des destinations inaccessibles par avion. Flexibilité totale.",
-  "turbopropulseur": "Économiques et polyvalents, idéaux pour les pistes courtes et les destinations régionales.",
+  "very-light-jet": "Perfect for short trips with 2-4 passengers. Economical and fast for European city trips.",
+  "light-jet": "The ideal balance between comfort and economy for 4-7 passengers on 2 to 3-hour flights.",
+  "super-light-jet": "Superior performance over light jets with an extended range and a more spacious cabin.",
+  "midsize-jet": "Full stand-up cabin for 6-8 passengers. The preferred choice for medium-haul flights.",
+  "super-midsize-jet": "Transcontinental range with the comfort of a large cabin. Ideal for 7-9 passengers.",
+  "heavy-jet": "The pinnacle of comfort for long-haul flights. Spacious cabin, WiFi, and up to 16 passengers.",
+  "ultra-long-range": "The most capable jets in the world. Non-stop flights between continents in absolute luxury.",
+  "vip-airliner": "Airliners converted into flying suites. For delegations and exclusive events.",
+  "helicoptere": "Rapid transfers and access to destinations unreachable by plane. Total flexibility.",
+  "turbopropulseur": "Economical and versatile, ideal for short runways and regional destinations.",
 };
 
 function getAircraftImage(a: Aircraft): string {
@@ -86,7 +86,7 @@ function AircraftCard({ aircraft, index }: { aircraft: Aircraft; index: number }
               </div>
               <span style={{ width: "1px", height: "12px", background: "#1A3448" }} />
               <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#A0A0A0", fontSize: "12px" }}>
-                {aircraft.range.toLocaleString("fr-FR")} km
+                {aircraft.range.toLocaleString("en-US")} km
               </span>
               <span style={{ width: "1px", height: "12px", background: "#1A3448" }} />
               <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#A0A0A0", fontSize: "12px" }}>
@@ -97,7 +97,7 @@ function AircraftCard({ aircraft, index }: { aircraft: Aircraft; index: number }
               className="group-hover:opacity-100"
               style={{ display: "block", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500, opacity: 0.6, transition: "opacity 0.3s ease" }}
             >
-              Voir la fiche →
+              View Details →
             </span>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function FleetCategoryClient({
             transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
             style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px", fontSize: "12px", fontFamily: "var(--font-montserrat)", fontWeight: 300 }}
           >
-            <Link href="/flotte" className="transition-colors" style={{ color: "#6B6B6B" }}>Flotte</Link>
+            <Link href="/flotte" className="transition-colors" style={{ color: "#6B6B6B" }}>Fleet</Link>
             <span style={{ color: "#6B6B6B" }}>/</span>
             <span style={{ color: "#A0A0A0" }}>{category.name}</span>
           </motion.nav>
@@ -145,7 +145,7 @@ export default function FleetCategoryClient({
             transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
             style={{ marginBottom: "16px" }}
           >
-            <Badge>{aircraftList.length} appareil{aircraftList.length > 1 ? "s" : ""}</Badge>
+            <Badge>{aircraftList.length} aircraft</Badge>
           </motion.div>
 
           <motion.h1
@@ -171,7 +171,7 @@ export default function FleetCategoryClient({
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
           {/* Count */}
           <p style={{ marginBottom: "32px", fontSize: "13px", fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B" }}>
-            {aircraftList.length} appareil{aircraftList.length > 1 ? "s" : ""} disponible{aircraftList.length > 1 ? "s" : ""}
+            {aircraftList.length} aircraft available
           </p>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "clamp(16px, 2vw, 24px)" }}>
@@ -183,10 +183,10 @@ export default function FleetCategoryClient({
           {/* Back + CTA */}
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "16px", marginTop: "clamp(48px, 8vw, 80px)" }}>
             <Button href="/flotte" variant="secondary">
-              ← Voir toute la flotte
+              ← View Full Fleet
             </Button>
             <Button href="/devis" variant="primary" size="lg">
-              Demander un devis
+              Request a Quote
             </Button>
           </div>
         </div>

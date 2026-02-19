@@ -28,12 +28,12 @@ export async function generateMetadata({
 
   if (!aircraft) {
     return {
-      title: "Appareil non trouvé",
+      title: "Aircraft Not Found",
     };
   }
 
   return {
-    title: `${aircraft.name} — ${aircraft.category} | Location Jet Privé`,
+    title: `${aircraft.name} — ${aircraft.category} | Private Jet Charter`,
     description: aircraft.description,
     openGraph: {
       title: `${aircraft.name} — ${aircraft.category} | Skyseaker`,

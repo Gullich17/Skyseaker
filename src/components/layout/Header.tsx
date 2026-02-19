@@ -101,11 +101,9 @@ export default function Header() {
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2 text-[#A0A0A0]">
-            <button className="hover:text-[#F4DDC3] transition-colors font-medium text-[#FFFFFF]">FR</button>
+            <button className="hover:text-[#F4DDC3] transition-colors font-medium text-[#FFFFFF]">EN</button>
             <span className="text-[#1A3448]">|</span>
-            <button className="hover:text-[#F4DDC3] transition-colors">EN</button>
-            <span className="text-[#1A3448]">|</span>
-            <button className="hover:text-[#F4DDC3] transition-colors">AR</button>
+            <button className="hover:text-[#F4DDC3] transition-colors">FR</button>
           </div>
           <div className="hidden sm:flex items-center gap-3 ml-4">
             <a href="#" className="text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors" aria-label="Instagram">

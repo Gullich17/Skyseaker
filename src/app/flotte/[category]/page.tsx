@@ -23,16 +23,16 @@ export async function generateMetadata({
   const { category } = await params;
   const cat = categories.find((c) => c.slug === category);
 
-  if (!cat) return { title: "Catégorie non trouvée" };
+  if (!cat) return { title: "Category Not Found" };
 
   const count = fleet.filter((a) => a.categorySlug === category).length;
 
   return {
-    title: `${cat.name} — Location jet privé | Skyseaker`,
-    description: `Découvrez notre sélection de ${count} ${cat.name.toLowerCase()}${count > 1 ? "s" : ""} disponibles en location. Tarifs, caractéristiques et réservation en ligne.`,
+    title: `${cat.name} — Private Jet Charter | Skyseaker`,
+    description: `Discover our selection of ${count} ${cat.name.toLowerCase()} available for charter. Rates, specifications, and online booking.`,
     openGraph: {
-      title: `${cat.name} | Flotte Skyseaker`,
-      description: `${count} ${cat.name.toLowerCase()} disponible${count > 1 ? "s" : ""} à la location.`,
+      title: `${cat.name} | Skyseaker Fleet`,
+      description: `${count} ${cat.name.toLowerCase()} available for charter.`,
     },
   };
 }

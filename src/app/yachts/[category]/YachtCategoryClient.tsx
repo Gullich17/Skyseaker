@@ -22,11 +22,11 @@ const categoryImages: Record<string, string> = {
 };
 
 const categoryDescriptions: Record<string, string> = {
-  "motor-yacht": "Puissance et élégance pour des croisières de luxe en Méditerranée, Caraïbes ou au-delà.",
-  "sailing-yacht": "L'art de naviguer à la voile allié au confort d'un yacht de luxe. Silence et liberté absolue.",
-  "catamaran": "Stabilité exceptionnelle et espaces de vie généreux. Idéals pour les croisières familiales ou entre amis.",
-  "superyacht": "Des navires d'exception de plus de 40 mètres. Le summum du luxe nautique avec équipage dédié.",
-  "mega-yacht": "Les plus grands yachts du monde. Piscines, héliports, sous-marins — tout est possible.",
+  "motor-yacht": "Power and elegance for luxury cruises in the Mediterranean, Caribbean and beyond.",
+  "sailing-yacht": "The art of sailing combined with the comfort of a luxury yacht. Silence and absolute freedom.",
+  "catamaran": "Exceptional stability and generous living spaces. Ideal for family cruises or trips with friends.",
+  "superyacht": "Exceptional vessels over 40 metres. The pinnacle of nautical luxury with dedicated crew.",
+  "mega-yacht": "The world's largest yachts. Pools, helipads, submarines — anything is possible.",
 };
 
 function getYachtImage(y: Yacht): string {
@@ -71,7 +71,7 @@ function YachtCard({ yacht, index }: { yacht: Yacht; index: number }) {
                   <path d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
                 </svg>
                 <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#A0A0A0", fontSize: "12px" }}>
-                  {yacht.guests} invités
+                  {yacht.guests} guests
                 </span>
               </div>
               <span style={{ width: "1px", height: "12px", background: "#1A3448" }} />
@@ -80,14 +80,14 @@ function YachtCard({ yacht, index }: { yacht: Yacht; index: number }) {
               </span>
               <span style={{ width: "1px", height: "12px", background: "#1A3448" }} />
               <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#A0A0A0", fontSize: "12px" }}>
-                {yacht.cabins ?? '-'} cabine{(yacht.cabins ?? 0) > 1 ? "s" : ""}
+                {yacht.cabins ?? '-'} cabin{(yacht.cabins ?? 0) > 1 ? "s" : ""}
               </span>
             </div>
             <span
               className="group-hover:opacity-100"
               style={{ display: "block", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500, opacity: 0.6, transition: "opacity 0.3s ease" }}
             >
-              Voir la fiche →
+              View details →
             </span>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function YachtCategoryClient({
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
           {/* Count */}
           <p style={{ marginBottom: "32px", fontSize: "13px", fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B" }}>
-            {yachtList.length} yacht{yachtList.length > 1 ? "s" : ""} disponible{yachtList.length > 1 ? "s" : ""}
+            {yachtList.length} yacht{yachtList.length > 1 ? "s" : ""} available
           </p>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "clamp(16px, 2vw, 24px)" }}>
@@ -173,10 +173,10 @@ export default function YachtCategoryClient({
           {/* Back + CTA */}
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "16px", marginTop: "clamp(48px, 8vw, 80px)" }}>
             <Button href="/yachts" variant="secondary">
-              ← Voir tous les yachts
+              ← View all yachts
             </Button>
             <Button href="/devis" variant="primary" size="lg">
-              Demander un devis
+              Request a quote
             </Button>
           </div>
         </div>

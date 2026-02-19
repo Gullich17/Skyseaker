@@ -3,62 +3,62 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Glossaire de l'Aviation d'Affaires",
-  description: "D\u00e9couvrez tous les termes de l'aviation d'affaires : FBO, empty leg, OACI, AOC et plus de 80 d\u00e9finitions pour comprendre le monde du jet priv\u00e9.",
+  title: "Business Aviation Glossary",
+  description: "Discover all the terms of business aviation: FBO, empty leg, ICAO, AOC and over 80 definitions to understand the world of private jets.",
 };
 
 const glossary = [
-  { term: "Affr\u00e8tement", def: "Location d'un avion complet avec son \u00e9quipage pour un vol priv\u00e9. Contrairement \u00e0 l'achat de billets sur un vol r\u00e9gulier, l'affr\u00e8tement offre une flexibilit\u00e9 totale sur les horaires, la route et les services \u00e0 bord.", links: ["/services/affretement-jet-prive"] },
-  { term: "AOC", def: "Air Operator Certificate \u2014 Certificat de transport a\u00e9rien d\u00e9livr\u00e9 par l'autorit\u00e9 de l'aviation civile, attestant qu'un op\u00e9rateur r\u00e9pond \u00e0 toutes les exigences de s\u00e9curit\u00e9 et de r\u00e9glementation pour exploiter des vols commerciaux." },
-  { term: "APU", def: "Auxiliary Power Unit \u2014 Unit\u00e9 de puissance auxiliaire permettant d'alimenter les syst\u00e8mes de l'avion (climatisation, \u00e9lectricit\u00e9) au sol sans d\u00e9marrer les moteurs principaux." },
-  { term: "Autonomie", def: "Distance maximale qu'un avion peut parcourir sans ravitaillement en carburant. L'autonomie varie selon le type d'appareil, de 2 000 km pour un very light jet \u00e0 plus de 14 000 km pour un ultra long range.", links: ["/flotte"] },
-  { term: "Avionique", def: "Ensemble des syst\u00e8mes \u00e9lectroniques embarqu\u00e9s dans un avion : instruments de navigation, communication, pilotage automatique, radar m\u00e9t\u00e9o, etc." },
-  { term: "Bizjet", def: "Abr\u00e9viation de Business Jet \u2014 terme anglais d\u00e9signant un avion d'affaires, par opposition aux avions de ligne commerciaux." },
-  { term: "Cabin crew", def: "Personnel navigant commercial (h\u00f4tesses de l'air / stewards) assurant le service en cabine. Sur les vols priv\u00e9s, le cabin crew est facultatif sur les petits appareils mais obligatoire sur les gros porteurs." },
-  { term: "Catering", def: "Service de restauration \u00e0 bord. En aviation priv\u00e9e, le catering peut aller d'un simple service de boissons \u00e0 un menu gastronomique pr\u00e9par\u00e9 par un chef \u00e9toil\u00e9.", links: ["/services/conciergerie-lifestyle"] },
-  { term: "Charter", def: "Synonyme d'affr\u00e8tement en anglais. Vol charter = vol affr\u00e9t\u00e9, o\u00f9 l'avion entier est r\u00e9serv\u00e9 pour un client ou un groupe." },
-  { term: "Code OACI", def: "Code de 4 lettres attribu\u00e9 par l'Organisation de l'Aviation Civile Internationale \u00e0 chaque a\u00e9roport (ex: LFPG pour Paris-Charles de Gaulle, LSGG pour Gen\u00e8ve)." },
-  { term: "Code IATA", def: "Code de 3 lettres attribu\u00e9 par l'Association Internationale du Transport A\u00e9rien aux a\u00e9roports (ex: CDG pour Paris-Charles de Gaulle, GVA pour Gen\u00e8ve)." },
-  { term: "Corridors a\u00e9riens", def: "Routes pr\u00e9d\u00e9finies dans l'espace a\u00e9rien que les avions doivent suivre. L'aviation priv\u00e9e offre parfois plus de flexibilit\u00e9 dans le choix des routes." },
-  { term: "Dead leg", def: "Synonyme d'empty leg \u2014 vol \u00e0 vide de repositionnement d'un avion.", links: ["/empty-legs"] },
-  { term: "EASA", def: "European Aviation Safety Agency \u2014 Agence europ\u00e9enne de la s\u00e9curit\u00e9 a\u00e9rienne, responsable de la r\u00e9glementation et de la certification de l'aviation civile en Europe." },
-  { term: "EBAA", def: "European Business Aviation Association \u2014 Association europ\u00e9enne de l'aviation d'affaires, principal organisme professionnel du secteur." },
-  { term: "Empty leg", def: "Vol de repositionnement d'un avion qui vole \u00e0 vide pour rejoindre sa prochaine mission ou sa base. Ces vols sont commercialis\u00e9s \u00e0 tarif r\u00e9duit (jusqu'\u00e0 -75%).", links: ["/empty-legs", "/services/vols-a-vide-empty-legs"] },
-  { term: "FAA", def: "Federal Aviation Administration \u2014 Autorit\u00e9 de l'aviation civile des \u00c9tats-Unis, \u00e9quivalent am\u00e9ricain de l'EASA europ\u00e9en." },
-  { term: "FBO", def: "Fixed Base Operator \u2014 Terminal d'aviation priv\u00e9e dans un a\u00e9roport, offrant des services d\u00e9di\u00e9s : salon VIP, hangar, ravitaillement, handling, douanes rapides." },
-  { term: "Flat floor", def: "Cabine \u00e0 plancher plat, sans marche entre les zones. Caract\u00e9ristique des appareils super midsize et heavy jets, offrant un confort de d\u00e9placement sup\u00e9rieur." },
-  { term: "Flight time", def: "Dur\u00e9e du vol entre le d\u00e9collage et l'atterrissage, sans compter les temps de roulage au sol." },
-  { term: "Fuel stop", def: "Escale technique pour ravitaillement en carburant sur les longs trajets d\u00e9passant l'autonomie de l'appareil." },
-  { term: "GAT", def: "General Aviation Terminal \u2014 Terminal d\u00e9di\u00e9 \u00e0 l'aviation g\u00e9n\u00e9rale et d'affaires dans un a\u00e9roport, distinct du terminal commercial." },
-  { term: "GPU", def: "Ground Power Unit \u2014 Groupe \u00e9lectrog\u00e8ne au sol fournissant l'alimentation \u00e9lectrique \u00e0 l'avion pendant les op\u00e9rations de maintenance ou d'embarquement." },
-  { term: "Handling", def: "Ensemble des services d'assistance au sol : accueil des passagers, chargement des bagages, ravitaillement, d\u00e9givrage, etc." },
-  { term: "Hangar", def: "B\u00e2timent ferm\u00e9 permettant d'abriter un avion pour le prot\u00e9ger des intemp\u00e9ries et effectuer la maintenance." },
-  { term: "Heavy jet", def: "Cat\u00e9gorie d'avion d'affaires de grande taille (10-16 passagers) capable de vols intercontinentaux sans escale. Exemples : Global 6000, Falcon 7X.", links: ["/flotte/heavy-jet"] },
-  { term: "H\u00e9lisurface", def: "Zone d'atterrissage et de d\u00e9collage d'h\u00e9licopt\u00e8res, non permanente, pouvant \u00eatre am\u00e9nag\u00e9e temporairement." },
-  { term: "IFR", def: "Instrument Flight Rules \u2014 R\u00e8gles de vol aux instruments, utilis\u00e9es dans la plupart des vols d'affaires, permettant de voler dans des conditions m\u00e9t\u00e9o d\u00e9grad\u00e9es." },
-  { term: "IS-BAO", def: "International Standard for Business Aircraft Operations \u2014 Standard international pour les op\u00e9rations d'avions d'affaires, certification volontaire attestant des meilleures pratiques de s\u00e9curit\u00e9." },
-  { term: "Jet card", def: "Carte pr\u00e9pay\u00e9e d'heures de vol permettant d'acc\u00e9der \u00e0 un jet priv\u00e9 sur simple appel, avec des tarifs garantis et une disponibilit\u00e9 prioritaire.", links: ["/contact"] },
-  { term: "Knot", def: "N\u0153ud \u2014 unit\u00e9 de vitesse en aviation, \u00e9quivalant \u00e0 1 mille nautique par heure (environ 1,852 km/h)." },
-  { term: "Landing fees", def: "Taxes d'atterrissage per\u00e7ues par l'a\u00e9roport \u00e0 chaque arriv\u00e9e d'un avion, calcul\u00e9es selon le poids de l'appareil." },
-  { term: "Light jet", def: "Cat\u00e9gorie d'avion d'affaires compact (4-8 passagers) id\u00e9al pour les vols courts \u00e0 moyens (2-3h). Exemples : Phenom 300E, Citation CJ3+.", links: ["/flotte/light-jet"] },
-  { term: "MEL", def: "Minimum Equipment List \u2014 Liste des \u00e9quipements minimum requis pour qu'un avion soit autoris\u00e9 \u00e0 voler." },
-  { term: "Midsize jet", def: "Cat\u00e9gorie d'avion d'affaires de taille moyenne (8-9 passagers) offrant un excellent compromis entre confort et autonomie. Exemples : Praetor 500, Citation Latitude.", links: ["/flotte/midsize-jet"] },
-  { term: "NBAA", def: "National Business Aviation Association \u2014 Association am\u00e9ricaine de l'aviation d'affaires, la plus grande organisation du secteur au monde." },
-  { term: "Op\u00e9rateur", def: "Compagnie a\u00e9rienne exploitant les avions et les \u00e9quipages. En affr\u00e8tement, le courtier (broker) met en relation le client avec l'op\u00e9rateur le plus adapt\u00e9." },
-  { term: "PAX", def: "Abr\u00e9viation de passagers en jargon a\u00e9ronautique." },
-  { term: "Permit to fly", def: "Autorisation de survol d'un espace a\u00e9rien national, requise pour certains pays et organis\u00e9e par le courtier ou l'op\u00e9rateur." },
-  { term: "Positioning", def: "Vol de positionnement \u2014 d\u00e9placement d'un avion vers un a\u00e9roport sp\u00e9cifique pour prendre en charge des passagers. Le co\u00fbt de positionnement est g\u00e9n\u00e9ralement inclus dans le devis." },
-  { term: "Ramp", def: "Zone de stationnement des avions sur un a\u00e9roport, \u00e9galement appel\u00e9e tarmac." },
-  { term: "Slot", def: "Cr\u00e9neau horaire attribu\u00e9 \u00e0 un avion pour d\u00e9coller ou atterrir \u00e0 un a\u00e9roport. Les a\u00e9roports tr\u00e8s fr\u00e9quent\u00e9s ont une gestion stricte des slots." },
-  { term: "Super midsize jet", def: "Cat\u00e9gorie interm\u00e9diaire entre midsize et heavy jet (9-12 passagers) avec une cabine spacieuse et une autonomie transcontinentale. Exemples : Challenger 350, Praetor 600.", links: ["/flotte/super-midsize-jet"] },
-  { term: "Tail number", def: "Immatriculation de l'avion, compos\u00e9e de lettres et chiffres peints sur la queue (empennage) de l'appareil." },
-  { term: "Tarmac", def: "Surface b\u00e9tonn\u00e9e ou asphalt\u00e9e de l'a\u00e9roport o\u00f9 stationnent et circulent les avions." },
-  { term: "Turbopropulseur", def: "Avion \u00e9quip\u00e9 de moteurs \u00e0 turbine entra\u00eenant des h\u00e9lices. Plus lent qu'un jet mais plus \u00e9conomique et capable d'atterrir sur des pistes courtes. Exemple : Pilatus PC-12.", links: ["/flotte/turbopropulseur"] },
-  { term: "Ultra long range", def: "Cat\u00e9gorie d'avions d'affaires les plus performants, capables de relier n'importe quel point du globe sans escale (12 000+ km). Exemples : Gulfstream G650ER, Global 7500.", links: ["/flotte/ultra-long-range"] },
-  { term: "VFR", def: "Visual Flight Rules \u2014 R\u00e8gles de vol \u00e0 vue, n\u00e9cessitant des conditions m\u00e9t\u00e9o favorables avec une visibilit\u00e9 suffisante." },
-  { term: "VIP airliner", def: "Avion de ligne converti en configuration VIP luxueuse (20-50+ passagers). Exemples : Boeing BBJ 737, Airbus ACJ. Id\u00e9al pour les grands groupes.", links: ["/flotte/vip-airliner"] },
-  { term: "Very light jet", def: "Plus petite cat\u00e9gorie de jet priv\u00e9 (2-4 passagers), id\u00e9al pour les courts trajets. Exemples : Citation Mustang, Phenom 100EV.", links: ["/flotte/very-light-jet"] },
-  { term: "Wyvern", def: "Wyvern Wingman \u2014 Programme d'audit et de certification des op\u00e9rateurs d'aviation d'affaires, consid\u00e9r\u00e9 comme la r\u00e9f\u00e9rence mondiale en mati\u00e8re de s\u00e9curit\u00e9." },
+  { term: "Chartering", def: "Rental of an entire aircraft with its crew for a private flight. Unlike purchasing tickets on a scheduled flight, chartering offers complete flexibility over schedules, routes and onboard services.", links: ["/services/affretement-jet-prive"] },
+  { term: "AOC", def: "Air Operator Certificate -- Certificate issued by the civil aviation authority, attesting that an operator meets all safety and regulatory requirements to operate commercial flights." },
+  { term: "APU", def: "Auxiliary Power Unit -- An auxiliary power unit that supplies the aircraft's systems (air conditioning, electricity) on the ground without starting the main engines." },
+  { term: "Range", def: "Maximum distance an aircraft can travel without refueling. Range varies by aircraft type, from 2,000 km for a very light jet to over 14,000 km for an ultra long range.", links: ["/flotte"] },
+  { term: "Avionics", def: "All electronic systems onboard an aircraft: navigation instruments, communications, autopilot, weather radar, etc." },
+  { term: "Bizjet", def: "Abbreviation for Business Jet -- a term referring to a business aircraft, as opposed to commercial airliners." },
+  { term: "Cabin crew", def: "Flight attendants providing cabin service. On private flights, cabin crew is optional on small aircraft but mandatory on large aircraft." },
+  { term: "Catering", def: "Onboard food and beverage service. In private aviation, catering can range from a simple drinks service to a gourmet menu prepared by a Michelin-starred chef.", links: ["/services/conciergerie-lifestyle"] },
+  { term: "Charter", def: "The chartering of an aircraft, where the entire plane is reserved for a client or group." },
+  { term: "ICAO Code", def: "4-letter code assigned by the International Civil Aviation Organization to each airport (e.g., LFPG for Paris-Charles de Gaulle, LSGG for Geneva)." },
+  { term: "IATA Code", def: "3-letter code assigned by the International Air Transport Association to airports (e.g., CDG for Paris-Charles de Gaulle, GVA for Geneva)." },
+  { term: "Air corridors", def: "Predefined routes in airspace that aircraft must follow. Private aviation sometimes offers greater flexibility in route selection." },
+  { term: "Dead leg", def: "Synonym for empty leg -- a repositioning flight where the aircraft flies empty.", links: ["/empty-legs"] },
+  { term: "EASA", def: "European Aviation Safety Agency -- The European agency responsible for the regulation and certification of civil aviation in Europe." },
+  { term: "EBAA", def: "European Business Aviation Association -- The main professional organization for the business aviation sector in Europe." },
+  { term: "Empty leg", def: "A repositioning flight where an aircraft flies empty to reach its next mission or home base. These flights are sold at reduced rates (up to -75%).", links: ["/empty-legs", "/services/vols-a-vide-empty-legs"] },
+  { term: "FAA", def: "Federal Aviation Administration -- The United States civil aviation authority, the American equivalent of the European EASA." },
+  { term: "FBO", def: "Fixed Base Operator -- A private aviation terminal at an airport, offering dedicated services: VIP lounge, hangar, fueling, handling, fast customs." },
+  { term: "Flat floor", def: "A cabin with a flat floor, without steps between zones. A feature of super midsize and heavy jets, offering superior comfort of movement." },
+  { term: "Flight time", def: "Duration of the flight between takeoff and landing, excluding ground taxiing time." },
+  { term: "Fuel stop", def: "A technical stop for refueling on long trips exceeding the aircraft's range." },
+  { term: "GAT", def: "General Aviation Terminal -- A terminal dedicated to general and business aviation at an airport, separate from the commercial terminal." },
+  { term: "GPU", def: "Ground Power Unit -- A ground generator providing electrical power to the aircraft during maintenance or boarding operations." },
+  { term: "Handling", def: "All ground assistance services: passenger reception, luggage loading, fueling, de-icing, etc." },
+  { term: "Hangar", def: "An enclosed building used to shelter an aircraft from the elements and perform maintenance." },
+  { term: "Heavy jet", def: "Category of large business aircraft (10-16 passengers) capable of intercontinental flights without stops. Examples: Global 6000, Falcon 7X.", links: ["/flotte/heavy-jet"] },
+  { term: "Helipad", def: "A non-permanent helicopter landing and takeoff area that can be temporarily set up." },
+  { term: "IFR", def: "Instrument Flight Rules -- Flight rules used in most business flights, allowing flight in degraded weather conditions." },
+  { term: "IS-BAO", def: "International Standard for Business Aircraft Operations -- An international standard for business aircraft operations, a voluntary certification attesting to best safety practices." },
+  { term: "Jet card", def: "A prepaid flight hours card providing access to a private jet with a simple call, with guaranteed rates and priority availability.", links: ["/contact"] },
+  { term: "Knot", def: "A unit of speed in aviation, equivalent to 1 nautical mile per hour (approximately 1.852 km/h)." },
+  { term: "Landing fees", def: "Landing taxes charged by the airport for each aircraft arrival, calculated based on the weight of the aircraft." },
+  { term: "Light jet", def: "Category of compact business aircraft (4-8 passengers) ideal for short to medium flights (2-3 hours). Examples: Phenom 300E, Citation CJ3+.", links: ["/flotte/light-jet"] },
+  { term: "MEL", def: "Minimum Equipment List -- The list of minimum equipment required for an aircraft to be authorized to fly." },
+  { term: "Midsize jet", def: "Category of medium-sized business aircraft (8-9 passengers) offering an excellent balance between comfort and range. Examples: Praetor 500, Citation Latitude.", links: ["/flotte/midsize-jet"] },
+  { term: "NBAA", def: "National Business Aviation Association -- The American business aviation association, the largest organization in the sector worldwide." },
+  { term: "Operator", def: "An airline operating the aircraft and crews. In chartering, the broker connects the client with the most suitable operator." },
+  { term: "PAX", def: "Abbreviation for passengers in aeronautical jargon." },
+  { term: "Permit to fly", def: "Authorization to overfly a national airspace, required for certain countries and organized by the broker or operator." },
+  { term: "Positioning", def: "Positioning flight -- movement of an aircraft to a specific airport to pick up passengers. The positioning cost is generally included in the quote." },
+  { term: "Ramp", def: "Aircraft parking area at an airport, also called the tarmac." },
+  { term: "Slot", def: "Time slot assigned to an aircraft for takeoff or landing at an airport. Busy airports have strict slot management." },
+  { term: "Super midsize jet", def: "An intermediate category between midsize and heavy jet (9-12 passengers) with a spacious cabin and transcontinental range. Examples: Challenger 350, Praetor 600.", links: ["/flotte/super-midsize-jet"] },
+  { term: "Tail number", def: "The aircraft registration, composed of letters and numbers painted on the tail (empennage) of the aircraft." },
+  { term: "Tarmac", def: "The concrete or asphalt surface at the airport where aircraft park and taxi." },
+  { term: "Turboprop", def: "An aircraft equipped with turbine engines driving propellers. Slower than a jet but more economical and capable of landing on short runways. Example: Pilatus PC-12.", links: ["/flotte/turbopropulseur"] },
+  { term: "Ultra long range", def: "Category of the highest-performing business aircraft, capable of connecting any point on the globe without stops (12,000+ km). Examples: Gulfstream G650ER, Global 7500.", links: ["/flotte/ultra-long-range"] },
+  { term: "VFR", def: "Visual Flight Rules -- Rules requiring favorable weather conditions with sufficient visibility." },
+  { term: "VIP airliner", def: "A commercial airliner converted into a luxury VIP configuration (20-50+ passengers). Examples: Boeing BBJ 737, Airbus ACJ. Ideal for large groups.", links: ["/flotte/vip-airliner"] },
+  { term: "Very light jet", def: "The smallest category of private jet (2-4 passengers), ideal for short trips. Examples: Citation Mustang, Phenom 100EV.", links: ["/flotte/very-light-jet"] },
+  { term: "Wyvern", def: "Wyvern Wingman -- An audit and certification program for business aviation operators, considered the global benchmark for safety." },
 ];
 
 const letters = [...new Set(glossary.map((g) => g.term[0].toUpperCase()))].sort();
@@ -74,7 +74,7 @@ export default function GlossairePage() {
         <div className="absolute inset-0" style={{ zIndex: 0 }}>
           <Image
             src="/images/fleet/challenger-605/main.png"
-            alt="Glossaire aviation d'affaires"
+            alt="Business aviation glossary"
             fill
             priority
             style={{ objectFit: "cover" }}
@@ -105,7 +105,7 @@ export default function GlossairePage() {
               color: "#F4DDC3",
             }}
           >
-            GLOSSAIRE
+            GLOSSARY
           </p>
           <h1
             style={{
@@ -117,7 +117,7 @@ export default function GlossairePage() {
               lineHeight: 1.1,
             }}
           >
-            Glossaire de l&apos;aviation d&apos;affaires
+            Business Aviation Glossary
           </h1>
           <p
             style={{
@@ -129,7 +129,7 @@ export default function GlossairePage() {
               fontStyle: "italic",
             }}
           >
-            Tous les termes essentiels pour comprendre le monde du jet priv\u00e9
+            All the essential terms to understand the world of private jets
           </p>
         </div>
       </section>
@@ -226,7 +226,7 @@ export default function GlossairePage() {
                               fontWeight: 400,
                             }}
                           >
-                            En savoir plus &rarr;
+                            Learn more &rarr;
                           </Link>
                         ))}
                       </div>

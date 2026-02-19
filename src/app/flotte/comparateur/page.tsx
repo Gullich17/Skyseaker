@@ -16,14 +16,14 @@ function AircraftSelect({ value, onChange, index }: { value: string; onChange: (
   return (
     <div style={{ flex: 1 }}>
       <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "8px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#6B6B6B" }}>
-        Appareil {index + 1}
+        Aircraft {index + 1}
       </label>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
         style={{ width: "100%", padding: "12px 16px", fontSize: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 300, color: value ? "#FFFFFF" : "#6B6B6B", backgroundColor: "#132A3A", border: `1px solid ${value ? "#F4DDC3" : "#1A3448"}`, borderRadius: "2px", appearance: "none", WebkitAppearance: "none", outline: "none", cursor: "pointer" }}
       >
-        <option value="" style={{ background: "#132A3A" }}>Sélectionner un appareil</option>
+        <option value="" style={{ background: "#132A3A" }}>Select an aircraft</option>
         {fleet.map((a) => (
           <option key={a.id} value={a.id} style={{ background: "#132A3A" }}>{a.name} — {a.category}</option>
         ))}
@@ -48,7 +48,7 @@ function ComparisonRow({ label, values, unit, highlight }: { label: string; valu
         return (
           <span key={i} style={{ fontSize: "15px", textAlign: "center", fontFamily: "var(--font-montserrat)", fontWeight: isBest ? 600 : 400, color: isBest ? "#F4DDC3" : val ? "#FFFFFF" : "#1A3448" }}>
             {val !== null && val !== undefined ? (
-              <>{typeof val === "number" ? val.toLocaleString("fr-FR") : val}{unit && <span style={{ fontSize: "11px", color: "#6B6B6B", marginLeft: "4px" }}>{unit}</span>}</>
+              <>{typeof val === "number" ? val.toLocaleString("en-US") : val}{unit && <span style={{ fontSize: "11px", color: "#6B6B6B", marginLeft: "4px" }}>{unit}</span>}</>
             ) : "—"}
           </span>
         );
@@ -66,7 +66,7 @@ function SpecRow({ label, value, unit, isBest }: { label: string; value: string 
       <span style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.08em", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#6B6B6B" }}>{label}</span>
       <span style={{ fontSize: "14px", fontFamily: "var(--font-montserrat)", fontWeight: isBest ? 600 : 400, color: isBest ? "#F4DDC3" : value ? "#FFFFFF" : "#1A3448" }}>
         {value !== null && value !== undefined ? (
-          <>{typeof value === "number" ? value.toLocaleString("fr-FR") : value}{unit && <span style={{ fontSize: "11px", color: "#6B6B6B", marginLeft: "4px" }}>{unit}</span>}</>
+          <>{typeof value === "number" ? value.toLocaleString("en-US") : value}{unit && <span style={{ fontSize: "11px", color: "#6B6B6B", marginLeft: "4px" }}>{unit}</span>}</>
         ) : "—"}
       </span>
     </div>
@@ -104,17 +104,17 @@ function MobileAircraftCard({ aircraft, allSelected }: { aircraft: Aircraft; all
 
       {/* Specs */}
       <div style={{ padding: "16px 20px" }}>
-        <SpecRow label="Constructeur" value={aircraft.manufacturer} />
-        <SpecRow label="Catégorie" value={aircraft.category} />
-        <SpecRow label="Passagers" value={aircraft.passengers} isBest={isBest("passengers", "max")} />
-        <SpecRow label="Autonomie" value={aircraft.range} unit="km" isBest={isBest("range", "max")} />
-        <SpecRow label="Vitesse" value={aircraft.speed} unit="km/h" isBest={isBest("speed", "max")} />
-        <SpecRow label="Longueur cabine" value={aircraft.cabinLength} unit="m" isBest={isBest("cabinLength", "max")} />
-        <SpecRow label="Hauteur cabine" value={aircraft.cabinHeight} unit="m" isBest={isBest("cabinHeight", "max")} />
-        <SpecRow label="Bagages" value={aircraft.baggage} unit="m³" isBest={isBest("baggage", "max")} />
-        <SpecRow label="Moteurs" value={aircraft.engines} />
-        <SpecRow label="Distance décollage" value={aircraft.takeoffDistance} unit="m" isBest={isBest("takeoffDistance", "min")} />
-        <SpecRow label="Année introduction" value={aircraft.yearIntroduced} />
+        <SpecRow label="Manufacturer" value={aircraft.manufacturer} />
+        <SpecRow label="Category" value={aircraft.category} />
+        <SpecRow label="Passengers" value={aircraft.passengers} isBest={isBest("passengers", "max")} />
+        <SpecRow label="Range" value={aircraft.range} unit="km" isBest={isBest("range", "max")} />
+        <SpecRow label="Speed" value={aircraft.speed} unit="km/h" isBest={isBest("speed", "max")} />
+        <SpecRow label="Cabin Length" value={aircraft.cabinLength} unit="m" isBest={isBest("cabinLength", "max")} />
+        <SpecRow label="Cabin Height" value={aircraft.cabinHeight} unit="m" isBest={isBest("cabinHeight", "max")} />
+        <SpecRow label="Luggage" value={aircraft.baggage} unit="m³" isBest={isBest("baggage", "max")} />
+        <SpecRow label="Engines" value={aircraft.engines} />
+        <SpecRow label="Takeoff Distance" value={aircraft.takeoffDistance} unit="m" isBest={isBest("takeoffDistance", "min")} />
+        <SpecRow label="Year of Introduction" value={aircraft.yearIntroduced} />
       </div>
     </div>
   );
@@ -139,15 +139,15 @@ export default function ComparateurPage() {
         <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1200px", margin: "0 auto", padding: "clamp(120px, 18vh, 160px) 24px clamp(40px, 5vw, 64px)", textAlign: "center" }}>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
             style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "16px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F4DDC3" }}>
-            NOTRE FLOTTE
+            OUR FLEET
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3, ease: EASE }}
             style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "20px" }}>
-            Comparateur de jets
+            Aircraft Comparator
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
             style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", maxWidth: "600px", margin: "0 auto", fontSize: "clamp(16px, 2.5vw, 22px)" }}>
-            Comparez jusqu&apos;à 3 appareils pour trouver celui qui correspond à votre mission
+            Compare up to 3 aircraft to find the one that matches your mission
           </motion.p>
         </div>
       </section>
@@ -159,7 +159,7 @@ export default function ComparateurPage() {
           <ScrollReveal>
             <div style={{ padding: "clamp(20px, 3vw, 32px)", backgroundColor: "#132A3A", border: "1px solid #1A3448", borderRadius: "2px", marginBottom: "clamp(32px, 5vw, 48px)" }}>
               <p style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "20px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F4DDC3" }}>
-                Sélectionnez vos appareils
+                Select Your Aircraft
               </p>
               <div className="selectors-row" style={{ gap: "16px" }}>
                 {selections.map((sel, i) => (
@@ -192,7 +192,7 @@ export default function ComparateurPage() {
                         </>
                       ) : (
                         <div style={{ aspectRatio: "16/9", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "12px", background: "#132A3A", border: "1px dashed #1A3448", borderRadius: "2px" }}>
-                          <span style={{ fontSize: "12px", fontFamily: "var(--font-montserrat)", color: "#6B6B6B" }}>Non sélectionné</span>
+                          <span style={{ fontSize: "12px", fontFamily: "var(--font-montserrat)", color: "#6B6B6B" }}>Not selected</span>
                         </div>
                       )}
                     </div>
@@ -204,20 +204,20 @@ export default function ComparateurPage() {
               <ScrollReveal delay={0.1}>
                 <div style={{ padding: "clamp(20px, 3vw, 32px)", backgroundColor: "#132A3A", border: "1px solid #1A3448", borderRadius: "2px", overflowX: "auto" }}>
                   <h3 style={{ fontSize: "14px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "20px", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F4DDC3" }}>
-                    Caractéristiques techniques
+                    Technical Specifications
                   </h3>
                   <div style={{ minWidth: "600px" }}>
-                    <ComparisonRow label="Constructeur" values={selectedAircraft.map((a) => a?.manufacturer ?? null)} />
-                    <ComparisonRow label="Catégorie" values={selectedAircraft.map((a) => a?.category ?? null)} />
-                    <ComparisonRow label="Passagers" values={selectedAircraft.map((a) => a?.passengers ?? null)} highlight="max" />
-                    <ComparisonRow label="Autonomie" values={selectedAircraft.map((a) => a?.range ?? null)} unit="km" highlight="max" />
-                    <ComparisonRow label="Vitesse" values={selectedAircraft.map((a) => a?.speed ?? null)} unit="km/h" highlight="max" />
-                    <ComparisonRow label="Longueur cabine" values={selectedAircraft.map((a) => a?.cabinLength ?? null)} unit="m" highlight="max" />
-                    <ComparisonRow label="Hauteur cabine" values={selectedAircraft.map((a) => a?.cabinHeight ?? null)} unit="m" highlight="max" />
-                    <ComparisonRow label="Bagages" values={selectedAircraft.map((a) => a?.baggage ?? null)} unit="m³" highlight="max" />
-                    <ComparisonRow label="Moteurs" values={selectedAircraft.map((a) => a?.engines ?? null)} />
-                    <ComparisonRow label="Distance décollage" values={selectedAircraft.map((a) => a?.takeoffDistance ?? null)} unit="m" highlight="min" />
-                    <ComparisonRow label="Année introduction" values={selectedAircraft.map((a) => a?.yearIntroduced ?? null)} />
+                    <ComparisonRow label="Manufacturer" values={selectedAircraft.map((a) => a?.manufacturer ?? null)} />
+                    <ComparisonRow label="Category" values={selectedAircraft.map((a) => a?.category ?? null)} />
+                    <ComparisonRow label="Passengers" values={selectedAircraft.map((a) => a?.passengers ?? null)} highlight="max" />
+                    <ComparisonRow label="Range" values={selectedAircraft.map((a) => a?.range ?? null)} unit="km" highlight="max" />
+                    <ComparisonRow label="Speed" values={selectedAircraft.map((a) => a?.speed ?? null)} unit="km/h" highlight="max" />
+                    <ComparisonRow label="Cabin Length" values={selectedAircraft.map((a) => a?.cabinLength ?? null)} unit="m" highlight="max" />
+                    <ComparisonRow label="Cabin Height" values={selectedAircraft.map((a) => a?.cabinHeight ?? null)} unit="m" highlight="max" />
+                    <ComparisonRow label="Luggage" values={selectedAircraft.map((a) => a?.baggage ?? null)} unit="m³" highlight="max" />
+                    <ComparisonRow label="Engines" values={selectedAircraft.map((a) => a?.engines ?? null)} />
+                    <ComparisonRow label="Takeoff Distance" values={selectedAircraft.map((a) => a?.takeoffDistance ?? null)} unit="m" highlight="min" />
+                    <ComparisonRow label="Year of Introduction" values={selectedAircraft.map((a) => a?.yearIntroduced ?? null)} />
                   </div>
                 </div>
               </ScrollReveal>
@@ -246,7 +246,7 @@ export default function ComparateurPage() {
                 <path d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
               </svg>
               <p style={{ fontSize: "16px", fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#6B6B6B" }}>
-                Sélectionnez au moins un appareil pour commencer la comparaison
+                Select at least one aircraft to start the comparison
               </p>
             </div>
           )}
@@ -254,10 +254,10 @@ export default function ComparateurPage() {
           {/* Bottom CTA */}
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "16px", marginTop: "clamp(48px, 6vw, 64px)" }}>
             <Button href="/flotte" variant="secondary">
-              Retour à la flotte
+              Back to Fleet
             </Button>
             <Button href="/devis" variant="primary">
-              Demander un devis
+              Request a Quote
             </Button>
           </div>
         </div>

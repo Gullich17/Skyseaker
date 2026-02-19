@@ -163,7 +163,7 @@ function ArticleHero({ article }: { article: ArticleData }) {
               fontSize: '13px',
             }}
           >
-            {article.readTime} de lecture
+            {article.readTime} read
           </span>
         </motion.div>
       </div>
@@ -200,7 +200,7 @@ function TableOfContents({
             color: '#F4DDC3',
           }}
         >
-          Sommaire
+          Table of Contents
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {sections.map((section) => (
@@ -246,13 +246,13 @@ function TableOfContents({
               color: '#F4DDC3',
             }}
           >
-            Partager
+            Share
           </p>
           <div className="flex" style={{ gap: '12px' }}>
             <ShareButton label="LinkedIn" icon="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" />
             <ShareButton label="Twitter" icon="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
             <ShareButton label="Email" icon="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            <ShareButton label="Copier" icon="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+            <ShareButton label="Copy" icon="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
           </div>
         </div>
       </nav>
@@ -435,13 +435,13 @@ function ArticleBody({ article }: { article: ArticleData }) {
                   color: '#F4DDC3',
                 }}
               >
-                Partager cet article
+                Share this article
               </p>
               <div className="flex" style={{ gap: '12px' }}>
                 <ShareButton label="LinkedIn" icon="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" />
                 <ShareButton label="Twitter" icon="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
                 <ShareButton label="Email" icon="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                <ShareButton label="Copier" icon="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                <ShareButton label="Copy" icon="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
               </div>
             </div>
           </div>
@@ -475,7 +475,7 @@ function RelatedArticles({
             color: '#FFFFFF',
           }}
         >
-          Articles similaires
+          Related articles
         </h2>
 
         <div
@@ -544,7 +544,7 @@ function RelatedArticles({
                           display: 'inline-block',
                         }}
                       />
-                      <span>{article.readTime} de lecture</span>
+                      <span>{article.readTime} read</span>
                     </div>
                     <span
                       className="block"
@@ -558,7 +558,7 @@ function RelatedArticles({
                         fontWeight: 500,
                       }}
                     >
-                      Lire l&apos;article &rarr;
+                      Read article &rarr;
                     </span>
                   </div>
                 </div>
@@ -614,7 +614,7 @@ function NewsletterCTA() {
               color: '#FFFFFF',
             }}
           >
-            Ne manquez rien
+            Don&apos;t miss a thing
           </h2>
           <p
             style={{
@@ -625,8 +625,8 @@ function NewsletterCTA() {
               color: '#A0A0A0',
             }}
           >
-            Inscrivez-vous {'\u00e0'} notre newsletter pour recevoir nos derniers articles,
-            guides et offres exclusives
+            Subscribe to our newsletter to receive our latest articles,
+            guides and exclusive offers
           </p>
           <div
             className="flex flex-wrap items-center justify-center"
@@ -634,7 +634,7 @@ function NewsletterCTA() {
           >
             <input
               type="email"
-              placeholder="Votre adresse email"
+              placeholder="Your email address"
               style={{
                 width: '100%',
                 flex: '1 1 240px',
@@ -648,7 +648,7 @@ function NewsletterCTA() {
               }}
             />
             <Button variant="primary" size="sm">
-              S&apos;inscrire
+              Subscribe
             </Button>
           </div>
           <p
@@ -660,7 +660,7 @@ function NewsletterCTA() {
               fontWeight: 300,
             }}
           >
-            Pas de spam. D{'\u00e9'}sinscription en un clic.
+            No spam. Unsubscribe in one click.
           </p>
         </ScrollReveal>
       </div>

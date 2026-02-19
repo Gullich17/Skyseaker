@@ -5,43 +5,43 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 
-const faqCategories = ["Tous", "Réservation", "Tarifs", "Appareils", "Sécurité", "Services", "Divers"];
+const faqCategories = ["All", "Booking", "Pricing", "Aircraft", "Safety", "Services", "General"];
 
 const faqs = [
-  { cat: "Réservation", q: "Comment réserver un jet privé ?", a: "Vous pouvez demander un devis via notre formulaire en ligne, par téléphone au +33 6 76 76 55 11 ou par WhatsApp. Notre équipe vous répondra sous 30 minutes avec une proposition personnalisée incluant plusieurs options d\u2019appareils et de tarifs." },
-  { cat: "Réservation", q: "Quel est le délai minimum pour réserver ?", a: "Nous pouvons organiser un vol en aussi peu que 2 heures en cas d\u2019urgence. Pour un service optimal avec choix d\u2019appareil et catering personnalisé, nous recommandons un préavis de 24 à 48 heures." },
-  { cat: "Réservation", q: "Peut-on modifier ou annuler une réservation ?", a: "Les conditions d\u2019annulation varient selon le type de réservation et le délai. En règle générale, une annulation plus de 48h avant le vol est sans frais. Contactez votre conseiller dédié pour les détails spécifiques à votre réservation." },
-  { cat: "Réservation", q: "Quels documents sont nécessaires pour voyager ?", a: "Comme pour tout vol, vous aurez besoin d\u2019une pièce d\u2019identité ou d\u2019un passeport valide. Pour les vols internationaux hors Schengen, un passeport en cours de validité est obligatoire. Nous gérons toutes les formalités douanières pour vous." },
-  { cat: "Réservation", q: "Peut-on réserver pour quelqu\u2019un d\u2019autre ?", a: "Oui, vous pouvez réserver un vol pour un tiers. Il vous suffira de fournir les informations d\u2019identité des passagers au moment de la confirmation." },
-  { cat: "Tarifs", q: "Combien coûte un vol en jet privé ?", a: "Le prix varie selon la distance, le type d\u2019appareil, la disponibilité et la saison. À titre indicatif : Paris-Nice à partir de 4 800€, Paris-Londres à partir de 5 800€, Paris-Dubaï à partir de 28 000€. Demandez un devis précis pour votre trajet." },
-  { cat: "Tarifs", q: "Qu\u2019est-ce qui est inclus dans le prix ?", a: "Le prix inclut : le vol, l\u2019équipage, le carburant, les taxes d\u2019aéroport, l\u2019accès au terminal VIP, les frais de stationnement standards, et un service de boissons à bord. Le catering premium et les transferts terrestres sont en option." },
-  { cat: "Tarifs", q: "Y a-t-il des frais cachés ?", a: "Non. Chez Skyseaker, la transparence est une valeur fondamentale. Votre devis détaille tous les postes de coût. Aucun supplément ne sera ajouté sans votre accord préalable." },
-  { cat: "Tarifs", q: "Qu\u2019est-ce qu\u2019un empty leg et comment en profiter ?", a: "Un empty leg est un vol de repositionnement proposé à tarif réduit (jusqu\u2019à -75%). Consultez notre page Empty Legs pour les offres disponibles ou créez une alerte personnalisée pour être notifié." },
-  { cat: "Tarifs", q: "Proposez-vous des facilités de paiement ?", a: "Oui, nous acceptons les virements bancaires, cartes de crédit et proposons des solutions de financement pour les clients réguliers via notre programme de carte prépayée d\u2019heures de vol." },
-  { cat: "Appareils", q: "Combien d\u2019appareils avez-vous à disposition ?", a: "Nous avons accès à plus de 8 500 appareils certifiés dans le monde entier, couvrant toutes les catégories : du very light jet au VIP airliner, en passant par les hélicoptères." },
-  { cat: "Appareils", q: "Puis-je choisir mon appareil ?", a: "Absolument. Nous vous présentons plusieurs options d\u2019appareils adaptés à votre trajet. Vous pouvez consulter notre page Flotte pour découvrir les appareils disponibles et utiliser notre comparateur." },
-  { cat: "Appareils", q: "Les appareils ont-ils le Wi-Fi ?", a: "La plupart des appareils de catégorie midsize et supérieure sont équipés du Wi-Fi. Pour les light jets, la disponibilité varie. Précisez ce besoin lors de votre demande." },
-  { cat: "Appareils", q: "Quelle est la différence entre les catégories de jets ?", a: "Les catégories se distinguent par la taille, l\u2019autonomie et le confort. Un light jet convient pour 2-3h de vol (4-8 pax), un midsize pour 4-5h (8-9 pax), un heavy pour les vols intercontinentaux (10-16 pax)." },
-  { cat: "Sécurité", q: "Comment garantissez-vous la sécurité des vols ?", a: "Nous travaillons exclusivement avec des opérateurs certifiés par les autorités de l\u2019aviation civile (EASA, FAA). Chaque opérateur est audité régulièrement et répond aux standards les plus stricts de l\u2019industrie." },
-  { cat: "Sécurité", q: "Les pilotes sont-ils qualifiés ?", a: "Tous les pilotes ont des milliers d\u2019heures de vol et les qualifications requises sur le type d\u2019appareil opéré. Nos opérateurs partenaires suivent des programmes de formation continue rigoureux." },
-  { cat: "Sécurité", q: "Que se passe-t-il en cas de mauvais temps ?", a: "La sécurité est notre priorité absolue. En cas de conditions météo défavorables, le commandant de bord peut décider de retarder le vol ou de modifier la route. Nous vous informons immédiatement et proposons des alternatives." },
-  { cat: "Services", q: "Proposez-vous un service de conciergerie ?", a: "Oui, notre service de conciergerie organise l\u2019intégralité de votre voyage : hôtels, restaurants, transferts, événements, activités. Un seul interlocuteur pour tout coordonner." },
-  { cat: "Services", q: "Les animaux sont-ils acceptés à bord ?", a: "Oui, la grande majorité des appareils acceptent les animaux de compagnie en cabine, sans restriction de taille ni cage obligatoire. C\u2019est l\u2019un des grands avantages du vol privé." },
-  { cat: "Services", q: "Proposez-vous des vols cargo / fret ?", a: "Oui, nous proposons un service de fret aérien urgent pour tous types de marchandises. Prise en charge en moins de 2 heures, livraison dans la journée en Europe." },
-  { cat: "Divers", q: "Quelle est la différence entre charter et aviation privée ?", a: "Le charter (affrètement) consiste à louer un avion entier pour votre vol. C\u2019est la forme la plus courante de vol privé. Contrairement aux vols réguliers, vous définissez les horaires et la destination." },
-  { cat: "Divers", q: "Faut-il arriver longtemps avant le départ ?", a: "Non, c\u2019est l\u2019un des grands avantages du jet privé. Il suffit d\u2019arriver au terminal VIP 15 minutes avant le départ. Pas de file d\u2019attente, pas de contrôle de sécurité prolongé." },
-  { cat: "Divers", q: "Peut-on fumer à bord ?", a: "Cela dépend de l\u2019opérateur et de l\u2019appareil. Certains opérateurs autorisent la cigarette électronique. Précisez ce besoin lors de votre demande et nous trouverons un appareil adapté." },
-  { cat: "Divers", q: "Comment fonctionne votre programme de fidélité ?", a: "Notre programme propose 4 paliers (Silver, Gold, Platinum, Diamond) avec des avantages croissants : tarifs préférentiels, surclassements, accès prioritaire et conciergerie dédiée. Contactez-nous pour en savoir plus sur les conditions d\u2019accès à chaque niveau." },
-  { cat: "Divers", q: "Proposez-vous la compensation carbone ?", a: "Oui, nous proposons un programme de compensation carbone pour chaque vol. Nous collaborons avec des organismes certifiés pour investir dans des projets environnementaux qui compensent les émissions de CO2." },
+  { cat: "Booking", q: "How do I book a private jet?", a: "You can request a quote through our online form, by phone at +33 6 76 76 55 11, or via WhatsApp. Our team will respond within 30 minutes with a personalized proposal including several aircraft and pricing options." },
+  { cat: "Booking", q: "What is the minimum lead time for booking?", a: "We can arrange a flight in as little as 2 hours in case of emergency. For optimal service with aircraft selection and customized catering, we recommend 24 to 48 hours' notice." },
+  { cat: "Booking", q: "Can I modify or cancel a booking?", a: "Cancellation terms vary depending on the type of booking and the notice period. As a general rule, cancellations made more than 48 hours before the flight are free of charge. Contact your dedicated advisor for details specific to your booking." },
+  { cat: "Booking", q: "What documents are required for travel?", a: "As with any flight, you will need a valid ID or passport. For international flights outside the Schengen area, a valid passport is mandatory. We handle all customs formalities on your behalf." },
+  { cat: "Booking", q: "Can I book a flight for someone else?", a: "Yes, you can book a flight for a third party. You will simply need to provide the passengers' identification details at the time of confirmation." },
+  { cat: "Pricing", q: "How much does a private jet flight cost?", a: "The price varies depending on the distance, aircraft type, availability, and season. As a guide: Paris-Nice from 4,800\u20AC, Paris-London from 5,800\u20AC, Paris-Dubai from 28,000\u20AC. Request a precise quote for your route." },
+  { cat: "Pricing", q: "What is included in the price?", a: "The price includes: the flight, crew, fuel, airport taxes, VIP terminal access, standard parking fees, and an onboard beverage service. Premium catering and ground transfers are available as options." },
+  { cat: "Pricing", q: "Are there any hidden fees?", a: "No. At Skyseaker, transparency is a core value. Your quote details every cost item. No surcharge will be added without your prior approval." },
+  { cat: "Pricing", q: "What is an empty leg and how can I take advantage of one?", a: "An empty leg is a repositioning flight offered at a reduced rate (up to -75%). Check our Empty Legs page for available offers or set up a personalized alert to be notified." },
+  { cat: "Pricing", q: "Do you offer payment plans?", a: "Yes, we accept bank transfers and credit cards, and offer financing solutions for regular clients through our prepaid flight hours card program." },
+  { cat: "Aircraft", q: "How many aircraft do you have access to?", a: "We have access to over 8,500 certified aircraft worldwide, covering every category: from very light jets to VIP airliners, including helicopters." },
+  { cat: "Aircraft", q: "Can I choose my aircraft?", a: "Absolutely. We present several aircraft options suited to your route. You can visit our Fleet page to explore available aircraft and use our comparison tool." },
+  { cat: "Aircraft", q: "Do the aircraft have Wi-Fi?", a: "Most midsize and larger category aircraft are equipped with Wi-Fi. For light jets, availability varies. Please specify this requirement when making your request." },
+  { cat: "Aircraft", q: "What is the difference between jet categories?", a: "The categories differ in size, range, and comfort. A light jet is suitable for 2-3 hour flights (4-8 pax), a midsize for 4-5 hours (8-9 pax), and a heavy jet for intercontinental flights (10-16 pax)." },
+  { cat: "Safety", q: "How do you ensure flight safety?", a: "We work exclusively with operators certified by civil aviation authorities (EASA, FAA). Each operator is regularly audited and meets the strictest industry standards." },
+  { cat: "Safety", q: "Are the pilots qualified?", a: "All pilots have thousands of flight hours and hold the required type ratings for the aircraft they operate. Our partner operators follow rigorous ongoing training programs." },
+  { cat: "Safety", q: "What happens in case of bad weather?", a: "Safety is our absolute priority. In the event of adverse weather conditions, the captain may decide to delay the flight or alter the route. We inform you immediately and offer alternatives." },
+  { cat: "Services", q: "Do you offer a concierge service?", a: "Yes, our concierge service organizes every aspect of your trip: hotels, restaurants, transfers, events, and activities. A single point of contact to coordinate everything." },
+  { cat: "Services", q: "Are pets allowed on board?", a: "Yes, the vast majority of aircraft welcome pets in the cabin, with no size restrictions or mandatory cages. This is one of the great advantages of private aviation." },
+  { cat: "Services", q: "Do you offer cargo / freight flights?", a: "Yes, we offer an urgent air freight service for all types of goods. Pickup in under 2 hours, same-day delivery across Europe." },
+  { cat: "General", q: "What is the difference between charter and private aviation?", a: "Charter involves renting an entire aircraft for your flight. It is the most common form of private aviation. Unlike scheduled flights, you set the schedule and the destination." },
+  { cat: "General", q: "Do I need to arrive long before departure?", a: "No, this is one of the great advantages of private jets. Simply arrive at the VIP terminal 15 minutes before departure. No queues, no lengthy security checks." },
+  { cat: "General", q: "Is smoking allowed on board?", a: "This depends on the operator and the aircraft. Some operators permit electronic cigarettes. Specify this requirement when making your request and we will find a suitable aircraft." },
+  { cat: "General", q: "How does your loyalty program work?", a: "Our program offers 4 tiers (Silver, Gold, Platinum, Diamond) with increasing benefits: preferential rates, upgrades, priority access, and dedicated concierge service. Contact us to learn more about the requirements for each tier." },
+  { cat: "General", q: "Do you offer carbon offsetting?", a: "Yes, we offer a carbon offset program for every flight. We partner with certified organizations to invest in environmental projects that offset CO2 emissions." },
 ];
 
 export default function FAQPage() {
-  const [activeCategory, setActiveCategory] = useState("Tous");
+  const [activeCategory, setActiveCategory] = useState("All");
   const [search, setSearch] = useState("");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const filtered = faqs.filter((f) => {
-    const matchCat = activeCategory === "Tous" || f.cat === activeCategory;
+    const matchCat = activeCategory === "All" || f.cat === activeCategory;
     const matchSearch = search === "" || f.q.toLowerCase().includes(search.toLowerCase()) || f.a.toLowerCase().includes(search.toLowerCase());
     return matchCat && matchSearch;
   });
@@ -56,7 +56,7 @@ export default function FAQPage() {
         <div className="absolute inset-0" style={{ zIndex: 0 }}>
           <Image
             src="/images/fleet/global-7500/main.png"
-            alt="FAQ aviation privée"
+            alt="Private aviation FAQ"
             fill
             priority
             style={{ objectFit: "cover", objectPosition: "center 30%" }}
@@ -99,7 +99,7 @@ export default function FAQPage() {
               lineHeight: 1.1,
             }}
           >
-            Questions fréquentes
+            Frequently Asked Questions
           </h1>
           <p
             style={{
@@ -111,7 +111,7 @@ export default function FAQPage() {
               margin: "0 auto",
             }}
           >
-            Trouvez rapidement les réponses à vos questions sur l&apos;aviation privée
+            Quickly find answers to your questions about private aviation
           </p>
         </div>
       </section>
@@ -124,7 +124,7 @@ export default function FAQPage() {
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Rechercher une question..."
+              placeholder="Search for a question..."
               style={{
                 width: "100%",
                 padding: "16px 24px",
@@ -218,19 +218,19 @@ export default function FAQPage() {
 
           {filtered.length === 0 && (
             <p style={{ textAlign: "center", color: "#6B6B6B", padding: "48px 0", fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
-              Aucune question ne correspond à votre recherche.
+              No questions match your search.
             </p>
           )}
 
           {/* CTA */}
           <div style={{ textAlign: "center", marginTop: "64px", padding: "40px", background: "#132A3A", border: "1px solid #1A3448" }}>
             <h3 style={{ fontSize: "22px", marginBottom: "12px", fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF" }}>
-              Vous n&apos;avez pas trouvé votre réponse ?
+              Didn&apos;t find your answer?
             </h3>
             <p style={{ fontSize: "14px", color: "#A0A0A0", marginBottom: "24px", fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
-              Notre équipe est disponible 24/7 pour répondre à toutes vos questions
+              Our team is available 24/7 to answer all your questions
             </p>
-            <Button href="/contact" variant="primary">Contactez-nous</Button>
+            <Button href="/contact" variant="primary">Contact Us</Button>
           </div>
         </div>
       </section>

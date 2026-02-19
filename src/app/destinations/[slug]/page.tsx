@@ -19,289 +19,289 @@ const seoContent: Record<
 > = {
   geneve: {
     seoText:
-      "Genève, nichée au bord du lac Léman avec les Alpes en toile de fond, est une destination incontournable pour les voyageurs en jet privé. Capitale mondiale de la diplomatie, elle accueille le siège européen des Nations Unies, le CERN et de nombreuses organisations internationales. La ville est également un centre névralgique de la haute horlogerie et de la finance privée, attirant une clientèle d'affaires internationale tout au long de l'année. L'aéroport de Genève dispose d'installations dédiées à l'aviation privée de premier plan, avec des terminaux VIP offrant des services de conciergerie personnalisés, un accès direct au tarmac et des formalités douanières accélérées. En quelques minutes, vous rejoignez le centre-ville et ses palaces légendaires comme le Beau-Rivage ou le Four Seasons Hôtel des Bergues. La proximité des stations de ski prestigieuses comme Verbier, Gstaad ou Courchevel fait de Genève un hub idéal pour les amateurs de sports d'hiver. En été, le lac offre des activités nautiques exclusives et les vignobles de Lavaux, classés au patrimoine mondial de l'UNESCO, sont à portée de main. Que vous veniez pour le Salon International de la Haute Horlogerie, une réunion au siège d'une banque privée ou un week-end dans les Alpes, le vol en jet privé vers Genève transforme chaque déplacement en une expérience raffinée et efficace.",
+      "Geneva, nestled on the shores of Lake Geneva with the Alps as a backdrop, is an essential destination for private jet travelers. As the world capital of diplomacy, it is home to the European headquarters of the United Nations, CERN, and numerous international organizations. The city is also a hub for fine watchmaking and private banking, attracting an international business clientele year-round. Geneva Airport features top-tier private aviation facilities, with VIP terminals offering personalized concierge services, direct tarmac access, and expedited customs clearance. Within minutes, you can reach the city center and its legendary palaces such as the Beau-Rivage or the Four Seasons Hotel des Bergues. The proximity to prestigious ski resorts like Verbier, Gstaad, and Courchevel makes Geneva an ideal hub for winter sports enthusiasts. In summer, the lake offers exclusive water activities, and the Lavaux vineyards, a UNESCO World Heritage Site, are within easy reach. Whether you are coming for the Salon International de la Haute Horlogerie, a meeting at a private bank headquarters, or a weekend in the Alps, flying by private jet to Geneva transforms every trip into a refined and efficient experience.",
     timezone: "UTC+1 (CET)",
     recommendedAircraft: ["citation-mustang", "citation-cj3-plus", "phenom-300e"],
-    priceRange: "4 200 - 8 500",
+    priceRange: "4,200 - 8,500",
     faq: [
       {
-        question: "Quel est le temps de vol Paris-Genève en jet privé ?",
+        question: "What is the flight time from Paris to Geneva by private jet?",
         answer:
-          "Le temps de vol entre Paris et Genève en jet privé est d'environ 55 minutes, selon les conditions météorologiques et le type d'appareil choisi.",
+          "The flight time between Paris and Geneva by private jet is approximately 55 minutes, depending on weather conditions and the type of aircraft chosen.",
       },
       {
-        question: "Quel type de jet recommandez-vous pour Paris-Genève ?",
+        question: "What type of jet do you recommend for Paris to Geneva?",
         answer:
-          "Pour un vol Paris-Genève, nous recommandons un Very Light Jet ou Light Jet comme le Citation Mustang ou le Phenom 300E, idéaux pour ce court trajet.",
+          "For a Paris-Geneva flight, we recommend a Very Light Jet or Light Jet such as the Citation Mustang or the Phenom 300E, ideal for this short route.",
       },
       {
-        question: "Y a-t-il un terminal privé à l'aéroport de Genève ?",
+        question: "Is there a private terminal at Geneva Airport?",
         answer:
-          "Oui, l'aéroport de Genève dispose de plusieurs FBO (Fixed Base Operators) dédiés à l'aviation privée, offrant des services VIP complets incluant salon privé, conciergerie et transfert direct au tarmac.",
+          "Yes, Geneva Airport has several FBOs (Fixed Base Operators) dedicated to private aviation, offering comprehensive VIP services including a private lounge, concierge, and direct tarmac transfer.",
       },
     ],
   },
   londres: {
     seoText:
-      "Londres, métropole mondiale par excellence, est la destination numéro un en aviation privée au départ de Paris. La capitale britannique dispose du réseau d'aéroports dédiés à l'aviation d'affaires le plus dense d'Europe, permettant un accès rapide et flexible à toutes les zones de la ville. De Luton au nord à Biggin Hill au sud, en passant par Farnborough à l'ouest, chaque aéroport offre des terminaux VIP avec des services haut de gamme. Les voyageurs d'affaires apprécient particulièrement la possibilité d'éviter les terminaux commerciaux bondés de Heathrow et Gatwick, gagnant un temps précieux. La City de Londres, Canary Wharf et Mayfair sont accessibles en moins de 45 minutes depuis les terminaux privés. Londres est un centre financier mondial, abritant la Bourse de Londres, la Banque d'Angleterre et les sièges de nombreuses multinationales. La ville attire également pour sa scène culturelle exceptionnelle avec le West End, ses musées de renommée mondiale et sa gastronomie étoilée. Pour les amateurs de sport, Wimbledon, Ascot et les matchs de Premier League sont des rendez-vous incontournables. Le vol en jet privé vers Londres vous offre une flexibilité totale sur les horaires et le choix de l'aéroport d'arrivée, optimisant chaque minute de votre séjour dans la capitale britannique.",
+      "London, the ultimate global metropolis, is the number one private aviation destination from Paris. The British capital boasts Europe's densest network of business aviation airports, providing quick and flexible access to all areas of the city. From Luton in the north to Biggin Hill in the south, and Farnborough to the west, each airport offers VIP terminals with premium services. Business travelers particularly appreciate being able to bypass the crowded commercial terminals at Heathrow and Gatwick, saving valuable time. The City of London, Canary Wharf, and Mayfair are all accessible within 45 minutes from private terminals. London is a global financial center, home to the London Stock Exchange, the Bank of England, and the headquarters of numerous multinational corporations. The city also draws visitors with its exceptional cultural scene including the West End, world-renowned museums, and Michelin-starred dining. For sports enthusiasts, Wimbledon, Ascot, and Premier League matches are unmissable events. Flying by private jet to London gives you total flexibility on schedules and choice of arrival airport, optimizing every minute of your stay in the British capital.",
     timezone: "UTC+0 (GMT) / UTC+1 (BST)",
     recommendedAircraft: ["citation-cj3-plus", "phenom-300e", "citation-xls-plus"],
-    priceRange: "5 800 - 12 000",
+    priceRange: "5,800 - 12,000",
     faq: [
       {
-        question: "Quel aéroport privé choisir à Londres ?",
+        question: "Which private airport should I choose in London?",
         answer:
-          "Le choix dépend de votre destination finale. Farnborough est idéal pour l'ouest de Londres et le Surrey, Luton pour le nord et la City, Biggin Hill pour le sud-est. Nos conseillers vous recommanderont le meilleur choix.",
+          "The choice depends on your final destination. Farnborough is ideal for west London and Surrey, Luton for the north and the City, Biggin Hill for the southeast. Our advisors will recommend the best option for you.",
       },
       {
-        question: "Combien coûte un vol Paris-Londres en jet privé ?",
+        question: "How much does a Paris-London private jet flight cost?",
         answer:
-          "Un vol Paris-Londres en jet privé coûte à partir de 5 800 euros en aller simple sur un Light Jet. Le prix varie selon le type d'appareil, la disponibilité et le choix de l'aéroport.",
+          "A Paris-London private jet flight starts from 5,800 euros one-way on a Light Jet. The price varies depending on the aircraft type, availability, and airport choice.",
       },
       {
-        question: "Faut-il un passeport pour voler en jet privé vers Londres ?",
+        question: "Do I need a passport to fly by private jet to London?",
         answer:
-          "Oui, depuis le Brexit, un passeport en cours de validité est requis pour voyager au Royaume-Uni, y compris en aviation privée. Les contrôles douaniers sont effectués directement au terminal privé.",
+          "Yes, since Brexit, a valid passport is required to travel to the United Kingdom, including by private aviation. Customs checks are carried out directly at the private terminal.",
       },
     ],
   },
   mykonos: {
     seoText:
-      "Mykonos, la perle des Cyclades, est devenue la destination estivale par excellence des voyageurs en jet privé. Cette île grecque mythique offre un mélange envoûtant de plages paradisiaques aux eaux cristallines, de villages blancs et bleus pittoresques, et d'une vie nocturne légendaire qui attire la jet-set internationale. L'aéroport de Mykonos, bien que compact, dispose de services dédiés à l'aviation privée avec un accueil VIP et un transfert rapide vers les complexes hôteliers de luxe de l'île. De juin à septembre, Mykonos vibre au rythme des beach clubs exclusifs comme Nammos et Scorpios, des restaurants gastronomiques en bord de mer et des boutiques de créateurs dans les ruelles de Chora. L'île offre également un patrimoine culturel riche avec les moulins à vent emblématiques, la Petite Venise et l'île sacrée de Délos à quelques encablures. Les voyageurs les plus discrets trouveront leur bonheur dans les villas privées avec piscine à débordement surplombant la mer Égée, accessibles uniquement par des chemins privés. Le vol en jet privé vers Mykonos est particulièrement apprécié car il permet d'éviter les correspondances souvent nécessaires en vol commercial. En environ trois heures depuis Paris, vous posez le pied sur cette île enchanteresse, prêt à profiter de chaque instant de votre séjour méditerranéen.",
+      "Mykonos, the pearl of the Cyclades, has become the ultimate summer destination for private jet travelers. This legendary Greek island offers a captivating blend of paradise beaches with crystal-clear waters, picturesque white-and-blue villages, and a legendary nightlife that attracts the international jet set. Mykonos Airport, although compact, provides dedicated private aviation services with VIP reception and quick transfer to the island's luxury hotel complexes. From June to September, Mykonos comes alive with exclusive beach clubs like Nammos and Scorpios, gourmet seaside restaurants, and designer boutiques in the alleys of Chora. The island also boasts a rich cultural heritage with its iconic windmills, Little Venice, and the sacred island of Delos just a short boat ride away. The most discerning travelers will find their haven in private villas with infinity pools overlooking the Aegean Sea, accessible only by private paths. Flying by private jet to Mykonos is particularly popular as it avoids the connections often required on commercial flights. In approximately three hours from Paris, you set foot on this enchanting island, ready to enjoy every moment of your Mediterranean getaway.",
     timezone: "UTC+2 (EET) / UTC+3 (EEST)",
     recommendedAircraft: ["phenom-300e", "citation-xls-plus", "praetor-500"],
-    priceRange: "15 500 - 28 000",
+    priceRange: "15,500 - 28,000",
     faq: [
       {
-        question: "Quelle est la meilleure période pour voler vers Mykonos ?",
+        question: "What is the best time to fly to Mykonos?",
         answer:
-          "La haute saison s'étend de juin à septembre, avec un pic en juillet-août. Mai et octobre offrent un climat agréable avec moins de monde. Nous recommandons de réserver tôt en haute saison.",
+          "Peak season runs from June to September, with the busiest period in July-August. May and October offer pleasant weather with fewer crowds. We recommend booking early during peak season.",
       },
       {
-        question: "L'aéroport de Mykonos accepte-t-il les jets privés ?",
+        question: "Does Mykonos Airport accept private jets?",
         answer:
-          "Oui, l'aéroport de Mykonos (LGMK) accueille les jets privés avec des créneaux dédiés. En haute saison, les créneaux sont très demandés et doivent être réservés à l'avance.",
+          "Yes, Mykonos Airport (LGMK) welcomes private jets with dedicated slots. During peak season, slots are in high demand and must be booked in advance.",
       },
       {
-        question: "Un transfert hélicoptère est-il disponible depuis Mykonos ?",
+        question: "Is a helicopter transfer available from Mykonos?",
         answer:
-          "Oui, nous organisons des transferts en hélicoptère depuis Mykonos vers les îles voisines comme Santorin, Paros ou Naxos, ainsi que vers des yachts en mer.",
+          "Yes, we arrange helicopter transfers from Mykonos to neighboring islands such as Santorini, Paros, and Naxos, as well as to yachts at sea.",
       },
     ],
   },
   dubai: {
     seoText:
-      "Dubaï est le hub mondial du luxe et de l'aviation privée au Moyen-Orient. Cette métropole futuriste, érigée au cœur du désert, fascine par son audace architecturale, ses expériences de shopping incomparables et son art de vivre où l'excellence est la norme. Les deux aéroports de Dubaï offrent des installations de classe mondiale pour l'aviation privée, avec des terminaux VIP parmi les plus sophistiqués de la planète. Al Maktoum International, en particulier, est conçu pour accueillir les plus grands jets privés dans des conditions optimales. Dubaï attire les voyageurs d'affaires grâce à la Dubai International Financial Centre (DIFC), à sa position de carrefour entre l'Europe, l'Asie et l'Afrique, et à son environnement fiscal avantageux. Les amateurs de luxe trouveront leur bonheur dans les boutiques de la Dubai Mall, les restaurants étoilés du Burj Al Arab et les plages privées de Palm Jumeirah. L'émirat propose aussi des expériences uniques : safaris dans le désert en 4x4 de luxe, courses de chameaux, golf sur des parcours dessinés par les plus grands architectes, et croisières en yacht dans le golfe Persique. Le vol en jet privé vers Dubaï depuis Paris dure environ 6h30, permettant de voyager dans un confort absolu avec un service de restauration gastronomique à bord. C'est la destination idéale pour combiner affaires et plaisir dans un cadre d'exception.",
+      "Dubai is the global hub for luxury and private aviation in the Middle East. This futuristic metropolis, rising from the heart of the desert, fascinates with its bold architecture, unparalleled shopping experiences, and a lifestyle where excellence is the norm. Dubai's two airports offer world-class private aviation facilities, with VIP terminals among the most sophisticated on the planet. Al Maktoum International, in particular, is designed to accommodate the largest private jets in optimal conditions. Dubai attracts business travelers thanks to the Dubai International Financial Centre (DIFC), its position as a crossroads between Europe, Asia, and Africa, and its favorable tax environment. Luxury enthusiasts will find delight in the boutiques of the Dubai Mall, the starred restaurants of the Burj Al Arab, and the private beaches of Palm Jumeirah. The emirate also offers unique experiences: luxury 4x4 desert safaris, camel racing, golf on courses designed by the world's top architects, and yacht cruises in the Persian Gulf. The private jet flight from Paris to Dubai takes approximately 6 hours 30 minutes, allowing you to travel in absolute comfort with gourmet dining on board. It is the ideal destination for combining business and pleasure in an exceptional setting.",
     timezone: "UTC+4 (GST)",
     recommendedAircraft: ["challenger-350", "global-6000", "falcon-7x"],
-    priceRange: "28 000 - 55 000",
+    priceRange: "28,000 - 55,000",
     faq: [
       {
-        question: "Quel jet recommandez-vous pour Paris-Dubaï ?",
+        question: "Which jet do you recommend for Paris to Dubai?",
         answer:
-          "Pour un vol Paris-Dubaï sans escale, nous recommandons un Super Midsize Jet comme le Challenger 350 ou un Heavy Jet comme le Global 6000, offrant l'autonomie et le confort nécessaires pour ce trajet de 6h30.",
+          "For a nonstop Paris-Dubai flight, we recommend a Super Midsize Jet such as the Challenger 350 or a Heavy Jet such as the Global 6000, offering the range and comfort needed for this 6h30 journey.",
       },
       {
-        question: "Faut-il un visa pour Dubaï en jet privé ?",
+        question: "Do I need a visa for Dubai by private jet?",
         answer:
-          "Les ressortissants français bénéficient d'un visa à l'arrivée gratuit pour les séjours de moins de 90 jours aux Émirats Arabes Unis. Les formalités sont simplifiées au terminal privé.",
+          "French nationals benefit from a free visa on arrival for stays under 90 days in the United Arab Emirates. Formalities are streamlined at the private terminal.",
       },
       {
-        question: "Quel aéroport choisir à Dubaï pour l'aviation privée ?",
+        question: "Which airport should I choose in Dubai for private aviation?",
         answer:
-          "Al Maktoum International (DWC) est généralement préféré pour l'aviation privée grâce à ses infrastructures dédiées et sa proximité avec les zones résidentielles de luxe. Dubai International (DXB) reste une option pour sa centralité.",
+          "Al Maktoum International (DWC) is generally preferred for private aviation thanks to its dedicated infrastructure and proximity to luxury residential areas. Dubai International (DXB) remains an option for its central location.",
       },
     ],
   },
   marrakech: {
     seoText:
-      "Marrakech, la ville rouge, est une destination envoûtante qui séduit les voyageurs du monde entier par son mélange unique de traditions séculaires et de luxe contemporain. À seulement trois heures de vol de Paris en jet privé, cette perle marocaine offre un dépaysement total avec ses souks animés, ses palais somptueux et ses jardins secrets. L'aéroport Marrakech-Ménara dispose d'un terminal dédié à l'aviation privée offrant un accueil chaleureux et des formalités simplifiées. En quelques minutes, vous rejoignez les plus beaux riads et palaces de la médina ou de la Palmeraie. La ville impériale fascine par son patrimoine architectural exceptionnel : la Koutoubia, les tombeaux Saadiens, le palais de la Bahia et les jardins de Majorelle sont des merveilles à découvrir. La gastronomie marocaine, entre tagines raffinés et pâtisseries délicates, est une expérience culinaire inoubliable. Les amateurs de golf apprécieront les parcours prestigieux du Royal Golf et de l'Amelkis, tandis que les passionnés de nature pourront explorer les vallées de l'Atlas en excursion privée. Marrakech est aussi une destination de choix pour les événements et célébrations, avec des lieux de réception spectaculaires comme les palais privés et les domaines de la Palmeraie. L'accueil marocain légendaire et le rapport qualité-prix exceptionnel des services de luxe font de Marrakech une destination privilégiée de l'aviation privée.",
+      "Marrakech, the Red City, is a captivating destination that charms travelers from around the world with its unique blend of centuries-old traditions and contemporary luxury. Just three hours by private jet from Paris, this Moroccan gem offers a total change of scenery with its bustling souks, sumptuous palaces, and secret gardens. Marrakech-Menara Airport has a dedicated private aviation terminal offering a warm welcome and streamlined formalities. Within minutes, you reach the finest riads and palaces in the medina or the Palmeraie. The imperial city fascinates with its exceptional architectural heritage: the Koutoubia, the Saadian Tombs, the Bahia Palace, and the Majorelle Gardens are wonders to discover. Moroccan gastronomy, from refined tagines to delicate pastries, is an unforgettable culinary experience. Golf enthusiasts will appreciate the prestigious courses at the Royal Golf and Amelkis, while nature lovers can explore the Atlas valleys on private excursions. Marrakech is also a top choice for events and celebrations, with spectacular reception venues such as private palaces and Palmeraie estates. The legendary Moroccan hospitality and the exceptional value of luxury services make Marrakech a premier private aviation destination.",
     timezone: "UTC+1 (CET)",
     recommendedAircraft: ["phenom-300e", "citation-xls-plus", "praetor-500"],
-    priceRange: "14 000 - 24 000",
+    priceRange: "14,000 - 24,000",
     faq: [
       {
-        question: "Combien de temps dure le vol Paris-Marrakech en jet privé ?",
+        question: "How long is the Paris-Marrakech flight by private jet?",
         answer:
-          "Le vol Paris-Marrakech en jet privé dure environ 3 heures et 15 minutes, selon le type d'appareil et les conditions de vol.",
+          "The Paris-Marrakech private jet flight takes approximately 3 hours and 15 minutes, depending on the aircraft type and flight conditions.",
       },
       {
-        question: "Quels documents sont nécessaires pour voler vers Marrakech ?",
+        question: "What documents are needed to fly to Marrakech?",
         answer:
-          "Les ressortissants français n'ont pas besoin de visa pour un séjour de moins de 90 jours au Maroc. Un passeport en cours de validité suffit. Les formalités sont effectuées directement au terminal privé.",
+          "French nationals do not need a visa for stays under 90 days in Morocco. A valid passport is sufficient. Formalities are handled directly at the private terminal.",
       },
       {
-        question: "Peut-on organiser un transfert depuis l'aéroport de Marrakech ?",
+        question: "Can you arrange a transfer from Marrakech Airport?",
         answer:
-          "Oui, nous organisons des transferts VIP en véhicule de luxe depuis le terminal privé de Marrakech-Ménara vers votre hôtel, riad ou villa privée, avec accueil personnalisé.",
+          "Yes, we arrange VIP transfers in luxury vehicles from the Marrakech-Menara private terminal to your hotel, riad, or private villa, with personalized welcome.",
       },
     ],
   },
   ibiza: {
     seoText:
-      "Ibiza, l'île Blanche des Baléares, est bien plus qu'une destination festive. Si ses clubs légendaires comme Pacha, Amnesia et Ushuaïa continuent d'attirer la jet-set internationale, l'île révèle aussi un visage plus intime fait de criques secrètes, de villages perchés et d'une gastronomie méditerranéenne raffinée. À moins de deux heures de vol de Paris en jet privé, Ibiza offre une escapade idéale pour un week-end prolongé ou des vacances estivales. L'aéroport d'Ibiza accueille les jets privés avec des services VIP dédiés et un accès rapide aux différentes zones de l'île. Le nord de l'île, plus sauvage et préservé, abrite des hôtels-boutiques intimistes et des restaurants de ferme-à-table. Le sud et l'ouest concentrent les beach clubs glamour et les couchers de soleil spectaculaires de Café del Mar et Sunset Ashram. Les amateurs de bien-être trouveront à Ibiza une offre exceptionnelle de spas, retraites de yoga et centres holistiques. L'île est également réputée pour son marché hippie de Las Dalias et sa scène artistique dynamique. La location de yachts, les excursions vers Formentera en bateau privé et les visites de la vieille ville classée UNESCO complètent une offre touristique qui répond à toutes les envies. Le vol en jet privé vers Ibiza est la garantie d'un voyage sans stress, avec la liberté de partir et revenir selon votre rythme.",
+      "Ibiza, the White Island of the Balearics, is much more than a party destination. While its legendary clubs like Pacha, Amnesia, and Ushuaia continue to attract the international jet set, the island also reveals a more intimate side of secret coves, hilltop villages, and refined Mediterranean cuisine. Less than two hours by private jet from Paris, Ibiza offers an ideal escape for a long weekend or summer holiday. Ibiza Airport welcomes private jets with dedicated VIP services and quick access to different areas of the island. The wilder, more preserved north of the island is home to intimate boutique hotels and farm-to-table restaurants. The south and west concentrate glamorous beach clubs and the spectacular sunsets of Cafe del Mar and Sunset Ashram. Wellness enthusiasts will find an exceptional offering of spas, yoga retreats, and holistic centers in Ibiza. The island is also renowned for its Las Dalias hippie market and dynamic art scene. Yacht charters, private boat excursions to Formentera, and visits to the UNESCO-listed old town complete a tourism offering that caters to every desire. Flying by private jet to Ibiza guarantees a stress-free journey, with the freedom to depart and return on your own schedule.",
     timezone: "UTC+1 (CET) / UTC+2 (CEST)",
     recommendedAircraft: ["citation-mustang", "phenom-100ev", "citation-cj3-plus"],
-    priceRange: "9 800 - 16 000",
+    priceRange: "9,800 - 16,000",
     faq: [
       {
-        question: "Quelle est la meilleure saison pour voler vers Ibiza ?",
+        question: "What is the best season to fly to Ibiza?",
         answer:
-          "La saison principale s'étend de mai à octobre. Juin et septembre offrent un excellent compromis entre beau temps et fréquentation raisonnable. Juillet et août sont les mois les plus animés.",
+          "The main season runs from May to October. June and September offer an excellent balance between good weather and reasonable crowds. July and August are the liveliest months.",
       },
       {
-        question: "Peut-on atterrir à Formentera en jet privé ?",
+        question: "Can I land in Formentera by private jet?",
         answer:
-          "Non, Formentera ne dispose pas d'aéroport. Vous atterrissez à Ibiza et nous organisons un transfert en bateau rapide privé vers Formentera en 25 minutes environ.",
+          "No, Formentera does not have an airport. You land in Ibiza and we arrange a private speedboat transfer to Formentera in approximately 25 minutes.",
       },
       {
-        question: "Combien coûte un vol Paris-Ibiza en jet privé ?",
+        question: "How much does a Paris-Ibiza private jet flight cost?",
         answer:
-          "Un vol Paris-Ibiza en jet privé est disponible à partir de 9 800 euros en aller simple sur un Very Light Jet. Le prix varie selon la catégorie d'appareil et la période.",
+          "A Paris-Ibiza private jet flight is available starting from 9,800 euros one-way on a Very Light Jet. The price varies depending on the aircraft category and time of year.",
       },
     ],
   },
   nice: {
     seoText:
-      "Nice et la Côte d'Azur constituent la destination la plus emblématique de l'aviation privée en France. Entre le glamour du Festival de Cannes, l'adrénaline du Grand Prix de Monaco et le charme intemporel de Saint-Tropez, la Riviera française attire l'élite mondiale tout au long de l'année. L'aéroport Nice Côte d'Azur, deuxième aéroport de France, dispose d'excellentes installations pour l'aviation privée avec plusieurs FBO offrant des services VIP complets. Sa situation géographique exceptionnelle, en bord de mer à quelques minutes du centre-ville, en fait l'un des aéroports les plus agréables du monde. Nice séduit par sa Promenade des Anglais, son vieux Nice pittoresque et ses musées consacrés à Matisse et Chagall. La ville est aussi un point de départ idéal pour explorer l'arrière-pays niçois, les villages perchés de l'Esterel et les parfumeries de Grasse. La gastronomie locale, mêlant influences provençales et italiennes, est célébrée dans de nombreux restaurants étoilés. Les amateurs de yachting apprécieront la proximité du port de Nice, d'Antibes et de Monaco. En hiver, les stations de ski de l'arrière-pays comme Isola 2000 et Auron sont accessibles en moins d'une heure. Le vol en jet privé vers Nice offre une flexibilité totale et un gain de temps considérable, vous permettant de profiter pleinement de chaque instant sur la Côte d'Azur.",
+      "Nice and the French Riviera are the most iconic private aviation destination in France. Between the glamour of the Cannes Film Festival, the adrenaline of the Monaco Grand Prix, and the timeless charm of Saint-Tropez, the French Riviera attracts the global elite year-round. Nice Cote d'Azur Airport, France's second-largest airport, features excellent private aviation facilities with several FBOs offering comprehensive VIP services. Its exceptional location, right by the sea and just minutes from the city center, makes it one of the most pleasant airports in the world. Nice captivates with its Promenade des Anglais, its picturesque Old Town, and museums dedicated to Matisse and Chagall. The city is also an ideal starting point for exploring the Nice hinterland, the hilltop villages of the Esterel, and the perfumeries of Grasse. The local gastronomy, blending Provencal and Italian influences, is celebrated in numerous Michelin-starred restaurants. Yachting enthusiasts will appreciate the proximity to the ports of Nice, Antibes, and Monaco. In winter, ski resorts in the backcountry such as Isola 2000 and Auron are accessible in under an hour. Flying by private jet to Nice offers total flexibility and significant time savings, allowing you to make the most of every moment on the French Riviera.",
     timezone: "UTC+1 (CET) / UTC+2 (CEST)",
     recommendedAircraft: ["citation-mustang", "phenom-100ev", "phenom-300e"],
-    priceRange: "4 800 - 9 000",
+    priceRange: "4,800 - 9,000",
     faq: [
       {
-        question: "Quel est le temps de vol Paris-Nice en jet privé ?",
+        question: "What is the flight time from Paris to Nice by private jet?",
         answer:
-          "Le vol Paris-Nice en jet privé dure environ 1 heure et 15 minutes, un gain de temps considérable par rapport aux vols commerciaux incluant les temps d'attente à l'aéroport.",
+          "The Paris-Nice private jet flight takes approximately 1 hour and 15 minutes, a significant time saving compared to commercial flights including airport waiting times.",
       },
       {
-        question: "Un transfert hélicoptère est-il possible depuis Nice ?",
+        question: "Is a helicopter transfer possible from Nice?",
         answer:
-          "Oui, nous proposons des transferts en hélicoptère depuis Nice vers Monaco (7 minutes), Saint-Tropez (20 minutes), Cannes (10 minutes) et les stations de ski de l'arrière-pays.",
+          "Yes, we offer helicopter transfers from Nice to Monaco (7 minutes), Saint-Tropez (20 minutes), Cannes (10 minutes), and backcountry ski resorts.",
       },
       {
-        question: "Peut-on accéder à Monaco en jet privé ?",
+        question: "Can I access Monaco by private jet?",
         answer:
-          "Monaco ne dispose pas d'aéroport. Le moyen le plus rapide est d'atterrir à Nice et de poursuivre en hélicoptère (7 minutes) ou en véhicule de luxe (30 minutes).",
+          "Monaco does not have an airport. The fastest way is to land in Nice and continue by helicopter (7 minutes) or luxury vehicle (30 minutes).",
       },
     ],
   },
   "new-york": {
     seoText:
-      "New York, la ville qui ne dort jamais, est la destination transatlantique par excellence en aviation privée. Rejoindre Manhattan depuis Paris en jet privé est une expérience incomparable qui transforme un trajet de 8 heures en un voyage de pur confort et de productivité. Les aéroports dédiés à l'aviation privée, notamment Teterboro dans le New Jersey et Westchester County au nord, offrent un accès bien plus rapide à Manhattan que les aéroports commerciaux de JFK ou Newark. Teterboro, situé à seulement 20 minutes de Midtown, est le choix privilégié des voyageurs d'affaires avec ses multiples FBO offrant des services de premier plan. Un transfert en hélicoptère depuis Teterboro vers le Downtown Manhattan Heliport réduit encore le temps de trajet à quelques minutes. New York est un centre névralgique mondial pour la finance, la mode, l'art et la technologie. Wall Street, le Garment District, les galeries de Chelsea et les startups de SoHo coexistent dans une énergie créatrice unique. Les restaurants étoilés Michelin, les spectacles de Broadway, les musées comme le Met et le MoMA, et le shopping sur la Cinquième Avenue offrent des expériences infinies. Pour un vol Paris-New York en jet privé, nous recommandons un Heavy Jet ou Ultra Long Range comme le Global 6000 ou le Gulfstream G650ER, offrant l'espace et le confort nécessaires pour un vol transatlantique, avec la possibilité de se reposer dans une vraie suite à bord.",
+      "New York, the city that never sleeps, is the quintessential transatlantic private aviation destination. Reaching Manhattan from Paris by private jet is an unparalleled experience that transforms an 8-hour journey into a voyage of pure comfort and productivity. Dedicated private aviation airports, notably Teterboro in New Jersey and Westchester County to the north, offer much faster access to Manhattan than the commercial airports of JFK or Newark. Teterboro, located just 20 minutes from Midtown, is the preferred choice for business travelers with its multiple FBOs offering top-tier services. A helicopter transfer from Teterboro to the Downtown Manhattan Heliport further reduces travel time to just minutes. New York is a global nerve center for finance, fashion, art, and technology. Wall Street, the Garment District, Chelsea galleries, and SoHo startups coexist in a unique creative energy. Michelin-starred restaurants, Broadway shows, museums like the Met and MoMA, and shopping on Fifth Avenue offer endless experiences. For a Paris-New York private jet flight, we recommend a Heavy Jet or Ultra Long Range such as the Global 6000 or the Gulfstream G650ER, providing the space and comfort needed for a transatlantic flight, with the option of resting in a real suite on board.",
     timezone: "UTC-5 (EST) / UTC-4 (EDT)",
     recommendedAircraft: ["global-6000", "falcon-7x", "gulfstream-g650er"],
-    priceRange: "65 000 - 120 000",
+    priceRange: "65,000 - 120,000",
     faq: [
       {
-        question: "Combien de temps dure le vol Paris-New York en jet privé ?",
+        question: "How long is the Paris-New York private jet flight?",
         answer:
-          "Le vol Paris-New York en jet privé dure environ 8 heures vers l'ouest et 7 heures au retour, selon les vents et le type d'appareil. Un vol sans escale est possible avec un Heavy Jet ou Ultra Long Range.",
+          "The Paris-New York private jet flight takes approximately 8 hours westbound and 7 hours on the return, depending on winds and aircraft type. A nonstop flight is possible with a Heavy Jet or Ultra Long Range.",
       },
       {
-        question: "Quel aéroport choisir à New York pour l'aviation privée ?",
+        question: "Which airport should I choose in New York for private aviation?",
         answer:
-          "Teterboro (TEB) est le choix numéro un pour sa proximité avec Manhattan (20 minutes). Westchester County (HPN) est idéal si votre destination est dans le nord de Manhattan ou le Connecticut.",
+          "Teterboro (TEB) is the number one choice for its proximity to Manhattan (20 minutes). Westchester County (HPN) is ideal if your destination is in northern Manhattan or Connecticut.",
       },
       {
-        question: "Quelles formalités douanières pour un vol privé vers les USA ?",
+        question: "What customs formalities are required for a private flight to the USA?",
         answer:
-          "Un ESTA ou visa valide est requis. Les formalités douanières américaines sont effectuées directement au FBO à votre arrivée. Nous vous assistons dans toutes les démarches administratives préalables au vol.",
+          "A valid ESTA or visa is required. US customs formalities are carried out directly at the FBO upon your arrival. We assist you with all administrative procedures prior to the flight.",
       },
     ],
   },
   milan: {
     seoText:
-      "Milan, capitale de la mode, du design et des affaires en Italie, est une destination prisée des voyageurs en jet privé pour sa richesse culturelle et économique. À seulement 1h20 de vol de Paris, cette métropole dynamique allie élégance italienne et modernité internationale. L'aéroport de Milano Linate, situé à quelques kilomètres du centre-ville, est le choix idéal pour les voyageurs d'affaires cherchant un accès rapide au quartier financier et au Quadrilatero della Moda. Malpensa, plus éloigné, offre des installations plus spacieuses pour l'aviation privée. Milan est le siège de la Bourse italienne, de grandes maisons de mode comme Armani, Prada et Versace, et accueille des événements majeurs comme la Fashion Week et le Salone del Mobile. La ville séduit aussi par son patrimoine architectural, du Duomo majestueux à La Scala, en passant par la Cène de Léonard de Vinci. La gastronomie milanaise, du risotto alla milanese à la cotoletta, se déguste dans des restaurants étoilés et des trattorias authentiques. Les lacs de Côme et de Garde, à moins d'une heure, offrent des escapades romantiques dans un cadre naturel spectaculaire. Le vol en jet privé vers Milan maximise votre temps et vous permet de combiner affaires et découvertes dans cette ville fascinante.",
+      "Milan, the capital of fashion, design, and business in Italy, is a prized destination for private jet travelers thanks to its cultural and economic richness. Just 1 hour 20 minutes by air from Paris, this dynamic metropolis combines Italian elegance with international modernity. Milano Linate Airport, located just a few kilometers from the city center, is the ideal choice for business travelers seeking quick access to the financial district and the Quadrilatero della Moda. Malpensa, further away, offers more spacious private aviation facilities. Milan is home to the Italian Stock Exchange, major fashion houses such as Armani, Prada, and Versace, and hosts major events like Fashion Week and the Salone del Mobile. The city also captivates with its architectural heritage, from the majestic Duomo to La Scala, and Leonardo da Vinci's Last Supper. Milanese gastronomy, from risotto alla milanese to cotoletta, is enjoyed in starred restaurants and authentic trattorias. Lakes Como and Garda, less than an hour away, offer romantic escapes in a spectacular natural setting. Flying by private jet to Milan maximizes your time and allows you to combine business and discovery in this fascinating city.",
     timezone: "UTC+1 (CET) / UTC+2 (CEST)",
     recommendedAircraft: ["citation-mustang", "phenom-100ev", "citation-cj3-plus"],
-    priceRange: "5 200 - 10 000",
+    priceRange: "5,200 - 10,000",
     faq: [
       {
-        question: "Quel aéroport choisir à Milan ?",
+        question: "Which airport should I choose in Milan?",
         answer:
-          "Linate est idéal pour un accès rapide au centre-ville (15 minutes). Malpensa est plus adapté si vous vous dirigez vers le lac de Côme ou le Piémont.",
+          "Linate is ideal for quick access to the city center (15 minutes). Malpensa is more suitable if you are heading to Lake Como or Piedmont.",
       },
       {
-        question: "Combien de temps dure le vol Paris-Milan en jet privé ?",
+        question: "How long is the Paris-Milan private jet flight?",
         answer:
-          "Le vol Paris-Milan en jet privé dure environ 1 heure et 20 minutes sur un Light Jet, offrant un gain de temps significatif par rapport aux vols commerciaux.",
+          "The Paris-Milan private jet flight takes approximately 1 hour and 20 minutes on a Light Jet, offering significant time savings compared to commercial flights.",
       },
       {
-        question: "Peut-on voler vers le lac de Côme en jet privé ?",
+        question: "Can I fly to Lake Como by private jet?",
         answer:
-          "Le lac de Côme ne dispose pas d'aéroport, mais Milano Malpensa est situé à environ 45 minutes en voiture. Nous pouvons également organiser un transfert en hélicoptère.",
+          "Lake Como does not have an airport, but Milano Malpensa is located approximately 45 minutes away by car. We can also arrange a helicopter transfer.",
       },
     ],
   },
   sardaigne: {
     seoText:
-      "La Sardaigne, et plus particulièrement la Costa Smeralda, est le rendez-vous estival de la jet-set internationale. Cette île méditerranéenne offre des paysages à couper le souffle : eaux turquoise, plages de sable blanc, rochers de granit sculptés par le vent et maquis parfumé. L'aéroport d'Olbia Costa Smeralda est la porte d'entrée idéale vers ce paradis, avec des installations modernes pour l'aviation privée et un accès direct aux plus beaux établissements de la côte. Porto Cervo, cœur battant de la Costa Smeralda, concentre les boutiques de luxe, les restaurants gastronomiques et les clubs nautiques les plus exclusifs de Méditerranée. Le port accueille chaque été les plus grands yachts du monde, créant une atmosphère unique de glamour décontracté. Au-delà de la Costa Smeralda, la Sardaigne recèle des trésors naturels et culturels : les grottes de Neptune, les vestiges nuraghiques millénaires, les villages de bergers de la Barbagia et les vignobles du Cannonau. La gastronomie sarde, mêlant produits de la mer et spécialités pastorales, est une découverte culinaire authentique. Le vol en jet privé vers la Sardaigne, d'environ 1h50 depuis Paris, offre la liberté de profiter de cette île exceptionnelle à votre rythme, loin des contraintes des vols commerciaux souvent surchargés en haute saison.",
+      "Sardinia, and the Costa Smeralda in particular, is the summer rendezvous of the international jet set. This Mediterranean island offers breathtaking landscapes: turquoise waters, white sand beaches, wind-sculpted granite rocks, and fragrant maquis shrubland. Olbia Costa Smeralda Airport is the ideal gateway to this paradise, with modern private aviation facilities and direct access to the finest establishments on the coast. Porto Cervo, the beating heart of the Costa Smeralda, concentrates the most exclusive luxury boutiques, gourmet restaurants, and yacht clubs in the Mediterranean. The port welcomes the world's largest yachts each summer, creating a unique atmosphere of casual glamour. Beyond the Costa Smeralda, Sardinia holds natural and cultural treasures: Neptune's Grotto, millennia-old Nuragic ruins, the shepherd villages of Barbagia, and the Cannonau vineyards. Sardinian gastronomy, blending seafood with pastoral specialties, is an authentic culinary discovery. The private jet flight to Sardinia, approximately 1 hour 50 minutes from Paris, offers the freedom to enjoy this exceptional island at your own pace, free from the constraints of commercial flights often overcrowded in peak season.",
     timezone: "UTC+1 (CET) / UTC+2 (CEST)",
     recommendedAircraft: ["phenom-300e", "citation-xls-plus", "citation-cj3-plus"],
-    priceRange: "10 500 - 18 000",
+    priceRange: "10,500 - 18,000",
     faq: [
       {
-        question: "Quel est le meilleur aéroport pour la Costa Smeralda ?",
+        question: "What is the best airport for the Costa Smeralda?",
         answer:
-          "L'aéroport d'Olbia Costa Smeralda (LIEO) est le plus proche, situé à seulement 20 minutes de Porto Cervo. Il dispose d'un terminal dédié à l'aviation privée.",
+          "Olbia Costa Smeralda Airport (LIEO) is the closest, located just 20 minutes from Porto Cervo. It has a dedicated private aviation terminal.",
       },
       {
-        question: "La Sardaigne est-elle accessible toute l'année en jet privé ?",
+        question: "Is Sardinia accessible year-round by private jet?",
         answer:
-          "Oui, l'aéroport d'Olbia est ouvert toute l'année. La haute saison s'étend de juin à septembre, mais le printemps et l'automne offrent un climat idéal pour découvrir l'île plus calmement.",
+          "Yes, Olbia Airport is open year-round. Peak season runs from June to September, but spring and autumn offer ideal weather for discovering the island at a more relaxed pace.",
       },
       {
-        question: "Peut-on organiser un transfert en yacht depuis l'aéroport ?",
+        question: "Can you arrange a yacht transfer from the airport?",
         answer:
-          "Oui, nous pouvons organiser un transfert direct depuis l'aéroport d'Olbia vers votre yacht ancré dans la marina de Porto Cervo ou ailleurs sur la côte.",
+          "Yes, we can arrange a direct transfer from Olbia Airport to your yacht anchored in Porto Cervo marina or elsewhere along the coast.",
       },
     ],
   },
   maldives: {
     seoText:
-      "Les Maldives représentent l'évasion ultime pour les voyageurs en jet privé. Cet archipel de 1 190 îles coralliennes, dispersées dans l'océan Indien, offre une expérience paradisiaque incomparable : villas sur pilotis au-dessus d'eaux turquoise cristallines, plages de sable blanc immaculé et récifs coralliens regorgeant de vie marine. Le voyage en jet privé vers les Maldives depuis Paris est une aventure en soi, avec environ 10h30 de vol vers Malé, suivies d'un transfert en hydravion ou en bateau rapide vers votre resort. L'aéroport international Velana de Malé accueille les jets privés avec des services VIP dédiés, simplifiant les formalités d'arrivée dans ce pays insulaire. Les resorts de luxe des Maldives sont parmi les plus exclusifs au monde : Soneva Fushi, One&Only Reethi Rah, Cheval Blanc Randheli et Waldorf Astoria proposent des expériences sur mesure dans un cadre naturel exceptionnel. Chaque resort occupe son propre atoll, garantissant une intimité absolue. Les activités sont infinies : plongée sous-marine dans des sites mondialement réputés, pêche au gros, spa surplombant l'océan, dîners privés sur un banc de sable et excursions en dolphin watching. Les Maldives sont la destination idéale pour les lunes de miel, les anniversaires et toute occasion méritant un cadre véritablement extraordinaire. Le vol en jet privé ajoute une dimension supplémentaire à cette expérience, avec un confort de vol optimal pour arriver reposé au paradis.",
+      "The Maldives represent the ultimate escape for private jet travelers. This archipelago of 1,190 coral islands, scattered across the Indian Ocean, offers an incomparable paradise experience: overwater villas above crystal-clear turquoise waters, pristine white sand beaches, and coral reefs teeming with marine life. The private jet journey to the Maldives from Paris is an adventure in itself, with approximately 10 hours 30 minutes of flight to Male, followed by a seaplane or speedboat transfer to your resort. Velana International Airport in Male welcomes private jets with dedicated VIP services, simplifying arrival formalities in this island nation. The luxury resorts of the Maldives are among the most exclusive in the world: Soneva Fushi, One&Only Reethi Rah, Cheval Blanc Randheli, and Waldorf Astoria offer bespoke experiences in an exceptional natural setting. Each resort occupies its own atoll, guaranteeing absolute privacy. Activities are endless: scuba diving at world-renowned sites, deep-sea fishing, ocean-view spa treatments, private sandbank dinners, and dolphin watching excursions. The Maldives are the ideal destination for honeymoons, anniversaries, and any occasion deserving a truly extraordinary setting. Flying by private jet adds an extra dimension to this experience, with optimal in-flight comfort so you arrive refreshed in paradise.",
     timezone: "UTC+5 (MVT)",
     recommendedAircraft: ["global-6000", "gulfstream-g650er", "global-7500"],
-    priceRange: "85 000 - 160 000",
+    priceRange: "85,000 - 160,000",
     faq: [
       {
-        question: "Peut-on voler directement de Paris aux Maldives en jet privé ?",
+        question: "Can I fly directly from Paris to the Maldives by private jet?",
         answer:
-          "Oui, avec un Ultra Long Range Jet comme le Gulfstream G650ER ou le Global 7500, le vol Paris-Malé est réalisable sans escale en environ 10h30. Avec un Heavy Jet, une escale technique peut être nécessaire.",
+          "Yes, with an Ultra Long Range Jet such as the Gulfstream G650ER or the Global 7500, the Paris-Male flight is achievable nonstop in approximately 10 hours 30 minutes. With a Heavy Jet, a technical stop may be necessary.",
       },
       {
-        question: "Comment rejoint-on son resort depuis l'aéroport de Malé ?",
+        question: "How do I reach my resort from Male Airport?",
         answer:
-          "Selon la localisation de votre resort, le transfert se fait en hydravion (15 à 60 minutes), en bateau rapide (10 à 90 minutes) ou en vol domestique. Nous organisons l'intégralité de la logistique.",
+          "Depending on your resort's location, the transfer is by seaplane (15 to 60 minutes), speedboat (10 to 90 minutes), or domestic flight. We handle the entire logistics.",
       },
       {
-        question: "Quelle est la meilleure période pour les Maldives ?",
+        question: "What is the best time to visit the Maldives?",
         answer:
-          "La saison sèche, de novembre à avril, offre le meilleur ensoleillement et les eaux les plus claires. Décembre à mars est la période la plus demandée. La mousson d'été (mai-octobre) offre des tarifs plus avantageux.",
+          "The dry season, from November to April, offers the best sunshine and clearest waters. December to March is the most popular period. The summer monsoon (May-October) offers more competitive rates.",
       },
     ],
   },
   "saint-tropez": {
     seoText:
-      "Saint-Tropez incarne le glamour et l'art de vivre à la française comme nulle autre destination. Ce petit village de pêcheurs devenu mythique attire chaque été les plus grandes fortunes du monde, séduits par ses plages dorées, ses yachts majestueux et son atmosphère unique mêlant décontraction et sophistication. L'aéroport de La Môle, situé à quelques kilomètres du village, est un atout majeur pour les voyageurs en jet privé. Cette petite piste, nichée entre les collines du Var, permet d'atterrir au plus près de Saint-Tropez, évitant les embouteillages souvent redoutables sur la route du littoral en été. Toutefois, sa piste courte limite l'accès aux appareils légers et turbopropulseurs. Pour les jets plus grands, l'aéroport de Nice constitue une alternative avec un transfert en hélicoptère de 20 minutes. Les plages de Pampelonne, avec leurs clubs mythiques comme le Club 55 et Nikki Beach, sont le théâtre de journées mémorables entre bains de soleil et déjeuners les pieds dans le sable. Le vieux port de Saint-Tropez, ses ruelles pavées et la Place des Lices conservent un charme authentique derrière le glamour apparent. La gastronomie tropézienne, entre poissons grillés et tarte du même nom, se déguste dans des adresses légendaires. Le vol en jet privé vers Saint-Tropez est la promesse d'un voyage exclusif, du décollage à Paris jusqu'à l'arrivée dans ce village de légende.",
+      "Saint-Tropez embodies French glamour and art de vivre like no other destination. This small fishing village turned legendary attracts the world's greatest fortunes each summer, drawn by its golden beaches, majestic yachts, and unique atmosphere blending laid-back style with sophistication. La Mole Airport, located just a few kilometers from the village, is a major asset for private jet travelers. This small runway, nestled among the hills of Var, allows you to land as close as possible to Saint-Tropez, avoiding the often daunting summer traffic along the coastal road. However, its short runway limits access to light aircraft and turboprops. For larger jets, Nice Airport offers an alternative with a 20-minute helicopter transfer. The beaches of Pampelonne, with their legendary clubs like Club 55 and Nikki Beach, are the setting for memorable days of sunbathing and seaside lunches. The old port of Saint-Tropez, its cobblestone lanes, and the Place des Lices retain an authentic charm behind the apparent glamour. Saint-Tropez gastronomy, from grilled fish to tarte Tropezienne, is enjoyed at legendary addresses. Flying by private jet to Saint-Tropez is the promise of an exclusive journey, from takeoff in Paris to arrival in this legendary village.",
     timezone: "UTC+1 (CET) / UTC+2 (CEST)",
     recommendedAircraft: ["citation-mustang", "phenom-100ev", "pilatus-pc-12"],
-    priceRange: "5 500 - 10 000",
+    priceRange: "5,500 - 10,000",
     faq: [
       {
-        question: "Peut-on atterrir directement à Saint-Tropez en jet privé ?",
+        question: "Can I land directly in Saint-Tropez by private jet?",
         answer:
-          "L'aéroport de La Môle (LFTZ) accepte les petits jets et turbopropulseurs. Pour les appareils plus grands, nous recommandons Nice avec un transfert en hélicoptère (20 minutes) vers Saint-Tropez.",
+          "La Mole Airport (LFTZ) accepts small jets and turboprops. For larger aircraft, we recommend Nice with a helicopter transfer (20 minutes) to Saint-Tropez.",
       },
       {
-        question: "Quelle est la haute saison à Saint-Tropez ?",
+        question: "When is peak season in Saint-Tropez?",
         answer:
-          "La haute saison s'étend de mi-juin à mi-septembre, avec un pic autour du 14 juillet et du 15 août. Il est recommandé de réserver les créneaux d'atterrissage à La Môle plusieurs semaines à l'avance.",
+          "Peak season runs from mid-June to mid-September, with the busiest period around July 14th and August 15th. It is recommended to book landing slots at La Mole several weeks in advance.",
       },
       {
-        question: "Un transfert en hélicoptère depuis Nice est-il disponible ?",
+        question: "Is a helicopter transfer from Nice available?",
         answer:
-          "Oui, nous organisons des transferts en hélicoptère de Nice à Saint-Tropez en 20 minutes environ, avec atterrissage au plus près de votre lieu de séjour.",
+          "Yes, we arrange helicopter transfers from Nice to Saint-Tropez in approximately 20 minutes, landing as close as possible to your accommodation.",
       },
     ],
   },
@@ -312,22 +312,22 @@ const seoContent: Record<
    ============================================ */
 function getDefaultSeoContent(dest: (typeof destinations)[0]) {
   return {
-    seoText: dest.description + " " + dest.description + " Skyseaker vous propose des vols en jet privé vers " + dest.name + " avec un service sur mesure et une attention portée aux moindres détails. Nos experts en aviation privée sélectionnent les meilleurs appareils et équipages pour garantir un voyage exceptionnel. Que vous voyagiez pour affaires ou pour le plaisir, nous adaptons chaque aspect de votre vol à vos préférences personnelles. Notre service de conciergerie peut également organiser vos transferts terrestres, réservations d'hôtels et activités sur place pour une expérience complète et sans souci. Contactez-nous pour obtenir un devis personnalisé pour votre prochain vol vers " + dest.name + ".",
+    seoText: dest.description + " " + dest.description + " Skyseaker offers private jet flights to " + dest.name + " with bespoke service and attention to the finest details. Our private aviation experts select the best aircraft and crews to ensure an exceptional journey. Whether you are traveling for business or pleasure, we tailor every aspect of your flight to your personal preferences. Our concierge service can also arrange ground transfers, hotel reservations, and on-site activities for a complete, worry-free experience. Contact us for a personalized quote for your next flight to " + dest.name + ".",
     timezone: "—",
     recommendedAircraft: ["phenom-300e", "citation-xls-plus", "challenger-350"],
     priceRange: dest.priceFrom + "+",
     faq: [
       {
-        question: `Quel est le temps de vol vers ${dest.name} en jet privé ?`,
-        answer: `Le temps de vol depuis Paris vers ${dest.name} est d'environ ${dest.flightTimeFromParis}, selon le type d'appareil et les conditions météorologiques.`,
+        question: `What is the flight time to ${dest.name} by private jet?`,
+        answer: `The flight time from Paris to ${dest.name} is approximately ${dest.flightTimeFromParis}, depending on the aircraft type and weather conditions.`,
       },
       {
-        question: `Quel type de jet recommandez-vous pour ${dest.name} ?`,
-        answer: `Le choix de l'appareil dépend du nombre de passagers, de vos préférences de confort et de votre budget. Nos conseillers vous guideront vers le meilleur choix.`,
+        question: `What type of jet do you recommend for ${dest.name}?`,
+        answer: `The choice of aircraft depends on the number of passengers, your comfort preferences, and your budget. Our advisors will guide you to the best option.`,
       },
       {
-        question: `Comment réserver un vol privé vers ${dest.name} ?`,
-        answer: `Contactez notre équipe disponible 24/7 par téléphone ou via notre formulaire de devis en ligne. Nous vous transmettrons une proposition détaillée sous 30 minutes.`,
+        question: `How do I book a private flight to ${dest.name}?`,
+        answer: `Contact our team available 24/7 by phone or via our online quote form. We will send you a detailed proposal within 30 minutes.`,
       },
     ],
   };
@@ -354,15 +354,15 @@ export async function generateMetadata({
   const destination = destinations.find((d) => d.id === slug);
 
   if (!destination) {
-    return { title: "Destination non trouvée" };
+    return { title: "Destination Not Found" };
   }
 
   return {
-    title: `Vol privé ${destination.name} (${destination.country}) — Jet privé depuis Paris`,
-    description: `Réservez votre vol en jet privé vers ${destination.name}, ${destination.country}. Temps de vol depuis Paris : ${destination.flightTimeFromParis}. À partir de ${destination.priceFrom}€. Disponible 24/7.`,
+    title: `Private Flight ${destination.name} (${destination.country}) — Private Jet from Paris`,
+    description: `Book your private jet flight to ${destination.name}, ${destination.country}. Flight time from Paris: ${destination.flightTimeFromParis}. Starting from ${destination.priceFrom}€. Available 24/7.`,
     openGraph: {
-      title: `Vol privé vers ${destination.name} | Skyseaker`,
-      description: `Jet privé Paris-${destination.name} en ${destination.flightTimeFromParis}. À partir de ${destination.priceFrom}€.`,
+      title: `Private Flight to ${destination.name} | Skyseaker`,
+      description: `Private jet Paris-${destination.name} in ${destination.flightTimeFromParis}. Starting from ${destination.priceFrom}€.`,
       images: [{ url: destination.image, width: 1200, height: 630 }],
     },
   };

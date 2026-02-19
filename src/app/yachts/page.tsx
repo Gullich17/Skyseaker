@@ -34,7 +34,7 @@ function YachtHero() {
       <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
         <Image
           src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=1920&q=80"
-          alt="Yacht de luxe en mer"
+          alt="Luxury yacht at sea"
           fill
           className="object-cover"
           priority
@@ -52,22 +52,22 @@ function YachtHero() {
           transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
           style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "16px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F4DDC3" }}
         >
-          NOTRE FLOTTE NAUTIQUE
+          OUR NAUTICAL FLEET
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: EASE }}
           style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "20px" }}
         >
-          Les plus beaux yachts
-          <br />du monde
+          The world&apos;s finest
+          <br />yachts
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
           style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", maxWidth: "700px", margin: "0 auto", fontSize: "clamp(16px, 2.5vw, 22px)" }}
         >
-          Des motor yachts aux mega yachts, trouvez le navire parfait pour chaque croisière
+          From motor yachts to mega yachts, find the perfect vessel for every cruise
         </motion.p>
       </div>
     </section>
@@ -103,10 +103,10 @@ function YachtCard({ yacht, index }: { yacht: Yacht; index: number }) {
             {/* Specs grid */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "16px" }}>
               {[
-                { label: "Invités", value: `${yacht.guests}`, icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" },
-                { label: "Longueur", value: `${yacht.length} m`, icon: "M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" },
-                { label: "Vitesse", value: `${yacht.maxSpeed} nds`, icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" },
-                { label: "Cabines", value: `${yacht.cabins}`, icon: "M2.25 12l8.954-8.955a1.126 1.126 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" },
+                { label: "Guests", value: `${yacht.guests}`, icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" },
+                { label: "Length", value: `${yacht.length} m`, icon: "M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" },
+                { label: "Speed", value: `${yacht.maxSpeed} kts`, icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" },
+                { label: "Cabins", value: `${yacht.cabins}`, icon: "M2.25 12l8.954-8.955a1.126 1.126 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" },
               ].map((spec) => (
                 <div key={spec.label} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <svg width="14" height="14" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24" style={{ flexShrink: 0 }}><path d={spec.icon} /></svg>
@@ -119,7 +119,7 @@ function YachtCard({ yacht, index }: { yacht: Yacht; index: number }) {
             </div>
 
             <span style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>
-              Voir la fiche →
+              View details →
             </span>
           </div>
         </div>
@@ -240,7 +240,7 @@ export default function YachtsPage() {
 
           {/* Count */}
           <p style={{ marginBottom: "24px", fontSize: "13px", fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B" }}>
-            {filteredYachts.length} yacht{filteredYachts.length > 1 ? "s" : ""} disponible{filteredYachts.length > 1 ? "s" : ""}
+            {filteredYachts.length} yacht{filteredYachts.length > 1 ? "s" : ""} available
           </p>
 
           {/* Grid */}
@@ -259,8 +259,8 @@ export default function YachtsPage() {
 
           {/* Bottom CTA */}
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "16px", marginTop: "clamp(48px, 6vw, 64px)" }}>
-            <Button href="/yachts/comparateur" variant="primary">Comparer les yachts</Button>
-            <Button href="/devis?service=yacht" variant="secondary">Demander un devis</Button>
+            <Button href="/yachts/comparateur" variant="primary">Compare yachts</Button>
+            <Button href="/devis?service=yacht" variant="secondary">Request a quote</Button>
           </div>
         </div>
       </section>

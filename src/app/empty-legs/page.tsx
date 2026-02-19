@@ -215,7 +215,7 @@ const labelStyle: React.CSSProperties = {
    PRICE FORMATTER
    ============================================ */
 function formatPrice(price: number): string {
-  return new Intl.NumberFormat('fr-FR', {
+  return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'EUR',
     minimumFractionDigits: 0,
@@ -225,7 +225,7 @@ function formatPrice(price: number): string {
 
 function formatDate(dateStr: string): string {
   const date = new Date(dateStr);
-  return new Intl.DateTimeFormat('fr-FR', {
+  return new Intl.DateTimeFormat('en-US', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -234,7 +234,7 @@ function formatDate(dateStr: string): string {
 
 function formatDateShort(dateStr: string): string {
   const date = new Date(dateStr);
-  return new Intl.DateTimeFormat('fr-FR', {
+  return new Intl.DateTimeFormat('en-US', {
     day: 'numeric',
     month: 'short',
   }).format(date);
@@ -258,7 +258,7 @@ function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80"
-          alt="Jet privé"
+          alt="Private jet"
           fill
           className="object-cover"
           priority
@@ -337,7 +337,7 @@ function HeroSection() {
             marginBottom: '24px',
           }}
         >
-          VOLS À VIDE
+          EMPTY LEGS
         </motion.h1>
 
         <motion.p
@@ -353,7 +353,7 @@ function HeroSection() {
             marginBottom: '20px',
           }}
         >
-          Jusqu&apos;à -75% sur votre jet privé
+          Up to 75% off your private jet
         </motion.p>
 
         <motion.p
@@ -370,8 +370,8 @@ function HeroSection() {
             margin: '0 auto',
           }}
         >
-          Profitez des repositionnements d&apos;appareils pour voyager en jet privé
-          à des tarifs exceptionnels.
+          Take advantage of aircraft repositioning flights to travel by private jet
+          at exceptional rates.
         </motion.p>
 
         <motion.div
@@ -395,10 +395,10 @@ function HeroSection() {
    ============================================ */
 function StatsSection() {
   const stats = [
-    { value: 75, suffix: '%', label: "d'économie maximale" },
-    { value: emptyLegs.length, suffix: '+', label: 'vols disponibles' },
-    { value: 30, suffix: 'min', label: 'temps de réponse' },
-    { value: 24, suffix: 'h/24', label: 'disponibilité' },
+    { value: 75, suffix: '%', label: 'maximum savings' },
+    { value: emptyLegs.length, suffix: '+', label: 'flights available' },
+    { value: 30, suffix: 'min', label: 'response time' },
+    { value: 24, suffix: 'h/24', label: 'availability' },
   ];
 
   return (
@@ -436,18 +436,18 @@ function AdvantagesSection() {
   const advantages = [
     {
       icon: <TagIcon />,
-      title: 'Prix réduits',
-      description: "Économisez jusqu'à 75% par rapport à un affrètement classique. Même appareil, même service, tarif exceptionnel.",
+      title: 'Reduced Prices',
+      description: 'Save up to 75% compared to a standard charter. Same aircraft, same service, exceptional rate.',
     },
     {
       icon: <ShieldIcon />,
-      title: 'Service identique',
-      description: 'Vous bénéficiez exactement du même niveau de confort, de sécurité et de service qu\'un vol privé standard.',
+      title: 'Same Service',
+      description: 'You enjoy exactly the same level of comfort, safety, and service as a standard private flight.',
     },
     {
       icon: <ClockIcon />,
-      title: 'Disponibilité immédiate',
-      description: 'Les appareils sont déjà programmés pour voler. Confirmez votre place et embarquez sans délai.',
+      title: 'Immediate Availability',
+      description: 'The aircraft are already scheduled to fly. Confirm your seat and board without delay.',
     },
   ];
 
@@ -455,9 +455,9 @@ function AdvantagesSection() {
     <section className="section-padding" style={{ backgroundColor: '#0E202D' }}>
       <div className="container-luxury">
         <SectionTitle
-          preTitle="Comment ça fonctionne"
-          title="Qu'est-ce qu'un Empty Leg ?"
-          subtitle="Un vol à vide correspond au repositionnement d'un jet privé vers sa prochaine mission. Plutôt que de voler sans passager, profitez-en à prix réduit."
+          preTitle="How it works"
+          title="What is an Empty Leg?"
+          subtitle="An empty leg is the repositioning of a private jet to its next mission. Rather than flying without passengers, take advantage of it at a reduced price."
           centered
         />
 
@@ -590,9 +590,9 @@ function FilterAndListingSection() {
     >
       <div className="container-luxury">
         <SectionTitle
-          preTitle="Offres disponibles"
-          title="Trouvez votre vol à vide"
-          subtitle="Filtrez parmi nos empty legs disponibles et réservez au meilleur prix."
+          preTitle="Available offers"
+          title="Find Your Empty Leg"
+          subtitle="Filter through our available empty legs and book at the best price."
           centered
         />
 
@@ -622,7 +622,7 @@ function FilterAndListingSection() {
                   color: '#F4DDC3',
                 }}
               >
-                Filtrer les résultats
+                Filter Results
               </p>
               {hasFilters && (
                 <button
@@ -642,7 +642,7 @@ function FilterAndListingSection() {
                   onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = '#F4DDC3'; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = '#6B6B6B'; }}
                 >
-                  Réinitialiser
+                  Reset
                 </button>
               )}
             </div>
@@ -652,21 +652,21 @@ function FilterAndListingSection() {
               <CityAutocomplete
                 value={departure}
                 onChange={setDeparture}
-                placeholder="Ville de départ"
-                label="Départ"
+                placeholder="Departure city"
+                label="Departure"
               />
 
               {/* Arrival */}
               <CityAutocomplete
                 value={arrival}
                 onChange={setArrival}
-                placeholder="Ville d'arrivée"
-                label="Arrivée"
+                placeholder="Arrival city"
+                label="Arrival"
               />
 
               {/* Date from */}
               <div>
-                <label style={labelStyle}>Date début</label>
+                <label style={labelStyle}>Start Date</label>
                 <input
                   type="date"
                   value={dateFrom}
@@ -679,7 +679,7 @@ function FilterAndListingSection() {
 
               {/* Date to */}
               <div>
-                <label style={labelStyle}>Date fin</label>
+                <label style={labelStyle}>End Date</label>
                 <input
                   type="date"
                   value={dateTo}
@@ -692,7 +692,7 @@ function FilterAndListingSection() {
 
               {/* Min seats */}
               <div>
-                <label style={labelStyle}>Places minimum</label>
+                <label style={labelStyle}>Minimum Seats</label>
                 <select
                   value={minSeats}
                   onChange={(e) => setMinSeats(e.target.value)}
@@ -707,19 +707,19 @@ function FilterAndListingSection() {
                   onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.4)'; }}
                   onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(244,221,195,0.12)'; }}
                 >
-                  <option value="">Toutes</option>
+                  <option value="">All</option>
                   {seatOptions.map((n) => (
-                    <option key={n} value={n}>{n}+ places</option>
+                    <option key={n} value={n}>{n}+ seats</option>
                   ))}
                 </select>
               </div>
 
               {/* Max budget */}
               <div>
-                <label style={labelStyle}>Budget max (€)</label>
+                <label style={labelStyle}>Max Budget (€)</label>
                 <input
                   type="number"
-                  placeholder="Ex: 5000"
+                  placeholder="e.g. 5000"
                   value={maxBudget}
                   onChange={(e) => setMaxBudget(e.target.value)}
                   style={inputStyle}
@@ -743,7 +743,7 @@ function FilterAndListingSection() {
             }}
           >
             <span style={{ color: '#F4DDC3', fontWeight: 600 }}>{filteredLegs.length}</span>{' '}
-            vol{filteredLegs.length !== 1 ? 's' : ''} disponible{filteredLegs.length !== 1 ? 's' : ''}
+            flight{filteredLegs.length !== 1 ? 's' : ''} available
           </p>
           <div
             style={{
@@ -785,7 +785,7 @@ function FilterAndListingSection() {
                       color: '#FFFFFF',
                     }}
                   >
-                    Aucun vol disponible
+                    No flights available
                   </p>
                   <p
                     className="mt-3"
@@ -798,7 +798,7 @@ function FilterAndListingSection() {
                       margin: '12px auto 0',
                     }}
                   >
-                    Modifiez vos critères de recherche ou créez une alerte pour être notifié.
+                    Adjust your search criteria or create an alert to be notified.
                   </p>
                 </div>
               </motion.div>
@@ -975,7 +975,7 @@ function EmptyLegCard({ leg }: { leg: EmptyLeg }) {
                   color: '#A0A0A0',
                 }}
               >
-                {leg.seats} places
+                {leg.seats} seats
               </span>
             </div>
           </div>
@@ -1070,7 +1070,7 @@ function EmptyLegCard({ leg }: { leg: EmptyLeg }) {
 
           {/* CTA */}
           <Button href="/devis" size="sm">
-            Réserver
+            Book
           </Button>
         </div>
       </div>
@@ -1122,9 +1122,9 @@ function AlertSignupSection() {
               </div>
 
               <SectionTitle
-                preTitle="Ne manquez aucune opportunité"
-                title="Créer une alerte"
-                subtitle="Recevez une notification dès qu'un vol à vide correspond à vos critères de recherche."
+                preTitle="Don't miss any opportunity"
+                title="Create an Alert"
+                subtitle="Receive a notification as soon as an empty leg matches your search criteria."
                 centered
               />
             </div>
@@ -1152,7 +1152,7 @@ function AlertSignupSection() {
                     color: '#FFFFFF',
                   }}
                 >
-                  Alerte créée avec succès
+                  Alert created successfully
                 </h3>
                 <p
                   style={{
@@ -1165,7 +1165,7 @@ function AlertSignupSection() {
                     lineHeight: 1.7,
                   }}
                 >
-                  Vous serez notifié dès qu&apos;un vol correspondant à vos critères sera disponible.
+                  You will be notified as soon as a flight matching your criteria becomes available.
                 </p>
               </motion.div>
             ) : (
@@ -1185,7 +1185,7 @@ function AlertSignupSection() {
                     </label>
                     <input
                       type="email"
-                      placeholder="votre@email.com"
+                      placeholder="your@email.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
@@ -1198,7 +1198,7 @@ function AlertSignupSection() {
                   {/* Phone */}
                   <div>
                     <label style={labelStyle}>
-                      Téléphone{' '}
+                      Phone{' '}
                       <span
                         style={{
                           fontWeight: 300,
@@ -1207,12 +1207,12 @@ function AlertSignupSection() {
                           color: '#6B6B6B',
                         }}
                       >
-                        (optionnel)
+                        (optional)
                       </span>
                     </label>
                     <input
                       type="tel"
-                      placeholder="+33 6 00 00 00 00"
+                      placeholder="+1 (555) 000-0000"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       style={inputStyle}
@@ -1225,10 +1225,10 @@ function AlertSignupSection() {
                 {/* Routes */}
                 <div className="mt-6">
                   <label style={labelStyle}>
-                    Trajets souhaités <span style={{ color: '#F4DDC3' }}>*</span>
+                    Desired Routes <span style={{ color: '#F4DDC3' }}>*</span>
                   </label>
                   <textarea
-                    placeholder="Ex: Paris → Nice, Genève → Londres, Paris → Ibiza..."
+                    placeholder="e.g. Paris → Nice, Geneva → London, Paris → Ibiza..."
                     value={routes}
                     onChange={(e) => setRoutes(e.target.value)}
                     required
@@ -1281,7 +1281,7 @@ function AlertSignupSection() {
                         color: '#A0A0A0',
                       }}
                     >
-                      Dates flexibles (je suis ouvert à différentes dates)
+                      Flexible dates (I am open to different dates)
                     </span>
                   </label>
                 </div>
@@ -1289,7 +1289,7 @@ function AlertSignupSection() {
                 {/* Submit */}
                 <div className="mt-10 text-center">
                   <Button type="submit" size="lg">
-                    Créer mon alerte
+                    Create My Alert
                   </Button>
                 </div>
               </form>
@@ -1317,7 +1317,7 @@ function BottomCtaSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=75"
-          alt="Intérieur jet privé"
+          alt="Private jet interior"
           fill
           className="object-cover"
         />
@@ -1332,17 +1332,17 @@ function BottomCtaSection() {
       <div className="container-luxury text-center relative z-10">
         <ScrollReveal>
           <SectionTitle
-            preTitle="Besoin d'un vol sur mesure ?"
-            title="L'empty leg ne correspond pas à vos besoins ?"
-            subtitle="Demandez un devis personnalisé pour un affrètement classique. Notre équipe vous répond sous 30 minutes, 24h/24."
+            preTitle="Need a custom flight?"
+            title="The empty leg doesn't meet your needs?"
+            subtitle="Request a personalized quote for a standard charter. Our team responds within 30 minutes, 24/7."
             centered
           />
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button href="/devis" size="lg">
-              Demander un devis
+              Request a Quote
             </Button>
             <Button href="/services/affretement-jet-prive" variant="secondary" size="lg">
-              En savoir plus
+              Learn More
             </Button>
           </div>
         </ScrollReveal>

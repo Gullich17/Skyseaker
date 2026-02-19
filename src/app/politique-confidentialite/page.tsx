@@ -2,119 +2,119 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Politique de Confidentialité",
-  description: "Politique de confidentialité de Skyseaker. Découvrez comment nous protégeons vos données personnelles conformément au RGPD.",
+  title: "Privacy Policy",
+  description: "Skyseaker privacy policy. Learn how we protect your personal data in compliance with GDPR.",
 };
 
 export default function PolitiqueConfidentialitePage() {
   const sections = [
     {
-      title: "1. Responsable du traitement",
+      title: "1. Data Controller",
       content: [
-        "Le responsable du traitement des données personnelles collectées sur le site skyseaker.com est :",
-        "Skyseaker SAS, 8 Avenue de l'Opéra, 75001 Paris, France.",
-        "Email : dpo@skyseaker.com",
+        "The data controller for personal data collected on the skyseaker.com website is:",
+        "Skyseaker SAS, 8 Avenue de l'Opera, 75001 Paris, France.",
+        "Email: dpo@skyseaker.com",
       ],
     },
     {
-      title: "2. Données collectées",
+      title: "2. Data Collected",
       paragraphs: [
-        "Dans le cadre de nos services, nous sommes amenés à collecter les données personnelles suivantes :",
+        "As part of our services, we may collect the following personal data:",
       ],
       list: [
-        "Données d'identification : nom, prénom, adresse email, numéro de téléphone",
-        "Données professionnelles : société, fonction",
-        "Données de voyage : destinations, dates de vol, nombre de passagers, préférences de service",
-        "Données de navigation : adresse IP, cookies, pages visitées, durée de visite",
-        "Données de communication : messages envoyés via les formulaires de contact",
+        "Identification data: last name, first name, email address, phone number",
+        "Professional data: company, position",
+        "Travel data: destinations, flight dates, number of passengers, service preferences",
+        "Browsing data: IP address, cookies, pages visited, visit duration",
+        "Communication data: messages sent via contact forms",
       ],
     },
     {
-      title: "3. Finalités du traitement",
-      paragraphs: ["Vos données personnelles sont traitées pour les finalités suivantes :"],
+      title: "3. Purposes of Processing",
+      paragraphs: ["Your personal data is processed for the following purposes:"],
       list: [
-        "Gestion des demandes de devis et réservations de vols",
-        "Communication commerciale avec votre consentement",
-        "Amélioration de nos services et de l'expérience utilisateur",
-        "Gestion de la relation client et du programme de fidélité",
-        "Respect de nos obligations légales et réglementaires",
-        "Statistiques et analyses de fréquentation du site",
+        "Management of quote requests and flight bookings",
+        "Commercial communications with your consent",
+        "Improvement of our services and user experience",
+        "Customer relationship management and loyalty program",
+        "Compliance with our legal and regulatory obligations",
+        "Website traffic statistics and analysis",
       ],
     },
     {
-      title: "4. Base légale du traitement",
+      title: "4. Legal Basis for Processing",
       content: [
-        "Le traitement de vos données personnelles repose sur les bases légales suivantes :",
-        "L'exécution d'un contrat ou de mesures précontractuelles (demande de devis, réservation).",
-        "Votre consentement (newsletter, cookies non essentiels).",
-        "L'intérêt légitime de Skyseaker (amélioration des services, statistiques).",
-        "Le respect d'obligations légales (facturation, archivage).",
+        "The processing of your personal data is based on the following legal grounds:",
+        "Performance of a contract or pre-contractual measures (quote request, booking).",
+        "Your consent (newsletter, non-essential cookies).",
+        "Skyseaker's legitimate interest (service improvement, statistics).",
+        "Compliance with legal obligations (invoicing, archiving).",
       ],
     },
     {
-      title: "5. Destinataires des données",
+      title: "5. Data Recipients",
       content: [
-        "Vos données personnelles sont destinées au personnel habilité de Skyseaker SAS, ainsi qu'à nos sous-traitants dans le strict cadre de l'exécution de leurs missions :",
-        "Opérateurs aériens partenaires (dans le cadre de la réservation de vols).",
-        "Prestataires de services (catering, transferts, conciergerie).",
-        "Hébergeur du site web (Vercel Inc.).",
-        "Aucune donnée personnelle n'est cédée à des tiers à des fins commerciales sans votre consentement explicite.",
+        "Your personal data is intended for authorized Skyseaker SAS personnel, as well as our subcontractors strictly within the scope of performing their duties:",
+        "Partner air operators (in connection with flight bookings).",
+        "Service providers (catering, transfers, concierge).",
+        "Website hosting provider (Vercel Inc.).",
+        "No personal data is sold to third parties for commercial purposes without your explicit consent.",
       ],
     },
     {
-      title: "6. Durée de conservation",
+      title: "6. Data Retention Period",
       content: [
-        "Vos données personnelles sont conservées pour une durée proportionnée à la finalité du traitement :",
-        "Données clients : pendant la durée de la relation commerciale et 5 ans après le dernier contact.",
-        "Données de prospects : 3 ans à compter du dernier contact.",
-        "Données de navigation (cookies) : 13 mois maximum.",
-        "Données de facturation : 10 ans conformément aux obligations comptables.",
+        "Your personal data is retained for a period proportionate to the purpose of processing:",
+        "Client data: for the duration of the business relationship and 5 years after the last contact.",
+        "Prospect data: 3 years from the last contact.",
+        "Browsing data (cookies): 13 months maximum.",
+        "Billing data: 10 years in accordance with accounting obligations.",
       ],
     },
     {
-      title: "7. Vos droits",
+      title: "7. Your Rights",
       paragraphs: [
-        "Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez des droits suivants :",
+        "In accordance with the General Data Protection Regulation (GDPR) and the French Data Protection Act, you have the following rights:",
       ],
       list: [
-        "Droit d'accès : obtenir la confirmation que des données vous concernant sont traitées et en obtenir une copie",
-        "Droit de rectification : demander la correction de données inexactes ou incomplètes",
-        "Droit à l'effacement : demander la suppression de vos données dans les conditions prévues par la loi",
-        "Droit à la limitation du traitement : demander la limitation du traitement dans certains cas",
-        "Droit à la portabilité : recevoir vos données dans un format structuré et lisible",
-        "Droit d'opposition : vous opposer au traitement de vos données pour des motifs légitimes",
-        "Droit de retirer votre consentement : retirer votre consentement à tout moment",
+        "Right of access: obtain confirmation that data concerning you is being processed and obtain a copy",
+        "Right to rectification: request the correction of inaccurate or incomplete data",
+        "Right to erasure: request the deletion of your data under the conditions provided by law",
+        "Right to restriction of processing: request the restriction of processing in certain cases",
+        "Right to data portability: receive your data in a structured and readable format",
+        "Right to object: object to the processing of your data on legitimate grounds",
+        "Right to withdraw consent: withdraw your consent at any time",
       ],
-      after: "Pour exercer vos droits, contactez-nous à : dpo@skyseaker.com. Vous disposez également du droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés).",
+      after: "To exercise your rights, contact us at: dpo@skyseaker.com. You also have the right to file a complaint with the CNIL (French National Commission for Information Technology and Civil Liberties).",
     },
     {
       title: "8. Cookies",
       content: [
-        "Le site skyseaker.com utilise des cookies pour assurer son bon fonctionnement et améliorer votre expérience de navigation.",
+        "The skyseaker.com website uses cookies to ensure its proper functioning and to improve your browsing experience.",
       ],
       subtable: [
-        { type: "Cookies essentiels", desc: "Nécessaires au fonctionnement du site (session, préférences de langue). Ne peuvent être désactivés.", duration: "Session" },
-        { type: "Cookies analytiques", desc: "Permettent d'analyser l'utilisation du site pour en améliorer les performances.", duration: "13 mois" },
-        { type: "Cookies marketing", desc: "Utilisés pour afficher des publicités pertinentes. Déposés avec votre consentement uniquement.", duration: "13 mois" },
+        { type: "Essential cookies", desc: "Necessary for the website to function (session, language preferences). Cannot be disabled.", duration: "Session" },
+        { type: "Analytical cookies", desc: "Allow analysis of website usage to improve performance.", duration: "13 months" },
+        { type: "Marketing cookies", desc: "Used to display relevant advertisements. Only placed with your consent.", duration: "13 months" },
       ],
     },
     {
-      title: "9. Sécurité des données",
+      title: "9. Data Security",
       content: [
-        "Skyseaker SAS met en œuvre les mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, perte, altération ou divulgation.",
-        "Le site utilise le protocole HTTPS pour sécuriser les échanges de données entre votre navigateur et nos serveurs.",
+        "Skyseaker SAS implements appropriate technical and organizational measures to protect your personal data against unauthorized access, loss, alteration or disclosure.",
+        "The website uses the HTTPS protocol to secure data exchanges between your browser and our servers.",
       ],
     },
     {
-      title: "10. Transferts hors UE",
+      title: "10. Transfers Outside the EU",
       content: [
-        "Certaines données peuvent être transférées vers des pays situés hors de l'Union Européenne (notamment vers les États-Unis pour l'hébergement). Ces transferts sont encadrés par les garanties appropriées conformément au RGPD (clauses contractuelles types, décisions d'adéquation).",
+        "Certain data may be transferred to countries located outside the European Union (notably to the United States for hosting). These transfers are governed by appropriate safeguards in accordance with the GDPR (standard contractual clauses, adequacy decisions).",
       ],
     },
     {
-      title: "11. Modification de la politique",
+      title: "11. Policy Modifications",
       content: [
-        "Skyseaker SAS se réserve le droit de modifier la présente politique de confidentialité à tout moment. Les modifications prennent effet dès leur publication sur le site. Nous vous invitons à consulter régulièrement cette page.",
+        "Skyseaker SAS reserves the right to modify this privacy policy at any time. Modifications take effect upon publication on the website. We invite you to regularly consult this page.",
       ],
     },
   ];
@@ -124,13 +124,13 @@ export default function PolitiqueConfidentialitePage() {
       <section className="pt-32 pb-12" style={{ background: "#0E202D" }}>
         <div className="px-[5vw] text-center" style={{ maxWidth: "1400px", margin: "0 auto" }}>
           <p className="text-[12px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-4" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>
-            RGPD & DONNÉES PERSONNELLES
+            GDPR & PERSONAL DATA
           </p>
           <h1 className="text-[36px] md:text-[48px] mb-4" style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF" }}>
-            Politique de Confidentialité
+            Privacy Policy
           </h1>
           <p className="text-[14px] text-[#6B6B6B]" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
-            Dernière mise à jour : février 2026
+            Last updated: February 2026
           </p>
         </div>
       </section>
@@ -189,7 +189,7 @@ export default function PolitiqueConfidentialitePage() {
                       <tr style={{ borderBottom: "1px solid #1A3448" }}>
                         <th className="pb-3 pr-4 text-[12px] uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F4DDC3" }}>Type</th>
                         <th className="pb-3 pr-4 text-[12px] uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F4DDC3" }}>Description</th>
-                        <th className="pb-3 text-[12px] uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F4DDC3" }}>Durée</th>
+                        <th className="pb-3 text-[12px] uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F4DDC3" }}>Duration</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -213,14 +213,14 @@ export default function PolitiqueConfidentialitePage() {
 
           <div className="mt-16 p-8" style={{ background: "#132A3A", border: "1px solid #1A3448" }}>
             <p className="text-[14px] text-[#A0A0A0] mb-4" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
-              Voir aussi :
+              See also:
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/mentions-legales" className="text-[13px] text-[#F4DDC3] hover:text-[#F4DDC3] transition-colors" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400 }}>
-                Mentions Légales →
+                Legal Notice →
               </Link>
               <Link href="/conditions-generales" className="text-[13px] text-[#F4DDC3] hover:text-[#F4DDC3] transition-colors" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400 }}>
-                Conditions Générales de Vente →
+                General Terms and Conditions of Sale →
               </Link>
             </div>
           </div>

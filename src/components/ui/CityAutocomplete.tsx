@@ -27,7 +27,7 @@ export default function CityAutocomplete({
   const [focused, setFocused] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  // Pour la recherche, ignorer le "(CODE)" si présent dans la valeur
+  // For search, ignore the "(CODE)" suffix if present in the value
   const searchValue = useMemo(() => {
     const match = value.match(/^(.+?)\s*\(([A-Z]{4})\)$/);
     return match ? match[1].trim() : value;

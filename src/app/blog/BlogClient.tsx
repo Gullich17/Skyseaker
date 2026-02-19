@@ -13,13 +13,13 @@ import Button from '@/components/ui/Button';
    DATA
    ============================================ */
 
-type Category = 'Tous' | 'Destinations' | 'Guides' | 'Actualit\u00e9s' | 'Lifestyle' | '\u00c9v\u00e9nements';
+type Category = 'All' | 'Destinations' | 'Guides' | 'News' | 'Lifestyle' | 'Events';
 
 interface Article {
   slug: string;
   title: string;
   excerpt: string;
-  category: Exclude<Category, 'Tous'>;
+  category: Exclude<Category, 'All'>;
   date: string;
   readTime: string;
   featured?: boolean;
@@ -29,60 +29,60 @@ interface Article {
 const articles: Article[] = [
   {
     slug: 'top-destinations-2026',
-    title: 'Les 10 destinations les plus pris\u00e9es en jet priv\u00e9 en 2026',
+    title: 'The 10 most popular private jet destinations in 2026',
     excerpt:
-      'De Monaco \u00e0 Duba\u00ef, d\u00e9couvrez les destinations qui s\u00e9duisent le plus nos clients cette ann\u00e9e et les tendances \u00e9mergentes du voyage priv\u00e9.',
+      'From Monaco to Dubai, discover the destinations our clients love most this year and the emerging trends in private travel.',
     category: 'Destinations',
-    date: '12 F\u00e9v 2026',
+    date: '12 Feb 2026',
     readTime: '5 min',
     featured: true,
     image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75',
   },
   {
     slug: 'guide-choisir-jet-prive',
-    title: 'Guide complet\u00a0: comment choisir son jet priv\u00e9',
+    title: 'Complete guide: how to choose your private jet',
     excerpt:
-      'Light jet, midsize, heavy jet\u2026 Tous les crit\u00e8res pour s\u00e9lectionner l\u2019appareil id\u00e9al selon votre trajet, votre budget et vos besoins.',
+      'Light jet, midsize, heavy jet... All the criteria for selecting the ideal aircraft based on your route, budget and needs.',
     category: 'Guides',
-    date: '8 F\u00e9v 2026',
+    date: '8 Feb 2026',
     readTime: '8 min',
     image: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&q=75',
   },
   {
     slug: 'empty-legs-guide-complet',
-    title: 'Empty legs\u00a0: tout ce qu\u2019il faut savoir pour voyager malin',
+    title: 'Empty legs: everything you need to know to fly smart',
     excerpt:
-      'Les vols \u00e0 vide repr\u00e9sentent une opportunit\u00e9 unique de voyager en jet priv\u00e9 \u00e0 prix r\u00e9duit. Voici comment en profiter.',
+      'Empty leg flights are a unique opportunity to travel by private jet at a reduced price. Here is how to take advantage of them.',
     category: 'Guides',
-    date: '3 F\u00e9v 2026',
+    date: '3 Feb 2026',
     readTime: '6 min',
     image: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=75',
   },
   {
     slug: 'monaco-grand-prix-2026',
-    title: 'Grand Prix de Monaco 2026\u00a0: votre guide VIP en jet priv\u00e9',
+    title: 'Monaco Grand Prix 2026: your VIP guide by private jet',
     excerpt:
-      'Tout ce qu\u2019il faut savoir pour vivre le Grand Prix de Monaco depuis les paddocks, avec un vol priv\u00e9 et un acc\u00e8s exclusif.',
-    category: '\u00c9v\u00e9nements',
+      'Everything you need to know to experience the Monaco Grand Prix from the paddocks, with a private flight and exclusive access.',
+    category: 'Events',
     date: '28 Jan 2026',
     readTime: '7 min',
     image: 'https://images.unsplash.com/photo-1504817343863-5092a923803e?w=600&q=75',
   },
   {
     slug: 'tendances-aviation-privee-2026',
-    title: 'Les tendances de l\u2019aviation priv\u00e9e en 2026',
+    title: 'Private aviation trends in 2026',
     excerpt:
-      'Durabilit\u00e9, digitalisation, nouvelles routes\u2026 Les grandes tendances qui fa\u00e7onnent l\u2019avenir de l\u2019aviation d\u2019affaires.',
-    category: 'Actualit\u00e9s',
+      'Sustainability, digitalisation, new routes... The major trends shaping the future of business aviation.',
+    category: 'News',
     date: '20 Jan 2026',
     readTime: '5 min',
     image: 'https://images.unsplash.com/photo-1559628233-100c798642d4?w=600&q=75',
   },
   {
     slug: 'retraite-wellness-ibiza',
-    title: 'Ibiza autrement\u00a0: retraite wellness en jet priv\u00e9',
+    title: 'Ibiza redefined: wellness retreat by private jet',
     excerpt:
-      'Loin de l\u2019image festive, Ibiza se r\u00e9v\u00e8le comme une destination bien-\u00eatre d\u2019exception. D\u00e9couvrez notre exp\u00e9rience exclusive.',
+      'Far from its party image, Ibiza reveals itself as an exceptional wellness destination. Discover our exclusive experience.',
     category: 'Lifestyle',
     date: '15 Jan 2026',
     readTime: '4 min',
@@ -90,9 +90,9 @@ const articles: Article[] = [
   },
   {
     slug: 'courchevel-saison-ski-2026',
-    title: 'Courchevel 2026\u00a0: la saison ski en jet priv\u00e9 + h\u00e9licopt\u00e8re',
+    title: 'Courchevel 2026: the ski season by private jet + helicopter',
     excerpt:
-      'De l\u2019a\u00e9roport directement aux pistes\u00a0: notre guide pour une saison de ski inoubliable dans les Alpes fran\u00e7aises.',
+      'From the airport straight to the slopes: our guide to an unforgettable ski season in the French Alps.',
     category: 'Destinations',
     date: '8 Jan 2026',
     readTime: '6 min',
@@ -101,12 +101,12 @@ const articles: Article[] = [
 ];
 
 const categories: Category[] = [
-  'Tous',
+  'All',
   'Destinations',
   'Guides',
-  'Actualit\u00e9s',
+  'News',
   'Lifestyle',
-  '\u00c9v\u00e9nements',
+  'Events',
 ];
 
 /* ============================================
@@ -122,7 +122,7 @@ function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/fleet/falcon-8x/main.png"
-          alt="Aviation priv\u00e9e"
+          alt="Private aviation"
           fill
           priority
           style={{ objectFit: 'cover' }}
@@ -198,7 +198,7 @@ function HeroSection() {
             lineHeight: 1.1,
           }}
         >
-          Actualités et inspirations
+          News and inspiration
         </motion.h1>
 
         <motion.p
@@ -218,7 +218,7 @@ function HeroSection() {
             margin: '0 auto',
           }}
         >
-          Guides, tendances et récits de voyage pour les passionnés d&apos;aviation privée
+          Guides, trends and travel stories for private aviation enthusiasts
         </motion.p>
       </div>
     </section>
@@ -316,7 +316,7 @@ function FeaturedArticle({ article }: { article: Article }) {
                   fontWeight: 300,
                 }}
               >
-                {article.readTime} de lecture
+                {article.readTime} read
               </span>
             </div>
             <span
@@ -331,7 +331,7 @@ function FeaturedArticle({ article }: { article: Article }) {
                 fontWeight: 500,
               }}
             >
-              Lire l&apos;article &rarr;
+              Read article &rarr;
             </span>
           </div>
         </div>
@@ -423,7 +423,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
                   fontWeight: 300,
                 }}
               >
-                {article.readTime} de lecture
+                {article.readTime} read
               </span>
             </div>
             <span
@@ -436,7 +436,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
                 fontWeight: 500,
               }}
             >
-              Lire l&apos;article &rarr;
+              Read article &rarr;
             </span>
           </div>
         </div>
@@ -450,7 +450,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
    ============================================ */
 
 function ArticlesSection() {
-  const [activeCategory, setActiveCategory] = useState<Category>('Tous');
+  const [activeCategory, setActiveCategory] = useState<Category>('All');
   const [searchQuery, setSearchQuery] = useState('');
 
   const featuredArticle = articles.find((a) => a.featured);
@@ -459,7 +459,7 @@ function ArticlesSection() {
   const filteredArticles = useMemo(() => {
     return otherArticles.filter((article) => {
       const matchesCategory =
-        activeCategory === 'Tous' || article.category === activeCategory;
+        activeCategory === 'All' || article.category === activeCategory;
       const matchesSearch =
         searchQuery === '' ||
         article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -529,7 +529,7 @@ function ArticlesSection() {
             </svg>
             <input
               type="text"
-              placeholder="Rechercher un article..."
+              placeholder="Search for an article..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               style={{
@@ -551,7 +551,7 @@ function ArticlesSection() {
         </div>
 
         {/* Featured article */}
-        {featuredArticle && activeCategory === 'Tous' && searchQuery === '' && (
+        {featuredArticle && activeCategory === 'All' && searchQuery === '' && (
           <div style={{ marginBottom: '48px' }}>
             <FeaturedArticle article={featuredArticle} />
           </div>
@@ -578,11 +578,11 @@ function ArticlesSection() {
                 fontWeight: 300,
               }}
             >
-              Aucun article trouv\u00e9 pour cette recherche.
+              No articles found for this search.
             </p>
             <button
               onClick={() => {
-                setActiveCategory('Tous');
+                setActiveCategory('All');
                 setSearchQuery('');
               }}
               className="transition-colors"
@@ -598,7 +598,7 @@ function ArticlesSection() {
                 cursor: 'pointer',
               }}
             >
-              R\u00e9initialiser les filtres
+              Reset filters
             </button>
           </div>
         )}
@@ -623,7 +623,7 @@ function ArticlesSection() {
                   color: '#FFFFFF',
                 }}
               >
-                Restez inspir\u00e9
+                Stay inspired
               </h3>
               <p
                 style={{
@@ -636,7 +636,7 @@ function ArticlesSection() {
                   margin: '0 auto 32px auto',
                 }}
               >
-                Recevez nos derni\u00e8res actualit\u00e9s, guides exclusifs et offres sp\u00e9ciales directement dans votre bo\u00eete mail
+                Receive our latest news, exclusive guides and special offers straight to your inbox
               </p>
               <div
                 className="flex flex-col sm:flex-row items-center justify-center"
@@ -644,7 +644,7 @@ function ArticlesSection() {
               >
                 <input
                   type="email"
-                  placeholder="Votre adresse email"
+                  placeholder="Your email address"
                   style={{
                     width: '100%',
                     padding: '12px 16px',
@@ -658,7 +658,7 @@ function ArticlesSection() {
                   }}
                 />
                 <Button variant="primary" size="sm">
-                  S&apos;inscrire
+                  Subscribe
                 </Button>
               </div>
               <p
@@ -670,7 +670,7 @@ function ArticlesSection() {
                   fontWeight: 300,
                 }}
               >
-                Pas de spam. D\u00e9sinscription en un clic.
+                No spam. Unsubscribe in one click.
               </p>
             </div>
           </ScrollReveal>

@@ -21,7 +21,7 @@ function FleetHero() {
       <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
         <Image
           src="/images/fleet/falcon-8x/main.png"
-          alt="Jet privé en vol"
+          alt="Private jet in flight"
           fill
           className="object-cover"
           priority
@@ -40,7 +40,7 @@ function FleetHero() {
           transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
           style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "16px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F4DDC3" }}
         >
-          NOTRE FLOTTE
+          OUR FLEET
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -48,8 +48,8 @@ function FleetHero() {
           transition={{ duration: 1, delay: 0.3, ease: EASE }}
           style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "20px" }}
         >
-          Plus de 8 500 appareils
-          <br />à votre disposition
+          Over 8,500 aircraft
+          <br />at your disposal
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -57,8 +57,8 @@ function FleetHero() {
           transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
           style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", maxWidth: "700px", margin: "0 auto", fontSize: "clamp(16px, 2.5vw, 22px)" }}
         >
-          Des very light jets aux VIP airliners, trouvez l&apos;appareil parfait
-          pour chaque mission
+          From very light jets to VIP airliners, find the perfect aircraft
+          for every mission
         </motion.p>
       </div>
     </section>
@@ -117,10 +117,10 @@ function AircraftCard({ aircraft, index }: { aircraft: Aircraft; index: number }
             {/* Specs grid */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "16px" }}>
               {[
-                { label: "Passagers", value: `${aircraft.passengers}`, icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" },
-                { label: "Autonomie", value: `${aircraft.range.toLocaleString("fr-FR")} km`, icon: "M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" },
-                { label: "Vitesse", value: `${aircraft.speed} km/h`, icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" },
-                { label: "Bagages", value: `${aircraft.baggage} m³`, icon: "M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0" },
+                { label: "Passengers", value: `${aircraft.passengers}`, icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" },
+                { label: "Range", value: `${aircraft.range.toLocaleString("en-US")} km`, icon: "M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" },
+                { label: "Speed", value: `${aircraft.speed} km/h`, icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" },
+                { label: "Luggage", value: `${aircraft.baggage} m³`, icon: "M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0" },
               ].map((spec) => (
                 <div key={spec.label} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <svg width="14" height="14" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24" style={{ flexShrink: 0 }}>
@@ -140,7 +140,7 @@ function AircraftCard({ aircraft, index }: { aircraft: Aircraft; index: number }
 
             {/* CTA */}
             <span style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>
-              Voir la fiche →
+              View Details →
             </span>
           </div>
         </motion.div>
@@ -265,8 +265,7 @@ export default function FlottePage() {
 
           {/* Results count */}
           <p style={{ marginBottom: "24px", fontSize: "13px", fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B" }}>
-            {filteredFleet.length} appareil{filteredFleet.length > 1 ? "s" : ""}{" "}
-            disponible{filteredFleet.length > 1 ? "s" : ""}
+            {filteredFleet.length} aircraft available
           </p>
 
           {/* Grid */}
@@ -288,10 +287,10 @@ export default function FlottePage() {
           {/* Bottom CTA */}
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "16px", marginTop: "clamp(48px, 6vw, 64px)" }}>
             <Button href="/flotte/comparateur" variant="primary">
-              Comparer les appareils
+              Compare Aircraft
             </Button>
             <Button href="/devis" variant="secondary">
-              Demander un devis
+              Request a Quote
             </Button>
           </div>
         </div>

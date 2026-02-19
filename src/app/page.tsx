@@ -64,9 +64,9 @@ function HeroSection() {
   };
 
   const tabs = [
-    { id: "aller" as const, label: "Aller simple" },
-    { id: "ar" as const, label: "Aller-retour" },
-    { id: "multi" as const, label: "Multi-destinations" },
+    { id: "aller" as const, label: "One Way" },
+    { id: "ar" as const, label: "Round Trip" },
+    { id: "multi" as const, label: "Multi-City" },
   ];
 
   return (
@@ -75,7 +75,7 @@ function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/fleet/falcon-8x/main.png"
-          alt="Jet privé en vol"
+          alt="Private jet in flight"
           fill
           className="object-cover"
           priority
@@ -193,7 +193,7 @@ function HeroSection() {
           {heroMode === "yacht" && (
             <div style={{ marginBottom: "24px", paddingBottom: "12px", borderBottom: "1px solid rgba(244,221,195,0.12)" }}>
               <span style={{ fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F4DDC3" }}>
-                Votre croisière privée
+                Your Private Cruise
               </span>
             </div>
           )}
@@ -206,8 +206,8 @@ function HeroSection() {
                   <CityAutocomplete
                     value={depart}
                     onChange={setDepart}
-                    placeholder="Ville ou aéroport"
-                    label="Départ"
+                    placeholder="City or airport"
+                    label="Departure"
                     labelStyle={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}
                     inputStyle={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
                     icon={<svg style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)" }} width="16" height="16" fill="none" stroke="#F4DDC3" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12" /><path d="M3 20h18" /></svg>}
@@ -215,7 +215,7 @@ function HeroSection() {
                   <CityAutocomplete
                     value={destination}
                     onChange={setDestination}
-                    placeholder="Ville ou aéroport"
+                    placeholder="City or airport"
                     label="Destination"
                     labelStyle={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}
                     inputStyle={{ width: "100%", paddingLeft: "42px", paddingRight: "14px", paddingTop: "14px", paddingBottom: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none", transition: "border-color 0.3s ease" }}
@@ -244,7 +244,7 @@ function HeroSection() {
                   </div>
                   <div>
                     <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                      Passagers
+                      Passengers
                     </label>
                     <select
                       style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
@@ -253,7 +253,7 @@ function HeroSection() {
                     >
                       {Array.from({ length: 19 }, (_, i) => (
                         <option key={i + 1} value={i + 1} style={{ background: "#132A3A" }}>
-                          {i + 1} passager{i > 0 ? "s" : ""}
+                          {i + 1} passenger{i > 0 ? "s" : ""}
                         </option>
                       ))}
                     </select>
@@ -268,15 +268,15 @@ function HeroSection() {
                         <CityAutocomplete
                           value={leg.from}
                           onChange={(v) => { const n = [...legs]; n[idx].from = v; setLegs(n); }}
-                          placeholder="Ville ou aéroport"
-                          label={idx === 0 ? "Départ" : `Étape ${idx + 1}`}
+                          placeholder="City or airport"
+                          label={idx === 0 ? "Departure" : `Leg ${idx + 1}`}
                           labelStyle={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}
                           inputStyle={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
                         />
                         <CityAutocomplete
                           value={leg.to}
                           onChange={(v) => { const n = [...legs]; n[idx].to = v; setLegs(n); }}
-                          placeholder="Ville ou aéroport"
+                          placeholder="City or airport"
                           label="Destination"
                           labelStyle={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}
                           inputStyle={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(244,221,195,0.06)", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "4px", color: "#FFFFFF", fontFamily: "var(--font-montserrat)", fontWeight: 300, outline: "none" }}
@@ -304,7 +304,7 @@ function HeroSection() {
                     onClick={() => setLegs([...legs, { from: "", to: "", date: "" }])}
                     style={{ marginTop: "16px", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500, background: "none", border: "none", cursor: "pointer" }}
                   >
-                    + Ajouter une étape
+                    + Add a leg
                   </button>
                 </div>
               )}
@@ -326,7 +326,7 @@ function HeroSection() {
                   animate={{ height: "auto", opacity: 1 }}
                   style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "18px", marginBottom: "28px", overflow: "hidden" }}
                 >
-                  {["Animaux à bord", "Bagages volumineux", "Catering spécial", "Transfert terrestre"].map((opt) => (
+                  {["Pets on Board", "Oversized Luggage", "Special Catering", "Ground Transfer"].map((opt) => (
                     <label key={opt} className="flex items-center gap-3 cursor-pointer group">
                       <input type="checkbox" className="sr-only peer" />
                       <div className="flex items-center justify-center peer-checked:bg-[#F4DDC3] transition-all"
@@ -347,25 +347,25 @@ function HeroSection() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "20px", marginBottom: "24px" }}>
               <div>
                 <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                  Zone de navigation
+                  Cruising Area
                 </label>
                 <select
                   value={yachtZone}
                   onChange={(e) => setYachtZone(e.target.value)}
                   style={{ width: "100%", padding: "14px", fontSize: "13px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,221,195,0.2)", borderRadius: "3px", color: yachtZone ? "#FFFFFF" : "#6B6B6B", fontFamily: "var(--font-montserrat)", fontWeight: 300, WebkitAppearance: "none", appearance: "none", outline: "none", cursor: "pointer" }}
                 >
-                  <option value="" style={{ background: "#132A3A" }}>Sélectionnez</option>
-                  <option value="mediterranee" style={{ background: "#132A3A" }}>Méditerranée</option>
-                  <option value="caraibes" style={{ background: "#132A3A" }}>Caraïbes</option>
-                  <option value="asie-pacifique" style={{ background: "#132A3A" }}>Asie-Pacifique</option>
-                  <option value="europe-nord" style={{ background: "#132A3A" }}>Europe du Nord</option>
-                  <option value="ocean-indien" style={{ background: "#132A3A" }}>Océan Indien</option>
-                  <option value="autre" style={{ background: "#132A3A" }}>Autre</option>
+                  <option value="" style={{ background: "#132A3A" }}>Select</option>
+                  <option value="mediterranee" style={{ background: "#132A3A" }}>Mediterranean</option>
+                  <option value="caraibes" style={{ background: "#132A3A" }}>Caribbean</option>
+                  <option value="asie-pacifique" style={{ background: "#132A3A" }}>Asia-Pacific</option>
+                  <option value="europe-nord" style={{ background: "#132A3A" }}>Northern Europe</option>
+                  <option value="ocean-indien" style={{ background: "#132A3A" }}>Indian Ocean</option>
+                  <option value="autre" style={{ background: "#132A3A" }}>Other</option>
                 </select>
               </div>
               <div>
                 <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                  Embarquement
+                  Embarkation
                 </label>
                 <input
                   type="date"
@@ -376,7 +376,7 @@ function HeroSection() {
               </div>
               <div>
                 <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                  Débarquement
+                  Disembarkation
                 </label>
                 <input
                   type="date"
@@ -387,7 +387,7 @@ function HeroSection() {
               </div>
               <div>
                 <label style={{ display: "block", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.18em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 600, marginBottom: "10px" }}>
-                  Invités
+                  Guests
                 </label>
                 <select
                   value={yachtGuests}
@@ -396,7 +396,7 @@ function HeroSection() {
                 >
                   {Array.from({ length: 30 }, (_, i) => (
                     <option key={i + 1} value={i + 1} style={{ background: "#132A3A" }}>
-                      {i + 1} invité{i > 0 ? "s" : ""}
+                      {i + 1} guest{i > 0 ? "s" : ""}
                     </option>
                   ))}
                 </select>
@@ -426,10 +426,10 @@ function HeroSection() {
               transition: "all 0.3s ease",
             }}
           >
-            {heroMode === "yacht" ? "Estimez votre croisière gratuitement" : "Estimez votre vol gratuitement"}
+            {heroMode === "yacht" ? "Get Your Free Cruise Estimate" : "Get Your Free Flight Estimate"}
           </button>
           <p style={{ textAlign: "center", marginTop: "16px", fontSize: "12px", color: "rgba(244,221,195,0.5)", fontFamily: "var(--font-montserrat)", fontWeight: 300, letterSpacing: "0.05em" }}>
-            Réponse sous 30 minutes &bull; Disponible 24/7 &bull; Sans engagement
+            Response within 30 minutes &bull; Available 24/7 &bull; No commitment
           </p>
         </motion.div>
       </div>
@@ -442,11 +442,11 @@ function HeroSection() {
    ============================================ */
 function TrustBanner() {
   const stats = [
-    { value: 15000, suffix: "+", label: "Vols réalisés" },
-    { value: 120000, suffix: "+", label: "Passagers transportés" },
-    { value: 8500, suffix: "+", label: "Appareils disponibles" },
-    { value: 24, suffix: "/7", label: "Disponibilité" },
-    { value: 4.9, suffix: "/5", label: "Satisfaction client" },
+    { value: 15000, suffix: "+", label: "Flights Completed" },
+    { value: 120000, suffix: "+", label: "Passengers Carried" },
+    { value: 8500, suffix: "+", label: "Aircraft Available" },
+    { value: 24, suffix: "/7", label: "Availability" },
+    { value: 4.9, suffix: "/5", label: "Client Satisfaction" },
   ];
 
   return (
@@ -490,20 +490,20 @@ function TrustBanner() {
    ============================================ */
 function ServicesSection() {
   const serviceCards = [
-    { title: "Affrètement personnalisé", desc: "Un vol sur mesure adapté à vos moindres exigences, avec accès à plus de 8 500 appareils dans le monde.", href: "/services/affretement-jet-prive", img: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&q=75" },
-    { title: "Vols à vide (Empty Legs)", desc: "Profitez de repositionnements d'appareils pour voyager en jet privé à tarif réduit.", href: "/services/vols-a-vide-empty-legs", img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=75" },
-    { title: "Voyages de groupe", desc: "Des solutions charter pour vos groupes de 10 à 50+ passagers, partout dans le monde.", href: "/services/voyage-groupe", img: "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=600&q=75" },
-    { title: "Fret urgent", desc: "Transport aérien express de fret urgent, disponible 24h/24 et 7j/7.", href: "/services/fret-urgent", img: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=600&q=75" },
-    { title: "Conciergerie & Lifestyle", desc: "Un service complet : hôtels, restaurants, transferts, événements exclusifs.", href: "/services/conciergerie-lifestyle", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=75" },
-    { title: "Expériences exclusives", desc: "Des packages uniques alliant vol privé et expériences de luxe inoubliables.", href: "/experiences", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75" },
+    { title: "Bespoke Charter", desc: "A tailored flight designed around your every need, with access to over 8,500 aircraft worldwide.", href: "/services/affretement-jet-prive", img: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&q=75" },
+    { title: "Empty Legs", desc: "Take advantage of aircraft repositioning flights to fly by private jet at reduced rates.", href: "/services/vols-a-vide-empty-legs", img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=75" },
+    { title: "Group Travel", desc: "Charter solutions for groups of 10 to 50+ passengers, anywhere in the world.", href: "/services/voyage-groupe", img: "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=600&q=75" },
+    { title: "Urgent Cargo", desc: "Express air freight for urgent cargo, available 24 hours a day, 7 days a week.", href: "/services/fret-urgent", img: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=600&q=75" },
+    { title: "Concierge & Lifestyle", desc: "A comprehensive service: hotels, restaurants, transfers, exclusive events.", href: "/services/conciergerie-lifestyle", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=75" },
+    { title: "Exclusive Experiences", desc: "Unique packages combining private flights with unforgettable luxury experiences.", href: "/experiences", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75" },
   ];
 
   return (
     <section style={{ background: "#0E202D", padding: "clamp(80px, 12vw, 140px) 0" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
-          preTitle="NOS SERVICES"
-          title="Des solutions adaptées à chaque besoin"
+          preTitle="OUR SERVICES"
+          title="Solutions Tailored to Every Need"
           centered
           mb="clamp(48px, 6vw, 64px)"
         />
@@ -531,7 +531,7 @@ function ServicesSection() {
                       {svc.desc}
                     </p>
                     <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3" }}>
-                      En savoir plus →
+                      Learn More →
                     </span>
                   </div>
                 </div>
@@ -549,10 +549,10 @@ function ServicesSection() {
    ============================================ */
 function WhyChooseUs() {
   const points = [
-    { title: "Réactivité", desc: "Votre jet prêt en moins de 2 heures, partout dans le monde", icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" },
-    { title: "Transparence", desc: "Aucun frais caché, devis détaillé et immédiat", icon: "M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z M15 12a3 3 0 11-6 0 3 3 0 016 0z" },
-    { title: "Sécurité", desc: "Opérateurs certifiés, audits réguliers et standards EASA", icon: "M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" },
-    { title: "Sur-mesure", desc: "Chaque vol est conçu selon vos exigences les plus précises", icon: "M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" },
+    { title: "Responsiveness", desc: "Your jet ready in under 2 hours, anywhere in the world", icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" },
+    { title: "Transparency", desc: "No hidden fees, detailed and immediate quotes", icon: "M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z M15 12a3 3 0 11-6 0 3 3 0 016 0z" },
+    { title: "Safety", desc: "Certified operators, regular audits and EASA standards", icon: "M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" },
+    { title: "Bespoke", desc: "Every flight is crafted to your most precise requirements", icon: "M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" },
   ];
 
   return (
@@ -564,7 +564,7 @@ function WhyChooseUs() {
             <div className="aspect-[4/3] relative overflow-hidden" style={{ borderRadius: "4px" }}>
               <Image
                 src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800&q=80"
-                alt="Intérieur jet privé luxe"
+                alt="Luxury private jet interior"
                 fill
                 className="object-cover"
               />
@@ -575,8 +575,8 @@ function WhyChooseUs() {
           {/* Points */}
           <div>
             <SectionTitle
-              preTitle="POURQUOI NOUS CHOISIR"
-              title="L'excellence à chaque étape"
+              preTitle="WHY CHOOSE US"
+              title="Excellence at Every Step"
               mb="clamp(40px, 5vw, 56px)"
             />
             <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
@@ -600,7 +600,7 @@ function WhyChooseUs() {
             </div>
             <div style={{ marginTop: "48px" }}>
               <Button href="/a-propos" variant="primary">
-                Découvrir notre approche
+                Discover Our Approach
               </Button>
             </div>
           </div>
@@ -648,7 +648,7 @@ function FleetShowcase() {
       category: a!.category,
       categorySlug: a!.categorySlug,
       pax: `${a!.passengers} pax`,
-      range: `${a!.range.toLocaleString("fr-FR")} km`,
+      range: `${a!.range.toLocaleString("en-US")} km`,
       speed: `${a!.speed} km/h`,
       slug: a!.id,
       img: a!.image,
@@ -658,8 +658,8 @@ function FleetShowcase() {
     <section style={{ background: "#0E202D", padding: "clamp(80px, 12vw, 140px) 0" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
-          preTitle="NOTRE FLOTTE"
-          title="Accédez aux meilleurs appareils du monde"
+          preTitle="OUR FLEET"
+          title="Access the World's Finest Aircraft"
           centered
           mb="clamp(48px, 6vw, 64px)"
         />
@@ -697,7 +697,7 @@ function FleetShowcase() {
                         <span>{ac.speed}</span>
                       </div>
                       <span style={{ display: "block", marginTop: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3" }}>
-                        Voir la fiche →
+                        View Details →
                       </span>
                     </div>
                   </div>
@@ -708,16 +708,16 @@ function FleetShowcase() {
           {/* Scroll hint */}
           <div className="flex items-center justify-center gap-2 mt-2" style={{ color: "#6B6B6B", fontSize: "11px", fontFamily: "var(--font-montserrat)" }}>
             <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M8 7l4-4m0 0l4 4m-4-4v18" style={{ transform: "rotate(90deg)", transformOrigin: "center" }} /></svg>
-            <span>Faites défiler pour voir plus</span>
+            <span>Scroll to see more</span>
           </div>
         </div>
         </ScrollReveal>
 
         <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginTop: "clamp(32px, 5vw, 56px)" }}>
-          <Button href="/flotte" variant="primary">Explorer toute la flotte</Button>
+          <Button href="/flotte" variant="primary">Explore the Full Fleet</Button>
           <Link href="/flotte/comparateur" className="hover:text-[#F4DDC3] transition-colors"
             style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0" }}>
-            Comparer les appareils →
+            Compare Aircraft →
           </Link>
         </div>
       </div>
@@ -754,7 +754,7 @@ function YachtShowcase() {
   const featuredYachts = yachts.slice(0, 5).map((y) => ({
     name: y.name,
     category: y.category,
-    guests: `${y.guests} invités`,
+    guests: `${y.guests} guests`,
     length: `${y.length} m`,
     speed: `${y.maxSpeed ?? '-'} nds`,
     slug: y.id,
@@ -766,8 +766,8 @@ function YachtShowcase() {
     <section style={{ background: "#112130", padding: "clamp(80px, 12vw, 140px) 0" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
-          preTitle="NOS YACHTS"
-          title="Découvrez notre flotte nautique de prestige"
+          preTitle="OUR YACHTS"
+          title="Discover Our Prestigious Nautical Fleet"
           centered
           mb="clamp(48px, 6vw, 64px)"
         />
@@ -805,7 +805,7 @@ function YachtShowcase() {
                         <span>{yacht.speed}</span>
                       </div>
                       <span style={{ display: "block", marginTop: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3" }}>
-                        Voir la fiche →
+                        View Details →
                       </span>
                     </div>
                   </div>
@@ -816,16 +816,16 @@ function YachtShowcase() {
           {/* Scroll hint */}
           <div className="flex items-center justify-center gap-2 mt-2" style={{ color: "#6B6B6B", fontSize: "11px", fontFamily: "var(--font-montserrat)" }}>
             <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M8 7l4-4m0 0l4 4m-4-4v18" style={{ transform: "rotate(90deg)", transformOrigin: "center" }} /></svg>
-            <span>Faites défiler pour voir plus</span>
+            <span>Scroll to see more</span>
           </div>
         </div>
         </ScrollReveal>
 
         <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginTop: "clamp(32px, 5vw, 56px)" }}>
-          <Button href="/yachts" variant="primary">Explorer tous les yachts</Button>
+          <Button href="/yachts" variant="primary">Explore All Yachts</Button>
           <Link href="/yachts/comparateur" className="hover:text-[#F4DDC3] transition-colors"
             style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0" }}>
-            Comparer les yachts →
+            Compare Yachts →
           </Link>
         </div>
       </div>
@@ -843,9 +843,9 @@ function EmptyLegsSection() {
     <section style={{ background: "#112130", padding: "clamp(80px, 12vw, 140px) 0" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
-          preTitle="VOLS À VIDE"
-          title="Voyagez en jet privé à prix réduit"
-          subtitle="Profitez de nos repositionnements d'appareils pour voyager à tarif avantageux"
+          preTitle="EMPTY LEGS"
+          title="Fly Private at Reduced Prices"
+          subtitle="Take advantage of our aircraft repositioning flights to travel at discounted rates"
           centered
           mb="clamp(48px, 6vw, 64px)"
         />
@@ -867,19 +867,19 @@ function EmptyLegsSection() {
                       </span>
                     </div>
                     <div className="flex items-center flex-wrap" style={{ gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "12px", color: "#A0A0A0" }}>
-                      <span>{new Date(el.date).toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" })}</span>
+                      <span>{new Date(el.date).toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" })}</span>
                       <span className="hidden sm:inline-block" style={{ width: "1px", height: "12px", background: "rgba(244,221,195,0.2)" }} />
                       <span>{el.aircraft}</span>
                       <span className="hidden sm:inline-block" style={{ width: "1px", height: "12px", background: "rgba(244,221,195,0.2)" }} />
-                      <span>{el.seats} places</span>
+                      <span>{el.seats} seats</span>
                     </div>
                   </div>
                   <div className="text-right shrink-0 sm:text-right text-left w-full sm:w-auto">
                     <Badge>-{el.discount}%</Badge>
                     <div style={{ marginTop: "10px" }}>
-                      <span style={{ fontSize: "14px", color: "#6B6B6B", textDecoration: "line-through", marginRight: "10px" }}>{el.originalPrice.toLocaleString("fr-FR")}€</span>
+                      <span style={{ fontSize: "14px", color: "#6B6B6B", textDecoration: "line-through", marginRight: "10px" }}>{el.originalPrice.toLocaleString("en-US")}€</span>
                       <span style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600, fontSize: "26px", color: "#F4DDC3" }}>
-                        {el.emptyLegPrice.toLocaleString("fr-FR")}€
+                        {el.emptyLegPrice.toLocaleString("en-US")}€
                       </span>
                     </div>
                   </div>
@@ -889,10 +889,10 @@ function EmptyLegsSection() {
           ))}
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginTop: "clamp(32px, 5vw, 56px)" }}>
-          <Button href="/empty-legs" variant="primary">Voir tous les empty legs</Button>
+          <Button href="/empty-legs" variant="primary">View All Empty Legs</Button>
           <Link href="/empty-legs#alertes" className="hover:text-[#F4DDC3] transition-colors"
             style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#A0A0A0" }}>
-            Créer une alerte empty leg →
+            Create an Empty Leg Alert →
           </Link>
         </div>
       </div>
@@ -905,12 +905,12 @@ function EmptyLegsSection() {
    ============================================ */
 function DestinationsSection() {
   const destCards = [
-    { name: "Genève", country: "Suisse", time: "55min", slug: "geneve", img: "https://images.unsplash.com/photo-1504711434969-e33886168d6c?w=600&q=75" },
-    { name: "Londres", country: "Royaume-Uni", time: "1h10", slug: "londres", img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=75" },
-    { name: "Mykonos", country: "Grèce", time: "3h00", slug: "mykonos", img: "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=600&q=75" },
-    { name: "Dubaï", country: "Émirats Arabes Unis", time: "6h30", slug: "dubai", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=75" },
-    { name: "Marrakech", country: "Maroc", time: "3h15", slug: "marrakech", img: "https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=600&q=75" },
-    { name: "Ibiza", country: "Espagne", time: "1h50", slug: "ibiza", img: "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&q=75" },
+    { name: "Geneva", country: "Switzerland", time: "55min", slug: "geneve", img: "https://images.unsplash.com/photo-1504711434969-e33886168d6c?w=600&q=75" },
+    { name: "London", country: "United Kingdom", time: "1h10", slug: "londres", img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=75" },
+    { name: "Mykonos", country: "Greece", time: "3h00", slug: "mykonos", img: "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=600&q=75" },
+    { name: "Dubai", country: "United Arab Emirates", time: "6h30", slug: "dubai", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=75" },
+    { name: "Marrakech", country: "Morocco", time: "3h15", slug: "marrakech", img: "https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=600&q=75" },
+    { name: "Ibiza", country: "Spain", time: "1h50", slug: "ibiza", img: "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&q=75" },
   ];
 
   return (
@@ -918,7 +918,7 @@ function DestinationsSection() {
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
           preTitle="DESTINATIONS"
-          title="Le monde à portée de vol"
+          title="The World Within Reach"
           centered
           mb="clamp(48px, 6vw, 64px)"
         />
@@ -941,7 +941,7 @@ function DestinationsSection() {
                     {dest.country}
                   </p>
                   <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#F4DDC3", fontSize: "clamp(11px, 1.5vw, 13px)" }}>
-                    {dest.time} depuis Paris
+                    {dest.time} from Paris
                   </p>
                 </div>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ border: "2px solid rgba(244,221,195,0.3)", borderRadius: "4px" }} />
@@ -950,7 +950,7 @@ function DestinationsSection() {
           ))}
         </div>
         <div className="text-center" style={{ marginTop: "clamp(32px, 5vw, 56px)" }}>
-          <Button href="/destinations" variant="primary">Toutes nos destinations</Button>
+          <Button href="/destinations" variant="primary">All Destinations</Button>
         </div>
       </div>
     </section>
@@ -963,9 +963,9 @@ function DestinationsSection() {
 function TestimonialsSection() {
   const [current, setCurrent] = useState(0);
   const testimonials = [
-    { quote: "Un service d'exception du début à la fin. L'équipe Skyseaker a su anticiper chacun de nos besoins. Le vol vers Genève était parfait.", name: "Laurent M.", role: "CEO — Groupe Immobilier", stars: 5 },
-    { quote: "Nous utilisons Skyseaker pour tous nos déplacements d'affaires depuis 2 ans. La réactivité et le professionnalisme sont incomparables.", name: "Sophie D.", role: "Directrice Générale — Tech", stars: 5 },
-    { quote: "Notre voyage familial aux Maldives organisé par la conciergerie Skyseaker restera gravé dans nos mémoires. Chaque détail était parfait.", name: "Marc & Isabelle R.", role: "Clients fidèles", stars: 5 },
+    { quote: "Exceptional service from start to finish. The Skyseaker team anticipated our every need. The flight to Geneva was perfect.", name: "Laurent M.", role: "CEO — Real Estate Group", stars: 5 },
+    { quote: "We have been using Skyseaker for all our business travel for 2 years. The responsiveness and professionalism are unmatched.", name: "Sophie D.", role: "Managing Director — Tech", stars: 5 },
+    { quote: "Our family trip to the Maldives organized by Skyseaker concierge will remain etched in our memories. Every detail was perfect.", name: "Marc & Isabelle R.", role: "Loyal Clients", stars: 5 },
   ];
 
   return (
@@ -977,8 +977,8 @@ function TestimonialsSection() {
 
       <div className="relative text-center" style={{ maxWidth: "720px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
-          preTitle="TÉMOIGNAGES"
-          title="Ce que disent nos clients"
+          preTitle="TESTIMONIALS"
+          title="What Our Clients Say"
           centered
           mb="clamp(48px, 6vw, 64px)"
         />
@@ -1045,9 +1045,9 @@ function TestimonialsSection() {
    ============================================ */
 function BlogPreview() {
   const articles = [
-    { title: "Les 10 destinations les plus prisées en jet privé en 2026", cat: "Destinations", date: "12 Fév 2026", time: "5 min", slug: "top-destinations-2026", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75" },
-    { title: "Guide complet : comment choisir son jet privé", cat: "Guides", date: "8 Fév 2026", time: "8 min", slug: "guide-choisir-jet-prive", img: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&q=75" },
-    { title: "Empty legs : tout ce qu'il faut savoir pour voyager malin", cat: "Guides", date: "3 Fév 2026", time: "6 min", slug: "empty-legs-guide-complet", img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=75" },
+    { title: "The 10 Most Popular Private Jet Destinations in 2026", cat: "Destinations", date: "Feb 12, 2026", time: "5 min", slug: "top-destinations-2026", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75" },
+    { title: "Complete Guide: How to Choose Your Private Jet", cat: "Guides", date: "Feb 8, 2026", time: "8 min", slug: "guide-choisir-jet-prive", img: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&q=75" },
+    { title: "Empty Legs: Everything You Need to Know to Fly Smart", cat: "Guides", date: "Feb 3, 2026", time: "6 min", slug: "empty-legs-guide-complet", img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=75" },
   ];
 
   return (
@@ -1055,7 +1055,7 @@ function BlogPreview() {
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         <SectionTitle
           preTitle="JOURNAL"
-          title="Actualités et inspirations"
+          title="News and Inspiration"
           centered
           mb="clamp(48px, 6vw, 64px)"
         />
@@ -1084,10 +1084,10 @@ function BlogPreview() {
                     <div className="flex items-center" style={{ gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "11px", color: "#8A8A8A", marginBottom: "14px" }}>
                       <span>{art.date}</span>
                       <span style={{ width: "1px", height: "12px", background: "rgba(244,221,195,0.15)" }} />
-                      <span>{art.time} de lecture</span>
+                      <span>{art.time} read</span>
                     </div>
                     <span className="mt-auto" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3" }}>
-                      Lire l&apos;article →
+                      Read Article →
                     </span>
                   </div>
                 </div>
@@ -1096,7 +1096,7 @@ function BlogPreview() {
           ))}
         </div>
         <div className="text-center" style={{ marginTop: "clamp(32px, 5vw, 56px)" }}>
-          <Button href="/blog" variant="secondary">Voir tous les articles</Button>
+          <Button href="/blog" variant="secondary">View All Articles</Button>
         </div>
       </div>
     </section>
@@ -1112,7 +1112,7 @@ function FinalCTA() {
       <div className="absolute inset-0">
         <Image
           src="/images/fleet/gulfstream-g650er/main.png"
-          alt="Jet privé en vol"
+          alt="Private jet in flight"
           fill
           className="object-cover"
         />
@@ -1122,14 +1122,14 @@ function FinalCTA() {
       <div className="relative text-center" style={{ maxWidth: "720px", margin: "0 auto", padding: "0 24px" }}>
         <ScrollReveal>
           <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", fontSize: "clamp(30px, 5vw, 52px)", marginBottom: "16px", lineHeight: 1.1 }}>
-            Prêt à décoller ?
+            Ready for Takeoff?
           </h2>
           <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontSize: "clamp(17px, 2.5vw, 22px)", color: "#B0B0B0", marginBottom: "clamp(32px, 5vw, 48px)", lineHeight: 1.6 }}>
-            Nos experts sont disponibles 24h/24, 7j/7 pour organiser votre prochain vol
+            Our experts are available 24/7 to arrange your next flight
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "16px", marginBottom: "clamp(24px, 4vw, 36px)" }}>
-            <Button href="/devis" variant="primary" size="lg">Demander un devis</Button>
-            <Button href="tel:+33100000000" variant="secondary" size="lg">Nous appeler</Button>
+            <Button href="/devis" variant="primary" size="lg">Request a Quote</Button>
+            <Button href="tel:+33100000000" variant="secondary" size="lg">Call Us</Button>
           </div>
           <a href="tel:+33100000000" className="hover:text-[#F4DDC3] transition-colors"
             style={{ fontFamily: "var(--font-cormorant)", fontWeight: 300, fontSize: "clamp(22px, 3vw, 28px)", color: "#F4DDC3", letterSpacing: "0.08em" }}>

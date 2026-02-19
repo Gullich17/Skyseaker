@@ -37,7 +37,7 @@ function YachtSelect({ value, onChange, index }: { value: string; onChange: (id:
         onChange={(e) => onChange(e.target.value)}
         style={{ width: "100%", padding: "12px 16px", fontSize: "14px", fontFamily: "var(--font-montserrat)", fontWeight: 300, color: value ? "#FFFFFF" : "#6B6B6B", backgroundColor: "#132A3A", border: `1px solid ${value ? "#F4DDC3" : "#1A3448"}`, borderRadius: "2px", appearance: "none", WebkitAppearance: "none", outline: "none", cursor: "pointer" }}
       >
-        <option value="" style={{ background: "#132A3A" }}>Sélectionner un yacht</option>
+        <option value="" style={{ background: "#132A3A" }}>Select a yacht</option>
         {yachts.map((y) => (
           <option key={y.id} value={y.id} style={{ background: "#132A3A" }}>{y.name} — {y.category}</option>
         ))}
@@ -62,7 +62,7 @@ function ComparisonRow({ label, values, unit, highlight }: { label: string; valu
         return (
           <span key={i} style={{ fontSize: "15px", textAlign: "center", fontFamily: "var(--font-montserrat)", fontWeight: isBest ? 600 : 400, color: isBest ? "#F4DDC3" : val ? "#FFFFFF" : "#1A3448" }}>
             {val !== null && val !== undefined ? (
-              <>{typeof val === "number" ? val.toLocaleString("fr-FR") : val}{unit && <span style={{ fontSize: "11px", color: "#6B6B6B", marginLeft: "4px" }}>{unit}</span>}</>
+              <>{typeof val === "number" ? val.toLocaleString("en-US") : val}{unit && <span style={{ fontSize: "11px", color: "#6B6B6B", marginLeft: "4px" }}>{unit}</span>}</>
             ) : "—"}
           </span>
         );
@@ -80,7 +80,7 @@ function SpecRow({ label, value, unit, isBest }: { label: string; value: string 
       <span style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.08em", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#6B6B6B" }}>{label}</span>
       <span style={{ fontSize: "14px", fontFamily: "var(--font-montserrat)", fontWeight: isBest ? 600 : 400, color: isBest ? "#F4DDC3" : value ? "#FFFFFF" : "#1A3448" }}>
         {value !== null && value !== undefined ? (
-          <>{typeof value === "number" ? value.toLocaleString("fr-FR") : value}{unit && <span style={{ fontSize: "11px", color: "#6B6B6B", marginLeft: "4px" }}>{unit}</span>}</>
+          <>{typeof value === "number" ? value.toLocaleString("en-US") : value}{unit && <span style={{ fontSize: "11px", color: "#6B6B6B", marginLeft: "4px" }}>{unit}</span>}</>
         ) : "—"}
       </span>
     </div>
@@ -114,19 +114,19 @@ function MobileYachtCard({ yacht, allSelected }: { yacht: Yacht; allSelected: (Y
 
       {/* Specs */}
       <div style={{ padding: "16px 20px" }}>
-        <SpecRow label="Constructeur" value={yacht.builder} />
-        <SpecRow label="Catégorie" value={yacht.category} />
-        <SpecRow label="Invités" value={yacht.guests} isBest={isBest("guests", "max")} />
-        <SpecRow label="Cabines" value={yacht.cabins ?? null} isBest={isBest("cabins", "max")} />
-        <SpecRow label="Équipage" value={yacht.crew} isBest={isBest("crew", "max")} />
-        <SpecRow label="Longueur" value={yacht.length} unit="m" isBest={isBest("length", "max")} />
-        <SpecRow label="Largeur" value={yacht.beam} unit="m" isBest={isBest("beam", "max")} />
-        <SpecRow label="Tirant d'eau" value={yacht.draft ?? null} unit="m" isBest={isBest("draft", "min")} />
-        <SpecRow label="Vitesse croisière" value={yacht.cruisingSpeed ?? null} unit="nds" isBest={isBest("cruisingSpeed", "max")} />
-        <SpecRow label="Vitesse max" value={yacht.maxSpeed ?? null} unit="nds" isBest={isBest("maxSpeed", "max")} />
-        <SpecRow label="Autonomie" value={yacht.range ?? null} unit="nm" isBest={isBest("range", "max")} />
-        <SpecRow label="Motorisation" value={yacht.engines ?? null} />
-        <SpecRow label="Année" value={yacht.yearBuilt ?? null} />
+        <SpecRow label="Builder" value={yacht.builder} />
+        <SpecRow label="Category" value={yacht.category} />
+        <SpecRow label="Guests" value={yacht.guests} isBest={isBest("guests", "max")} />
+        <SpecRow label="Cabins" value={yacht.cabins ?? null} isBest={isBest("cabins", "max")} />
+        <SpecRow label="Crew" value={yacht.crew} isBest={isBest("crew", "max")} />
+        <SpecRow label="Length" value={yacht.length} unit="m" isBest={isBest("length", "max")} />
+        <SpecRow label="Beam" value={yacht.beam} unit="m" isBest={isBest("beam", "max")} />
+        <SpecRow label="Draft" value={yacht.draft ?? null} unit="m" isBest={isBest("draft", "min")} />
+        <SpecRow label="Cruising speed" value={yacht.cruisingSpeed ?? null} unit="kts" isBest={isBest("cruisingSpeed", "max")} />
+        <SpecRow label="Max speed" value={yacht.maxSpeed ?? null} unit="kts" isBest={isBest("maxSpeed", "max")} />
+        <SpecRow label="Range" value={yacht.range ?? null} unit="nm" isBest={isBest("range", "max")} />
+        <SpecRow label="Engines" value={yacht.engines ?? null} />
+        <SpecRow label="Year" value={yacht.yearBuilt ?? null} />
       </div>
     </div>
   );
@@ -151,15 +151,15 @@ export default function YachtComparateurPage() {
         <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1200px", margin: "0 auto", padding: "clamp(120px, 18vh, 160px) 24px clamp(40px, 5vw, 64px)", textAlign: "center" }}>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
             style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "16px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F4DDC3" }}>
-            NOTRE FLOTTE NAUTIQUE
+            OUR NAUTICAL FLEET
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3, ease: EASE }}
             style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "20px" }}>
-            Comparateur de yachts
+            Yacht comparator
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
             style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", maxWidth: "600px", margin: "0 auto", fontSize: "clamp(16px, 2.5vw, 22px)" }}>
-            Comparez jusqu&apos;à 3 yachts pour trouver celui qui correspond à votre croisière
+            Compare up to 3 yachts to find the one that matches your cruise
           </motion.p>
         </div>
       </section>
@@ -171,7 +171,7 @@ export default function YachtComparateurPage() {
           <ScrollReveal>
             <div style={{ padding: "clamp(20px, 3vw, 32px)", backgroundColor: "#132A3A", border: "1px solid #1A3448", borderRadius: "2px", marginBottom: "clamp(32px, 5vw, 48px)" }}>
               <p style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "20px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F4DDC3" }}>
-                Sélectionnez vos yachts
+                Select your yachts
               </p>
               <div className="selectors-row" style={{ gap: "16px" }}>
                 {selections.map((sel, i) => (
@@ -200,7 +200,7 @@ export default function YachtComparateurPage() {
                         </>
                       ) : (
                         <div style={{ aspectRatio: "16/9", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "12px", background: "#132A3A", border: "1px dashed #1A3448", borderRadius: "2px" }}>
-                          <span style={{ fontSize: "12px", fontFamily: "var(--font-montserrat)", color: "#6B6B6B" }}>Non sélectionné</span>
+                          <span style={{ fontSize: "12px", fontFamily: "var(--font-montserrat)", color: "#6B6B6B" }}>Not selected</span>
                         </div>
                       )}
                     </div>
@@ -212,22 +212,22 @@ export default function YachtComparateurPage() {
               <ScrollReveal delay={0.1}>
                 <div style={{ padding: "clamp(20px, 3vw, 32px)", backgroundColor: "#132A3A", border: "1px solid #1A3448", borderRadius: "2px", overflowX: "auto" }}>
                   <h3 style={{ fontSize: "14px", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "20px", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F4DDC3" }}>
-                    Caractéristiques techniques
+                    Technical specifications
                   </h3>
                   <div style={{ minWidth: "600px" }}>
-                    <ComparisonRow label="Constructeur" values={selectedYachts.map((y) => y?.builder ?? null)} />
-                    <ComparisonRow label="Catégorie" values={selectedYachts.map((y) => y?.category ?? null)} />
-                    <ComparisonRow label="Invités" values={selectedYachts.map((y) => y?.guests ?? null)} highlight="max" />
-                    <ComparisonRow label="Cabines" values={selectedYachts.map((y) => y?.cabins ?? null)} highlight="max" />
-                    <ComparisonRow label="Équipage" values={selectedYachts.map((y) => y?.crew ?? null)} highlight="max" />
-                    <ComparisonRow label="Longueur" values={selectedYachts.map((y) => y?.length ?? null)} unit="m" highlight="max" />
-                    <ComparisonRow label="Largeur" values={selectedYachts.map((y) => y?.beam ?? null)} unit="m" highlight="max" />
-                    <ComparisonRow label="Tirant d'eau" values={selectedYachts.map((y) => y?.draft ?? null)} unit="m" highlight="min" />
-                    <ComparisonRow label="Vitesse croisière" values={selectedYachts.map((y) => y?.cruisingSpeed ?? null)} unit="nds" highlight="max" />
-                    <ComparisonRow label="Vitesse max" values={selectedYachts.map((y) => y?.maxSpeed ?? null)} unit="nds" highlight="max" />
-                    <ComparisonRow label="Autonomie" values={selectedYachts.map((y) => y?.range ?? null)} unit="nm" highlight="max" />
-                    <ComparisonRow label="Motorisation" values={selectedYachts.map((y) => y?.engines ?? null)} />
-                    <ComparisonRow label="Année" values={selectedYachts.map((y) => y?.yearBuilt ?? null)} />
+                    <ComparisonRow label="Builder" values={selectedYachts.map((y) => y?.builder ?? null)} />
+                    <ComparisonRow label="Category" values={selectedYachts.map((y) => y?.category ?? null)} />
+                    <ComparisonRow label="Guests" values={selectedYachts.map((y) => y?.guests ?? null)} highlight="max" />
+                    <ComparisonRow label="Cabins" values={selectedYachts.map((y) => y?.cabins ?? null)} highlight="max" />
+                    <ComparisonRow label="Crew" values={selectedYachts.map((y) => y?.crew ?? null)} highlight="max" />
+                    <ComparisonRow label="Length" values={selectedYachts.map((y) => y?.length ?? null)} unit="m" highlight="max" />
+                    <ComparisonRow label="Beam" values={selectedYachts.map((y) => y?.beam ?? null)} unit="m" highlight="max" />
+                    <ComparisonRow label="Draft" values={selectedYachts.map((y) => y?.draft ?? null)} unit="m" highlight="min" />
+                    <ComparisonRow label="Cruising speed" values={selectedYachts.map((y) => y?.cruisingSpeed ?? null)} unit="kts" highlight="max" />
+                    <ComparisonRow label="Max speed" values={selectedYachts.map((y) => y?.maxSpeed ?? null)} unit="kts" highlight="max" />
+                    <ComparisonRow label="Range" values={selectedYachts.map((y) => y?.range ?? null)} unit="nm" highlight="max" />
+                    <ComparisonRow label="Engines" values={selectedYachts.map((y) => y?.engines ?? null)} />
+                    <ComparisonRow label="Year" values={selectedYachts.map((y) => y?.yearBuilt ?? null)} />
                   </div>
                 </div>
               </ScrollReveal>
@@ -256,15 +256,15 @@ export default function YachtComparateurPage() {
                 <path d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
               </svg>
               <p style={{ fontSize: "16px", fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#6B6B6B" }}>
-                Sélectionnez au moins un yacht pour commencer la comparaison
+                Select at least one yacht to start the comparison
               </p>
             </div>
           )}
 
           {/* Bottom CTA */}
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "16px", marginTop: "clamp(48px, 6vw, 64px)" }}>
-            <Button href="/yachts" variant="secondary">Retour aux yachts</Button>
-            <Button href="/devis" variant="primary">Demander un devis</Button>
+            <Button href="/yachts" variant="secondary">Back to yachts</Button>
+            <Button href="/devis" variant="primary">Request a quote</Button>
           </div>
         </div>
       </section>

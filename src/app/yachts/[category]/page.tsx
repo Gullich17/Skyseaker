@@ -23,16 +23,16 @@ export async function generateMetadata({
   const { category } = await params;
   const cat = yachtCategories.find((c) => c.slug === category);
 
-  if (!cat) return { title: "Catégorie non trouvée" };
+  if (!cat) return { title: "Category not found" };
 
   const count = yachts.filter((y) => y.categorySlug === category).length;
 
   return {
-    title: `${cat.name} — Location yacht de luxe | Skyseaker`,
-    description: `Découvrez notre sélection de ${count} ${cat.name.toLowerCase()}${count > 1 ? "s" : ""} disponibles à la location. Caractéristiques, équipages et réservation.`,
+    title: `${cat.name} — Luxury Yacht Charter | Skyseaker`,
+    description: `Discover our selection of ${count} ${cat.name.toLowerCase()}${count > 1 ? "s" : ""} available for charter. Specifications, crew and booking.`,
     openGraph: {
-      title: `${cat.name} | Yachts Skyseaker`,
-      description: `${count} ${cat.name.toLowerCase()} disponible${count > 1 ? "s" : ""} à la location.`,
+      title: `${cat.name} | Skyseaker Yachts`,
+      description: `${count} ${cat.name.toLowerCase()}${count > 1 ? "s" : ""} available for charter.`,
     },
   };
 }

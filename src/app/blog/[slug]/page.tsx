@@ -31,107 +31,107 @@ export interface ArticleData {
 const articlesData: Record<string, ArticleData> = {
   'top-destinations-2026': {
     slug: 'top-destinations-2026',
-    title: 'Les 10 destinations les plus pris\u00e9es en jet priv\u00e9 en 2026',
+    title: 'The 10 most popular private jet destinations in 2026',
     excerpt:
-      'De Monaco \u00e0 Duba\u00ef, d\u00e9couvrez les destinations qui s\u00e9duisent le plus nos clients cette ann\u00e9e et les tendances \u00e9mergentes du voyage priv\u00e9.',
+      'From Monaco to Dubai, discover the destinations our clients love most this year and the emerging trends in private travel.',
     category: 'Destinations',
-    date: '12 F\u00e9vrier 2026',
+    date: '12 February 2026',
     dateISO: '2026-02-12',
     readTime: '5 min',
-    author: { name: 'Nicolas Mercier', role: 'Directeur Commercial' },
+    author: { name: 'Nicolas Mercier', role: 'Sales Director' },
     heroImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80',
     sections: [
       {
         id: 'introduction',
         title: 'Introduction',
         content: [
-          'L\u2019ann\u00e9e 2026 marque un tournant dans les habitudes de voyage en aviation priv\u00e9e. Nos clients recherchent des destinations alliant luxe, exclusivit\u00e9 et exp\u00e9riences authentiques.',
-          'Nous avons analys\u00e9 les donn\u00e9es de plus de 15\u202f000 vols r\u00e9alis\u00e9s ces douze derniers mois pour \u00e9tablir ce classement des destinations les plus demand\u00e9es en jet priv\u00e9.',
+          'The year 2026 marks a turning point in private aviation travel habits. Our clients are seeking destinations that combine luxury, exclusivity and authentic experiences.',
+          'We analysed data from over 15,000 flights completed in the past twelve months to establish this ranking of the most in-demand private jet destinations.',
         ],
       },
       {
         id: 'monaco',
-        title: 'Monaco, l\u2019ind\u00e9tr\u00f4nable',
+        title: 'Monaco, the unrivalled',
         content: [
-          'Sans surprise, la Principaut\u00e9 de Monaco conserve sa premi\u00e8re place. Entre le Grand Prix, le Yacht Show et une vie nocturne effervescente, Monaco attire une client\u00e8le internationale exigeante tout au long de l\u2019ann\u00e9e.',
-          'L\u2019a\u00e9roport de Nice C\u00f4te d\u2019Azur, \u00e0 seulement 20 minutes en h\u00e9licopt\u00e8re, offre un acc\u00e8s rapide et discret \u00e0 la Principaut\u00e9.',
+          'Unsurprisingly, the Principality of Monaco retains its top spot. Between the Grand Prix, the Yacht Show and a vibrant nightlife, Monaco attracts a demanding international clientele all year round.',
+          'Nice C\u00f4te d\'Azur Airport, just 20 minutes by helicopter, provides quick and discreet access to the Principality.',
         ],
         quote:
-          'Monaco reste la destination num\u00e9ro un pour nos clients, avec une croissance de 18\u00a0% des r\u00e9servations cette ann\u00e9e.',
+          'Monaco remains the number one destination for our clients, with an 18% increase in bookings this year.',
       },
       {
         id: 'dubai',
-        title: 'Duba\u00ef, le luxe sans limites',
+        title: 'Dubai, luxury without limits',
         content: [
-          'Duba\u00ef continue de s\u00e9duire avec ses infrastructures de classe mondiale, ses h\u00f4tels iconiques et une offre gastronomique en pleine expansion. La ville s\u2019est impos\u00e9e comme un hub incontournable de l\u2019aviation priv\u00e9e au Moyen-Orient.',
-          'Le terminal priv\u00e9 d\u2019Al Maktoum offre une exp\u00e9rience VIP de bout en bout, du d\u00e9barquement aux transferts en v\u00e9hicule de luxe.',
+          'Dubai continues to attract with its world-class infrastructure, iconic hotels and an expanding gastronomic scene. The city has established itself as an essential private aviation hub in the Middle East.',
+          'The private terminal at Al Maktoum offers a VIP experience from start to finish, from arrival to luxury vehicle transfers.',
         ],
       },
       {
         id: 'mykonos',
-        title: 'Mykonos et les \u00eeles grecques',
+        title: 'Mykonos and the Greek islands',
         content: [
-          'Les \u00eeles grecques connaissent un regain d\u2019int\u00e9r\u00eat spectaculaire. Mykonos, Santorin et d\u00e9sormais Paros attirent une client\u00e8le en qu\u00eate de soleil, de gastronomie m\u00e9diterran\u00e9enne et de d\u00e9tente.',
-          'L\u2019a\u00e9roport de Mykonos accepte d\u00e9sormais les appareils midsize, facilitant les vols directs depuis Paris, Gen\u00e8ve ou Londres.',
+          'The Greek islands are experiencing a spectacular resurgence of interest. Mykonos, Santorini and now Paros attract clients seeking sunshine, Mediterranean gastronomy and relaxation.',
+          'Mykonos Airport now accepts midsize aircraft, making direct flights from Paris, Geneva or London much easier.',
         ],
       },
       {
         id: 'tendances',
-        title: 'Les tendances \u00e9mergentes',
+        title: 'Emerging trends',
         content: [
-          'Au-del\u00e0 des classiques, nous observons une forte croissance des demandes vers le Japon, la Norv\u00e8ge et le Rwanda. Ces destinations offrent des exp\u00e9riences uniques et r\u00e9pondent \u00e0 la qu\u00eate d\u2019authenticit\u00e9 de nos clients.',
-          'Le tourisme spatial et les destinations arctiques commencent \u00e9galement \u00e0 susciter l\u2019int\u00e9r\u00eat, pr\u00e9figurant les voyages de demain.',
+          'Beyond the classics, we are seeing strong growth in demand for Japan, Norway and Rwanda. These destinations offer unique experiences and meet our clients\' quest for authenticity.',
+          'Space tourism and Arctic destinations are also beginning to generate interest, foreshadowing the journeys of tomorrow.',
         ],
         quote:
-          'Les destinations \u00e9mergentes repr\u00e9sentent d\u00e9sormais 25\u00a0% de nos r\u00e9servations, contre seulement 12\u00a0% il y a trois ans.',
+          'Emerging destinations now account for 25% of our bookings, compared to just 12% three years ago.',
       },
     ],
     relatedSlugs: ['guide-choisir-jet-prive', 'empty-legs-guide-complet', 'courchevel-saison-ski-2026'],
   },
   'guide-choisir-jet-prive': {
     slug: 'guide-choisir-jet-prive',
-    title: 'Guide complet\u00a0: comment choisir son jet priv\u00e9',
+    title: 'Complete guide: how to choose your private jet',
     excerpt:
-      'Light jet, midsize, heavy jet\u2026 Tous les crit\u00e8res pour s\u00e9lectionner l\u2019appareil id\u00e9al selon votre trajet, votre budget et vos besoins.',
+      'Light jet, midsize, heavy jet... All the criteria for selecting the ideal aircraft based on your route, budget and needs.',
     category: 'Guides',
-    date: '8 F\u00e9vrier 2026',
+    date: '8 February 2026',
     dateISO: '2026-02-08',
     readTime: '8 min',
-    author: { name: 'Camille Laurent', role: 'Directrice des Op\u00e9rations' },
+    author: { name: 'Camille Laurent', role: 'Director of Operations' },
     heroImage: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1920&q=80',
     sections: [
       {
         id: 'introduction',
         title: 'Introduction',
         content: [
-          'Choisir le bon jet priv\u00e9 peut sembler complexe face \u00e0 la diversit\u00e9 des appareils disponibles sur le march\u00e9. Ce guide vous accompagne pas \u00e0 pas pour identifier l\u2019appareil parfait selon vos besoins.',
-          'Distance de vol, nombre de passagers, budget et niveau de confort sont autant de crit\u00e8res essentiels \u00e0 consid\u00e9rer avant de r\u00e9server.',
+          'Choosing the right private jet can seem daunting given the variety of aircraft available on the market. This guide walks you through the process step by step to identify the perfect aircraft for your needs.',
+          'Flight distance, number of passengers, budget and comfort level are all essential criteria to consider before booking.',
         ],
       },
       {
         id: 'categories',
-        title: 'Les cat\u00e9gories d\u2019appareils',
+        title: 'Aircraft categories',
         content: [
-          'L\u2019aviation priv\u00e9e se d\u00e9cline en plusieurs cat\u00e9gories, du Very Light Jet pour les courts trajets au Heavy Jet pour les vols intercontinentaux. Chaque cat\u00e9gorie offre un \u00e9quilibre diff\u00e9rent entre autonomie, capacit\u00e9 et confort.',
-          'Les Light Jets (4-7 passagers) sont id\u00e9aux pour les trajets europ\u00e9ens de moins de 3 heures. Les Midsize Jets (7-9 passagers) offrent un excellent compromis pour les vols de 3 \u00e0 5 heures. Les Heavy Jets (10-16 passagers) sont parfaits pour les longs courriers avec un confort maximal.',
+          'Private aviation comes in several categories, from the Very Light Jet for short trips to the Heavy Jet for intercontinental flights. Each category offers a different balance between range, capacity and comfort.',
+          'Light Jets (4-7 passengers) are ideal for European trips under 3 hours. Midsize Jets (7-9 passengers) offer an excellent compromise for flights of 3 to 5 hours. Heavy Jets (10-16 passengers) are perfect for long-haul travel with maximum comfort.',
         ],
         quote:
-          'Le choix de l\u2019appareil repr\u00e9sente 60\u00a0% de la satisfaction globale d\u2019un vol priv\u00e9.',
+          'The choice of aircraft accounts for 60% of overall satisfaction with a private flight.',
       },
       {
         id: 'budget',
-        title: 'Comprendre les co\u00fbts',
+        title: 'Understanding costs',
         content: [
-          'Le prix d\u2019un vol en jet priv\u00e9 d\u00e9pend de nombreux facteurs\u00a0: type d\u2019appareil, distance, dur\u00e9e au sol, taxes a\u00e9roportuaires et services additionnels.',
-          'Chez Skyseaker, nous proposons des devis d\u00e9taill\u00e9s et transparents pour chaque vol, sans frais cach\u00e9s. Nos empty legs offrent \u00e9galement des opportunit\u00e9s de voyager \u00e0 tarif r\u00e9duit.',
+          'The price of a private jet flight depends on many factors: aircraft type, distance, ground time, airport taxes and additional services.',
+          'At Skyseaker, we provide detailed and transparent quotes for every flight, with no hidden fees. Our empty legs also offer opportunities to travel at reduced rates.',
         ],
       },
       {
         id: 'conseils',
-        title: 'Nos conseils d\u2019experts',
+        title: 'Our expert advice',
         content: [
-          'R\u00e9servez \u00e0 l\u2019avance pour b\u00e9n\u00e9ficier des meilleurs tarifs et du plus grand choix d\u2019appareils. N\u2019h\u00e9sitez pas \u00e0 demander conseil \u00e0 nos experts\u00a0: chaque vol est unique et m\u00e9rite une attention particuli\u00e8re.',
-          'Pensez \u00e9galement \u00e0 prendre en compte les services annexes\u00a0: catering, transferts terrestres et conciergerie peuvent transformer un simple vol en une exp\u00e9rience inoubliable.',
+          'Book in advance to get the best rates and the widest choice of aircraft. Don\'t hesitate to ask our experts for advice: every flight is unique and deserves particular attention.',
+          'Also consider ancillary services: catering, ground transfers and concierge can transform a simple flight into an unforgettable experience.',
         ],
       },
     ],
@@ -139,40 +139,40 @@ const articlesData: Record<string, ArticleData> = {
   },
   'empty-legs-guide-complet': {
     slug: 'empty-legs-guide-complet',
-    title: 'Empty legs\u00a0: tout ce qu\u2019il faut savoir pour voyager malin',
+    title: 'Empty legs: everything you need to know to fly smart',
     excerpt:
-      'Les vols \u00e0 vide repr\u00e9sentent une opportunit\u00e9 unique de voyager en jet priv\u00e9 \u00e0 prix r\u00e9duit. Voici comment en profiter.',
+      'Empty leg flights are a unique opportunity to travel by private jet at a reduced price. Here is how to take advantage of them.',
     category: 'Guides',
-    date: '3 F\u00e9vrier 2026',
+    date: '3 February 2026',
     dateISO: '2026-02-03',
     readTime: '6 min',
-    author: { name: 'Nicolas Mercier', role: 'Directeur Commercial' },
+    author: { name: 'Nicolas Mercier', role: 'Sales Director' },
     heroImage: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&q=80',
     sections: [
       {
         id: 'introduction',
-        title: 'Qu\u2019est-ce qu\u2019un empty leg\u00a0?',
+        title: 'What is an empty leg?',
         content: [
-          'Un empty leg, ou vol \u00e0 vide, est un vol de repositionnement effectu\u00e9 par un jet priv\u00e9 sans passagers. Ces vols surviennent lorsqu\u2019un appareil doit se d\u00e9placer vers un a\u00e9roport pour r\u00e9cup\u00e9rer des passagers ou retourner \u00e0 sa base.',
-          'Ces vols repr\u00e9sentent une opportunit\u00e9 exceptionnelle de voyager en jet priv\u00e9 \u00e0 des tarifs r\u00e9duits pouvant atteindre -75\u00a0% par rapport \u00e0 un vol classique.',
+          'An empty leg is a repositioning flight operated by a private jet without passengers. These flights occur when an aircraft needs to travel to an airport to pick up passengers or return to its base.',
+          'These flights represent an exceptional opportunity to travel by private jet at reduced rates of up to 75% off compared to a standard flight.',
         ],
       },
       {
         id: 'avantages',
-        title: 'Les avantages des empty legs',
+        title: 'The advantages of empty legs',
         content: [
-          'Le principal avantage est bien s\u00fbr le prix\u00a0: des \u00e9conomies substantielles pour le m\u00eame niveau de confort et de service. Vous b\u00e9n\u00e9ficiez du m\u00eame appareil, du m\u00eame \u00e9quipage et des m\u00eames prestations.',
-          'C\u2019est \u00e9galement une d\u00e9marche plus responsable\u00a0: en occupant un vol qui aurait lieu de toute fa\u00e7on, vous optimisez l\u2019utilisation des ressources et r\u00e9duisez l\u2019impact environnemental par passager.',
+          'The main advantage is of course the price: substantial savings for the same level of comfort and service. You benefit from the same aircraft, the same crew and the same amenities.',
+          'It is also a more responsible approach: by filling a flight that would take place anyway, you optimise the use of resources and reduce the environmental impact per passenger.',
         ],
         quote:
-          'Nos clients empty legs \u00e9conomisent en moyenne 45\u00a0% sur le prix d\u2019un vol classique.',
+          'Our empty leg clients save an average of 45% on the price of a standard flight.',
       },
       {
         id: 'conseils',
-        title: 'Comment en profiter',
+        title: 'How to take advantage',
         content: [
-          'La cl\u00e9 pour profiter des empty legs est la flexibilit\u00e9. Ces offres sont souvent disponibles avec un pr\u00e9avis court et sur des itin\u00e9raires sp\u00e9cifiques. Inscrivez-vous \u00e0 nos alertes pour \u00eatre inform\u00e9 en temps r\u00e9el des opportunit\u00e9s.',
-          'Consultez r\u00e9guli\u00e8rement notre page d\u00e9di\u00e9e aux empty legs et n\u2019h\u00e9sitez pas \u00e0 contacter nos conseillers pour conna\u00eetre les disponibilit\u00e9s en temps r\u00e9el.',
+          'The key to taking advantage of empty legs is flexibility. These offers are often available at short notice and on specific routes. Sign up for our alerts to be notified of opportunities in real time.',
+          'Check our dedicated empty legs page regularly and don\'t hesitate to contact our advisors to find out about real-time availability.',
         ],
       },
     ],
@@ -180,40 +180,40 @@ const articlesData: Record<string, ArticleData> = {
   },
   'monaco-grand-prix-2026': {
     slug: 'monaco-grand-prix-2026',
-    title: 'Grand Prix de Monaco 2026\u00a0: votre guide VIP en jet priv\u00e9',
+    title: 'Monaco Grand Prix 2026: your VIP guide by private jet',
     excerpt:
-      'Tout ce qu\u2019il faut savoir pour vivre le Grand Prix de Monaco depuis les paddocks, avec un vol priv\u00e9 et un acc\u00e8s exclusif.',
-    category: '\u00c9v\u00e9nements',
-    date: '28 Janvier 2026',
+      'Everything you need to know to experience the Monaco Grand Prix from the paddocks, with a private flight and exclusive access.',
+    category: 'Events',
+    date: '28 January 2026',
     dateISO: '2026-01-28',
     readTime: '7 min',
-    author: { name: 'Sophie Archambault', role: 'Responsable Conciergerie' },
+    author: { name: 'Sophie Archambault', role: 'Head of Concierge' },
     heroImage: 'https://images.unsplash.com/photo-1504817343863-5092a923803e?w=1920&q=80',
     sections: [
       {
         id: 'introduction',
-        title: 'Le Grand Prix comme jamais',
+        title: 'The Grand Prix like never before',
         content: [
-          'Le Grand Prix de Monaco reste l\u2019\u00e9v\u00e9nement le plus prestigieux du calendrier de Formule 1. En 2026, la course promet des sensations encore plus fortes avec les nouvelles r\u00e9glementations techniques.',
-          'Chez Skyseaker, nous avons con\u00e7u un package complet pour vivre cette exp\u00e9rience dans les meilleures conditions\u00a0: vol priv\u00e9, transfert h\u00e9licopt\u00e8re, acc\u00e8s paddock et h\u00e9bergement de luxe.',
+          'The Monaco Grand Prix remains the most prestigious event on the Formula 1 calendar. In 2026, the race promises even greater thrills with the new technical regulations.',
+          'At Skyseaker, we have designed a complete package to experience this event in the best conditions: private flight, helicopter transfer, paddock access and luxury accommodation.',
         ],
       },
       {
         id: 'logistique',
-        title: 'La logistique du week-end',
+        title: 'Weekend logistics',
         content: [
-          'L\u2019a\u00e9roport de Nice est pris d\u2019assaut pendant le week-end du Grand Prix. R\u00e9server votre cr\u00e9neau \u00e0 l\u2019avance est essentiel pour garantir votre arriv\u00e9e et votre d\u00e9part sans encombre.',
-          'Notre \u00e9quipe g\u00e8re l\u2019ensemble de la logistique\u00a0: cr\u00e9neau a\u00e9roportuaire, transfert h\u00e9licopt\u00e8re vers Monaco, v\u00e9hicule avec chauffeur sur place et accompagnement personnalis\u00e9.',
+          'Nice Airport is extremely busy during Grand Prix weekend. Booking your slot in advance is essential to ensure a smooth arrival and departure.',
+          'Our team handles all logistics: airport slot, helicopter transfer to Monaco, chauffeured vehicle on-site and personalised assistance.',
         ],
         quote:
-          'Le week-end du Grand Prix, nous op\u00e9rons plus de 50 vols vers Nice et Cannes.',
+          'On Grand Prix weekend, we operate over 50 flights to Nice and Cannes.',
       },
       {
         id: 'experiences',
-        title: 'Les exp\u00e9riences exclusives',
+        title: 'Exclusive experiences',
         content: [
-          'Au-del\u00e0 de la course, le Grand Prix de Monaco est un \u00e9v\u00e9nement social majeur. Soir\u00e9es priv\u00e9es, d\u00eeners \u00e9toil\u00e9s sur yacht et acc\u00e8s aux terrasses les plus exclusives compl\u00e8tent l\u2019exp\u00e9rience.',
-          'Notre conciergerie orchestre chaque d\u00e9tail pour que votre week-end soit absolument parfait, de l\u2019arriv\u00e9e au d\u00e9part.',
+          'Beyond the race, the Monaco Grand Prix is a major social event. Private parties, Michelin-starred dinners on yachts and access to the most exclusive terraces complete the experience.',
+          'Our concierge team orchestrates every detail to make your weekend absolutely perfect, from arrival to departure.',
         ],
       },
     ],
@@ -221,40 +221,40 @@ const articlesData: Record<string, ArticleData> = {
   },
   'tendances-aviation-privee-2026': {
     slug: 'tendances-aviation-privee-2026',
-    title: 'Les tendances de l\u2019aviation priv\u00e9e en 2026',
+    title: 'Private aviation trends in 2026',
     excerpt:
-      'Durabilit\u00e9, digitalisation, nouvelles routes\u2026 Les grandes tendances qui fa\u00e7onnent l\u2019avenir de l\u2019aviation d\u2019affaires.',
-    category: 'Actualit\u00e9s',
-    date: '20 Janvier 2026',
+      'Sustainability, digitalisation, new routes... The major trends shaping the future of business aviation.',
+    category: 'News',
+    date: '20 January 2026',
     dateISO: '2026-01-20',
     readTime: '5 min',
-    author: { name: 'Alexandre Dubois', role: 'Fondateur & CEO' },
+    author: { name: 'Alexandre Dubois', role: 'Founder & CEO' },
     heroImage: 'https://images.unsplash.com/photo-1559628233-100c798642d4?w=1920&q=80',
     sections: [
       {
         id: 'introduction',
-        title: 'Un secteur en pleine mutation',
+        title: 'A sector in transformation',
         content: [
-          'L\u2019aviation priv\u00e9e conna\u00eet une transformation profonde. Entre exigences environnementales, digitalisation des services et nouvelles attentes des clients, le secteur se r\u00e9invente.',
-          'Voici les grandes tendances qui d\u00e9finiront l\u2019aviation d\u2019affaires en 2026 et au-del\u00e0.',
+          'Private aviation is undergoing a profound transformation. Between environmental demands, service digitalisation and new client expectations, the sector is reinventing itself.',
+          'Here are the major trends that will define business aviation in 2026 and beyond.',
         ],
       },
       {
         id: 'durabilite',
-        title: 'La durabilit\u00e9 au c\u0153ur des pr\u00e9occupations',
+        title: 'Sustainability at the heart of concerns',
         content: [
-          'Le carburant durable (SAF) s\u2019impose progressivement comme standard. Les op\u00e9rateurs investissent massivement dans la r\u00e9duction de leur empreinte carbone, et les programmes de compensation deviennent syst\u00e9matiques.',
-          'Les premiers prototypes d\u2019avions \u00e9lectriques et hybrides pour l\u2019aviation d\u2019affaires sont en phase de test, laissant entrevoir un avenir plus vert.',
+          'Sustainable aviation fuel (SAF) is gradually becoming the standard. Operators are investing heavily in reducing their carbon footprint, and offset programmes are becoming systematic.',
+          'The first prototypes of electric and hybrid aircraft for business aviation are in the testing phase, offering a glimpse of a greener future.',
         ],
         quote:
-          'D\u2019ici 2030, 10\u00a0% des vols priv\u00e9s pourraient utiliser exclusivement du SAF.',
+          'By 2030, 10% of private flights could use SAF exclusively.',
       },
       {
         id: 'digital',
-        title: 'La r\u00e9volution digitale',
+        title: 'The digital revolution',
         content: [
-          'La r\u00e9servation en ligne et les applications mobiles transforment l\u2019exp\u00e9rience client. L\u2019intelligence artificielle optimise les itin\u00e9raires et anticipe les besoins des passagers.',
-          'Chez Skyseaker, nous investissons continuellement dans notre plateforme pour offrir une exp\u00e9rience de r\u00e9servation fluide et intuitive.',
+          'Online booking and mobile applications are transforming the client experience. Artificial intelligence is optimising routes and anticipating passenger needs.',
+          'At Skyseaker, we continuously invest in our platform to deliver a smooth and intuitive booking experience.',
         ],
       },
     ],
@@ -262,73 +262,73 @@ const articlesData: Record<string, ArticleData> = {
   },
   'retraite-wellness-ibiza': {
     slug: 'retraite-wellness-ibiza',
-    title: 'Ibiza autrement\u00a0: retraite wellness en jet priv\u00e9',
+    title: 'Ibiza redefined: wellness retreat by private jet',
     excerpt:
-      'Loin de l\u2019image festive, Ibiza se r\u00e9v\u00e8le comme une destination bien-\u00eatre d\u2019exception. D\u00e9couvrez notre exp\u00e9rience exclusive.',
+      'Far from its party image, Ibiza reveals itself as an exceptional wellness destination. Discover our exclusive experience.',
     category: 'Lifestyle',
-    date: '15 Janvier 2026',
+    date: '15 January 2026',
     dateISO: '2026-01-15',
     readTime: '4 min',
-    author: { name: 'Sophie Archambault', role: 'Responsable Conciergerie' },
+    author: { name: 'Sophie Archambault', role: 'Head of Concierge' },
     heroImage: 'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=1920&q=80',
     sections: [
       {
         id: 'introduction',
-        title: 'Ibiza, \u00eele du bien-\u00eatre',
+        title: 'Ibiza, the island of wellness',
         content: [
-          'Au-del\u00e0 de sa r\u00e9putation festive, Ibiza poss\u00e8de une facette plus sereine et spirituelle. L\u2019\u00eele est devenue une destination de choix pour les retraites bien-\u00eatre haut de gamme.',
-          'Notre package Wellness combine vol en jet priv\u00e9 et retraite exclusive dans l\u2019une des plus belles propri\u00e9t\u00e9s de l\u2019\u00eele.',
+          'Beyond its party reputation, Ibiza has a more serene and spiritual side. The island has become a destination of choice for high-end wellness retreats.',
+          'Our Wellness package combines a private jet flight and an exclusive retreat at one of the island\'s most beautiful properties.',
         ],
       },
       {
         id: 'programme',
-        title: 'Le programme de la retraite',
+        title: 'The retreat programme',
         content: [
-          'Yoga au lever du soleil face \u00e0 la M\u00e9diterran\u00e9e, s\u00e9ances de m\u00e9ditation guid\u00e9e, soins spa personnalis\u00e9s et cuisine holistique compos\u00e9e par un chef priv\u00e9.',
-          'Chaque journ\u00e9e est orchestr\u00e9e pour offrir un \u00e9quilibre parfait entre activit\u00e9, d\u00e9tente et d\u00e9couverte de l\u2019\u00eele.',
+          'Sunrise yoga facing the Mediterranean, guided meditation sessions, personalised spa treatments and holistic cuisine prepared by a private chef.',
+          'Each day is orchestrated to offer the perfect balance between activity, relaxation and discovery of the island.',
         ],
         quote:
-          'Nos clients wellness rapportent une am\u00e9lioration significative de leur bien-\u00eatre apr\u00e8s seulement 4 jours de retraite.',
+          'Our wellness clients report a significant improvement in their well-being after just 4 days of retreat.',
       },
     ],
     relatedSlugs: ['top-destinations-2026', 'monaco-grand-prix-2026', 'courchevel-saison-ski-2026'],
   },
   'courchevel-saison-ski-2026': {
     slug: 'courchevel-saison-ski-2026',
-    title: 'Courchevel 2026\u00a0: la saison ski en jet priv\u00e9 + h\u00e9licopt\u00e8re',
+    title: 'Courchevel 2026: the ski season by private jet + helicopter',
     excerpt:
-      'De l\u2019a\u00e9roport directement aux pistes\u00a0: notre guide pour une saison de ski inoubliable dans les Alpes fran\u00e7aises.',
+      'From the airport straight to the slopes: our guide to an unforgettable ski season in the French Alps.',
     category: 'Destinations',
-    date: '8 Janvier 2026',
+    date: '8 January 2026',
     dateISO: '2026-01-08',
     readTime: '6 min',
-    author: { name: 'Camille Laurent', role: 'Directrice des Op\u00e9rations' },
+    author: { name: 'Camille Laurent', role: 'Director of Operations' },
     heroImage: 'https://images.unsplash.com/photo-1551524559-8af4e6624178?w=1920&q=80',
     sections: [
       {
         id: 'introduction',
-        title: 'Courchevel, le sommet du luxe',
+        title: 'Courchevel, the pinnacle of luxury',
         content: [
-          'Courchevel reste la station de ski la plus exclusive au monde. Son altiport unique en France permet un acc\u00e8s direct en h\u00e9licopt\u00e8re depuis les principaux a\u00e9roports de la r\u00e9gion.',
-          'Notre package Ski combine vol en jet priv\u00e9 jusqu\u2019\u00e0 Gen\u00e8ve, Lyon ou Chamb\u00e9ry, puis transfert h\u00e9licopt\u00e8re direct vers l\u2019altiport de Courchevel.',
+          'Courchevel remains the most exclusive ski resort in the world. Its unique altiport in France allows direct helicopter access from the main regional airports.',
+          'Our Ski package combines a private jet flight to Geneva, Lyon or Chamb\u00e9ry, then a direct helicopter transfer to the Courchevel altiport.',
         ],
       },
       {
         id: 'logistique',
-        title: 'Le vol et le transfert',
+        title: 'The flight and transfer',
         content: [
-          'Nous op\u00e9rons des vols quotidiens vers les a\u00e9roports alpins pendant toute la saison. Le transfert h\u00e9licopt\u00e8re de 20 minutes offre une vue spectaculaire sur le massif de la Vanoise.',
-          'Vos bagages et \u00e9quipements de ski sont pris en charge de bout en bout. \u00c0 votre arriv\u00e9e, un v\u00e9hicule priv\u00e9 vous conduit directement \u00e0 votre h\u00e9bergement.',
+          'We operate daily flights to Alpine airports throughout the season. The 20-minute helicopter transfer offers a spectacular view of the Vanoise massif.',
+          'Your luggage and ski equipment are handled from start to finish. Upon arrival, a private vehicle takes you directly to your accommodation.',
         ],
         quote:
-          'En moins de 3 heures, vous passez de votre domicile aux pistes de Courchevel.',
+          'In less than 3 hours, you go from your home to the slopes of Courchevel.',
       },
       {
         id: 'saison',
-        title: 'Les temps forts de la saison',
+        title: 'Season highlights',
         content: [
-          'La saison 2025-2026 promet d\u2019\u00eatre exceptionnelle avec un enneigement record. Les \u00e9v\u00e9nements phares incluent la Coupe du Monde de ski alpin et le Snow Polo World Cup.',
-          'Notre conciergerie peut organiser moniteurs de ski priv\u00e9s, r\u00e9servations dans les meilleurs restaurants d\u2019altitude et acc\u00e8s aux soir\u00e9es les plus exclusives de la station.',
+          'The 2025-2026 season promises to be exceptional with record snowfall. Key events include the Alpine Ski World Cup and the Snow Polo World Cup.',
+          'Our concierge can arrange private ski instructors, reservations at the best mountain restaurants and access to the resort\'s most exclusive evening events.',
         ],
       },
     ],
@@ -357,7 +357,7 @@ export async function generateMetadata({
   const article = articlesData[slug];
 
   if (!article) {
-    return { title: 'Article non trouv\u00e9' };
+    return { title: 'Article not found' };
   }
 
   return {

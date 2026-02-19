@@ -27,11 +27,11 @@ export async function generateMetadata({
   );
 
   if (!yacht) {
-    return { title: "Yacht non trouvé" };
+    return { title: "Yacht not found" };
   }
 
   return {
-    title: `${yacht.name} — ${yacht.category} | Location Yacht de Luxe`,
+    title: `${yacht.name} — ${yacht.category} | Luxury Yacht Charter`,
     description: yacht.description,
     openGraph: {
       title: `${yacht.name} — ${yacht.category} | Skyseaker`,

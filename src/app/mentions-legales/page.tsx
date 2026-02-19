@@ -2,78 +2,78 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Mentions Légales",
-  description: "Mentions légales de Skyseaker, courtier en aviation privée de luxe. Informations juridiques, éditeur, hébergeur et propriété intellectuelle.",
+  title: "Legal Notice",
+  description: "Legal notice for Skyseaker, luxury private aviation broker. Legal information, publisher, hosting provider and intellectual property.",
 };
 
 export default function MentionsLegalesPage() {
   const sections = [
     {
-      title: "1. Éditeur du site",
+      title: "1. Website Publisher",
       content: [
-        "Le site skyseaker.com est édité par :",
+        "The website skyseaker.com is published by:",
         "Skyseaker SAS",
-        "Société par Actions Simplifiée au capital de 50 000 €",
-        "Siège social : 8 Avenue de l'Opéra, 75001 Paris, France",
-        "RCS Paris : XXX XXX XXX",
-        "N° TVA intracommunautaire : FR XX XXX XXX XXX",
-        "Directeur de la publication : [Nom du dirigeant]",
-        "Email : contact@skyseaker.com",
-        "Téléphone : +33 1 00 00 00 00",
+        "Simplified Joint-Stock Company with a share capital of 50,000 euros",
+        "Registered office: 8 Avenue de l'Opera, 75001 Paris, France",
+        "Paris Trade Register: XXX XXX XXX",
+        "EU VAT Number: FR XX XXX XXX XXX",
+        "Publication Director: [Name of Director]",
+        "Email: contact@skyseaker.com",
+        "Phone: +33 1 00 00 00 00",
       ],
     },
     {
-      title: "2. Hébergement",
+      title: "2. Hosting",
       content: [
-        "Le site est hébergé par :",
+        "The website is hosted by:",
         "Vercel Inc.",
         "440 N Barranca Ave #4133",
-        "Covina, CA 91723, États-Unis",
-        "Site web : vercel.com",
+        "Covina, CA 91723, United States",
+        "Website: vercel.com",
       ],
     },
     {
-      title: "3. Propriété intellectuelle",
+      title: "3. Intellectual Property",
       content: [
-        "L'ensemble du contenu du site skyseaker.com (textes, images, graphismes, logo, icônes, vidéos, etc.) est protégé par le droit d'auteur et le droit des marques, conformément aux dispositions du Code de la Propriété Intellectuelle.",
-        "Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de Skyseaker SAS.",
-        "La marque Skyseaker, ainsi que l'ensemble des marques figuratives ou non, et plus généralement toutes les autres marques, illustrations, images et logotypes figurant sur le site sont et restent la propriété exclusive de Skyseaker SAS.",
+        "All content on the skyseaker.com website (text, images, graphics, logo, icons, videos, etc.) is protected by copyright and trademark law, in accordance with the provisions of the Intellectual Property Code.",
+        "Any reproduction, representation, modification, publication or adaptation of all or part of the elements of the website, by any means or process, is prohibited without prior written authorization from Skyseaker SAS.",
+        "The Skyseaker trademark, as well as all figurative or non-figurative trademarks, and more generally all other trademarks, illustrations, images and logos appearing on the website are and remain the exclusive property of Skyseaker SAS.",
       ],
     },
     {
-      title: "4. Limitation de responsabilité",
+      title: "4. Limitation of Liability",
       content: [
-        "Skyseaker SAS s'efforce d'assurer au mieux l'exactitude et la mise à jour des informations diffusées sur le site. Toutefois, Skyseaker SAS ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition sur le site.",
-        "Skyseaker SAS décline toute responsabilité pour toute imprécision, inexactitude ou omission portant sur des informations disponibles sur le site.",
-        "Les prix affichés sur le site sont donnés à titre indicatif et ne constituent pas une offre contractuelle. Les tarifs définitifs sont communiqués dans le devis personnalisé transmis au client.",
+        "Skyseaker SAS endeavors to ensure the accuracy and updating of information published on the website to the best of its ability. However, Skyseaker SAS cannot guarantee the accuracy, precision or completeness of the information made available on the website.",
+        "Skyseaker SAS disclaims all liability for any inaccuracy, error or omission relating to information available on the website.",
+        "Prices displayed on the website are provided for indicative purposes only and do not constitute a contractual offer. Final rates are communicated in the personalized quote provided to the client.",
       ],
     },
     {
-      title: "5. Liens hypertextes",
+      title: "5. Hyperlinks",
       content: [
-        "Le site skyseaker.com peut contenir des liens hypertextes vers d'autres sites internet. Skyseaker SAS n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.",
-        "La création de liens hypertextes vers le site skyseaker.com est soumise à l'accord préalable de Skyseaker SAS.",
+        "The skyseaker.com website may contain hyperlinks to other websites. Skyseaker SAS has no control over these sites and disclaims all liability regarding their content.",
+        "The creation of hyperlinks to the skyseaker.com website is subject to prior approval from Skyseaker SAS.",
       ],
     },
     {
       title: "6. Cookies",
       content: [
-        "Le site skyseaker.com utilise des cookies pour améliorer l'expérience utilisateur et analyser le trafic. Pour en savoir plus sur l'utilisation des cookies, consultez notre politique de confidentialité.",
+        "The skyseaker.com website uses cookies to improve the user experience and analyze traffic. To learn more about the use of cookies, please refer to our privacy policy.",
       ],
     },
     {
-      title: "7. Droit applicable",
+      title: "7. Applicable Law",
       content: [
-        "Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux de Paris seront seuls compétents.",
+        "These legal notices are governed by French law. In the event of a dispute, the courts of Paris shall have sole jurisdiction.",
       ],
     },
     {
       title: "8. Contact",
       content: [
-        "Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter :",
-        "Par email : contact@skyseaker.com",
-        "Par téléphone : +33 1 00 00 00 00",
-        "Par courrier : Skyseaker SAS, 8 Avenue de l'Opéra, 75001 Paris, France",
+        "For any questions regarding these legal notices, you can contact us:",
+        "By email: contact@skyseaker.com",
+        "By phone: +33 1 00 00 00 00",
+        "By mail: Skyseaker SAS, 8 Avenue de l'Opera, 75001 Paris, France",
       ],
     },
   ];
@@ -83,13 +83,13 @@ export default function MentionsLegalesPage() {
       <section className="pt-32 pb-12" style={{ background: "#0E202D" }}>
         <div className="px-[5vw] text-center" style={{ maxWidth: "1400px", margin: "0 auto" }}>
           <p className="text-[12px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-4" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 500 }}>
-            INFORMATIONS JURIDIQUES
+            LEGAL INFORMATION
           </p>
           <h1 className="text-[36px] md:text-[48px] mb-4" style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF" }}>
-            Mentions Légales
+            Legal Notice
           </h1>
           <p className="text-[14px] text-[#6B6B6B]" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
-            Dernière mise à jour : février 2026
+            Last updated: February 2026
           </p>
         </div>
       </section>
@@ -116,14 +116,14 @@ export default function MentionsLegalesPage() {
 
           <div className="mt-16 p-8" style={{ background: "#132A3A", border: "1px solid #1A3448" }}>
             <p className="text-[14px] text-[#A0A0A0] mb-4" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300 }}>
-              Voir aussi :
+              See also:
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/politique-confidentialite" className="text-[13px] text-[#F4DDC3] hover:text-[#F4DDC3] transition-colors" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400 }}>
-                Politique de Confidentialité →
+                Privacy Policy →
               </Link>
               <Link href="/conditions-generales" className="text-[13px] text-[#F4DDC3] hover:text-[#F4DDC3] transition-colors" style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400 }}>
-                Conditions Générales de Vente →
+                General Terms and Conditions →
               </Link>
             </div>
           </div>

@@ -157,7 +157,7 @@ export default function AircraftPageClient({
             transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
             style={{ fontSize: "clamp(14px, 2vw, 16px)", fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#A0A0A0" }}
           >
-            {aircraft.manufacturer} &middot; Depuis {aircraft.yearIntroduced}
+            {aircraft.manufacturer} &middot; Since {aircraft.yearIntroduced}
           </motion.p>
 
           {/* Quick stats */}
@@ -168,9 +168,9 @@ export default function AircraftPageClient({
             style={{ display: "flex", flexWrap: "wrap", gap: "clamp(20px, 4vw, 32px)", marginTop: "clamp(24px, 4vw, 36px)" }}
           >
             {[
-              { label: "Passagers", value: `${aircraft.passengers}` },
-              { label: "Autonomie", value: `${aircraft.range.toLocaleString("fr-FR")} km` },
-              { label: "Vitesse max", value: `${aircraft.speed} km/h` },
+              { label: "Passengers", value: `${aircraft.passengers}` },
+              { label: "Range", value: `${aircraft.range.toLocaleString("en-US")} km` },
+              { label: "Max Speed", value: `${aircraft.speed} km/h` },
             ].map((stat) => (
               <div key={stat.label}>
                 <span style={{ display: "block", fontSize: "clamp(22px, 3.5vw, 28px)", fontFamily: "var(--font-cormorant)", fontWeight: 300, color: "#F4DDC3" }}>
@@ -205,7 +205,7 @@ export default function AircraftPageClient({
             fontWeight: 300,
           }}
         >
-          <Link href="/flotte" style={{ color: "#6B6B6B", textDecoration: "none", transition: "color 0.3s" }}>Flotte</Link>
+          <Link href="/flotte" style={{ color: "#6B6B6B", textDecoration: "none", transition: "color 0.3s" }}>Fleet</Link>
           <span style={{ color: "rgba(107,107,107,0.5)" }}>/</span>
           <Link href={`/flotte?category=${aircraft.categorySlug}`} style={{ color: "#6B6B6B", textDecoration: "none", transition: "color 0.3s" }}>{aircraft.category}</Link>
           <span style={{ color: "rgba(107,107,107,0.5)" }}>/</span>
@@ -220,7 +220,7 @@ export default function AircraftPageClient({
             {/* Left - Description */}
             <div>
               <ScrollReveal>
-                <SectionTitle preTitle="PRÉSENTATION" title="À propos de cet appareil" mb="clamp(24px, 4vw, 36px)" />
+                <SectionTitle preTitle="OVERVIEW" title="About This Aircraft" mb="clamp(24px, 4vw, 36px)" />
                 <p style={{ fontSize: "clamp(14px, 1.8vw, 16px)", lineHeight: 1.8, fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#A0A0A0", marginBottom: "clamp(32px, 5vw, 48px)" }}>
                   {aircraft.description}
                 </p>
@@ -229,7 +229,7 @@ export default function AircraftPageClient({
               {/* Ideal For */}
               <ScrollReveal delay={0.1}>
                 <h3 style={{ fontSize: "clamp(12px, 1.5vw, 14px)", textTransform: "uppercase", letterSpacing: "0.15em", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F4DDC3", marginBottom: "16px" }}>
-                  Idéal pour
+                  Ideal For
                 </h3>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
                   {aircraft.idealFor.map((use) => (
@@ -250,20 +250,20 @@ export default function AircraftPageClient({
               <ScrollReveal delay={0.15}>
                 <div style={{ padding: "clamp(20px, 3vw, 32px)", backgroundColor: "#132A3A", border: "1px solid #1A3448", borderRadius: "2px" }}>
                   <h3 style={{ fontSize: "clamp(12px, 1.5vw, 14px)", textTransform: "uppercase", letterSpacing: "0.15em", fontFamily: "var(--font-montserrat)", fontWeight: 600, color: "#F4DDC3", marginBottom: "16px" }}>
-                    Caractéristiques techniques
+                    Technical Specifications
                   </h3>
 
-                  <SpecRow label="Passagers" value={`${aircraft.passengers} places`} icon="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-                  <SpecRow label="Autonomie" value={`${aircraft.range.toLocaleString("fr-FR")} km`} icon="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-                  <SpecRow label="Vitesse maximale" value={`${aircraft.speed} km/h`} icon="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                  <SpecRow label="Longueur cabine" value={`${aircraft.cabinLength} m`} icon="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
-                  <SpecRow label="Hauteur cabine" value={`${aircraft.cabinHeight} m`} icon="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5-6L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
-                  <SpecRow label="Volume bagages" value={`${aircraft.baggage} m³`} icon="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0" />
-                  <SpecRow label="Motorisation" value={aircraft.engines} icon="M11.42 15.17l-5.1-5.1M11.42 15.17l2.15-2.16a2 2 0 012.83 0l3.07 3.07a2 2 0 010 2.83l-2.16 2.15a2 2 0 01-2.83 0l-3.07-3.07a2 2 0 010-2.83zM11.42 15.17L4.25 8a2 2 0 010-2.83L5.67 3.75a2 2 0 012.83 0l7.17 7.17" />
+                  <SpecRow label="Passengers" value={`${aircraft.passengers} seats`} icon="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                  <SpecRow label="Range" value={`${aircraft.range.toLocaleString("en-US")} km`} icon="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                  <SpecRow label="Maximum Speed" value={`${aircraft.speed} km/h`} icon="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                  <SpecRow label="Cabin Length" value={`${aircraft.cabinLength} m`} icon="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                  <SpecRow label="Cabin Height" value={`${aircraft.cabinHeight} m`} icon="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5-6L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+                  <SpecRow label="Luggage Volume" value={`${aircraft.baggage} m³`} icon="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0" />
+                  <SpecRow label="Engines" value={aircraft.engines} icon="M11.42 15.17l-5.1-5.1M11.42 15.17l2.15-2.16a2 2 0 012.83 0l3.07 3.07a2 2 0 010 2.83l-2.16 2.15a2 2 0 01-2.83 0l-3.07-3.07a2 2 0 010-2.83zM11.42 15.17L4.25 8a2 2 0 010-2.83L5.67 3.75a2 2 0 012.83 0l7.17 7.17" />
                   {aircraft.takeoffDistance > 0 && (
-                    <SpecRow label="Distance de décollage" value={`${aircraft.takeoffDistance.toLocaleString("fr-FR")} m`} icon="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12M3 20h18" />
+                    <SpecRow label="Takeoff Distance" value={`${aircraft.takeoffDistance.toLocaleString("en-US")} m`} icon="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12M3 20h18" />
                   )}
-                  <SpecRow label="Année d'introduction" value={`${aircraft.yearIntroduced}`} icon="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                  <SpecRow label="Year of Introduction" value={`${aircraft.yearIntroduced}`} icon="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                 </div>
               </ScrollReveal>
             </div>
@@ -276,7 +276,7 @@ export default function AircraftPageClient({
         <section style={{ background: "#132A3A", padding: "clamp(60px, 10vw, 100px) 0", borderTop: "1px solid rgba(244,221,195,0.08)" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
             <ScrollReveal>
-              <SectionTitle preTitle="GALERIE" title="Photos de l&apos;appareil" centered mb="clamp(32px, 5vw, 48px)" />
+              <SectionTitle preTitle="GALLERY" title="Aircraft Photos" centered mb="clamp(32px, 5vw, 48px)" />
             </ScrollReveal>
 
             {/* Grid fixe 3 colonnes */}
@@ -319,15 +319,15 @@ export default function AircraftPageClient({
         <div style={{ position: "relative", maxWidth: "720px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
           <ScrollReveal>
             <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", fontSize: "clamp(28px, 4.5vw, 44px)", marginBottom: "16px", lineHeight: 1.15 }}>
-              Réserver le {aircraft.name}
+              Book the {aircraft.name}
             </h2>
             <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", fontSize: "clamp(16px, 2.5vw, 18px)", marginBottom: "clamp(32px, 5vw, 48px)", lineHeight: 1.6 }}>
-              Nos experts sont disponibles 24/7 pour organiser votre vol à bord de cet appareil
+              Our experts are available 24/7 to arrange your flight aboard this aircraft
             </p>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
               <div className="flex flex-col sm:flex-row items-center justify-center" style={{ gap: "12px" }}>
-                <Button href="/devis" variant="primary" size="lg">Réserver cet appareil</Button>
-                <Button href="/flotte/comparateur" variant="secondary">Comparer avec d&apos;autres</Button>
+                <Button href="/devis" variant="primary" size="lg">Book This Aircraft</Button>
+                <Button href="/flotte/comparateur" variant="secondary">Compare With Others</Button>
               </div>
             </div>
           </ScrollReveal>
@@ -338,7 +338,7 @@ export default function AircraftPageClient({
       {similarAircraft.length > 0 && (
         <section style={{ background: "#0E202D", padding: "clamp(60px, 10vw, 120px) 0" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
-            <SectionTitle preTitle="APPAREILS SIMILAIRES" title="Découvrez aussi" centered mb="clamp(40px, 5vw, 56px)" />
+            <SectionTitle preTitle="SIMILAR AIRCRAFT" title="Discover More" centered mb="clamp(40px, 5vw, 56px)" />
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3" style={{ gap: "clamp(16px, 2vw, 24px)" }}>
               {similarAircraft.map((similar, i) => (
                 <ScrollReveal key={similar.id} delay={i * 0.1}>
@@ -367,12 +367,12 @@ export default function AircraftPageClient({
                         <div style={{ display: "flex", alignItems: "center", gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "clamp(10px, 1.3vw, 12px)", color: "#A0A0A0", flexWrap: "wrap" }}>
                           <span>{similar.passengers} pax</span>
                           <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
-                          <span>{similar.range.toLocaleString("fr-FR")} km</span>
+                          <span>{similar.range.toLocaleString("en-US")} km</span>
                           <span style={{ width: "1px", height: "10px", background: "rgba(244,221,195,0.2)" }} />
                           <span>{similar.speed} km/h</span>
                         </div>
                         <span style={{ display: "block", marginTop: "12px", fontFamily: "var(--font-montserrat)", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3" }}>
-                          Voir la fiche →
+                          View Details →
                         </span>
                       </div>
                     </div>

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const contactOptions = [
   {
-    label: "Nous contacter",
+    label: "Contact Us",
     href: "/contact",
     icon: (
       <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
@@ -84,7 +84,7 @@ export default function FloatingWidget() {
                 margin: "6px 0 0",
                 lineHeight: 1.4,
               }}>
-                Disponible 24h/24, 7j/7
+                Available 24/7
               </p>
             </div>
 

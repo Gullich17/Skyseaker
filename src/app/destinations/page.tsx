@@ -44,7 +44,7 @@ function DestinationsHero() {
       <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
         <Image
           src="/images/fleet/falcon-8x/main.png"
-          alt="Jet privé en vol vers votre destination"
+          alt="Private jet in flight to your destination"
           fill
           className="object-cover"
           priority
@@ -69,15 +69,15 @@ function DestinationsHero() {
           transition={{ duration: 1, delay: 0.3, ease: EASE }}
           style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "20px" }}
         >
-          Le monde à portée
-          <br />de vol
+          The World Within
+          <br />Your Reach
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
           style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", maxWidth: "700px", margin: "0 auto", fontSize: "clamp(16px, 2.5vw, 22px)" }}
         >
-          Explorez nos destinations phares et envolez-vous vers les plus belles adresses du globe
+          Explore our top destinations and fly to the most prestigious addresses around the globe
         </motion.p>
       </div>
     </section>
@@ -106,7 +106,7 @@ function DestinationCard({ destination, index }: { destination: Destination; ind
             {/* Popular badge */}
             {destination.popular && (
               <div style={{ position: "absolute", top: "12px", right: "12px", zIndex: 10 }}>
-                <Badge>Populaire</Badge>
+                <Badge>Popular</Badge>
               </div>
             )}
 
@@ -128,21 +128,21 @@ function DestinationCard({ destination, index }: { destination: Destination; ind
                     <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 400, color: "#F4DDC3", fontSize: "12px" }}>
-                    {destination.flightTimeFromParis} depuis Paris
+                    {destination.flightTimeFromParis} from Paris
                   </span>
                 </div>
               </div>
 
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                 <span style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B", fontSize: "13px" }}>
-                  À partir de{" "}
+                  Starting from{" "}
                   <span style={{ color: "#F4DDC3", fontWeight: 500 }}>{destination.priceFrom}€</span>
                 </span>
                 <span
                   className="group-hover:opacity-100"
                   style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500, opacity: 0, transition: "opacity 0.3s ease" }}
                 >
-                  Découvrir →
+                  Discover →
                 </span>
               </div>
             </div>
@@ -157,7 +157,7 @@ function DestinationCard({ destination, index }: { destination: Destination; ind
    FILTER CATEGORIES
    ============================================ */
 const filterCategories = [
-  { slug: "toutes", name: "Toutes" },
+  { slug: "all", name: "All" },
   ...regions.map((r) => ({ slug: r, name: r })),
 ];
 
@@ -165,17 +165,17 @@ const filterCategories = [
    MAIN PAGE
    ============================================ */
 export default function DestinationsPage() {
-  const [activeRegion, setActiveRegion] = useState("toutes");
+  const [activeRegion, setActiveRegion] = useState("all");
 
   const regionCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     filterCategories.forEach((cat) => {
-      counts[cat.slug] = cat.slug === "toutes" ? destinations.length : destinations.filter((d) => d.region === cat.slug).length;
+      counts[cat.slug] = cat.slug === "all" ? destinations.length : destinations.filter((d) => d.region === cat.slug).length;
     });
     return counts;
   }, []);
 
-  const filteredDestinations = activeRegion === "toutes" ? destinations : destinations.filter((d) => d.region === activeRegion);
+  const filteredDestinations = activeRegion === "all" ? destinations : destinations.filter((d) => d.region === activeRegion);
 
   return (
     <>
@@ -274,7 +274,7 @@ export default function DestinationsPage() {
 
           {/* Count */}
           <p style={{ marginBottom: "24px", fontSize: "13px", fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B" }}>
-            {filteredDestinations.length} destination{filteredDestinations.length > 1 ? "s" : ""} disponible{filteredDestinations.length > 1 ? "s" : ""}
+            {filteredDestinations.length} destination{filteredDestinations.length > 1 ? "s" : ""} available
           </p>
 
           {/* Grid */}
@@ -300,17 +300,17 @@ export default function DestinationsPage() {
         <div style={{ position: "relative", maxWidth: "800px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
           <ScrollReveal>
             <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", fontSize: "clamp(28px, 5vw, 44px)", marginBottom: "20px" }}>
-              Votre destination n&apos;est pas listée ?
+              Destination not listed?
             </h2>
             <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", fontSize: "clamp(16px, 2.5vw, 20px)", marginBottom: "40px" }}>
-              Nous organisons des vols vers plus de 5 000 aéroports dans le monde entier
+              We arrange flights to over 5,000 airports worldwide
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "16px" }}>
               <Button href="/devis" variant="primary" size="lg">
-                Demander un devis
+                Request a Quote
               </Button>
               <Button href="tel:+33100000000" variant="secondary">
-                Nous appeler
+                Call Us
               </Button>
             </div>
           </ScrollReveal>

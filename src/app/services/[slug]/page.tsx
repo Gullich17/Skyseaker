@@ -25,7 +25,7 @@ export async function generateMetadata({
 
   if (!service) {
     return {
-      title: 'Service non trouvé',
+      title: 'Service Not Found',
     };
   }
 
@@ -33,7 +33,7 @@ export async function generateMetadata({
     title: service.title,
     description: service.shortDescription,
     openGraph: {
-      title: `${service.title} — Skyseaker Aviation Privée`,
+      title: `${service.title} — Skyseaker Private Aviation`,
       description: service.shortDescription,
       url: `https://skyseaker.com/services/${service.slug}`,
     },

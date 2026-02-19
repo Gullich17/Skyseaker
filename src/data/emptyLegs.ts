@@ -30,9 +30,9 @@ export const emptyLegs: EmptyLeg[] = [
   },
   {
     id: "el-002",
-    departure: "Genève",
+    departure: "Geneva",
     departureCode: "LSGG",
-    arrival: "Londres",
+    arrival: "London",
     arrivalCode: "EGGW",
     date: "2026-03-18",
     aircraft: "Phenom 300E",
@@ -72,7 +72,7 @@ export const emptyLegs: EmptyLeg[] = [
   },
   {
     id: "el-005",
-    departure: "Londres",
+    departure: "London",
     departureCode: "EGLF",
     arrival: "Mykonos",
     arrivalCode: "LGMK",
@@ -100,7 +100,7 @@ export const emptyLegs: EmptyLeg[] = [
   },
   {
     id: "el-007",
-    departure: "Dubaï",
+    departure: "Dubai",
     departureCode: "OMDW",
     arrival: "Paris",
     arrivalCode: "LFPB",
@@ -116,7 +116,7 @@ export const emptyLegs: EmptyLeg[] = [
     id: "el-008",
     departure: "Nice",
     departureCode: "LFMN",
-    arrival: "Genève",
+    arrival: "Geneva",
     arrivalCode: "LSGG",
     date: "2026-03-20",
     aircraft: "Phenom 100EV",

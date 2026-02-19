@@ -91,7 +91,7 @@ function ServicesHero() {
       <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
         <Image
           src="/images/fleet/falcon-8x/main.png"
-          alt="Jet priv&eacute; en vol"
+          alt="Private jet in flight"
           fill
           className="object-cover"
           priority
@@ -107,22 +107,22 @@ function ServicesHero() {
           transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
           style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "16px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F4DDC3" }}
         >
-          NOS SERVICES
+          OUR SERVICES
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: EASE }}
           style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "20px" }}
         >
-          Des solutions complètes
-          <br />pour votre aviation privée
+          Comprehensive solutions
+          <br />for your private aviation
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
           style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", maxWidth: "700px", margin: "0 auto", fontSize: "clamp(16px, 2.5vw, 22px)" }}
         >
-          De l&apos;affrètement personnalisé à la gestion de votre appareil, découvrez l&apos;ensemble de nos prestations premium
+          From bespoke charter services to aircraft management, discover our full range of premium offerings
         </motion.p>
       </div>
     </section>
@@ -139,10 +139,10 @@ function ServicesOverview() {
         <ScrollReveal>
           <div style={{ textAlign: "center", marginBottom: "clamp(40px, 6vw, 64px)" }}>
             <p style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "12px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F4DDC3" }}>
-              8 EXPERTISES
+              8 AREAS OF EXPERTISE
             </p>
             <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "clamp(24px, 4vw, 40px)", lineHeight: 1.2, marginBottom: "16px" }}>
-              Un accompagnement à 360°
+              A 360° Service Experience
             </h2>
             <div style={{ width: "60px", height: "1px", background: "#F4DDC3", opacity: 0.3, margin: "0 auto" }} />
           </div>
@@ -180,7 +180,7 @@ function ServicesOverview() {
                     className="group-hover:opacity-100"
                     style={{ display: "inline-block", marginTop: "12px", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#F4DDC3", fontFamily: "var(--font-montserrat)", fontWeight: 500, opacity: 0, transition: "opacity 0.3s ease" }}
                   >
-                    En savoir plus →
+                    Learn More →
                   </span>
                 </div>
               </Link>
@@ -254,7 +254,7 @@ function ServiceDetailRow({ service, index }: { service: (typeof services)[numbe
           </div>
 
           <Button href={`/services/${service.slug}`} variant="primary">
-            Découvrir ce service
+            Discover This Service
           </Button>
         </div>
       </div>
@@ -267,10 +267,10 @@ function ServiceDetailRow({ service, index }: { service: (typeof services)[numbe
    ============================================ */
 function StatsBar() {
   const stats = [
-    { value: "8 500+", label: "Appareils disponibles" },
-    { value: "24/7", label: "Support dédié" },
-    { value: "5 000+", label: "Aéroports desservis" },
-    { value: "15 min", label: "Réponse garantie" },
+    { value: "8,500+", label: "Aircraft available" },
+    { value: "24/7", label: "Dedicated support" },
+    { value: "5,000+", label: "Airports served" },
+    { value: "15 min", label: "Guaranteed response" },
   ];
 
   return (
@@ -306,20 +306,20 @@ function CtaSection() {
       <div style={{ position: "relative", maxWidth: "800px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
         <ScrollReveal>
           <p style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: "16px", fontFamily: "var(--font-montserrat)", fontWeight: 500, color: "#F4DDC3" }}>
-            À VOTRE SERVICE
+            AT YOUR SERVICE
           </p>
           <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", fontSize: "clamp(28px, 5vw, 44px)", marginBottom: "20px" }}>
-            Un projet ? Une question ?
+            Have a Project? A Question?
           </h2>
           <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", fontSize: "clamp(16px, 2.5vw, 20px)", marginBottom: "40px" }}>
-            Notre équipe de conseillers est disponible 24h/24 et 7j/7 pour répondre à toutes vos demandes
+            Our team of advisors is available 24/7 to assist with all your requests
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "16px" }}>
             <Button href="/devis" variant="primary" size="lg">
-              Demander un devis
+              Request a Quote
             </Button>
             <Button href="tel:+33100000000" variant="secondary">
-              Nous appeler
+              Call Us
             </Button>
           </div>
         </ScrollReveal>
