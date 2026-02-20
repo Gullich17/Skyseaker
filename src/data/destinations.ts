@@ -1,12 +1,14 @@
+import type { Translatable } from "@/lib/i18n-data";
+
 export interface Destination {
   id: string;
   name: string;
-  country: string;
-  region: string;
+  country: Translatable;
+  region: Translatable;
   flightTimeFromParis: string;
   airports: { name: string; code: string }[];
   image: string;
-  description: string;
+  description: Translatable;
   priceFrom: string;
   coordinates: { lat: number; lng: number };
   popular: boolean;
@@ -16,12 +18,12 @@ export const destinations: Destination[] = [
   {
     id: "geneve",
     name: "Geneva",
-    country: "Switzerland",
-    region: "Europe",
+    country: { fr: "Suisse", en: "Switzerland" },
+    region: { fr: "Europe", en: "Europe" },
     flightTimeFromParis: "55min",
     airports: [{ name: "Geneva Airport", code: "LSGG" }],
     image: "/images/destinations/geneve.jpg",
-    description: "Geneva, the capital of diplomacy and luxury watchmaking, is a premier destination for private aviation. Its airport offers a dedicated business aviation terminal with exceptional concierge services.",
+    description: { fr: "Genève, capitale de la diplomatie et du luxe horloger, est une destination phare de l'aviation privée. Son aéroport offre un terminal dédié à l'aviation d'affaires avec des services de conciergerie exceptionnels.", en: "Geneva, the capital of diplomacy and luxury watchmaking, is a premier destination for private aviation. Its airport offers a dedicated business aviation terminal with exceptional concierge services." },
     priceFrom: "4 200",
     coordinates: { lat: 46.2044, lng: 6.1432 },
     popular: true,
@@ -29,8 +31,8 @@ export const destinations: Destination[] = [
   {
     id: "londres",
     name: "London",
-    country: "United Kingdom",
-    region: "Europe",
+    country: { fr: "Royaume-Uni", en: "United Kingdom" },
+    region: { fr: "Europe", en: "Europe" },
     flightTimeFromParis: "1h10",
     airports: [
       { name: "London Luton", code: "EGGW" },
@@ -38,7 +40,7 @@ export const destinations: Destination[] = [
       { name: "Farnborough", code: "EGLF" },
     ],
     image: "/images/destinations/londres.jpg",
-    description: "London boasts the densest private aviation network in Europe with multiple dedicated airports. From Luton to Farnborough, each VIP terminal offers quick access to the heart of the British capital.",
+    description: { fr: "Londres dispose du réseau d'aviation privée le plus dense d'Europe avec de multiples aéroports dédiés. De Luton à Farnborough, chaque terminal VIP offre un accès rapide au cœur de la capitale britannique.", en: "London boasts the densest private aviation network in Europe with multiple dedicated airports. From Luton to Farnborough, each VIP terminal offers quick access to the heart of the British capital." },
     priceFrom: "5 800",
     coordinates: { lat: 51.5074, lng: -0.1278 },
     popular: true,
@@ -46,12 +48,12 @@ export const destinations: Destination[] = [
   {
     id: "mykonos",
     name: "Mykonos",
-    country: "Greece",
-    region: "Europe",
+    country: { fr: "Grèce", en: "Greece" },
+    region: { fr: "Europe", en: "Europe" },
     flightTimeFromParis: "3h00",
     airports: [{ name: "Mykonos Island National", code: "LGMK" }],
     image: "/images/destinations/mykonos.jpg",
-    description: "Mykonos, jewel of the Cyclades, is the ultimate summer destination for private jet travelers. The island offers a unique blend of pristine beaches, vibrant nightlife and authentic charm.",
+    description: { fr: "Mykonos, joyau des Cyclades, est la destination estivale par excellence des voyageurs en jet privé. L'île offre un mélange unique de plages paradisiaques, de vie nocturne effervescente et de charme authentique.", en: "Mykonos, jewel of the Cyclades, is the ultimate summer destination for private jet travelers. The island offers a unique blend of pristine beaches, vibrant nightlife and authentic charm." },
     priceFrom: "15 500",
     coordinates: { lat: 37.4467, lng: 25.3289 },
     popular: true,
@@ -59,15 +61,15 @@ export const destinations: Destination[] = [
   {
     id: "dubai",
     name: "Dubai",
-    country: "United Arab Emirates",
-    region: "Middle East",
+    country: { fr: "Émirats Arabes Unis", en: "United Arab Emirates" },
+    region: { fr: "Moyen-Orient", en: "Middle East" },
     flightTimeFromParis: "6h30",
     airports: [
       { name: "Al Maktoum International", code: "OMDW" },
       { name: "Dubai International", code: "OMDB" },
     ],
     image: "/images/destinations/dubai.jpg",
-    description: "Dubai is the global hub for luxury and private aviation in the Middle East. Between futuristic skyscrapers, pristine beaches and unique shopping experiences, the city offers an incomparable destination for the most discerning travelers.",
+    description: { fr: "Dubaï est le hub mondial du luxe et de l'aviation privée au Moyen-Orient. Entre gratte-ciels futuristes, plages immaculées et expériences shopping uniques, la ville offre une destination incomparable pour les voyageurs les plus exigeants.", en: "Dubai is the global hub for luxury and private aviation in the Middle East. Between futuristic skyscrapers, pristine beaches and unique shopping experiences, the city offers an incomparable destination for the most discerning travelers." },
     priceFrom: "28 000",
     coordinates: { lat: 25.2048, lng: 55.2708 },
     popular: true,
@@ -75,12 +77,12 @@ export const destinations: Destination[] = [
   {
     id: "marrakech",
     name: "Marrakech",
-    country: "Morocco",
-    region: "Africa",
+    country: { fr: "Maroc", en: "Morocco" },
+    region: { fr: "Afrique", en: "Africa" },
     flightTimeFromParis: "3h15",
     airports: [{ name: "Marrakech-Menara", code: "GMMX" }],
     image: "/images/destinations/marrakech.jpg",
-    description: "Marrakech, the Red City, captivates with its palaces, riads and secret gardens. Just three hours from Paris by private jet, it offers a complete change of scenery with legendary Moroccan hospitality.",
+    description: { fr: "Marrakech, la ville rouge, fascine par ses palais, ses riads et ses jardins secrets. À seulement trois heures de Paris en jet privé, elle offre un dépaysement total avec un accueil marocain légendaire.", en: "Marrakech, the Red City, captivates with its palaces, riads and secret gardens. Just three hours from Paris by private jet, it offers a complete change of scenery with legendary Moroccan hospitality." },
     priceFrom: "14 000",
     coordinates: { lat: 31.6295, lng: -7.9811 },
     popular: true,
@@ -88,12 +90,12 @@ export const destinations: Destination[] = [
   {
     id: "ibiza",
     name: "Ibiza",
-    country: "Spain",
-    region: "Europe",
+    country: { fr: "Espagne", en: "Spain" },
+    region: { fr: "Europe", en: "Europe" },
     flightTimeFromParis: "1h50",
     airports: [{ name: "Ibiza Airport", code: "LEIB" }],
     image: "/images/destinations/ibiza.jpg",
-    description: "Ibiza embodies the perfect fusion of celebration and serenity. Beyond its legendary clubs, the White Isle conceals secret coves, refined gastronomy and a unique Mediterranean art of living.",
+    description: { fr: "Ibiza incarne la fusion parfaite entre fête et sérénité. Au-delà de ses clubs mythiques, l'île Blanche recèle des criques secrètes, une gastronomie raffinée et un art de vivre méditerranéen unique.", en: "Ibiza embodies the perfect fusion of celebration and serenity. Beyond its legendary clubs, the White Isle conceals secret coves, refined gastronomy and a unique Mediterranean art of living." },
     priceFrom: "9 800",
     coordinates: { lat: 38.8789, lng: 1.3936 },
     popular: true,
@@ -101,12 +103,12 @@ export const destinations: Destination[] = [
   {
     id: "nice",
     name: "Nice",
-    country: "France",
-    region: "Europe",
+    country: { fr: "France", en: "France" },
+    region: { fr: "Europe", en: "Europe" },
     flightTimeFromParis: "1h15",
     airports: [{ name: "Nice Côte d'Azur", code: "LFMN" }],
     image: "/images/destinations/nice.jpg",
-    description: "Nice and the French Riviera are iconic destinations for private aviation. Between the Cannes Film Festival, the Monaco Grand Prix and the beaches of Saint-Tropez, the French Riviera attracts the global elite.",
+    description: { fr: "Nice et la Côte d'Azur sont des destinations emblématiques de l'aviation privée. Entre le Festival de Cannes, le Grand Prix de Monaco et les plages de Saint-Tropez, la Riviera française attire l'élite mondiale.", en: "Nice and the French Riviera are iconic destinations for private aviation. Between the Cannes Film Festival, the Monaco Grand Prix and the beaches of Saint-Tropez, the French Riviera attracts the global elite." },
     priceFrom: "4 800",
     coordinates: { lat: 43.7102, lng: 7.262 },
     popular: true,
@@ -114,15 +116,15 @@ export const destinations: Destination[] = [
   {
     id: "new-york",
     name: "New York",
-    country: "United States",
-    region: "Americas",
+    country: { fr: "États-Unis", en: "United States" },
+    region: { fr: "Amériques", en: "Americas" },
     flightTimeFromParis: "8h00",
     airports: [
       { name: "Teterboro", code: "KTEB" },
       { name: "Westchester County", code: "KHPN" },
     ],
     image: "/images/destinations/new-york.jpg",
-    description: "New York, the city that never sleeps, is accessible by private jet via the dedicated airports of Teterboro and Westchester. Skip the queues at JFK and reach Manhattan by helicopter from your jet.",
+    description: { fr: "New York, la ville qui ne dort jamais, est accessible en vol privé via les aéroports dédiés de Teterboro et Westchester. Évitez les files d'attente de JFK et rejoignez Manhattan en hélicoptère depuis votre jet.", en: "New York, the city that never sleeps, is accessible by private jet via the dedicated airports of Teterboro and Westchester. Skip the queues at JFK and reach Manhattan by helicopter from your jet." },
     priceFrom: "65 000",
     coordinates: { lat: 40.7128, lng: -74.006 },
     popular: true,
@@ -130,15 +132,15 @@ export const destinations: Destination[] = [
   {
     id: "milan",
     name: "Milan",
-    country: "Italy",
-    region: "Europe",
+    country: { fr: "Italie", en: "Italy" },
+    region: { fr: "Europe", en: "Europe" },
     flightTimeFromParis: "1h20",
     airports: [
       { name: "Milano Linate", code: "LIML" },
       { name: "Milano Malpensa", code: "LIMC" },
     ],
     image: "/images/destinations/milan.jpg",
-    description: "Milan, the world capital of fashion and design, is an essential stop for business travelers and luxury enthusiasts. Linate offers direct access to the city center in just minutes.",
+    description: { fr: "Milan, capitale mondiale de la mode et du design, est une escale incontournable pour les voyageurs d'affaires et les amateurs de luxe. Linate offre un accès direct au centre-ville en quelques minutes.", en: "Milan, the world capital of fashion and design, is an essential stop for business travelers and luxury enthusiasts. Linate offers direct access to the city center in just minutes." },
     priceFrom: "5 200",
     coordinates: { lat: 45.4642, lng: 9.19 },
     popular: false,
@@ -146,12 +148,12 @@ export const destinations: Destination[] = [
   {
     id: "sardaigne",
     name: "Sardinia",
-    country: "Italy",
-    region: "Europe",
+    country: { fr: "Italie", en: "Italy" },
+    region: { fr: "Europe", en: "Europe" },
     flightTimeFromParis: "1h50",
     airports: [{ name: "Olbia Costa Smeralda", code: "LIEO" }],
     image: "/images/destinations/sardaigne.jpg",
-    description: "The Costa Smeralda in Sardinia is the international jet-set summer hotspot. Its crystal-clear waters, white sandy beaches and ultra-luxurious establishments make it a dream destination.",
+    description: { fr: "La Costa Smeralda en Sardaigne est le rendez-vous estival de la jet-set internationale. Ses eaux cristallines, ses plages de sable blanc et ses établissements ultra-luxueux en font une destination de rêve.", en: "The Costa Smeralda in Sardinia is the international jet-set summer hotspot. Its crystal-clear waters, white sandy beaches and ultra-luxurious establishments make it a dream destination." },
     priceFrom: "10 500",
     coordinates: { lat: 40.9236, lng: 9.4917 },
     popular: false,
@@ -159,12 +161,12 @@ export const destinations: Destination[] = [
   {
     id: "maldives",
     name: "Maldives",
-    country: "Maldives",
-    region: "Asia",
+    country: { fr: "Maldives", en: "Maldives" },
+    region: { fr: "Asie", en: "Asia" },
     flightTimeFromParis: "10h30",
     airports: [{ name: "Velana International", code: "VRMM" }],
     image: "/images/destinations/maldives.jpg",
-    description: "The Maldives represent the ultimate escape: overwater villas, turquoise waters and paradisiacal seclusion. A private jet flight followed by a seaplane offers a spectacular arrival in this dream archipelago.",
+    description: { fr: "Les Maldives représentent l'évasion ultime : des villas sur pilotis, des eaux turquoise et un isolement paradisiaque. Le vol en jet privé suivi d'un hydravion offre une arrivée spectaculaire dans cet archipel de rêve.", en: "The Maldives represent the ultimate escape: overwater villas, turquoise waters and paradisiacal seclusion. A private jet flight followed by a seaplane offers a spectacular arrival in this dream archipelago." },
     priceFrom: "85 000",
     coordinates: { lat: 3.2028, lng: 73.2207 },
     popular: false,
@@ -172,16 +174,22 @@ export const destinations: Destination[] = [
   {
     id: "saint-tropez",
     name: "Saint-Tropez",
-    country: "France",
-    region: "Europe",
+    country: { fr: "France", en: "France" },
+    region: { fr: "Europe", en: "Europe" },
     flightTimeFromParis: "1h20",
     airports: [{ name: "La Môle Saint-Tropez", code: "LFTZ" }],
     image: "/images/destinations/saint-tropez.jpg",
-    description: "Saint-Tropez embodies French glamour at its finest. Its small La Môle airport drops you just minutes from the legendary port, the beaches of Pampelonne and the most exclusive clubs in the Mediterranean.",
+    description: { fr: "Saint-Tropez incarne le glamour à la française. Son petit aéroport de La Môle vous dépose à quelques minutes du port mythique, des plages de Pampelonne et des clubs les plus exclusifs de la Méditerranée.", en: "Saint-Tropez embodies French glamour at its finest. Its small La Môle airport drops you just minutes from the legendary port, the beaches of Pampelonne and the most exclusive clubs in the Mediterranean." },
     priceFrom: "5 500",
     coordinates: { lat: 43.2677, lng: 6.6407 },
     popular: false,
   },
 ];
 
-export const regions = ["Europe", "Middle East", "Africa", "Americas", "Asia"];
+export const regions = [
+  { fr: "Europe", en: "Europe" },
+  { fr: "Moyen-Orient", en: "Middle East" },
+  { fr: "Afrique", en: "Africa" },
+  { fr: "Amériques", en: "Americas" },
+  { fr: "Asie", en: "Asia" },
+];

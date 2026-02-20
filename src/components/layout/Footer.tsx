@@ -1,57 +1,59 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
 
-const footerServices = [
-  { name: "Charter", href: "/services/affretement-jet-prive" },
-  { name: "Empty Legs", href: "/services/vols-a-vide-empty-legs" },
-  { name: "Group Travel", href: "/services/voyage-groupe" },
-  { name: "Urgent Cargo", href: "/services/fret-urgent" },
-  { name: "Concierge", href: "/services/conciergerie-lifestyle" },
-  { name: "VIP Transfers", href: "/services/transferts-vip" },
-  { name: "Aircraft Management", href: "/services/gestion-appareil" },
-  { name: "Sales & Acquisitions", href: "/services/achat-vente-jet" },
+const footerServiceKeys = [
+  { key: "charter", href: "/services/affretement-jet-prive" },
+  { key: "emptyLegs", href: "/services/vols-a-vide-empty-legs" },
+  { key: "groupTravel", href: "/services/voyage-groupe" },
+  { key: "urgentCargo", href: "/services/fret-urgent" },
+  { key: "concierge", href: "/services/conciergerie-lifestyle" },
+  { key: "vipTransfers", href: "/services/transferts-vip" },
+  { key: "aircraftManagement", href: "/services/gestion-appareil" },
+  { key: "salesAcquisitions", href: "/services/achat-vente-jet" },
 ];
 
-const footerFleet = [
-  { name: "Entire Fleet", href: "/flotte" },
-  { name: "Light Jet", href: "/flotte/light-jet" },
-  { name: "Super Midsize", href: "/flotte/super-midsize-jet" },
-  { name: "Heavy Jet", href: "/flotte/heavy-jet" },
-  { name: "Ultra Long Range", href: "/flotte/ultra-long-range" },
-  { name: "Comparison Tool", href: "/flotte/comparateur" },
+const footerFleetKeys = [
+  { key: "entireFleet", href: "/flotte" },
+  { key: "lightJet", href: "/flotte/light-jet" },
+  { key: "superMidsize", href: "/flotte/super-midsize-jet" },
+  { key: "heavyJet", href: "/flotte/heavy-jet" },
+  { key: "ultraLongRange", href: "/flotte/ultra-long-range" },
+  { key: "comparisonTool", href: "/flotte/comparateur" },
 ];
 
-const footerYachts = [
-  { name: "Charter", href: "/yachts/location" },
-  { name: "Purchase", href: "/yachts/achat" },
-  { name: "Motor Yacht", href: "/yachts/motor-yacht" },
-  { name: "Sailing Yacht", href: "/yachts/sailing-yacht" },
-  { name: "Comparison Tool", href: "/yachts/comparateur" },
+const footerYachtKeys = [
+  { key: "charter", href: "/yachts/location" },
+  { key: "purchase", href: "/yachts/achat" },
+  { key: "motorYacht", href: "/yachts/motor-yacht" },
+  { key: "sailingYacht", href: "/yachts/sailing-yacht" },
+  { key: "comparisonTool", href: "/yachts/comparateur" },
 ];
 
-const footerDestinations = [
-  { name: "Geneva", href: "/destinations/geneve" },
-  { name: "London", href: "/destinations/londres" },
-  { name: "Mykonos", href: "/destinations/mykonos" },
-  { name: "Dubai", href: "/destinations/dubai" },
-  { name: "Marrakech", href: "/destinations/marrakech" },
-  { name: "Nice", href: "/destinations/nice" },
-  { name: "Ibiza", href: "/destinations/ibiza" },
-  { name: "All Destinations", href: "/destinations" },
+const footerDestinationKeys = [
+  { key: "geneva", href: "/destinations/geneve" },
+  { key: "london", href: "/destinations/londres" },
+  { key: "mykonos", href: "/destinations/mykonos" },
+  { key: "dubai", href: "/destinations/dubai" },
+  { key: "marrakech", href: "/destinations/marrakech" },
+  { key: "nice", href: "/destinations/nice" },
+  { key: "ibiza", href: "/destinations/ibiza" },
+  { key: "allDestinations", href: "/destinations" },
 ];
 
-const footerResources = [
-  { name: "Blog", href: "/blog" },
-  { name: "FAQ", href: "/faq" },
-  { name: "Aviation Glossary", href: "/glossaire-aviation" },
-  { name: "Experiences", href: "/experiences" },
-  { name: "About Us", href: "/a-propos" },
+const footerResourceKeys = [
+  { key: "blog", href: "/blog" },
+  { key: "faq", href: "/faq" },
+  { key: "aviationGlossary", href: "/glossaire-aviation" },
+  { key: "experiences", href: "/experiences" },
+  { key: "aboutUs", href: "/a-propos" },
 ];
 
 export default function Footer() {
+  const t = useTranslations("footer");
   const [email, setEmail] = useState("");
 
   const handleNewsletter = (e: React.FormEvent) => {
@@ -77,14 +79,14 @@ export default function Footer() {
           {/* Newsletter */}
           <div className="w-full md:w-auto">
             <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.15em", color: "#8A8A8A", marginBottom: "12px" }}>
-              Receive our exclusive offers
+              {t("newsletter.title")}
             </p>
             <form onSubmit={handleNewsletter} style={{ display: "flex", border: "1px solid rgba(244,221,195,0.25)", borderRadius: "2px", overflow: "hidden" }}>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address"
+                placeholder={t("newsletter.placeholder")}
                 required
                 style={{
                   flex: 1,
@@ -118,7 +120,7 @@ export default function Footer() {
                 onMouseEnter={(e) => { e.currentTarget.style.background = "#F4DDC3"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = "#F4DDC3"; }}
               >
-                Subscribe
+                {t("newsletter.subscribe")}
               </button>
             </form>
           </div>
@@ -132,31 +134,31 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
-              Services
+              {t("sections.services")}
             </h4>
             <ul className="space-y-3">
-              {footerServices.map((item) => (
-                <li key={item.name}>
+              {footerServiceKeys.map((item) => (
+                <li key={item.key}>
                   <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
-                    {item.name}
+                    {t(`links.services.${item.key}`)}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Flotte */}
+          {/* Fleet */}
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
-              Fleet
+              {t("sections.fleet")}
             </h4>
             <ul className="space-y-3">
-              {footerFleet.map((item) => (
-                <li key={item.name}>
+              {footerFleetKeys.map((item) => (
+                <li key={item.key}>
                   <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
-                    {item.name}
+                    {t(`links.fleet.${item.key}`)}
                   </Link>
                 </li>
               ))}
@@ -166,14 +168,14 @@ export default function Footer() {
           {/* Yachts */}
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
-              Yachts
+              {t("sections.yachts")}
             </h4>
             <ul className="space-y-3">
-              {footerYachts.map((item) => (
-                <li key={item.name}>
+              {footerYachtKeys.map((item) => (
+                <li key={item.key}>
                   <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
-                    {item.name}
+                    {t(`links.yachts.${item.key}`)}
                   </Link>
                 </li>
               ))}
@@ -183,14 +185,14 @@ export default function Footer() {
           {/* Destinations */}
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
-              Destinations
+              {t("sections.destinations")}
             </h4>
             <ul className="space-y-3">
-              {footerDestinations.map((item) => (
-                <li key={item.name}>
+              {footerDestinationKeys.map((item) => (
+                <li key={item.key}>
                   <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
-                    {item.name}
+                    {t(`links.destinations.${item.key}`)}
                   </Link>
                 </li>
               ))}
@@ -200,14 +202,14 @@ export default function Footer() {
           {/* Resources */}
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
-              Resources
+              {t("sections.resources")}
             </h4>
             <ul className="space-y-3">
-              {footerResources.map((item) => (
-                <li key={item.name}>
+              {footerResourceKeys.map((item) => (
+                <li key={item.key}>
                   <Link href={item.href} className="text-[13px] text-[#A0A0A0] hover:text-[#F4DDC3] transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
-                    {item.name}
+                    {t(`links.resources.${item.key}`)}
                   </Link>
                 </li>
               ))}
@@ -217,7 +219,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.2em] text-[#F4DDC3] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
-              Contact
+              {t("sections.contact")}
             </h4>
             <ul className="space-y-3">
               <li>
@@ -239,7 +241,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-[13px] text-[#6B6B6B] pt-2" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
-                Paris • Monaco • Geneva • Dubai
+                {t("offices")}
               </li>
               <li className="pt-2">
                 <a href="https://wa.me/33676765511" target="_blank" rel="noopener noreferrer"
@@ -276,17 +278,17 @@ export default function Footer() {
           {/* Copyright */}
           <div className="text-center md:text-right">
             <p className="text-[12px] text-[#6B6B6B]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
-              © {new Date().getFullYear()} Skyseaker. All rights reserved.
+              © {new Date().getFullYear()} Skyseaker. {t("copyright")}
             </p>
             <div className="flex items-center gap-4 mt-2 justify-center md:justify-end">
               <Link href="/mentions-legales" className="text-[11px] text-[#6B6B6B] hover:text-[#F4DDC3] transition-colors">
-                Legal Notice
+                {t("legal.legalNotice")}
               </Link>
               <Link href="/politique-confidentialite" className="text-[11px] text-[#6B6B6B] hover:text-[#F4DDC3] transition-colors">
-                Privacy Policy
+                {t("legal.privacyPolicy")}
               </Link>
               <Link href="/conditions-generales" className="text-[11px] text-[#6B6B6B] hover:text-[#F4DDC3] transition-colors">
-                Terms & Conditions
+                {t("legal.termsConditions")}
               </Link>
             </div>
           </div>

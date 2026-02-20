@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function CookieBanner() {
+  const t = useTranslations("cookies");
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -37,8 +39,8 @@ export default function CookieBanner() {
         >
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4" style={{ maxWidth: "1400px", margin: "0 auto" }}>
             <p className="text-[13px] text-[#A0A0A0] max-w-2xl" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
-              We use cookies to improve your experience on our site. By continuing, you accept our{" "}
-              <a href="/politique-confidentialite" className="text-[#F4DDC3] hover:underline">privacy policy</a>.
+              {t("message")}{" "}
+              <a href="/politique-confidentialite" className="text-[#F4DDC3] hover:underline">{t("privacyLink")}</a>.
             </p>
             <div className="flex items-center gap-3 shrink-0">
               <button
@@ -51,7 +53,7 @@ export default function CookieBanner() {
                   fontWeight: 600,
                 }}
               >
-                Customize
+                {t("customize")}
               </button>
               <button
                 onClick={handleAccept}
@@ -63,7 +65,7 @@ export default function CookieBanner() {
                   fontWeight: 600,
                 }}
               >
-                Accept
+                {t("accept")}
               </button>
             </div>
           </div>

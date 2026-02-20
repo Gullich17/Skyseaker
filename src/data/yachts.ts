@@ -1,3 +1,5 @@
+import type { Translatable } from "@/lib/i18n-data";
+
 export interface Yacht {
   id: string;
   name: string;
@@ -19,20 +21,20 @@ export interface Yacht {
   salePrice?: number; // € (achat)
   yearBuilt?: number;
   engines?: string;
-  description: string;
-  idealFor: string[];
+  description: Translatable;
+  idealFor: Translatable[];
   image: string;
 }
 
 export const yachtCategories = [
-  { name: "Tous", slug: "tous" },
-  { name: "Motor Yacht", slug: "motor-yacht" },
-  { name: "Sailing Yacht", slug: "sailing-yacht" },
+  { name: { fr: "Tous", en: "All" } as Translatable, slug: "tous" },
+  { name: "Motor Yacht" as Translatable, slug: "motor-yacht" },
+  { name: "Sailing Yacht" as Translatable, slug: "sailing-yacht" },
 ];
 
 export const yachtSections = [
-  { name: "Charter", slug: "location" },
-  { name: "Purchase", slug: "achat" },
+  { name: { fr: "Location", en: "Charter" } as Translatable, slug: "location" },
+  { name: { fr: "Achat", en: "Purchase" } as Translatable, slug: "achat" },
 ];
 
 // ============================================
@@ -53,8 +55,8 @@ export const yachtsLocation: Yacht[] = [
     guests: 12,
     crew: 2,
     pricePerDay: 5000,
-    description: "The Best Mountain, a 24-meter Leopard, offers generous space for 12 passengers. Ideal for day cruises on the French Riviera, it combines comfort, power and elegance for a premium maritime experience.",
-    idealFor: ["French Riviera Cruise", "Onboard Events", "Large Groups"],
+    description: { fr: "Le Best Mountain, un Leopard de 24 mètres, offre un espace généreux pour 12 passagers. Idéal pour les croisières journalières sur la Côte d'Azur, il allie confort, puissance et élégance pour une expérience maritime premium.", en: "The Best Mountain, a 24-meter Leopard, offers generous space for 12 passengers. Ideal for day cruises on the French Riviera, it combines comfort, power and elegance for a premium maritime experience." },
+    idealFor: [{ fr: "Croisière Côte d'Azur", en: "French Riviera Cruise" }, { fr: "Événements à bord", en: "Onboard Events" }, { fr: "Grands groupes", en: "Large Groups" }],
     image: "/images/yachts/best-mountain.jpg",
   },
   {
@@ -70,8 +72,8 @@ export const yachtsLocation: Yacht[] = [
     guests: 10,
     crew: 2,
     pricePerDay: 2850,
-    description: "The Melek, a Pardo 43, embodies contemporary Italian style. Its sleek lines and spacious walk-around make it the ideal companion for days at sea with friends, combining sportiness and comfort.",
-    idealFor: ["Days at Sea", "Couples and Friends", "Italian Style"],
+    description: { fr: "Le Melek, un Pardo 43, incarne le style italien contemporain. Ses lignes épurées et son walk-around spacieux en font le compagnon idéal pour des journées en mer entre amis, alliant sportivité et confort.", en: "The Melek, a Pardo 43, embodies contemporary Italian style. Its sleek lines and spacious walk-around make it the ideal companion for days at sea with friends, combining sportiness and comfort." },
+    idealFor: [{ fr: "Journées en mer", en: "Days at Sea" }, { fr: "Couples et amis", en: "Couples and Friends" }, { fr: "Style italien", en: "Italian Style" }],
     image: "/images/yachts/melek.jpg",
   },
   {
@@ -87,8 +89,8 @@ export const yachtsLocation: Yacht[] = [
     guests: 10,
     crew: 2,
     pricePerDay: 3400,
-    description: "The Flow, a Cranchi A46, stands out with its avant-garde design and living spaces open to the sea. Perfect for refined coastal cruises with a touch of Italian modernity.",
-    idealFor: ["Coastal Cruise", "Modern Design", "Festive Days"],
+    description: { fr: "Le Flow, un Cranchi A46, se distingue par son design avant-gardiste et ses espaces de vie ouverts sur la mer. Parfait pour les croisières côtières raffinées avec une touche de modernité italienne.", en: "The Flow, a Cranchi A46, stands out with its avant-garde design and living spaces open to the sea. Perfect for refined coastal cruises with a touch of Italian modernity." },
+    idealFor: [{ fr: "Croisière côtière", en: "Coastal Cruise" }, { fr: "Design moderne", en: "Modern Design" }, { fr: "Journées festives", en: "Festive Days" }],
     image: "/images/yachts/flow.jpg",
   },
   {
@@ -104,8 +106,8 @@ export const yachtsLocation: Yacht[] = [
     guests: 10,
     crew: 2,
     pricePerDay: 2400,
-    description: "The Stardust, a Jeanneau Leader 46, offers excellent value for money for memorable days at sea. Its welcoming cockpit and comfortable cabins are perfectly suited for families.",
-    idealFor: ["Families", "Value for Money", "Day Trips"],
+    description: { fr: "Le Stardust, un Jeanneau Leader 46, offre un excellent rapport qualité-prix pour des sorties en mer mémorables. Son cockpit convivial et ses cabines confortables conviennent parfaitement aux familles.", en: "The Stardust, a Jeanneau Leader 46, offers excellent value for money for memorable days at sea. Its welcoming cockpit and comfortable cabins are perfectly suited for families." },
+    idealFor: [{ fr: "Familles", en: "Families" }, { fr: "Rapport qualité-prix", en: "Value for Money" }, { fr: "Sorties journée", en: "Day Trips" }],
     image: "/images/yachts/stardust.jpg",
   },
   {
@@ -121,8 +123,8 @@ export const yachtsLocation: Yacht[] = [
     guests: 8,
     crew: 1,
     pricePerDay: 2100,
-    description: "The Jeavalsebrune, a Jeanneau DB 37, is an elegant and agile day boat. Compact yet refined, it is perfect for exploring the coves and secret anchorages of the Mediterranean coast.",
-    idealFor: ["Day Boat", "Secret Coves", "Small Groups"],
+    description: { fr: "Le Jeavalsebrune, un Jeanneau DB 37, est un day-boat élégant et agile. Compact mais raffiné, il est parfait pour explorer les criques et les mouillages secrets de la côte méditerranéenne.", en: "The Jeavalsebrune, a Jeanneau DB 37, is an elegant and agile day boat. Compact yet refined, it is perfect for exploring the coves and secret anchorages of the Mediterranean coast." },
+    idealFor: [{ fr: "Day-boat", en: "Day Boat" }, { fr: "Criques secrètes", en: "Secret Coves" }, { fr: "Petits groupes", en: "Small Groups" }],
     image: "/images/yachts/jeavalsebrune.jpg",
   },
   {
@@ -138,8 +140,8 @@ export const yachtsLocation: Yacht[] = [
     guests: 12,
     crew: 2,
     pricePerDay: 4800,
-    description: "The J.T.M. 999, a Princess 64, combines British elegance with remarkable performance. Its 20 meters offer a spacious flybridge and luxurious cabins for multi-day cruises.",
-    idealFor: ["Multi-Day Cruise", "British Elegance", "Large Groups"],
+    description: { fr: "Le J.T.M. 999, un Princess 64, allie l'élégance britannique à des performances remarquables. Ses 20 mètres offrent un flybridge spacieux et des cabines luxueuses pour des croisières de plusieurs jours.", en: "The J.T.M. 999, a Princess 64, combines British elegance with remarkable performance. Its 20 meters offer a spacious flybridge and luxurious cabins for multi-day cruises." },
+    idealFor: [{ fr: "Croisière multi-jours", en: "Multi-Day Cruise" }, { fr: "Élégance britannique", en: "British Elegance" }, { fr: "Grands groupes", en: "Large Groups" }],
     image: "/images/yachts/jtm-999.jpg",
   },
   {
@@ -155,8 +157,8 @@ export const yachtsLocation: Yacht[] = [
     guests: 12,
     crew: 2,
     pricePerDay: 3500,
-    description: "The Navetta 52 by Absolute is the ultimate cruising yacht. Its navetta concept offers exceptional interior volume and remarkable stability at sea for optimal cruising comfort.",
-    idealFor: ["Cruising Comfort", "Generous Volume", "Stable Navigation"],
+    description: { fr: "Le Navetta 52 d'Absolute est un yacht de croisière par excellence. Son concept navetta offre des volumes intérieurs exceptionnels et une stabilité remarquable en mer pour un confort de navigation optimal.", en: "The Navetta 52 by Absolute is the ultimate cruising yacht. Its navetta concept offers exceptional interior volume and remarkable stability at sea for optimal cruising comfort." },
+    idealFor: [{ fr: "Confort de croisière", en: "Cruising Comfort" }, { fr: "Volumes généreux", en: "Generous Volume" }, { fr: "Navigation stable", en: "Stable Navigation" }],
     image: "/images/yachts/navetta-52.jpg",
   },
   {
@@ -172,8 +174,8 @@ export const yachtsLocation: Yacht[] = [
     guests: 8,
     crew: 2,
     pricePerDay: 2000,
-    description: "The Cayman 400 WA is a versatile and accessible walkaround. Ideal for day trips, it offers a beautiful deck space and a comfortable cabin for coastal getaways.",
-    idealFor: ["Day Trips", "Budget-Friendly", "Coastal Getaways"],
+    description: { fr: "Le Cayman 400 WA est un walkaround polyvalent et accessible. Idéal pour les sorties journalières, il offre un bel espace de pont et une cabine confortable pour les escapades côtières.", en: "The Cayman 400 WA is a versatile and accessible walkaround. Ideal for day trips, it offers a beautiful deck space and a comfortable cabin for coastal getaways." },
+    idealFor: [{ fr: "Sorties journalières", en: "Day Trips" }, { fr: "Budget maîtrisé", en: "Budget-Friendly" }, { fr: "Escapades côtières", en: "Coastal Getaways" }],
     image: "/images/yachts/cayman-400-wa.jpg",
   },
   {
@@ -189,8 +191,8 @@ export const yachtsLocation: Yacht[] = [
     guests: 10,
     crew: 2,
     pricePerDay: 3400,
-    description: "The Calyana, an Azimut 51, embodies Italian luxury at sea. Its signature design and high-end finishes offer a refined cruising experience between Cannes, Saint-Tropez and the Lerins Islands.",
-    idealFor: ["Italian Luxury", "French Riviera", "Refined Cruise"],
+    description: { fr: "Le Calyana, un Azimut 51, incarne le luxe italien sur mer. Son design signé et ses finitions haut de gamme offrent une expérience de croisière raffinée entre Cannes, Saint-Tropez et les îles de Lérins.", en: "The Calyana, an Azimut 51, embodies Italian luxury at sea. Its signature design and high-end finishes offer a refined cruising experience between Cannes, Saint-Tropez and the Lerins Islands." },
+    idealFor: [{ fr: "Luxe italien", en: "Italian Luxury" }, { fr: "Côte d'Azur", en: "French Riviera" }, { fr: "Croisière raffinée", en: "Refined Cruise" }],
     image: "/images/yachts/calyana.jpg",
   },
   {
@@ -206,8 +208,8 @@ export const yachtsLocation: Yacht[] = [
     guests: 8,
     crew: 2,
     pricePerDay: 2500,
-    description: "The Fjord 44 stands out with its bold Scandinavian design and sea performance. Its signature T-top and spacious cockpit make it a premium day boat unique in the Mediterranean.",
-    idealFor: ["Scandinavian Design", "Premium Day Boat", "Sporty Outings"],
+    description: { fr: "Le Fjord 44 se distingue par son design scandinave audacieux et ses performances en mer. Son T-top caractéristique et son cockpit spacieux en font un day-boat haut de gamme unique en Méditerranée.", en: "The Fjord 44 stands out with its bold Scandinavian design and sea performance. Its signature T-top and spacious cockpit make it a premium day boat unique in the Mediterranean." },
+    idealFor: [{ fr: "Design scandinave", en: "Scandinavian Design" }, { fr: "Day-boat premium", en: "Premium Day Boat" }, { fr: "Sorties sportives", en: "Sporty Outings" }],
     image: "/images/yachts/fjord-44.jpg",
   },
   {
@@ -223,8 +225,8 @@ export const yachtsLocation: Yacht[] = [
     guests: 10,
     crew: 1,
     pricePerDay: 3950,
-    description: "The Arlias, a Pardo 50, is the ultimate luxury walkaround. Its XXL swim platform, forward sunbed and modular cockpit offer an unparalleled Mediterranean sailing experience.",
-    idealFor: ["Luxury Walkaround", "Swimming", "Mediterranean Style"],
+    description: { fr: "L'Arlias, un Pardo 50, est le walkaround de luxe par excellence. Sa plateforme de bain XXL, son bain de soleil avant et son cockpit modulable offrent une expérience de navigation méditerranéenne incomparable.", en: "The Arlias, a Pardo 50, is the ultimate luxury walkaround. Its XXL swim platform, forward sunbed and modular cockpit offer an unparalleled Mediterranean sailing experience." },
+    idealFor: [{ fr: "Walkaround de luxe", en: "Luxury Walkaround" }, { fr: "Baignade", en: "Swimming" }, { fr: "Style méditerranéen", en: "Mediterranean Style" }],
     image: "/images/yachts/arlias.jpg",
   },
   {
@@ -240,8 +242,8 @@ export const yachtsLocation: Yacht[] = [
     guests: 10,
     crew: 2,
     pricePerDay: 4150,
-    description: "The Baccarat, an Invictus TT 460, captivates with its sleek Italian design and dynamic performance. Its elegant hardtop and generous cockpit make it a premium choice for enthusiasts of fine engineering.",
-    idealFor: ["Sleek Design", "Performance", "VIP Events"],
+    description: { fr: "Le Baccarat, un Invictus TT 460, séduit par son design italien racé et ses performances dynamiques. Son hardtop élégant et son cockpit généreux en font un choix premium pour les amateurs de belles mécaniques.", en: "The Baccarat, an Invictus TT 460, captivates with its sleek Italian design and dynamic performance. Its elegant hardtop and generous cockpit make it a premium choice for enthusiasts of fine engineering." },
+    idealFor: [{ fr: "Design racé", en: "Sleek Design" }, { fr: "Performances", en: "Performance" }, { fr: "Événements VIP", en: "VIP Events" }],
     image: "/images/yachts/baccarat.jpg",
   },
   {
@@ -257,8 +259,8 @@ export const yachtsLocation: Yacht[] = [
     guests: 8,
     crew: 1,
     pricePerDay: 1600,
-    description: "The Navis, a Pardo 38, is the ideal entry point into the Pardo world. Agile and elegant, it offers the brand's style and performance in a compact format, perfect for day trips.",
-    idealFor: ["Premium Entry-Level", "Day Boat", "Couples and Small Groups"],
+    description: { fr: "Le Navis, un Pardo 38, est l'entrée de gamme idéale dans l'univers Pardo. Agile et élégant, il offre le style et les performances de la marque dans un format compact, parfait pour les sorties à la journée.", en: "The Navis, a Pardo 38, is the ideal entry point into the Pardo world. Agile and elegant, it offers the brand's style and performance in a compact format, perfect for day trips." },
+    idealFor: [{ fr: "Entrée de gamme premium", en: "Premium Entry-Level" }, { fr: "Day-boat", en: "Day Boat" }, { fr: "Couples et petits groupes", en: "Couples and Small Groups" }],
     image: "/images/yachts/navis.jpg",
   },
   {
@@ -274,8 +276,8 @@ export const yachtsLocation: Yacht[] = [
     guests: 10,
     crew: 1,
     pricePerDay: 3950,
-    description: "The Infinity Dream, a second Pardo 50 in our fleet, is a testament to the excellence of this model. Equipped for ultimate comfort, it is ideal for sunny days between Saint-Tropez and the Golden Islands.",
-    idealFor: ["Saint-Tropez", "Golden Islands", "Sunny Days"],
+    description: { fr: "L'Infinity Dream, un second Pardo 50 de notre flotte, témoigne de l'excellence de ce modèle. Équipé pour le grand confort, il est idéal pour les journées ensoleillées entre Saint-Tropez et les Îles d'Or.", en: "The Infinity Dream, a second Pardo 50 in our fleet, is a testament to the excellence of this model. Equipped for ultimate comfort, it is ideal for sunny days between Saint-Tropez and the Golden Islands." },
+    idealFor: [{ fr: "Saint-Tropez", en: "Saint-Tropez" }, { fr: "Îles d'Or", en: "Golden Islands" }, { fr: "Journées ensoleillées", en: "Sunny Days" }],
     image: "/images/yachts/infinity-dream.jpg",
   },
 ];
@@ -298,8 +300,8 @@ export const yachtsAchat: Yacht[] = [
     guests: 12,
     crew: 10,
     salePrice: 1350000,
-    description: "The Oceanco 80 is a 24-meter motor yacht offering superyacht-level amenities. With 10 crew members and generous space for 12 guests, it is ready for the Mediterranean or the Caribbean.",
-    idealFor: ["Semi-Superyacht", "Large Groups", "Long-Range Cruise"],
+    description: { fr: "L'Oceanco 80 est un motor yacht de 24 mètres offrant des prestations de superyacht. Avec 10 membres d'équipage et un espace généreux pour 12 invités, il est prêt pour la Méditerranée ou les Caraïbes.", en: "The Oceanco 80 is a 24-meter motor yacht offering superyacht-level amenities. With 10 crew members and generous space for 12 guests, it is ready for the Mediterranean or the Caribbean." },
+    idealFor: [{ fr: "Semi-superyacht", en: "Semi-Superyacht" }, { fr: "Grands groupes", en: "Large Groups" }, { fr: "Croisière longue", en: "Long-Range Cruise" }],
     image: "/images/yachts/oceanco-80.jpg",
   },
   {
@@ -315,8 +317,8 @@ export const yachtsAchat: Yacht[] = [
     guests: 12,
     crew: 0,
     salePrice: 775000,
-    description: "The Sasga 42 FB Menorquin is an authentic Mediterranean trawler. Robust and economical, it offers smooth navigation and remarkable cruising comfort with its spacious flybridge.",
-    idealFor: ["Mediterranean Trawler", "Economical Navigation", "Family Cruise"],
+    description: { fr: "Le Sasga 42 FB Menorquin est un trawler méditerranéen authentique. Robuste et économique, il offre une navigation douce et un confort de croisière remarquable avec son flybridge spacieux.", en: "The Sasga 42 FB Menorquin is an authentic Mediterranean trawler. Robust and economical, it offers smooth navigation and remarkable cruising comfort with its spacious flybridge." },
+    idealFor: [{ fr: "Trawler méditerranéen", en: "Mediterranean Trawler" }, { fr: "Navigation économique", en: "Economical Navigation" }, { fr: "Croisière familiale", en: "Family Cruise" }],
     image: "/images/yachts/sasga-42-fb.jpg",
   },
   {
@@ -332,8 +334,8 @@ export const yachtsAchat: Yacht[] = [
     guests: 8,
     crew: 4,
     salePrice: 550000,
-    description: "The Trehard 70 is a classic 21-meter sailing yacht combining timeless elegance with sailing performance. Its precious wood interior and 4 cabins make it a yacht of character.",
-    idealFor: ["Classic Sailing", "Ocean Crossings", "Character and Elegance"],
+    description: { fr: "Le Trehard 70 est un voilier classique de 21 mètres alliant élégance intemporelle et performances sous voile. Son intérieur en bois précieux et ses 4 cabines en font un voilier de caractère.", en: "The Trehard 70 is a classic 21-meter sailing yacht combining timeless elegance with sailing performance. Its precious wood interior and 4 cabins make it a yacht of character." },
+    idealFor: [{ fr: "Voile classique", en: "Classic Sailing" }, { fr: "Traversées", en: "Ocean Crossings" }, { fr: "Caractère et élégance", en: "Character and Elegance" }],
     image: "/images/yachts/trehard-70.jpg",
   },
   {
@@ -349,8 +351,8 @@ export const yachtsAchat: Yacht[] = [
     guests: 12,
     crew: 0,
     salePrice: 680000,
-    description: "The Boston Whaler 380 Outrage is a benchmark center-console. Unsinkable and high-performing, it excels in sport fishing as well as family cruising. A robust and reliable American boat.",
-    idealFor: ["Sport Fishing", "Center Console", "American Robustness"],
+    description: { fr: "Le Boston Whaler 380 Outrage est un center-console de référence. Insubmersible et performant, il est aussi à l'aise en pêche sportive qu'en croisière familiale. Un bateau américain robuste et fiable.", en: "The Boston Whaler 380 Outrage is a benchmark center-console. Unsinkable and high-performing, it excels in sport fishing as well as family cruising. A robust and reliable American boat." },
+    idealFor: [{ fr: "Pêche sportive", en: "Sport Fishing" }, { fr: "Center-console", en: "Center Console" }, { fr: "Robustesse américaine", en: "American Robustness" }],
     image: "/images/yachts/boston-whaler-380.jpg",
   },
   {
@@ -366,8 +368,8 @@ export const yachtsAchat: Yacht[] = [
     guests: 10,
     crew: 0,
     salePrice: 450000,
-    description: "The Beneteau GT 41 is a sporty cruiser with an attractive design. Its high-performance hull and refined accommodations make it an excellent choice for lovers of sporty and elegant navigation.",
-    idealFor: ["Sporty Cruiser", "French Design", "Elegant Navigation"],
+    description: { fr: "Le Beneteau GT 41 est un cruiser sportif au design séduisant. Sa carène performante et ses aménagements soignés en font un excellent choix pour les amateurs de navigation sportive et élégante.", en: "The Beneteau GT 41 is a sporty cruiser with an attractive design. Its high-performance hull and refined accommodations make it an excellent choice for lovers of sporty and elegant navigation." },
+    idealFor: [{ fr: "Cruiser sportif", en: "Sporty Cruiser" }, { fr: "Design français", en: "French Design" }, { fr: "Navigation élégante", en: "Elegant Navigation" }],
     image: "/images/yachts/beneteau-gt-41.jpg",
   },
   {
@@ -383,8 +385,8 @@ export const yachtsAchat: Yacht[] = [
     guests: 10,
     crew: 0,
     salePrice: 360000,
-    description: "The Riva Aquarius 54 carries the iconic signature of the Italian brand. Its sleek lines and artisan craftsmanship make it a desirable and timeless yacht, a symbol of Mediterranean glamour.",
-    idealFor: ["Riva Icon", "Italian Glamour", "Passion Investment"],
+    description: { fr: "Le Riva Aquarius 54 porte la signature iconique de la marque italienne. Ses lignes racées et son savoir-faire artisanal en font un yacht désirable et intemporel, symbole du glamour méditerranéen.", en: "The Riva Aquarius 54 carries the iconic signature of the Italian brand. Its sleek lines and artisan craftsmanship make it a desirable and timeless yacht, a symbol of Mediterranean glamour." },
+    idealFor: [{ fr: "Icône Riva", en: "Riva Icon" }, { fr: "Glamour italien", en: "Italian Glamour" }, { fr: "Investissement passion", en: "Passion Investment" }],
     image: "/images/yachts/riva-aquarius-54.jpg",
   },
   {
@@ -400,8 +402,8 @@ export const yachtsAchat: Yacht[] = [
     guests: 10,
     crew: 4,
     salePrice: 5500000,
-    description: "The Azimut Magellano 25 is a 25-meter explorer yacht designed for long-range voyages. Its design by Ken Freivokh and exceptional interior volume make it a first-class exploration yacht.",
-    idealFor: ["Exploration", "Long-Range Voyages", "Azimut Luxury"],
+    description: { fr: "L'Azimut Magellano 25 est un explorer yacht de 25 mètres conçu pour les grandes traversées. Son design signé Ken Freivokh et ses volumes intérieurs exceptionnels en font un yacht d'exploration de premier ordre.", en: "The Azimut Magellano 25 is a 25-meter explorer yacht designed for long-range voyages. Its design by Ken Freivokh and exceptional interior volume make it a first-class exploration yacht." },
+    idealFor: [{ fr: "Exploration", en: "Exploration" }, { fr: "Grandes traversées", en: "Long-Range Voyages" }, { fr: "Luxe Azimut", en: "Azimut Luxury" }],
     image: "/images/yachts/azimut-magellano-25.jpg",
   },
   {
@@ -417,8 +419,8 @@ export const yachtsAchat: Yacht[] = [
     guests: 12,
     crew: 0,
     salePrice: 350000,
-    description: "The CNB 64 is an offshore cruising sailboat built in Bordeaux. Its optimized deck plan and refined accommodations make it an excellent companion for demanding sailors.",
-    idealFor: ["Offshore Sailboat", "French Craftsmanship", "Demanding Navigation"],
+    description: { fr: "Le CNB 64 est un voilier de croisière hauturier construit à Bordeaux. Son plan de pont optimisé et ses aménagements raffinés en font un excellent compagnon pour les navigateurs exigeants.", en: "The CNB 64 is an offshore cruising sailboat built in Bordeaux. Its optimized deck plan and refined accommodations make it an excellent companion for demanding sailors." },
+    idealFor: [{ fr: "Voilier hauturier", en: "Offshore Sailboat" }, { fr: "Construction française", en: "French Craftsmanship" }, { fr: "Navigation exigeante", en: "Demanding Navigation" }],
     image: "/images/yachts/cnb-64.jpg",
   },
   {
@@ -434,8 +436,8 @@ export const yachtsAchat: Yacht[] = [
     guests: 9,
     crew: 0,
     salePrice: 350000,
-    description: "The CNB 70, big sister of the 64, offers even more space and comfort for extended cruising. Its semi-custom construction allows extensive customization of the interior layout.",
-    idealFor: ["Extended Cruising", "Semi-Custom", "Performance and Comfort"],
+    description: { fr: "Le CNB 70, grand frère du 64, offre encore plus d'espace et de confort pour la grande croisière. Sa construction semi-custom permet une personnalisation poussée des aménagements intérieurs.", en: "The CNB 70, big sister of the 64, offers even more space and comfort for extended cruising. Its semi-custom construction allows extensive customization of the interior layout." },
+    idealFor: [{ fr: "Grande croisière", en: "Extended Cruising" }, { fr: "Semi-custom", en: "Semi-Custom" }, { fr: "Performance et confort", en: "Performance and Comfort" }],
     image: "/images/yachts/cnb-70.jpg",
   },
   {
@@ -451,8 +453,8 @@ export const yachtsAchat: Yacht[] = [
     guests: 10,
     crew: 5,
     salePrice: 3700000,
-    description: "The Maiora 31 DP is a 32-meter Italian superyacht offering exceptional volume and comfort. Its open main deck and generous flybridge create remarkable living spaces.",
-    idealFor: ["Italian Superyacht", "Large Volume", "Prestige"],
+    description: { fr: "Le Maiora 31 DP est un superyacht italien de 32 mètres offrant un volume et un confort exceptionnels. Son pont principal ouvert et son flybridge généreux créent des espaces de vie remarquables.", en: "The Maiora 31 DP is a 32-meter Italian superyacht offering exceptional volume and comfort. Its open main deck and generous flybridge create remarkable living spaces." },
+    idealFor: [{ fr: "Superyacht italien", en: "Italian Superyacht" }, { fr: "Grand volume", en: "Large Volume" }, { fr: "Prestige", en: "Prestige" }],
     image: "/images/yachts/maiora-31-dp.jpg",
   },
   {
@@ -468,8 +470,8 @@ export const yachtsAchat: Yacht[] = [
     guests: 8,
     crew: 4,
     salePrice: 2500000,
-    description: "The Maiora 27, the accessible flagship of the Italian brand, offers the amenities of a much larger yacht. Its 4 spacious cabins and dedicated crew guarantee a high-end cruise.",
-    idealFor: ["Premium Italian Yacht", "All-Comfort Cruise", "4 Spacious Cabins"],
+    description: { fr: "Le Maiora 27, navire amiral accessible de la marque italienne, offre les prestations d'un yacht bien plus grand. Ses 4 cabines spacieuses et son équipage dédié garantissent une croisière de haut standing.", en: "The Maiora 27, the accessible flagship of the Italian brand, offers the amenities of a much larger yacht. Its 4 spacious cabins and dedicated crew guarantee a high-end cruise." },
+    idealFor: [{ fr: "Yacht italien premium", en: "Premium Italian Yacht" }, { fr: "Croisière tout confort", en: "All-Comfort Cruise" }, { fr: "4 cabines spacieuses", en: "4 Spacious Cabins" }],
     image: "/images/yachts/maiora-27.jpg",
   },
   {
@@ -485,8 +487,8 @@ export const yachtsAchat: Yacht[] = [
     guests: 8,
     crew: 3,
     salePrice: 510000,
-    description: "The Cantieri di Pisa Akhir 22 is a classic of Italian shipbuilding. Its timeless lines and solid construction make it a yacht of character for lovers of fine vessels.",
-    idealFor: ["Italian Classic", "Solid Construction", "Character Yacht"],
+    description: { fr: "Le Cantieri di Pisa Akhir 22 est un classique de la construction navale italienne. Ses lignes intemporelles et sa construction solide en font un yacht de caractère pour les amateurs de belles unités.", en: "The Cantieri di Pisa Akhir 22 is a classic of Italian shipbuilding. Its timeless lines and solid construction make it a yacht of character for lovers of fine vessels." },
+    idealFor: [{ fr: "Classique italien", en: "Italian Classic" }, { fr: "Construction solide", en: "Solid Construction" }, { fr: "Yacht de caractère", en: "Character Yacht" }],
     image: "/images/yachts/cantieri-di-pisa-akhir-22.jpg",
   },
   {
@@ -502,8 +504,8 @@ export const yachtsAchat: Yacht[] = [
     guests: 8,
     crew: 2,
     salePrice: 300000,
-    description: "The Custom Phenix Dixi is a 20-meter bespoke yacht offering a unique acquisition opportunity. Its custom construction and personalized layout make it a one-of-a-kind vessel.",
-    idealFor: ["Custom Yacht", "Unique Opportunity", "Customization Project"],
+    description: { fr: "Le Custom Phenix Dixi est un yacht sur mesure de 20 mètres offrant une opportunité d'acquisition unique. Sa construction custom et son aménagement personnalisé en font un navire singulier.", en: "The Custom Phenix Dixi is a 20-meter bespoke yacht offering a unique acquisition opportunity. Its custom construction and personalized layout make it a one-of-a-kind vessel." },
+    idealFor: [{ fr: "Yacht custom", en: "Custom Yacht" }, { fr: "Opportunité unique", en: "Unique Opportunity" }, { fr: "Projet de personnalisation", en: "Customization Project" }],
     image: "/images/yachts/custom-phenix-dixi.jpg",
   },
   {
@@ -519,8 +521,8 @@ export const yachtsAchat: Yacht[] = [
     guests: 6,
     crew: 0,
     salePrice: 249000,
-    description: "The Dariel DTS is a compact and accessible cruiser. Perfect for a first purchase, it offers quality amenities in a manageable and economical-to-maintain format.",
-    idealFor: ["First Purchase", "Compact and Manageable", "Budget-Friendly"],
+    description: { fr: "Le Dariel DTS est un cruiser compact et accessible. Parfait pour une première acquisition, il offre des prestations de qualité dans un format maniable et économique à l'entretien.", en: "The Dariel DTS is a compact and accessible cruiser. Perfect for a first purchase, it offers quality amenities in a manageable and economical-to-maintain format." },
+    idealFor: [{ fr: "Première acquisition", en: "First Purchase" }, { fr: "Compact et maniable", en: "Compact and Manageable" }, { fr: "Budget maîtrisé", en: "Budget-Friendly" }],
     image: "/images/yachts/dariel-dts.jpg",
   },
 ];

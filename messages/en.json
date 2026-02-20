@@ -1,0 +1,1553 @@
+{
+  "metadata": {
+    "title": "Skyseaker — Private Jet Charter | Luxury Business Aviation",
+    "siteName": "Skyseaker — Private Aviation",
+    "description": "Skyseaker, your luxury private aviation partner. Private jet charter, empty legs, concierge services and exclusive experiences. Available 24/7 with over 8,500 aircraft."
+  },
+  "header": {
+    "nav": {
+      "services": "Services",
+      "fleet": "Fleet",
+      "yachts": "Yachts",
+      "destinations": "Destinations",
+      "experiences": "Experiences"
+    },
+    "requestQuote": "Request a Quote",
+    "categories": "Categories",
+    "tools": "Tools",
+    "viewEntireFleet": "View Entire Fleet",
+    "jetComparisonTool": "Jet Comparison Tool",
+    "availableEmptyLegs": "Available Empty Legs",
+    "viewAllYachts": "View All Yachts",
+    "yachtComparisonTool": "Yacht Comparison Tool",
+    "services": {
+      "bespokeCharter": {
+        "name": "Bespoke Charter",
+        "desc": "Tailored flights, 8,500+ aircraft"
+      },
+      "emptyLegs": {
+        "name": "Empty Legs",
+        "desc": "Up to 75% off your jet"
+      },
+      "groupTravel": {
+        "name": "Group Travel",
+        "desc": "From 10 to 50+ passengers"
+      },
+      "urgentCargo": {
+        "name": "Urgent Cargo",
+        "desc": "Worldwide express delivery"
+      },
+      "concierge": {
+        "name": "Concierge & Lifestyle",
+        "desc": "Bespoke experiences"
+      },
+      "vipTransfers": {
+        "name": "VIP Transfers",
+        "desc": "Sedans, SUVs, helicopters"
+      },
+      "aircraftManagement": {
+        "name": "Aircraft Management",
+        "desc": "Optimise your investment"
+      },
+      "jetSales": {
+        "name": "Jet Sales & Acquisitions",
+        "desc": "Purchase & sale"
+      }
+    },
+    "fleetCategories": {
+      "viewEntireFleet": "View Entire Fleet",
+      "veryLightJet": "Very Light Jet",
+      "lightJet": "Light Jet",
+      "superLightJet": "Super Light Jet",
+      "superMidsizeJet": "Super Midsize Jet",
+      "heavyJet": "Heavy Jet",
+      "ultraLongRange": "Ultra Long Range",
+      "vipAirliner": "VIP Airliner",
+      "helicopter": "Helicopter",
+      "turboprop": "Turboprop"
+    },
+    "yachtCategories": {
+      "charter": "Charter",
+      "purchase": "Purchase",
+      "motorYacht": "Motor Yacht",
+      "sailingYacht": "Sailing Yacht"
+    }
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Receive our exclusive offers",
+      "placeholder": "Your email address",
+      "subscribe": "Subscribe"
+    },
+    "sections": {
+      "services": "Services",
+      "fleet": "Fleet",
+      "yachts": "Yachts",
+      "destinations": "Destinations",
+      "resources": "Resources",
+      "contact": "Contact"
+    },
+    "links": {
+      "services": {
+        "charter": "Charter",
+        "emptyLegs": "Empty Legs",
+        "groupTravel": "Group Travel",
+        "urgentCargo": "Urgent Cargo",
+        "concierge": "Concierge",
+        "vipTransfers": "VIP Transfers",
+        "aircraftManagement": "Aircraft Management",
+        "salesAcquisitions": "Sales & Acquisitions"
+      },
+      "fleet": {
+        "entireFleet": "Entire Fleet",
+        "lightJet": "Light Jet",
+        "superMidsize": "Super Midsize",
+        "heavyJet": "Heavy Jet",
+        "ultraLongRange": "Ultra Long Range",
+        "comparisonTool": "Comparison Tool"
+      },
+      "yachts": {
+        "charter": "Charter",
+        "purchase": "Purchase",
+        "motorYacht": "Motor Yacht",
+        "sailingYacht": "Sailing Yacht",
+        "comparisonTool": "Comparison Tool"
+      },
+      "destinations": {
+        "geneva": "Geneva",
+        "london": "London",
+        "mykonos": "Mykonos",
+        "dubai": "Dubai",
+        "marrakech": "Marrakech",
+        "nice": "Nice",
+        "ibiza": "Ibiza",
+        "allDestinations": "All Destinations"
+      },
+      "resources": {
+        "blog": "Blog",
+        "faq": "FAQ",
+        "aviationGlossary": "Aviation Glossary",
+        "experiences": "Experiences",
+        "aboutUs": "About Us"
+      }
+    },
+    "offices": "Paris • Monaco • Geneva • Dubai",
+    "copyright": "All rights reserved.",
+    "legal": {
+      "legalNotice": "Legal Notice",
+      "privacyPolicy": "Privacy Policy",
+      "termsConditions": "Terms & Conditions"
+    }
+  },
+  "common": {
+    "requestQuote": "Request a Quote",
+    "callUs": "Call Us",
+    "contactUs": "Contact Us",
+    "learnMore": "Learn More →",
+    "viewDetails": "View Details →",
+    "viewDetailsAlt": "View details →",
+    "discover": "Discover →",
+    "backToHome": "Back to Home",
+    "popular": "Popular",
+    "available247": "Available 24/7",
+    "send": "Send",
+    "startingFrom": "Starting from",
+    "fromParis": "from Paris",
+    "passengers": "Passengers",
+    "range": "Range",
+    "speed": "Speed",
+    "maxSpeed": "Max Speed",
+    "luggage": "Luggage",
+    "cabins": "Cabins",
+    "guests": "Guests",
+    "length": "Length",
+    "crew": "Crew",
+    "beam": "Beam",
+    "draft": "Draft",
+    "cruisingSpeed": "Cruising speed",
+    "maximumSpeed": "Maximum speed",
+    "engines": "Engines",
+    "year": "Year",
+    "builder": "Builder",
+    "category": "Category",
+    "pax": "pax",
+    "seats": "seats",
+    "people": "people",
+    "members": "members",
+    "knots": "knots",
+    "available": "available",
+    "aircraft": "aircraft",
+    "notSelected": "Not selected",
+    "all": "All"
+  },
+  "cookies": {
+    "message": "We use cookies to improve your experience on our site. By continuing, you accept our",
+    "privacyLink": "privacy policy",
+    "customize": "Customize",
+    "accept": "Accept"
+  },
+  "widget": {
+    "title": "Assistance",
+    "subtitle": "Available 24/7",
+    "contactUs": "Contact Us"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Destination Not Found",
+    "subtitle": "The page you're looking for seems to have taken flight",
+    "description": "Check the URL or let us guide you to your next destination.",
+    "backHome": "Back to Home",
+    "requestQuote": "Request a Quote",
+    "popularPages": "Popular Pages",
+    "links": {
+      "services": "Our Services",
+      "fleet": "Our Fleet",
+      "yachts": "Yachts",
+      "destinations": "Destinations",
+      "emptyLegs": "Empty Legs",
+      "contact": "Contact"
+    }
+  },
+  "home": {
+    "hero": {
+      "preTitle": "PRIVATE JET & YACHT CHARTER",
+      "title1": "Your World,",
+      "title2": "Our Priority",
+      "tabs": {
+        "flight": "Flight",
+        "yacht": "Yacht"
+      },
+      "tripTypes": {
+        "oneWay": "One Way",
+        "roundTrip": "Round Trip",
+        "multiCity": "Multi-City"
+      },
+      "form": {
+        "departure": "Departure",
+        "destination": "Destination",
+        "passengers": "Passengers",
+        "cityOrAirport": "City or airport",
+        "date": "Date",
+        "dates": "Dates",
+        "submitFlight": "Get Your Free Flight Estimate",
+        "submitYacht": "Get Your Free Cruise Estimate",
+        "disclaimer": "Response within 30 minutes • Available 24/7 • No commitment"
+      },
+      "yachtForm": {
+        "title": "Your Private Cruise",
+        "cruisingArea": "Cruising Area",
+        "embarkation": "Embarkation",
+        "disembarkation": "Disembarkation",
+        "guests": "Guests",
+        "zones": {
+          "mediterranean": "Mediterranean",
+          "caribbean": "Caribbean",
+          "asiaPacific": "Asia-Pacific",
+          "northernEurope": "Northern Europe",
+          "indianOcean": "Indian Ocean",
+          "other": "Other"
+        }
+      },
+      "options": {
+        "petsOnBoard": "Pets on Board",
+        "oversizedLuggage": "Oversized Luggage",
+        "specialCatering": "Special Catering",
+        "groundTransfer": "Ground Transfer"
+      }
+    },
+    "trust": {
+      "flightsCompleted": "Flights Completed",
+      "passengersCarried": "Passengers Carried",
+      "aircraftAvailable": "Aircraft Available",
+      "availability": "Availability",
+      "clientSatisfaction": "Client Satisfaction"
+    },
+    "services": {
+      "preTitle": "OUR SERVICES",
+      "title": "Comprehensive Private Aviation Solutions",
+      "subtitle": "From bespoke charter services to exclusive experiences, we cover every aspect of luxury travel",
+      "cards": {
+        "bespokeCharter": {
+          "title": "Bespoke Charter",
+          "description": "Access to over 8,500 aircraft worldwide. Each flight is tailored to your needs: schedule, route, onboard service."
+        },
+        "emptyLegs": {
+          "title": "Empty Legs",
+          "description": "Enjoy flights at reduced rates (up to -75%) on repositioning flights available across Europe."
+        },
+        "groupTravel": {
+          "title": "Group Travel",
+          "description": "From 10 to 300+ passengers. Ideal for corporate events, incentive trips, and sports team charters."
+        },
+        "urgentCargo": {
+          "title": "Urgent Cargo",
+          "description": "Express air freight worldwide. Pickup in under 2 hours, door-to-door delivery across Europe."
+        },
+        "concierge": {
+          "title": "Concierge & Lifestyle",
+          "description": "A dedicated concierge for your entire trip: hotels, restaurants, transfers, events and activities."
+        },
+        "exclusiveExperiences": {
+          "title": "Exclusive Experiences",
+          "description": "Curated luxury packages: Grand Prix, fashion weeks, wine tours, and bespoke adventures."
+        }
+      },
+      "viewAll": "View All Services",
+      "viewAllCta": "View All Our Services →"
+    },
+    "whyChooseUs": {
+      "preTitle": "WHY CHOOSE SKYSEAKER",
+      "title": "The Excellence You Deserve",
+      "subtitle": "Four pillars that set us apart in the world of private aviation",
+      "points": {
+        "responsiveness": {
+          "title": "Responsiveness",
+          "description": "Quote within 30 minutes, aircraft ready in 2 hours. Our team operates 24/7, 365 days a year to meet your every need."
+        },
+        "transparency": {
+          "title": "Transparency",
+          "description": "Clear and detailed quotes with no hidden fees. Every cost item is explained upfront. No surprises, ever."
+        },
+        "safety": {
+          "title": "Safety",
+          "description": "Operators certified by EASA and FAA. Rigorous audits, experienced crew, and impeccable aircraft."
+        },
+        "bespoke": {
+          "title": "Bespoke",
+          "description": "Every flight is unique. From catering to ground logistics, every detail is customized to your preferences."
+        }
+      },
+      "cta": "Discover Our Approach"
+    },
+    "fleetShowcase": {
+      "preTitle": "OUR FLEET",
+      "title": "Access the World's Finest Aircraft",
+      "subtitle": "From very light jets to VIP airliners, explore our fleet of over 8,500 aircraft",
+      "scrollHint": "Scroll to see more",
+      "exploreFull": "Explore the Full Fleet",
+      "compareAircraft": "Compare Aircraft →"
+    },
+    "yachtShowcase": {
+      "preTitle": "OUR YACHTS",
+      "title": "Discover Our Prestigious Nautical Fleet",
+      "subtitle": "Motor yachts, sailing yachts, catamarans and mega yachts for unforgettable cruises",
+      "exploreAll": "Explore All Yachts",
+      "compareYachts": "Compare Yachts →"
+    },
+    "emptyLegs": {
+      "preTitle": "EMPTY LEGS",
+      "title": "Fly Private at Reduced Prices",
+      "subtitle": "Take advantage of repositioning flights at up to 75% off regular rates",
+      "viewAll": "View All Empty Legs",
+      "setAlert": "Set an Alert"
+    },
+    "destinations": {
+      "preTitle": "DESTINATIONS",
+      "title": "The World's Most Coveted Destinations",
+      "subtitle": "Fly to the most exclusive addresses around the globe in complete privacy",
+      "cards": {
+        "geneva": {
+          "name": "Geneva",
+          "country": "Switzerland",
+          "time": "1h15"
+        },
+        "london": {
+          "name": "London",
+          "country": "United Kingdom",
+          "time": "1h20"
+        },
+        "mykonos": {
+          "name": "Mykonos",
+          "country": "Greece",
+          "time": "3h"
+        },
+        "dubai": {
+          "name": "Dubai",
+          "country": "United Arab Emirates",
+          "time": "6h30"
+        },
+        "marrakech": {
+          "name": "Marrakech",
+          "country": "Morocco",
+          "time": "3h15"
+        },
+        "ibiza": {
+          "name": "Ibiza",
+          "country": "Spain",
+          "time": "2h"
+        }
+      },
+      "viewAll": "View All Destinations"
+    },
+    "testimonials": {
+      "preTitle": "TESTIMONIALS",
+      "title": "The Trust of Our Clients",
+      "subtitle": "Discover why our clients choose Skyseaker for their private flights",
+      "items": {
+        "1": {
+          "quote": "Exceptional service. The team organized our Paris-Geneva flight in under 3 hours. Impeccable attention to detail, from catering to ground transfers. A truly seamless experience.",
+          "name": "Laurent M.",
+          "role": "CEO, Private Equity Fund"
+        },
+        "2": {
+          "quote": "We use Skyseaker for all our corporate flights. Their responsiveness and professionalism are unmatched. Empty leg offers have saved us up to 60% on some routes.",
+          "name": "Sophie D.",
+          "role": "Executive Assistant, CAC 40"
+        },
+        "3": {
+          "quote": "For our wedding in Mykonos, Skyseaker organized the transfer of 45 guests from Paris. Impeccable coordination, perfect timing, and exceptional service aboard.",
+          "name": "Pierre & Marie L.",
+          "role": "Private Clients"
+        }
+      }
+    },
+    "blogPreview": {
+      "preTitle": "JOURNAL",
+      "title": "Latest from Our Journal",
+      "subtitle": "News, trends and insider tips from the world of private aviation",
+      "readArticle": "Read article →",
+      "viewAllArticles": "View All Articles"
+    },
+    "finalCta": {
+      "preTitle": "YOUR NEXT FLIGHT",
+      "title": "Ready for Takeoff?",
+      "subtitle": "Our experts are available 24/7 to arrange your next flight",
+      "requestQuote": "Request a Quote",
+      "callUs": "Call Us"
+    }
+  },
+  "faq": {
+    "hero": {
+      "preTitle": "FAQ",
+      "title": "Frequently Asked Questions",
+      "subtitle": "Quickly find answers to your questions about private aviation"
+    },
+    "searchPlaceholder": "Search for a question...",
+    "categories": {
+      "all": "All",
+      "booking": "Booking",
+      "pricing": "Pricing",
+      "aircraft": "Aircraft",
+      "safety": "Safety",
+      "services": "Services",
+      "general": "General"
+    },
+    "noResults": "No questions match your search.",
+    "cta": {
+      "title": "Didn't find your answer?",
+      "subtitle": "Our team is available 24/7 to answer all your questions",
+      "button": "Contact Us"
+    },
+    "items": {
+      "1": {
+        "q": "How do I book a private jet?",
+        "a": "You can request a quote through our online form, by phone at +33 6 76 76 55 11, or via WhatsApp. Our team will respond within 30 minutes with a personalized proposal including several aircraft and pricing options."
+      },
+      "2": {
+        "q": "What is the minimum lead time for booking?",
+        "a": "We can arrange a flight in as little as 2 hours in case of emergency. For optimal service with aircraft selection and customized catering, we recommend 24 to 48 hours' notice."
+      },
+      "3": {
+        "q": "Can I modify or cancel a booking?",
+        "a": "Cancellation terms vary depending on the type of booking and the notice period. As a general rule, cancellations made more than 48 hours before the flight are free of charge. Contact your dedicated advisor for details specific to your booking."
+      },
+      "4": {
+        "q": "What documents are required for travel?",
+        "a": "As with any flight, you will need a valid ID or passport. For international flights outside the Schengen area, a valid passport is mandatory. We handle all customs formalities on your behalf."
+      },
+      "5": {
+        "q": "Can I book a flight for someone else?",
+        "a": "Yes, you can book a flight for a third party. You will simply need to provide the passengers' identification details at the time of confirmation."
+      },
+      "6": {
+        "q": "How much does a private jet flight cost?",
+        "a": "The price varies depending on the distance, aircraft type, availability, and season. As a guide: Paris-Nice from 4,800€, Paris-London from 5,800€, Paris-Dubai from 28,000€. Request a precise quote for your route."
+      },
+      "7": {
+        "q": "What is included in the price?",
+        "a": "The price includes: the flight, crew, fuel, airport taxes, VIP terminal access, standard parking fees, and an onboard beverage service. Premium catering and ground transfers are available as options."
+      },
+      "8": {
+        "q": "Are there any hidden fees?",
+        "a": "No. At Skyseaker, transparency is a core value. Your quote details every cost item. No surcharge will be added without your prior approval."
+      },
+      "9": {
+        "q": "What is an empty leg and how can I take advantage of one?",
+        "a": "An empty leg is a repositioning flight offered at a reduced rate (up to -75%). Check our Empty Legs page for available offers or set up a personalized alert to be notified."
+      },
+      "10": {
+        "q": "Do you offer payment plans?",
+        "a": "Yes, we accept bank transfers and credit cards, and offer financing solutions for regular clients through our prepaid flight hours card program."
+      },
+      "11": {
+        "q": "How many aircraft do you have access to?",
+        "a": "We have access to over 8,500 certified aircraft worldwide, covering every category: from very light jets to VIP airliners, including helicopters."
+      },
+      "12": {
+        "q": "Can I choose my aircraft?",
+        "a": "Absolutely. We present several aircraft options suited to your route. You can visit our Fleet page to explore available aircraft and use our comparison tool."
+      },
+      "13": {
+        "q": "Do the aircraft have Wi-Fi?",
+        "a": "Most midsize and larger category aircraft are equipped with Wi-Fi. For light jets, availability varies. Please specify this requirement when making your request."
+      },
+      "14": {
+        "q": "What is the difference between jet categories?",
+        "a": "The categories differ in size, range, and comfort. A light jet is suitable for 2-3 hour flights (4-8 pax), a midsize for 4-5 hours (8-9 pax), and a heavy jet for intercontinental flights (10-16 pax)."
+      },
+      "15": {
+        "q": "How do you ensure flight safety?",
+        "a": "We work exclusively with operators certified by civil aviation authorities (EASA, FAA). Each operator is regularly audited and meets the strictest industry standards."
+      },
+      "16": {
+        "q": "Are the pilots qualified?",
+        "a": "All pilots have thousands of flight hours and hold the required type ratings for the aircraft they operate. Our partner operators follow rigorous ongoing training programs."
+      },
+      "17": {
+        "q": "What happens in case of bad weather?",
+        "a": "Safety is our absolute priority. In the event of adverse weather conditions, the captain may decide to delay the flight or alter the route. We inform you immediately and offer alternatives."
+      },
+      "18": {
+        "q": "Do you offer a concierge service?",
+        "a": "Yes, our concierge service organizes every aspect of your trip: hotels, restaurants, transfers, events, and activities. A single point of contact to coordinate everything."
+      },
+      "19": {
+        "q": "Are pets allowed on board?",
+        "a": "Yes, the vast majority of aircraft welcome pets in the cabin, with no size restrictions or mandatory cages. This is one of the great advantages of private aviation."
+      },
+      "20": {
+        "q": "Do you offer cargo / freight flights?",
+        "a": "Yes, we offer an urgent air freight service for all types of goods. Pickup in under 2 hours, same-day delivery across Europe."
+      },
+      "21": {
+        "q": "What is the difference between charter and private aviation?",
+        "a": "Charter involves renting an entire aircraft for your flight. It is the most common form of private aviation. Unlike scheduled flights, you set the schedule and the destination."
+      },
+      "22": {
+        "q": "Do I need to arrive long before departure?",
+        "a": "No, this is one of the great advantages of private jets. Simply arrive at the VIP terminal 15 minutes before departure. No queues, no lengthy security checks."
+      },
+      "23": {
+        "q": "Is smoking allowed on board?",
+        "a": "This depends on the operator and the aircraft. Some operators permit electronic cigarettes. Specify this requirement when making your request and we will find a suitable aircraft."
+      },
+      "24": {
+        "q": "How does your loyalty program work?",
+        "a": "Our program offers 4 tiers (Silver, Gold, Platinum, Diamond) with increasing benefits: preferential rates, upgrades, priority access, and dedicated concierge service. Contact us to learn more about the requirements for each tier."
+      },
+      "25": {
+        "q": "Do you offer carbon offsetting?",
+        "a": "Yes, we offer a carbon offset program for every flight. We partner with certified organizations to invest in environmental projects that offset CO2 emissions."
+      }
+    }
+  },
+  "contact": {
+    "hero": {
+      "preTitle": "CONTACT",
+      "title": "Let's talk about your next flight",
+      "subtitle": "Our team is available 24/7 to answer all your questions"
+    },
+    "form": {
+      "lastName": "Last Name",
+      "firstName": "First Name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send",
+      "subjects": {
+        "quote": "Quote Request",
+        "partnership": "Partnership",
+        "press": "Press",
+        "careers": "Careers",
+        "other": "Other"
+      }
+    },
+    "directContact": "Direct Contact",
+    "available247": "Available 24/7",
+    "ourOffices": "Our Offices",
+    "offices": {
+      "paris": {
+        "city": "Paris",
+        "address": "Avenue des Champs-Élysées, 75008 Paris",
+        "phone": "+33 1 00 00 00 00"
+      },
+      "monaco": {
+        "city": "Monaco",
+        "address": "Boulevard des Moulins, 98000 Monaco",
+        "phone": "+377 00 00 00 00"
+      },
+      "geneva": {
+        "city": "Geneva",
+        "address": "Rue du Rhône, 1204 Geneva",
+        "phone": "+41 00 000 00 00"
+      },
+      "dubai": {
+        "city": "Dubai",
+        "address": "DIFC, Sheikh Zayed Road, Dubai",
+        "phone": "+971 0 000 0000"
+      }
+    }
+  },
+  "devis": {
+    "hero": {
+      "preTitle": "QUOTE",
+      "title": "Request Your Personalized Quote",
+      "subtitle": "Complete the form below and receive a detailed proposal within 30 minutes"
+    },
+    "steps": {
+      "flight": "Flight",
+      "details": "Details",
+      "contact": "Contact"
+    },
+    "form": {
+      "tripType": "Trip Type",
+      "oneWay": "One Way",
+      "roundTrip": "Round Trip",
+      "multiCity": "Multi-City",
+      "departure": "Departure",
+      "destination": "Destination",
+      "date": "Date",
+      "returnDate": "Return Date",
+      "passengers": "Passengers",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "company": "Company",
+      "comments": "Additional Comments",
+      "submit": "Submit Quote Request",
+      "disclaimer": "Response within 30 minutes • Available 24/7 • No commitment"
+    },
+    "options": {
+      "title": "Options",
+      "pets": "Pets on Board",
+      "oversizedLuggage": "Oversized Luggage",
+      "specialCatering": "Special Catering",
+      "groundTransfer": "Ground Transfer"
+    }
+  },
+  "about": {
+    "hero": {
+      "preTitle": "About Us",
+      "title": "Excellence from day one",
+      "subtitle": "Since our inception, we have been redefining the standards of private aviation with passion and determination"
+    },
+    "history": {
+      "preTitle": "OUR HISTORY",
+      "title": "A decade of excellence",
+      "subtitle": "From Paris to the rest of the world, each year has been a new step towards perfection.",
+      "milestones": {
+        "2015": {
+          "year": "2015",
+          "title": "Skyseaker Founded",
+          "description": "Skyseaker was established in Paris with the vision of revolutionising private aviation in France. Our three founders, from the aeronautics and luxury industries, laid the foundations for an exceptional service."
+        },
+        "2017": {
+          "year": "2017",
+          "title": "European Expansion",
+          "description": "Opening of offices in Geneva and London. Partnerships with over 200 certified operators across Europe."
+        },
+        "2019": {
+          "year": "2019",
+          "title": "IS-BAO Certification",
+          "description": "IS-BAO certification obtained and EBAA membership secured. Launch of the Empty Legs programme and luxury concierge service."
+        },
+        "2021": {
+          "year": "2021",
+          "title": "Technological Innovation",
+          "description": "Launch of our online booking platform and mobile application. Integration of AI for route optimisation."
+        },
+        "2023": {
+          "year": "2023",
+          "title": "CSR Commitment",
+          "description": "Implementation of a full carbon offset programme. Partnership with sustainable aviation fuel (SAF) providers."
+        },
+        "2025": {
+          "year": "2025",
+          "title": "10,000th Flight",
+          "description": "Reaching the milestone of 10,000 flights. Expansion into the Middle East and Asia. Launch of Exclusive Experiences."
+        }
+      }
+    },
+    "values": {
+      "preTitle": "OUR VALUES",
+      "title": "The pillars of our excellence",
+      "items": {
+        "excellence": {
+          "title": "Excellence",
+          "description": "Every detail matters. We strive for perfection in every aspect of our service, from booking to landing."
+        },
+        "discretion": {
+          "title": "Discretion",
+          "description": "Confidentiality is at the heart of our DNA. Your data, itineraries and privacy are protected at all times."
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "We continuously invest in technology to deliver a seamless booking experience and an ever more efficient service."
+        },
+        "commitment": {
+          "title": "Commitment",
+          "description": "Environmental responsibility, uncompromising safety and client satisfaction are the pillars of our daily commitment."
+        }
+      }
+    },
+    "team": {
+      "preTitle": "OUR TEAM",
+      "title": "The faces of Skyseaker",
+      "subtitle": "A team of passionate professionals dedicated to your satisfaction",
+      "members": {
+        "alexandre": {
+          "name": "Alexandre Dubois",
+          "role": "Founder & CEO",
+          "bio": "Former airline pilot and entrepreneur, Alexandre founded Skyseaker with the vision of democratising excellence in private aviation."
+        },
+        "camille": {
+          "name": "Camille Laurent",
+          "role": "Director of Operations",
+          "bio": "15 years of experience in business aviation. Camille oversees every flight to guarantee flawless service."
+        },
+        "nicolas": {
+          "name": "Nicolas Mercier",
+          "role": "Commercial Director",
+          "bio": "A luxury and client relations specialist, Nicolas ensures every client receives bespoke support."
+        },
+        "sophie": {
+          "name": "Sophie Archambault",
+          "role": "Head of Concierge Services",
+          "bio": "Former 5-star hotel director, Sophie orchestrates the exclusive experiences and luxury concierge services at Skyseaker."
+        }
+      }
+    },
+    "stats": {
+      "preTitle": "KEY FIGURES",
+      "title": "Excellence in numbers",
+      "flights": "Flights Completed",
+      "passengers": "Passengers Carried",
+      "destinations": "Destinations",
+      "availability": "Availability"
+    },
+    "certifications": {
+      "preTitle": "CERTIFICATIONS",
+      "title": "Unmatched safety standards",
+      "items": {
+        "ebaa": {
+          "name": "EBAA",
+          "fullName": "European Business Aviation Association",
+          "description": "Active member of the EBAA, guaranteeing the highest standards in European business aviation."
+        },
+        "isbao": {
+          "name": "IS-BAO",
+          "fullName": "International Standard for Business Aircraft Operations",
+          "description": "International certification ensuring compliance with best practices in operational safety."
+        },
+        "wyvern": {
+          "name": "Wyvern",
+          "fullName": "Wyvern Wingman Certified",
+          "description": "All our partner operators are audited under the Wyvern Wingman programme, the benchmark in aviation safety."
+        }
+      }
+    },
+    "rse": {
+      "preTitle": "ENVIRONMENTAL RESPONSIBILITY",
+      "title": "Our commitment to the planet",
+      "items": {
+        "carbon": {
+          "title": "Full Carbon Offsetting",
+          "description": "100% of CO\u2082 emissions from every flight are offset through certified reforestation and renewable energy projects."
+        },
+        "saf": {
+          "title": "Sustainable Aviation Fuel (SAF)",
+          "description": "We offer the SAF option on a growing number of our flights, reducing net emissions by up to 80%."
+        },
+        "optimisation": {
+          "title": "Route Optimisation",
+          "description": "Our AI technology optimises every journey to reduce fuel consumption and minimise our environmental footprint."
+        }
+      }
+    },
+    "cta": {
+      "title": "Experience the Skyseaker difference",
+      "subtitle": "Discover what it means to travel without compromise",
+      "primaryButton": "Request a Quote",
+      "secondaryButton": "Contact Us"
+    }
+  },
+  "emptyLegs": {
+    "hero": {
+      "preTitle": "EMPTY LEGS",
+      "title": "Fly Private at Reduced Prices",
+      "subtitle": "Take advantage of repositioning flights at up to 75% off regular rates"
+    },
+    "stats": {
+      "averageSaving": "Average Saving",
+      "flightsAvailable": "Flights Available",
+      "europeRoutes": "Europe Routes",
+      "reactivity": "Reactivity"
+    },
+    "advantages": {
+      "preTitle": "WHY EMPTY LEGS?",
+      "title": "Three Key Advantages",
+      "items": {
+        "savings": {
+          "title": "Exceptional Savings",
+          "description": "Save up to 75% compared to a standard charter. Same aircraft, same service, at a fraction of the price."
+        },
+        "safety": {
+          "title": "Guaranteed Safety",
+          "description": "Identical safety standards to regular charter flights. Certified operators, experienced pilots, audited aircraft."
+        },
+        "flexibility": {
+          "title": "Ultimate Flexibility",
+          "description": "Flexible dates and routes. We adapt to your schedule and can adjust the departure or arrival point."
+        }
+      }
+    },
+    "search": {
+      "title": "Search Empty Legs",
+      "departure": "Departure",
+      "arrival": "Arrival",
+      "departurePlaceholder": "City or airport",
+      "arrivalPlaceholder": "City or airport",
+      "search": "Search",
+      "filterTitle": "Filters",
+      "dateRange": "Date Range",
+      "maxPrice": "Maximum Price",
+      "aircraftType": "Aircraft Type",
+      "allTypes": "All Types"
+    },
+    "results": {
+      "available": "empty legs available",
+      "noResults": "No empty legs match your criteria",
+      "noResultsSubtitle": "Try adjusting your filters or set up an alert to be notified",
+      "date": "Date",
+      "aircraft": "Aircraft",
+      "passengers": "Passengers",
+      "bookNow": "Book Now",
+      "saving": "Saving"
+    },
+    "alert": {
+      "title": "Never Miss an Opportunity",
+      "subtitle": "Set up a personalized alert and be the first to know about new empty legs on your favorite routes",
+      "emailPlaceholder": "Your email address",
+      "routePlaceholder": "Preferred route (e.g., Paris → Nice)",
+      "submit": "Set Alert",
+      "success": "Alert set successfully! We will notify you of matching empty legs."
+    },
+    "howItWorks": {
+      "preTitle": "HOW IT WORKS",
+      "title": "A Simple Process",
+      "steps": {
+        "1": {
+          "title": "Browse Available Flights",
+          "description": "Explore our list of empty legs updated in real time."
+        },
+        "2": {
+          "title": "Select Your Flight",
+          "description": "Choose the flight that suits your schedule and route."
+        },
+        "3": {
+          "title": "Book Instantly",
+          "description": "Confirm your booking in minutes. Departure from the VIP terminal."
+        }
+      }
+    },
+    "cta": {
+      "title": "Can't Find Your Route?",
+      "subtitle": "Contact us and we will search for the best empty leg opportunities for your itinerary",
+      "primaryButton": "Contact Us",
+      "secondaryButton": "Request a Quote"
+    }
+  },
+  "fleet": {
+    "hero": {
+      "preTitle": "OUR FLEET",
+      "title1": "Over 8,500 aircraft",
+      "title2": "at your disposal",
+      "subtitle": "From very light jets to VIP airliners, find the perfect aircraft for every mission"
+    },
+    "filters": {
+      "all": "All"
+    },
+    "resultsCount": "{count} aircraft available",
+    "specs": {
+      "passengers": "Passengers",
+      "range": "Range",
+      "speed": "Speed",
+      "luggage": "Luggage"
+    },
+    "cta": {
+      "compare": "Compare Aircraft",
+      "requestQuote": "Request a Quote"
+    },
+    "category": {
+      "breadcrumbFleet": "Fleet",
+      "breadcrumb": {
+        "fleet": "Fleet"
+      },
+      "aircraftCount": "{count} aircraft",
+      "aircraftAvailable": "{count} aircraft available",
+      "resultsCount": "{count} aircraft available",
+      "viewFullFleet": "← View Full Fleet",
+      "requestQuote": "Request a Quote",
+      "cta": {
+        "backToFleet": "← View Full Fleet",
+        "requestQuote": "Request a Quote"
+      },
+      "descriptions": {
+        "veryLightJet": "Perfect for short trips with 2-4 passengers. Economical and fast for European city trips.",
+        "lightJet": "The ideal balance between comfort and economy for 4-7 passengers on 2 to 3-hour flights.",
+        "superLightJet": "Superior performance over light jets with an extended range and a more spacious cabin.",
+        "midsizeJet": "Full stand-up cabin for 6-8 passengers. The preferred choice for medium-haul flights.",
+        "superMidsizeJet": "Transcontinental range with the comfort of a large cabin. Ideal for 7-9 passengers.",
+        "heavyJet": "The pinnacle of comfort for long-haul flights. Spacious cabin, WiFi, and up to 16 passengers.",
+        "ultraLongRange": "The most capable jets in the world. Non-stop flights between continents in absolute luxury.",
+        "vipAirliner": "Airliners converted into flying suites. For delegations and exclusive events.",
+        "helicopter": "Rapid transfers and access to destinations unreachable by plane. Total flexibility.",
+        "turboprop": "Economical and versatile, ideal for short runways and regional destinations."
+      }
+    },
+    "aircraftDetail": {
+      "since": "Since {year}",
+      "breadcrumb": {
+        "fleet": "Fleet"
+      },
+      "overview": {
+        "preTitle": "OVERVIEW",
+        "title": "About This Aircraft"
+      },
+      "aboutThisAircraft": "About This Aircraft",
+      "idealFor": "Ideal For",
+      "technicalSpecs": "Technical Specifications",
+      "technicalSpecifications": "Technical Specifications",
+      "specs": {
+        "passengers": "Passengers",
+        "range": "Range",
+        "maximumSpeed": "Maximum Speed",
+        "maxSpeed": "Max Speed",
+        "cabinLength": "Cabin Length",
+        "cabinHeight": "Cabin Height",
+        "luggageVolume": "Luggage Volume",
+        "engines": "Engines",
+        "takeoffDistance": "Takeoff Distance",
+        "yearOfIntroduction": "Year of Introduction",
+        "yearIntroduced": "Year Introduced"
+      },
+      "gallery": {
+        "preTitle": "GALLERY",
+        "title": "Aircraft Photos"
+      },
+      "cta": {
+        "title": "Book the {name}",
+        "subtitle": "Our experts are available 24/7 to arrange your flight aboard this aircraft",
+        "book": "Book This Aircraft",
+        "compare": "Compare With Others",
+        "bookThisAircraft": "Book This Aircraft",
+        "compareWithOthers": "Compare With Others"
+      },
+      "similar": {
+        "preTitle": "SIMILAR AIRCRAFT",
+        "title": "Discover More"
+      }
+    },
+    "comparator": {
+      "hero": {
+        "preTitle": "OUR FLEET",
+        "title": "Aircraft comparator",
+        "subtitle": "Compare up to 3 jets to find the one that matches your mission"
+      },
+      "selectYourAircraft": "Select your aircraft",
+      "aircraftLabel": "Aircraft {index}",
+      "selectAnAircraft": "Select an aircraft",
+      "selectAircraft": "Select an aircraft",
+      "technicalSpecifications": "Technical specifications",
+      "technicalSpecs": "Technical specifications",
+      "notSelected": "Not selected",
+      "emptyState": "Select at least one aircraft to start the comparison",
+      "specs": {
+        "manufacturer": "Manufacturer",
+        "category": "Category",
+        "passengers": "Passengers",
+        "range": "Range",
+        "speed": "Speed",
+        "maximumSpeed": "Maximum speed",
+        "cabinLength": "Cabin length",
+        "cabinHeight": "Cabin height",
+        "luggage": "Luggage",
+        "luggageVolume": "Luggage volume",
+        "engines": "Engines",
+        "takeoffDistance": "Takeoff distance",
+        "yearOfIntroduction": "Year of introduction",
+        "yearIntroduced": "Year introduced"
+      },
+      "backToFleet": "Back to fleet",
+      "requestQuote": "Request a quote",
+      "cta": {
+        "backToFleet": "Back to fleet",
+        "requestQuote": "Request a quote"
+      }
+    }
+  },
+  "services": {
+    "hero": {
+      "preTitle": "OUR SERVICES",
+      "title1": "Comprehensive solutions",
+      "title2": "for your private aviation",
+      "subtitle": "From bespoke charter services to aircraft management, discover our full range of premium offerings"
+    },
+    "overview": {
+      "preTitle": "8 AREAS OF EXPERTISE",
+      "title": "A 360° Service Experience",
+      "learnMore": "Learn More →"
+    },
+    "cta": {
+      "title": "Need a Tailored Solution?",
+      "subtitle": "Our team is available 24/7 to create a bespoke package for your needs",
+      "primaryButton": "Request a Quote",
+      "secondaryButton": "Contact Us"
+    },
+    "detail": {
+      "breadcrumbServices": "Services",
+      "keyBenefits": "Key Benefits",
+      "whyChooseUs": "Why choose this service?",
+      "howItWorks": "How It Works",
+      "requestQuote": "Request a Quote",
+      "callUs": "Call Us",
+      "backToServices": "← Back to Services"
+    }
+  },
+  "yachts": {
+    "hero": {
+      "preTitle": "OUR NAUTICAL FLEET",
+      "title1": "The world's finest",
+      "title2": "yachts",
+      "subtitle": "From motor yachts to mega yachts, find the perfect vessel for every cruise"
+    },
+    "filters": {
+      "all": "All"
+    },
+    "resultsCount": "{count} yacht{plural} available",
+    "specs": {
+      "guests": "Guests",
+      "length": "Length",
+      "speed": "Speed",
+      "cabins": "Cabins"
+    },
+    "cta": {
+      "compareYachts": "Compare yachts",
+      "requestQuote": "Request a quote"
+    },
+    "category": {
+      "breadcrumbYachts": "Yachts",
+      "yachtCount": "{count} yacht{plural}",
+      "yachtsAvailable": "{count} yacht{plural} available",
+      "viewAllYachts": "← View all yachts",
+      "requestQuote": "Request a quote",
+      "descriptions": {
+        "motorYacht": "Power and elegance for luxury cruises in the Mediterranean, Caribbean and beyond.",
+        "sailingYacht": "The art of sailing combined with the comfort of a luxury yacht. Silence and absolute freedom.",
+        "catamaran": "Exceptional stability and generous living spaces. Ideal for family cruises or trips with friends.",
+        "superyacht": "Exceptional vessels over 40 metres. The pinnacle of nautical luxury with dedicated crew.",
+        "megaYacht": "The world's largest yachts. Pools, helipads, submarines — anything is possible."
+      }
+    },
+    "yachtDetail": {
+      "since": "Since {year}",
+      "overview": "OVERVIEW",
+      "aboutThisYacht": "About this yacht",
+      "idealFor": "Ideal for",
+      "technicalSpecifications": "Technical specifications",
+      "specs": {
+        "guests": "Guests",
+        "cabins": "Cabins",
+        "crew": "Crew",
+        "length": "Length",
+        "beam": "Beam",
+        "draft": "Draft",
+        "cruisingSpeed": "Cruising speed",
+        "maximumSpeed": "Maximum speed",
+        "range": "Range",
+        "engines": "Engines",
+        "builder": "Builder",
+        "yearBuilt": "Year built"
+      },
+      "cta": {
+        "title": "Book the {name}",
+        "subtitle": "Our experts are available 24/7 to organize your cruise aboard this yacht",
+        "bookThisYacht": "Book this yacht",
+        "compareWithOthers": "Compare with others"
+      },
+      "similar": {
+        "preTitle": "SIMILAR YACHTS",
+        "title": "Discover more"
+      }
+    },
+    "comparator": {
+      "hero": {
+        "preTitle": "OUR NAUTICAL FLEET",
+        "title": "Yacht comparator",
+        "subtitle": "Compare up to 3 yachts to find the one that matches your cruise"
+      },
+      "selectYourYachts": "Select your yachts",
+      "yachtLabel": "Yacht {index}",
+      "selectAYacht": "Select a yacht",
+      "technicalSpecifications": "Technical specifications",
+      "emptyState": "Select at least one yacht to start the comparison",
+      "specs": {
+        "builder": "Builder",
+        "category": "Category",
+        "guests": "Guests",
+        "cabins": "Cabins",
+        "crew": "Crew",
+        "length": "Length",
+        "beam": "Beam",
+        "draft": "Draft",
+        "cruisingSpeed": "Cruising speed",
+        "maxSpeed": "Max speed",
+        "range": "Range",
+        "engines": "Engines",
+        "year": "Year"
+      },
+      "backToYachts": "Back to yachts",
+      "requestQuote": "Request a quote"
+    }
+  },
+  "destinations": {
+    "hero": {
+      "preTitle": "DESTINATIONS",
+      "title1": "The World Within",
+      "title2": "Your Reach",
+      "subtitle": "Explore our top destinations and fly to the most prestigious addresses around the globe"
+    },
+    "filters": {
+      "all": "All"
+    },
+    "resultsCount": "{count} destination{plural} available",
+    "cta": {
+      "title": "Destination not listed?",
+      "subtitle": "We arrange flights to over 5,000 airports worldwide",
+      "primaryButton": "Request a Quote",
+      "secondaryButton": "Call Us"
+    },
+    "detail": {
+      "breadcrumbDestinations": "Destinations",
+      "overview": "OVERVIEW",
+      "aboutDestination": "About {name}",
+      "practicalInfo": "Practical Information",
+      "timezone": "Timezone",
+      "recommendedAircraft": "Recommended Aircraft",
+      "priceRange": "Price Range",
+      "flightTime": "Flight Time from Paris",
+      "faqTitle": "Frequently Asked Questions",
+      "ctaTitle": "Fly to {name}",
+      "ctaSubtitle": "Our experts will find the perfect aircraft for your trip to {name}",
+      "requestQuote": "Request a Quote",
+      "callUs": "Call Us"
+    }
+  },
+  "glossary": {
+    "hero": {
+      "preTitle": "GLOSSARY",
+      "title": "Business Aviation Glossary",
+      "subtitle": "All the essential terms to understand the world of private jets"
+    },
+    "searchPlaceholder": "Search for a term...",
+    "letterFilter": "Filter by letter",
+    "noResults": "No terms match your search.",
+    "termCount": "{count} term{plural} found",
+    "learnMore": "Learn more"
+  },
+  "blog": {
+    "hero": {
+      "preTitle": "JOURNAL",
+      "title": "The Skyseaker Journal",
+      "subtitle": "News, trends and insider tips from the world of private aviation"
+    },
+    "categories": {
+      "all": "All",
+      "guides": "Guides",
+      "lifestyle": "Lifestyle",
+      "news": "News",
+      "destinations": "Destinations"
+    },
+    "featured": "Featured",
+    "readArticle": "Read article →",
+    "readTime": "{min} min read",
+    "relatedArticles": "Related Articles",
+    "backToBlog": "← Back to Journal",
+    "shareArticle": "Share this article",
+    "tableOfContents": "Table of Contents"
+  },
+  "experiences": {
+    "hero": {
+      "preTitle": "EXCLUSIVE EXPERIENCES",
+      "title": "Curated Luxury Experiences",
+      "subtitle": "Bespoke packages combining private aviation with the world's most exceptional events and destinations"
+    },
+    "categories": {
+      "all": "All",
+      "sport": "Sport",
+      "culture": "Culture",
+      "gastronomy": "Gastronomy",
+      "wellness": "Wellness",
+      "adventure": "Adventure"
+    },
+    "card": {
+      "from": "From",
+      "perPerson": "per person",
+      "duration": "Duration",
+      "groupSize": "Group Size",
+      "includes": "Includes",
+      "discoverExperience": "Discover Experience →"
+    },
+    "cta": {
+      "title": "Create Your Own Experience",
+      "subtitle": "Our concierge team will craft a bespoke experience tailored to your desires",
+      "primaryButton": "Contact Us",
+      "secondaryButton": "View All Services"
+    }
+  },
+  "legal": {
+    "lastUpdated": "Last updated: February 2026",
+    "seeAlso": "See also:",
+    "legalNotice": {
+      "preTitle": "LEGAL INFORMATION",
+      "title": "Legal Notice",
+      "sections": {
+        "publisher": {
+          "title": "1. Website Publisher",
+          "content": [
+            "The website skyseaker.com is published by:",
+            "Skyseaker SAS",
+            "Simplified Joint-Stock Company with a share capital of 50,000 euros",
+            "Registered office: 8 Avenue de l'Opera, 75001 Paris, France",
+            "Paris Trade Register: XXX XXX XXX",
+            "EU VAT Number: FR XX XXX XXX XXX",
+            "Publication Director: [Name of Director]",
+            "Email: contact@skyseaker.com",
+            "Phone: +33 1 00 00 00 00"
+          ]
+        },
+        "hosting": {
+          "title": "2. Hosting",
+          "content": [
+            "The website is hosted by:",
+            "Vercel Inc.",
+            "440 N Barranca Ave #4133",
+            "Covina, CA 91723, United States",
+            "Website: vercel.com"
+          ]
+        },
+        "intellectualProperty": {
+          "title": "3. Intellectual Property",
+          "content": [
+            "All content on the skyseaker.com website (text, images, graphics, logo, icons, videos, etc.) is protected by copyright and trademark law, in accordance with the provisions of the Intellectual Property Code.",
+            "Any reproduction, representation, modification, publication or adaptation of all or part of the elements of the website, by any means or process, is prohibited without prior written authorization from Skyseaker SAS.",
+            "The Skyseaker trademark, as well as all figurative or non-figurative trademarks, and more generally all other trademarks, illustrations, images and logos appearing on the website are and remain the exclusive property of Skyseaker SAS."
+          ]
+        },
+        "liability": {
+          "title": "4. Limitation of Liability",
+          "content": [
+            "Skyseaker SAS endeavors to ensure the accuracy and updating of information published on the website to the best of its ability. However, Skyseaker SAS cannot guarantee the accuracy, precision or completeness of the information made available on the website.",
+            "Skyseaker SAS disclaims all liability for any inaccuracy, error or omission relating to information available on the website.",
+            "Prices displayed on the website are provided for indicative purposes only and do not constitute a contractual offer. Final rates are communicated in the personalized quote provided to the client."
+          ]
+        },
+        "hyperlinks": {
+          "title": "5. Hyperlinks",
+          "content": [
+            "The skyseaker.com website may contain hyperlinks to other websites. Skyseaker SAS has no control over these sites and disclaims all liability regarding their content.",
+            "The creation of hyperlinks to the skyseaker.com website is subject to prior approval from Skyseaker SAS."
+          ]
+        },
+        "cookies": {
+          "title": "6. Cookies",
+          "content": [
+            "The skyseaker.com website uses cookies to improve the user experience and analyze traffic. To learn more about the use of cookies, please refer to our privacy policy."
+          ]
+        },
+        "applicableLaw": {
+          "title": "7. Applicable Law",
+          "content": [
+            "These legal notices are governed by French law. In the event of a dispute, the courts of Paris shall have sole jurisdiction."
+          ]
+        },
+        "contact": {
+          "title": "8. Contact",
+          "content": [
+            "For any questions regarding these legal notices, you can contact us:",
+            "By email: contact@skyseaker.com",
+            "By phone: +33 1 00 00 00 00",
+            "By mail: Skyseaker SAS, 8 Avenue de l'Opera, 75001 Paris, France"
+          ]
+        }
+      },
+      "relatedLinks": {
+        "privacyPolicy": "Privacy Policy",
+        "termsConditions": "General Terms and Conditions"
+      }
+    },
+    "privacyPolicy": {
+      "preTitle": "GDPR & PERSONAL DATA",
+      "title": "Privacy Policy",
+      "sections": {
+        "dataController": {
+          "title": "1. Data Controller",
+          "content": [
+            "The data controller for personal data collected on the skyseaker.com website is:",
+            "Skyseaker SAS, 8 Avenue de l'Opera, 75001 Paris, France.",
+            "Email: dpo@skyseaker.com"
+          ]
+        },
+        "dataCollected": {
+          "title": "2. Data Collected",
+          "intro": "As part of our services, we may collect the following personal data:",
+          "list": [
+            "Identification data: last name, first name, email address, phone number",
+            "Professional data: company, position",
+            "Travel data: destinations, flight dates, number of passengers, service preferences",
+            "Browsing data: IP address, cookies, pages visited, visit duration",
+            "Communication data: messages sent via contact forms"
+          ]
+        },
+        "purposes": {
+          "title": "3. Purposes of Processing",
+          "intro": "Your personal data is processed for the following purposes:",
+          "list": [
+            "Management of quote requests and flight bookings",
+            "Commercial communications with your consent",
+            "Improvement of our services and user experience",
+            "Customer relationship management and loyalty program",
+            "Compliance with our legal and regulatory obligations",
+            "Website traffic statistics and analysis"
+          ]
+        },
+        "legalBasis": {
+          "title": "4. Legal Basis for Processing",
+          "content": [
+            "The processing of your personal data is based on the following legal grounds:",
+            "Performance of a contract or pre-contractual measures (quote request, booking).",
+            "Your consent (newsletter, non-essential cookies).",
+            "Skyseaker's legitimate interest (service improvement, statistics).",
+            "Compliance with legal obligations (invoicing, archiving)."
+          ]
+        },
+        "recipients": {
+          "title": "5. Data Recipients",
+          "content": [
+            "Your personal data is intended for authorized Skyseaker SAS personnel, as well as our subcontractors strictly within the scope of performing their duties:",
+            "Partner air operators (in connection with flight bookings).",
+            "Service providers (catering, transfers, concierge).",
+            "Website hosting provider (Vercel Inc.).",
+            "No personal data is sold to third parties for commercial purposes without your explicit consent."
+          ]
+        },
+        "retention": {
+          "title": "6. Data Retention Period",
+          "content": [
+            "Your personal data is retained for a period proportionate to the purpose of processing:",
+            "Client data: for the duration of the business relationship and 5 years after the last contact.",
+            "Prospect data: 3 years from the last contact.",
+            "Browsing data (cookies): 13 months maximum.",
+            "Billing data: 10 years in accordance with accounting obligations."
+          ]
+        },
+        "rights": {
+          "title": "7. Your Rights",
+          "intro": "In accordance with the General Data Protection Regulation (GDPR) and the French Data Protection Act, you have the following rights:",
+          "list": [
+            "Right of access: obtain confirmation that data concerning you is being processed and obtain a copy",
+            "Right to rectification: request the correction of inaccurate or incomplete data",
+            "Right to erasure: request the deletion of your data under the conditions provided by law",
+            "Right to restriction of processing: request the restriction of processing in certain cases",
+            "Right to data portability: receive your data in a structured and readable format",
+            "Right to object: object to the processing of your data on legitimate grounds",
+            "Right to withdraw consent: withdraw your consent at any time"
+          ],
+          "after": "To exercise your rights, contact us at: dpo@skyseaker.com. You also have the right to file a complaint with the CNIL (French National Commission for Information Technology and Civil Liberties)."
+        },
+        "cookies": {
+          "title": "8. Cookies",
+          "content": [
+            "The skyseaker.com website uses cookies to ensure its proper functioning and to improve your browsing experience."
+          ],
+          "table": {
+            "headerType": "Type",
+            "headerDescription": "Description",
+            "headerDuration": "Duration",
+            "essential": {
+              "type": "Essential cookies",
+              "desc": "Necessary for the website to function (session, language preferences). Cannot be disabled.",
+              "duration": "Session"
+            },
+            "analytical": {
+              "type": "Analytical cookies",
+              "desc": "Allow analysis of website usage to improve performance.",
+              "duration": "13 months"
+            },
+            "marketing": {
+              "type": "Marketing cookies",
+              "desc": "Used to display relevant advertisements. Only placed with your consent.",
+              "duration": "13 months"
+            }
+          }
+        },
+        "security": {
+          "title": "9. Data Security",
+          "content": [
+            "Skyseaker SAS implements appropriate technical and organizational measures to protect your personal data against unauthorized access, loss, alteration or disclosure.",
+            "The website uses the HTTPS protocol to secure data exchanges between your browser and our servers."
+          ]
+        },
+        "transfers": {
+          "title": "10. Transfers Outside the EU",
+          "content": [
+            "Certain data may be transferred to countries located outside the European Union (notably to the United States for hosting). These transfers are governed by appropriate safeguards in accordance with the GDPR (standard contractual clauses, adequacy decisions)."
+          ]
+        },
+        "modifications": {
+          "title": "11. Policy Modifications",
+          "content": [
+            "Skyseaker SAS reserves the right to modify this privacy policy at any time. Modifications take effect upon publication on the website. We invite you to regularly consult this page."
+          ]
+        }
+      },
+      "relatedLinks": {
+        "legalNotice": "Legal Notice",
+        "termsConditions": "General Terms and Conditions of Sale"
+      }
+    },
+    "termsConditions": {
+      "preTitle": "CONTRACTUAL TERMS",
+      "title": "General Terms and Conditions of Sale",
+      "sections": {
+        "purpose": {
+          "title": "1. Purpose",
+          "content": [
+            "These General Terms and Conditions of Sale (GTC) govern the contractual relationship between Skyseaker SAS (hereinafter \"Skyseaker\") and any individual or legal entity (hereinafter \"the Client\") wishing to use the private aviation brokerage services offered by Skyseaker.",
+            "Skyseaker acts as an air charter broker and connects the Client with air operators holding a valid AOC (Air Operator Certificate)."
+          ]
+        },
+        "services": {
+          "title": "2. Services Offered",
+          "content": [
+            "Skyseaker offers the following services:"
+          ],
+          "list": [
+            "Chartering of private jets and helicopters",
+            "Sale of empty leg flights",
+            "Group travel organization",
+            "Urgent air freight service",
+            "Concierge and lifestyle services",
+            "VIP transfers",
+            "Aircraft management",
+            "Aircraft acquisition and sales consulting"
+          ]
+        },
+        "booking": {
+          "title": "3. Quote Request and Booking",
+          "content": [
+            "The Client may submit a quote request via the online form, by phone or by email. The quote is provided for informational purposes and is only binding on Skyseaker after written confirmation.",
+            "The booking is considered firm and final after:",
+            "1. Written acceptance of the quote by the Client (email, electronic or handwritten signature).",
+            "2. Receipt of the deposit payment as specified in the quote.",
+            "Skyseaker reserves the right to refuse a booking without having to justify its decision."
+          ]
+        },
+        "pricing": {
+          "title": "4. Pricing and Payment",
+          "content": [
+            "Prices stated in quotes are in euros, all taxes included, unless otherwise specified. They include the elements specified in the quote (flight hours, airport taxes, positioning, etc.).",
+            "Prices displayed on the website are provided for indicative purposes and may vary depending on availability, season and market conditions.",
+            "Payment is made by bank transfer. Payment terms are as follows:",
+            "100% deposit of the total amount at booking for flights under 30,000 euros.",
+            "50% deposit at booking and balance due 72 hours before the flight for flights over 30,000 euros.",
+            "Additional charges not included in the initial quote (extended waiting time, itinerary changes, additional catering, etc.) will be invoiced separately."
+          ]
+        },
+        "cancellation": {
+          "title": "5. Cancellation and Modification",
+          "content": [
+            "In the event of cancellation by the Client, the following conditions apply:"
+          ],
+          "list": [
+            "Cancellation more than 72 hours before departure: full refund minus administrative fees (5% of total amount, capped at 2,000 euros)",
+            "Cancellation between 24 and 72 hours before departure: 50% of total amount retained",
+            "Cancellation less than 24 hours before departure: no refund",
+            "No-show (absence without prior cancellation): no refund"
+          ],
+          "after": "Itinerary, schedule or passenger number modifications are possible subject to availability and may result in a price adjustment."
+        },
+        "cancellationByOperator": {
+          "title": "6. Cancellation by Skyseaker or the Operator",
+          "content": [
+            "In the event of cancellation by Skyseaker or the operator for technical, meteorological or safety reasons, Skyseaker commits to offering an alternative solution (replacement aircraft, flight rescheduling) or to providing a full refund of all amounts paid.",
+            "Skyseaker cannot be held liable for indirect consequences of the cancellation (hotel costs, missed events, etc.)."
+          ]
+        },
+        "liability": {
+          "title": "7. Liability",
+          "content": [
+            "Skyseaker acts as an air charter broker and is not an air carrier. Liability for transportation lies exclusively with the air operator.",
+            "Skyseaker commits to selecting operators that hold all required certifications (AOC, insurance) and comply with the strictest safety standards.",
+            "Skyseaker's liability is limited to the amount of commissions received for the service in question, except in cases of gross negligence or willful misconduct."
+          ]
+        },
+        "insurance": {
+          "title": "8. Insurance",
+          "content": [
+            "All flights organized by Skyseaker are covered by the air operator's civil liability insurance, in accordance with applicable regulatory requirements.",
+            "Skyseaker recommends that the Client take out supplementary travel insurance covering cancellation risks, lost luggage and personal civil liability."
+          ]
+        },
+        "travelDocuments": {
+          "title": "9. Travel Documents",
+          "content": [
+            "The Client is responsible for the validity of their travel documents (passport, visa, identity card) as well as compliance with entry and exit formalities for the countries concerned.",
+            "Skyseaker may assist the Client with administrative procedures (overflight permits, airport slots) but cannot be held liable in the event of denied boarding or entry to a territory."
+          ]
+        },
+        "luggage": {
+          "title": "10. Luggage",
+          "content": [
+            "Luggage capacity varies depending on the type of aircraft and is specified in the quote. The Client agrees to comply with the weight and volume limitations indicated.",
+            "The transport of hazardous materials, weapons and illicit substances is strictly prohibited."
+          ]
+        },
+        "forceMajeure": {
+          "title": "11. Force Majeure",
+          "content": [
+            "Skyseaker cannot be held liable for total or partial failure to fulfill its obligations if such failure results from a force majeure event as defined by Article 1218 of the French Civil Code.",
+            "Force majeure events include, but are not limited to: extreme weather conditions, airspace closures, strikes, armed conflicts, epidemics, acts of terrorism and decisions by public authorities."
+          ]
+        },
+        "complaints": {
+          "title": "12. Complaints",
+          "content": [
+            "Any complaint must be submitted in writing to Skyseaker within 30 days following the date of the flight in question.",
+            "Email: reclamations@skyseaker.com",
+            "Mail: Skyseaker SAS, Complaints Department, 8 Avenue de l'Opera, 75001 Paris, France."
+          ]
+        },
+        "mediation": {
+          "title": "13. Mediation",
+          "content": [
+            "In the event of a dispute that cannot be resolved amicably, the Client may use the consumer mediation service free of charge. The competent mediator is the Tourism and Travel Mediator (MTV).",
+            "Website: www.mtv.travel"
+          ]
+        },
+        "jurisdiction": {
+          "title": "14. Applicable Law and Jurisdiction",
+          "content": [
+            "These GTC are governed by French law. Any dispute relating to their interpretation or execution falls under the exclusive jurisdiction of the courts of Paris, France."
+          ]
+        }
+      },
+      "relatedLinks": {
+        "legalNotice": "Legal Notice",
+        "privacyPolicy": "Privacy Policy"
+      }
+    }
+  }
+}

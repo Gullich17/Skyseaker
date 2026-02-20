@@ -1,3 +1,5 @@
+import type { Translatable } from "@/lib/i18n-data";
+
 export interface Aircraft {
   id: string;
   name: string;
@@ -13,8 +15,8 @@ export interface Aircraft {
   yearIntroduced: number;
   engines: string;
   takeoffDistance: number; // m
-  description: string;
-  idealFor: string[];
+  description: Translatable;
+  idealFor: Translatable[];
   image: string;
   gallery: string[];
   cabinLayout: CabinLayout;
@@ -36,16 +38,16 @@ export interface CabinZone {
 }
 
 export const categories = [
-  { name: "All", slug: "tous" },
-  { name: "Turboprop", slug: "turbopropulseur" },
-  { name: "Very Light Jet", slug: "very-light-jet" },
-  { name: "Light Jet", slug: "light-jet" },
-  { name: "Super Light Jet", slug: "super-light-jet" },
-  { name: "Super Midsize Jet", slug: "super-midsize-jet" },
-  { name: "Heavy Jet", slug: "heavy-jet" },
-  { name: "Ultra Long Range", slug: "ultra-long-range" },
-  { name: "VIP Airliner", slug: "vip-airliner" },
-  { name: "Helicopter", slug: "helicoptere" },
+  { name: { fr: "Tous", en: "All" } as Translatable, slug: "tous" },
+  { name: { fr: "Turbopropulseur", en: "Turboprop" } as Translatable, slug: "turbopropulseur" },
+  { name: "Very Light Jet" as Translatable, slug: "very-light-jet" },
+  { name: "Light Jet" as Translatable, slug: "light-jet" },
+  { name: "Super Light Jet" as Translatable, slug: "super-light-jet" },
+  { name: "Super Midsize Jet" as Translatable, slug: "super-midsize-jet" },
+  { name: "Heavy Jet" as Translatable, slug: "heavy-jet" },
+  { name: "Ultra Long Range" as Translatable, slug: "ultra-long-range" },
+  { name: "VIP Airliner" as Translatable, slug: "vip-airliner" },
+  { name: { fr: "Hélicoptère", en: "Helicopter" } as Translatable, slug: "helicoptere" },
 ];
 
 export const fleet: Aircraft[] = [
@@ -67,8 +69,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2019,
     engines: "1x Pratt & Whitney PT6E-67XP",
     takeoffDistance: 808,
-    description: "The Pilatus PC-12 is the most versatile turboprop in the world. Capable of landing on short and unprepared runways, it opens access to destinations unreachable by jets. Its cost-effectiveness is unbeatable for regional flights.",
-    idealFor: ["Short runways", "Remote destinations", "Regional economy flights"],
+    description: { fr: "Le Pilatus PC-12 est le turbopropulseur le plus polyvalent au monde. Capable d'atterrir sur des pistes courtes et non préparées, il ouvre l'accès à des destinations inaccessibles aux jets. Son rapport coût-efficacité est imbattable pour les vols régionaux.", en: "The Pilatus PC-12 is the most versatile turboprop in the world. Capable of landing on short and unprepared runways, it opens access to destinations unreachable by jets. Its cost-effectiveness is unbeatable for regional flights." },
+    idealFor: [{ fr: "Pistes courtes", en: "Short runways" }, { fr: "Destinations isolées", en: "Remote destinations" }, { fr: "Vols économiques régionaux", en: "Regional economy flights" }],
     image: "/images/fleet/pilatus-pc-12/main.png",
     gallery: [
       "/images/fleet/pilatus-pc-12/gallery-1.jpg",
@@ -106,8 +108,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2008,
     engines: "2x Pratt & Whitney PW617F-E",
     takeoffDistance: 1036,
-    description: "The Embraer Phenom 100 embodies Brazilian elegance in the very light jet segment. Its best-in-class cabin offers a surprising amount of space for its category, with finishes worthy of much larger aircraft.",
-    idealFor: ["Short-haul flights", "Solo business travelers", "Regional shuttles"],
+    description: { fr: "Le Phenom 100 d'Embraer incarne l'élégance brésilienne dans le segment very light jet. Sa cabine best-in-class offre un espace surprenant pour sa catégorie, avec des finitions dignes d'appareils bien plus grands.", en: "The Embraer Phenom 100 embodies Brazilian elegance in the very light jet segment. Its best-in-class cabin offers a surprising amount of space for its category, with finishes worthy of much larger aircraft." },
+    idealFor: [{ fr: "Courts-courriers", en: "Short-haul flights" }, { fr: "Voyageurs d'affaires solo", en: "Solo business travelers" }, { fr: "Navettes régionales", en: "Regional shuttles" }],
     image: "/images/fleet/phenom-100/main.png",
     gallery: [
       "/images/fleet/phenom-100/gallery-1.jpg",
@@ -138,8 +140,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2006,
     engines: "2x Pratt & Whitney PW615F",
     takeoffDistance: 948,
-    description: "The Citation Mustang is the ideal entry point into the world of private jets. Compact and efficient, it is perfect for short trips between major European cities. Its cabin, though cozy, offers remarkable comfort for 4 passengers.",
-    idealFor: ["Short-haul business flights", "Couples", "Regional trips"],
+    description: { fr: "Le Citation Mustang est l'entrée de gamme idéale dans le monde du jet privé. Compact et efficace, il est parfait pour les trajets courts entre grandes villes européennes. Sa cabine, bien que cosy, offre un confort remarquable pour 4 passagers.", en: "The Citation Mustang is the ideal entry point into the world of private jets. Compact and efficient, it is perfect for short trips between major European cities. Its cabin, though cozy, offers remarkable comfort for 4 passengers." },
+    idealFor: [{ fr: "Courts-courriers affaires", en: "Short-haul business flights" }, { fr: "Couples", en: "Couples" }, { fr: "Trajets régionaux", en: "Regional trips" }],
     image: "/images/fleet/citation-mustang/main.png",
     gallery: [
       "/images/fleet/citation-mustang/gallery-1.jpg",
@@ -170,8 +172,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 1993,
     engines: "2x Williams FJ44-1",
     takeoffDistance: 975,
-    description: "The original Citation CJ is a proven and economical very light jet. Compact and agile, it is perfect for short connections between regional airports with an excellent cost-effectiveness ratio.",
-    idealFor: ["Short connections", "Controlled budget", "Regional airports"],
+    description: { fr: "Le Citation CJ original est un very light jet éprouvé et économique. Compact et agile, il est parfait pour les liaisons courtes entre les aéroports régionaux avec un excellent rapport coût-efficacité.", en: "The original Citation CJ is a proven and economical very light jet. Compact and agile, it is perfect for short connections between regional airports with an excellent cost-effectiveness ratio." },
+    idealFor: [{ fr: "Liaisons courtes", en: "Short connections" }, { fr: "Budget maîtrisé", en: "Controlled budget" }, { fr: "Aéroports régionaux", en: "Regional airports" }],
     image: "/images/fleet/citation-cj/main.png",
     gallery: [
       "/images/fleet/citation-cj/gallery-1.jpg",
@@ -205,8 +207,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2006,
     engines: "2x Williams FJ44-3A-24",
     takeoffDistance: 1021,
-    description: "The Citation CJ2+ combines performance and economy in a compact format. Ideal for 2 to 3-hour flights, it carries up to 7 passengers with an excellent value-for-money ratio. Its legendary reliability makes it a favorite among European charters.",
-    idealFor: ["Medium-haul flights", "Small business groups", "Weekends in Europe"],
+    description: { fr: "Le Citation CJ2+ combine performances et économie dans un format compact. Idéal pour les vols de 2 à 3 heures, il transporte jusqu'à 7 passagers avec un excellent rapport qualité-prix. Sa fiabilité légendaire en fait un favori des charters européens.", en: "The Citation CJ2+ combines performance and economy in a compact format. Ideal for 2 to 3-hour flights, it carries up to 7 passengers with an excellent value-for-money ratio. Its legendary reliability makes it a favorite among European charters." },
+    idealFor: [{ fr: "Vols moyen-courriers", en: "Medium-haul flights" }, { fr: "Petits groupes affaires", en: "Small business groups" }, { fr: "Week-ends en Europe", en: "Weekends in Europe" }],
     image: "/images/fleet/citation-cj2/main.png",
     gallery: [
       "/images/fleet/citation-cj2/gallery-1.png",
@@ -241,8 +243,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 1991,
     engines: "2x Garrett TFE731-3B-100S",
     takeoffDistance: 1585,
-    description: "The Citation VI is a proven classic in the Cessna lineup. Its comfortable cabin and reliable performance make it a safe choice for European connections. An aircraft that has proven itself with thousands of passengers.",
-    idealFor: ["European connections", "Groups up to 8", "Regular business flights"],
+    description: { fr: "Le Citation VI est un classique éprouvé de la gamme Cessna. Sa cabine confortable et ses performances fiables en font un choix sûr pour les liaisons européennes. Un appareil qui a fait ses preuves auprès de milliers de passagers.", en: "The Citation VI is a proven classic in the Cessna lineup. Its comfortable cabin and reliable performance make it a safe choice for European connections. An aircraft that has proven itself with thousands of passengers." },
+    idealFor: [{ fr: "Liaisons européennes", en: "European connections" }, { fr: "Groupes jusqu'à 8", en: "Groups up to 8" }, { fr: "Vols réguliers affaires", en: "Regular business flights" }],
     image: "/images/fleet/citation-vi/main.png",
     gallery: [
       "/images/fleet/citation-vi/gallery-1.jpg",
@@ -279,8 +281,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2009,
     engines: "2x Pratt & Whitney PW535E1",
     takeoffDistance: 956,
-    description: "The Phenom 300 is the best-selling light jet in the world. It offers midsize performance in a light format. Its award-winning cabin, cutting-edge technology, and remarkable speed make it the preferred choice for demanding business travelers.",
-    idealFor: ["European business flights", "Families", "Premium medium-haul travel"],
+    description: { fr: "Le Phenom 300 est le light jet le plus vendu au monde. Il offre les performances d'un midsize dans un format light. Sa cabine primée, ses technologies de pointe et sa vitesse remarquable en font le choix privilégié des voyageurs d'affaires exigeants.", en: "The Phenom 300 is the best-selling light jet in the world. It offers midsize performance in a light format. Its award-winning cabin, cutting-edge technology, and remarkable speed make it the preferred choice for demanding business travelers." },
+    idealFor: [{ fr: "Vols affaires Europe", en: "European business flights" }, { fr: "Familles", en: "Families" }, { fr: "Voyages premium moyen-courrier", en: "Premium medium-haul travel" }],
     image: "/images/fleet/phenom-300/main.png",
     gallery: [
       "/images/fleet/phenom-300/gallery-1.png",
@@ -318,8 +320,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2018,
     engines: "2x Williams FJ44-4A-QPM",
     takeoffDistance: 893,
-    description: "The Pilatus PC-24 is the first business jet capable of operating on unprepared runways. Its large cargo door and unique versatility open up possibilities inaccessible to conventional jets. A truly revolutionary aircraft.",
-    idealFor: ["Short and unprepared runways", "Maximum flexibility", "Cargo and passengers"],
+    description: { fr: "Le Pilatus PC-24 est le premier jet d'affaires capable d'opérer sur des pistes non préparées. Sa grande porte cargo et sa polyvalence unique ouvrent des possibilités inaccessibles aux jets conventionnels. Un appareil véritablement révolutionnaire.", en: "The Pilatus PC-24 is the first business jet capable of operating on unprepared runways. Its large cargo door and unique versatility open up possibilities inaccessible to conventional jets. A truly revolutionary aircraft." },
+    idealFor: [{ fr: "Pistes courtes et non préparées", en: "Short and unprepared runways" }, { fr: "Flexibilité maximale", en: "Maximum flexibility" }, { fr: "Cargo et passagers", en: "Cargo and passengers" }],
     image: "/images/fleet/pilatus-pc-24/main.png",
     gallery: [
       "/images/fleet/pilatus-pc-24/gallery-1.jpg",
@@ -352,8 +354,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2015,
     engines: "2x Pratt & Whitney PW306D1",
     takeoffDistance: 1097,
-    description: "The Citation Latitude offers the widest cabin in its category, with full standing height. Its exceptional comfort and reasonable operating costs make it a favorite for business travel across Europe and to North Africa.",
-    idealFor: ["Premium comfort", "Extended European flights", "Family groups"],
+    description: { fr: "Le Citation Latitude offre la cabine la plus large de sa catégorie, avec une hauteur debout complète. Son confort exceptionnel et ses coûts d'exploitation raisonnables en font un favori pour les voyages d'affaires en Europe et vers l'Afrique du Nord.", en: "The Citation Latitude offers the widest cabin in its category, with full standing height. Its exceptional comfort and reasonable operating costs make it a favorite for business travel across Europe and to North Africa." },
+    idealFor: [{ fr: "Confort premium", en: "Premium comfort" }, { fr: "Vols Europe élargie", en: "Extended European flights" }, { fr: "Groupes familiaux", en: "Family groups" }],
     image: "/images/fleet/citation-latitude/main.png",
     gallery: [
       "/images/fleet/citation-latitude/gallery-1.png",
@@ -393,8 +395,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2014,
     engines: "2x Honeywell HTF7350",
     takeoffDistance: 1485,
-    description: "The Challenger 350 is the benchmark in its category, offering one of the widest cabins in the super midsize segment. Transatlantic performance, exceptional comfort, and cutting-edge technology make it an essential choice for medium-haul flights.",
-    idealFor: ["Medium-haul flights", "Onboard meetings", "Extra-wide cabin"],
+    description: { fr: "Le Challenger 350 est la référence de sa catégorie, offrant l'une des cabines les plus larges du segment super midsize. Performances transatlantiques, confort exceptionnel et technologie de pointe en font un choix incontournable pour les vols moyen-courrier.", en: "The Challenger 350 is the benchmark in its category, offering one of the widest cabins in the super midsize segment. Transatlantic performance, exceptional comfort, and cutting-edge technology make it an essential choice for medium-haul flights." },
+    idealFor: [{ fr: "Vols moyen-courrier", en: "Medium-haul flights" }, { fr: "Réunions à bord", en: "Onboard meetings" }, { fr: "Cabine extra-large", en: "Extra-wide cabin" }],
     image: "/images/fleet/challenger-350/gallery-5.png",
     gallery: [
       "/images/fleet/challenger-350/gallery-1.jpg",
@@ -435,8 +437,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2007,
     engines: "2x General Electric CF34-3B",
     takeoffDistance: 1740,
-    description: "The Challenger 605 offers a heavy jet class cabin with exceptional comfort. Its wide flat-floor cabin and generous baggage hold make it an ideal aircraft for long-haul business flights with a large number of passengers.",
-    idealFor: ["Long-haul flights", "Large groups", "Heavy jet comfort"],
+    description: { fr: "Le Challenger 605 offre une cabine de classe heavy jet avec un confort exceptionnel. Sa large cabine à fond plat et sa soute généreuse en font un appareil idéal pour les vols d'affaires long-courrier avec un grand nombre de passagers.", en: "The Challenger 605 offers a heavy jet class cabin with exceptional comfort. Its wide flat-floor cabin and generous baggage hold make it an ideal aircraft for long-haul business flights with a large number of passengers." },
+    idealFor: [{ fr: "Vols long-courrier", en: "Long-haul flights" }, { fr: "Grands groupes", en: "Large groups" }, { fr: "Confort heavy jet", en: "Heavy jet comfort" }],
     image: "/images/fleet/challenger-605/main.png",
     gallery: [
       "/images/fleet/challenger-605/gallery-1.png",
@@ -473,8 +475,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2002,
     engines: "2x Rolls-Royce AE 3007A1E",
     takeoffDistance: 1720,
-    description: "The Legacy 600 offers one of the longest cabins in the heavy jet segment. Derived from the ERJ 135, it features three distinct zones, an impressive baggage hold, and exceptional in-flight comfort for up to 13 passengers.",
-    idealFor: ["Long cabin", "Large group", "Premium comfort"],
+    description: { fr: "Le Legacy 600 offre l'une des plus longues cabines du segment heavy jet. Dérivé de l'ERJ 135, il propose trois zones distinctes, une soute impressionnante et un confort de vol exceptionnel pour jusqu'à 13 passagers.", en: "The Legacy 600 offers one of the longest cabins in the heavy jet segment. Derived from the ERJ 135, it features three distinct zones, an impressive baggage hold, and exceptional in-flight comfort for up to 13 passengers." },
+    idealFor: [{ fr: "Longue cabine", en: "Long cabin" }, { fr: "Grand groupe", en: "Large group" }, { fr: "Confort premium", en: "Premium comfort" }],
     image: "/images/fleet/legacy-600/main.png",
     gallery: [
       "/images/fleet/legacy-600/gallery-1.png",
@@ -511,8 +513,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2006,
     engines: "2x General Electric CF34-3B1",
     takeoffDistance: 1740,
-    description: "The Challenger 850, derived from the CRJ-200, offers an immense cabin for the heavy jet segment. With nearly 15 meters of cabin length, it features three distinct living zones and unmatched comfort for large groups.",
-    idealFor: ["Very large groups", "Triple-zone cabin", "Maximum heavy jet comfort"],
+    description: { fr: "Le Challenger 850, dérivé du CRJ-200, offre une cabine immense pour le segment heavy jet. Avec près de 15 mètres de longueur cabine, il propose trois zones de vie distinctes et un confort inégalé pour les grands groupes.", en: "The Challenger 850, derived from the CRJ-200, offers an immense cabin for the heavy jet segment. With nearly 15 meters of cabin length, it features three distinct living zones and unmatched comfort for large groups." },
+    idealFor: [{ fr: "Très grands groupes", en: "Very large groups" }, { fr: "Cabine triple zone", en: "Triple-zone cabin" }, { fr: "Confort maximal heavy", en: "Maximum heavy jet comfort" }],
     image: "/images/fleet/challenger-850/main.png",
     gallery: [
       "/images/fleet/challenger-850/gallery-1.png",
@@ -551,8 +553,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2010,
     engines: "3x Honeywell TFE731-60",
     takeoffDistance: 1490,
-    description: "The Falcon 900LX is a trijet offering remarkable safety and versatility. Its three-engine configuration allows it to access challenging airports while providing a range that covers all of Europe, Africa, and the Middle East.",
-    idealFor: ["Maximum safety trijet", "Short runway access", "Europe-Africa-Middle East"],
+    description: { fr: "Le Falcon 900LX est un triréacteur offrant une sécurité et une polyvalence remarquables. Sa configuration à trois moteurs lui permet d'accéder à des aéroports difficiles tout en offrant une autonomie qui couvre l'ensemble de l'Europe, l'Afrique et le Moyen-Orient.", en: "The Falcon 900LX is a trijet offering remarkable safety and versatility. Its three-engine configuration allows it to access challenging airports while providing a range that covers all of Europe, Africa, and the Middle East." },
+    idealFor: [{ fr: "Triréacteur sécurité maximale", en: "Maximum safety trijet" }, { fr: "Accès pistes courtes", en: "Short runway access" }, { fr: "Europe-Afrique-Moyen-Orient", en: "Europe-Africa-Middle East" }],
     image: "/images/fleet/falcon-900lx/main.png",
     gallery: [
       "/images/fleet/falcon-900lx/gallery-1.png",
@@ -591,8 +593,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2007,
     engines: "3x Pratt & Whitney PW307A",
     takeoffDistance: 1637,
-    description: "The Dassault Falcon 7X is an iconic trijet in business aviation. Its unique configuration provides remarkable safety and versatility, allowing it to access challenging airports while offering intercontinental range.",
-    idealFor: ["Long-haul business", "Short runway access", "Intercontinental travel"],
+    description: { fr: "Le Falcon 7X de Dassault est un triréacteur emblématique de l'aviation d'affaires. Sa configuration unique lui confère une sécurité et une polyvalence remarquables, lui permettant d'accéder à des aéroports difficiles tout en offrant une autonomie intercontinentale.", en: "The Dassault Falcon 7X is an iconic trijet in business aviation. Its unique configuration provides remarkable safety and versatility, allowing it to access challenging airports while offering intercontinental range." },
+    idealFor: [{ fr: "Long-courrier affaires", en: "Long-haul business" }, { fr: "Accès pistes courtes", en: "Short runway access" }, { fr: "Voyages intercontinentaux", en: "Intercontinental travel" }],
     image: "/images/fleet/falcon-7x/main.png",
     gallery: [
       "/images/fleet/falcon-7x/gallery-1.jpg",
@@ -633,8 +635,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2016,
     engines: "3x Pratt & Whitney PW307D",
     takeoffDistance: 1740,
-    description: "The Falcon 8X is the flagship of Dassault Aviation. An ultra-long-range trijet, it offers the longest cabin in the Falcon lineup with three distinct living zones. It connects Paris to Beijing, Los Angeles, or Sao Paulo nonstop.",
-    idealFor: ["Ultra-long-range trijet", "Paris-Asia nonstop", "Luxury three-zone cabin"],
+    description: { fr: "Le Falcon 8X est le vaisseau amiral de Dassault Aviation. Triréacteur ultra long-courrier, il offre la cabine la plus longue de la gamme Falcon avec trois zones de vie distinctes. Il relie Paris à Pékin, Los Angeles ou São Paulo sans escale.", en: "The Falcon 8X is the flagship of Dassault Aviation. An ultra-long-range trijet, it offers the longest cabin in the Falcon lineup with three distinct living zones. It connects Paris to Beijing, Los Angeles, or Sao Paulo nonstop." },
+    idealFor: [{ fr: "Ultra long-courrier triréacteur", en: "Ultra-long-range trijet" }, { fr: "Paris-Asie sans escale", en: "Paris-Asia nonstop" }, { fr: "Cabine trois zones luxe", en: "Luxury three-zone cabin" }],
     image: "/images/fleet/falcon-8x/main.png",
     gallery: [
       "/images/fleet/falcon-8x/gallery-1.jpg",
@@ -673,8 +675,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2003,
     engines: "2x Rolls-Royce BR710",
     takeoffDistance: 1801,
-    description: "The Gulfstream G550 is a legendary ultra-long-range jet, capable of connecting continents nonstop. Its spacious four-zone cabin and exceptional range make it a preferred choice for diplomatic missions and intercontinental business travel.",
-    idealFor: ["Ultra-long-range", "Diplomatic missions", "Four living zones"],
+    description: { fr: "Le Gulfstream G550 est un ultra long-courrier légendaire, capable de relier les continents sans escale. Sa cabine spacieuse à quatre zones et son autonomie exceptionnelle en font un choix privilégié pour les missions diplomatiques et les voyages d'affaires intercontinentaux.", en: "The Gulfstream G550 is a legendary ultra-long-range jet, capable of connecting continents nonstop. Its spacious four-zone cabin and exceptional range make it a preferred choice for diplomatic missions and intercontinental business travel." },
+    idealFor: [{ fr: "Ultra long-courrier", en: "Ultra-long-range" }, { fr: "Missions diplomatiques", en: "Diplomatic missions" }, { fr: "Quatre zones de vie", en: "Four living zones" }],
     image: "/images/fleet/gulfstream-g550/main.png",
     gallery: [
       "/images/fleet/gulfstream-g550/gallery-1.jpg",
@@ -710,8 +712,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2012,
     engines: "2x Rolls-Royce BR725",
     takeoffDistance: 1829,
-    description: "The Gulfstream G650 is one of the most desirable private jets in the world. Holder of multiple speed records, it connects continents nonstop. Its majestic cabin with panoramic windows offers an incomparable flight experience.",
-    idealFor: ["World tour", "Ultra-long-range", "Ultimate experience"],
+    description: { fr: "Le Gulfstream G650 est l'un des jets privés les plus désirables au monde. Détenteur de multiples records de vitesse, il relie les continents sans escale. Sa cabine majestueuse avec ses hublots panoramiques offre une expérience de vol incomparable.", en: "The Gulfstream G650 is one of the most desirable private jets in the world. Holder of multiple speed records, it connects continents nonstop. Its majestic cabin with panoramic windows offers an incomparable flight experience." },
+    idealFor: [{ fr: "Tour du monde", en: "World tour" }, { fr: "Ultra long-courrier", en: "Ultra-long-range" }, { fr: "Expérience ultime", en: "Ultimate experience" }],
     image: "/images/fleet/gulfstream-g650er/main.png",
     gallery: [
       "/images/fleet/gulfstream-g650er/gallery-1.png",
@@ -749,8 +751,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2006,
     engines: "2x Rolls-Royce BR710A2-20",
     takeoffDistance: 1829,
-    description: "The Global Express XRS is an iconic aircraft in the Bombardier lineup. Its spacious triple cabin and intercontinental range allow it to connect Paris to New York, Dubai, or Tokyo nonstop in absolute comfort.",
-    idealFor: ["Intercontinental flights", "Luxury triple cabin", "Delegations"],
+    description: { fr: "Le Global Express XRS est un appareil emblématique de la gamme Bombardier. Sa triple cabine spacieuse et son autonomie intercontinentale permettent de relier Paris à New York, Dubaï ou Tokyo sans escale dans un confort absolu.", en: "The Global Express XRS is an iconic aircraft in the Bombardier lineup. Its spacious triple cabin and intercontinental range allow it to connect Paris to New York, Dubai, or Tokyo nonstop in absolute comfort." },
+    idealFor: [{ fr: "Vols intercontinentaux", en: "Intercontinental flights" }, { fr: "Triple cabine luxe", en: "Luxury triple cabin" }, { fr: "Délégations", en: "Delegations" }],
     image: "/images/fleet/global-express/main.png",
     gallery: [
       "/images/fleet/global-express/gallery-1.jpg",
@@ -785,8 +787,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2005,
     engines: "2x Rolls-Royce BR710A2-20",
     takeoffDistance: 1689,
-    description: "The Global 5000 offers the legendary comfort of the Global lineup in an optimized format. Its three-zone cabin and large baggage hold make it an ideal companion for long-haul flights requiring space and refinement.",
-    idealFor: ["Long-haul Global comfort", "Three-zone cabin", "Large baggage volume"],
+    description: { fr: "Le Global 5000 offre le confort légendaire de la gamme Global dans un format optimisé. Sa cabine trois zones et sa grande soute à bagages en font un compagnon idéal pour les vols long-courriers exigeant espace et raffinement.", en: "The Global 5000 offers the legendary comfort of the Global lineup in an optimized format. Its three-zone cabin and large baggage hold make it an ideal companion for long-haul flights requiring space and refinement." },
+    idealFor: [{ fr: "Long-courrier confort Global", en: "Long-haul Global comfort" }, { fr: "Cabine trois zones", en: "Three-zone cabin" }, { fr: "Grand volume bagages", en: "Large baggage volume" }],
     image: "/images/fleet/global-5000/main.png",
     gallery: [
       "/images/fleet/global-5000/gallery-1.jpg",
@@ -821,8 +823,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2019,
     engines: "2x Rolls-Royce Pearl 15",
     takeoffDistance: 1768,
-    description: "The Global 6500 is the modern evolution of the Global lineage. Equipped with new Rolls-Royce Pearl 15 engines and a Bombardier Vision cockpit, it redefines ultra-long-range standards in comfort, range, and efficiency.",
-    idealFor: ["Next-generation ultra-long-range", "Cutting-edge technology", "Premium Global comfort"],
+    description: { fr: "Le Global 6500 est l'évolution moderne de la lignée Global. Équipé des nouveaux moteurs Rolls-Royce Pearl 15 et d'un cockpit Bombardier Vision, il redéfinit les standards de l'ultra long-courrier en matière de confort, d'autonomie et d'efficacité.", en: "The Global 6500 is the modern evolution of the Global lineage. Equipped with new Rolls-Royce Pearl 15 engines and a Bombardier Vision cockpit, it redefines ultra-long-range standards in comfort, range, and efficiency." },
+    idealFor: [{ fr: "Ultra long-courrier nouvelle génération", en: "Next-generation ultra-long-range" }, { fr: "Technologie de pointe", en: "Cutting-edge technology" }, { fr: "Confort Global premium", en: "Premium Global comfort" }],
     image: "/images/fleet/global-6500/main.png",
     gallery: [
       "/images/fleet/global-6500/gallery-1.jpg",
@@ -859,8 +861,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2018,
     engines: "2x GE Passport",
     takeoffDistance: 1768,
-    description: "The Global 7500 has the longest cabin in business aviation, with four distinct living zones including a true bedroom with a permanent bed. It is the ultimate aircraft for those who make no compromises on comfort and range.",
-    idealFor: ["Ultra-long-haul flights", "In-flight luxury suite", "State travel"],
+    description: { fr: "Le Global 7500 possède la plus longue cabine de l'aviation d'affaires, avec quatre zones de vie distinctes incluant une vraie chambre avec lit permanent. C'est l'appareil ultime pour ceux qui ne font aucun compromis sur le confort et l'autonomie.", en: "The Global 7500 has the longest cabin in business aviation, with four distinct living zones including a true bedroom with a permanent bed. It is the ultimate aircraft for those who make no compromises on comfort and range." },
+    idealFor: [{ fr: "Vols ultra long-courriers", en: "Ultra-long-haul flights" }, { fr: "Suite de luxe en vol", en: "In-flight luxury suite" }, { fr: "Voyages d'État", en: "State travel" }],
     image: "/images/fleet/global-7500/main.png",
     gallery: [
       "/images/fleet/global-7500/gallery-1.jpg",
@@ -902,8 +904,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 2008,
     engines: "2x General Electric CF34-10E",
     takeoffDistance: 1840,
-    description: "The Lineage 1000, derived from the Embraer E190, offers five distinct living zones in a cabin over 20 meters long. A true flying apartment with a lounge, dining room, bedroom, and even a bathroom with shower.",
-    idealFor: ["Flying apartment", "Five living zones", "Large VIP groups"],
+    description: { fr: "Le Lineage 1000, dérivé de l'Embraer E190, offre cinq zones de vie distinctes dans une cabine de plus de 20 mètres. Un véritable appartement volant avec salon, salle à manger, chambre et même salle de bains avec douche.", en: "The Lineage 1000, derived from the Embraer E190, offers five distinct living zones in a cabin over 20 meters long. A true flying apartment with a lounge, dining room, bedroom, and even a bathroom with shower." },
+    idealFor: [{ fr: "Appartement volant", en: "Flying apartment" }, { fr: "Cinq zones de vie", en: "Five living zones" }, { fr: "Grands groupes VIP", en: "Large VIP groups" }],
     image: "/images/fleet/lineage-1000/main.png",
     gallery: [
       "/images/fleet/lineage-1000/gallery-1.png",
@@ -941,8 +943,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 1999,
     engines: "2x CFM International CFM56-5B",
     takeoffDistance: 1850,
-    description: "The Airbus ACJ transforms an airliner into a flying luxury residence. With nearly 24 meters of cabin and 2.25m of headroom, it offers unmatched space to create lounges, offices, bedrooms, and reception rooms. The pinnacle of air travel.",
-    idealFor: ["Flying residence", "Government delegations", "Prestigious aerial events"],
+    description: { fr: "L'Airbus ACJ transforme un avion de ligne en résidence de luxe volante. Avec près de 24 mètres de cabine et 2,25m de hauteur, il offre un espace sans égal pour créer salons, bureaux, chambres et salles de réception. Le summum du voyage aérien.", en: "The Airbus ACJ transforms an airliner into a flying luxury residence. With nearly 24 meters of cabin and 2.25m of headroom, it offers unmatched space to create lounges, offices, bedrooms, and reception rooms. The pinnacle of air travel." },
+    idealFor: [{ fr: "Résidence volante", en: "Flying residence" }, { fr: "Délégations gouvernementales", en: "Government delegations" }, { fr: "Événements aériens de prestige", en: "Prestigious aerial events" }],
     image: "/images/fleet/airbus-acj/main.png",
     gallery: [
       "/images/fleet/airbus-acj/gallery-1.png",
@@ -982,8 +984,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 1999,
     engines: "2x CFM International CFM56-7B",
     takeoffDistance: 2150,
-    description: "The Boeing Business Jet transforms an airliner into a flying palace. With over 80 square meters of living space, it accommodates lounges, meeting rooms, bedrooms, and even bathrooms with showers. The ultimate experience for large groups.",
-    idealFor: ["Large VIP groups", "Aerial events", "State and diplomatic travel"],
+    description: { fr: "Le Boeing Business Jet transforme un avion de ligne en palace volant. Avec une surface habitable de plus de 80m², il accueille salons, salles de réunion, chambres et même salles de bains avec douche. L'expérience ultime pour les grands groupes.", en: "The Boeing Business Jet transforms an airliner into a flying palace. With over 80 square meters of living space, it accommodates lounges, meeting rooms, bedrooms, and even bathrooms with showers. The ultimate experience for large groups." },
+    idealFor: [{ fr: "Grands groupes VIP", en: "Large VIP groups" }, { fr: "Événements aériens", en: "Aerial events" }, { fr: "Voyages d'État et diplomatiques", en: "State and diplomatic travel" }],
     image: "/images/fleet/boeing-bbj/main.png",
     gallery: [
       "/images/fleet/boeing-bbj/gallery-1.png",
@@ -1025,8 +1027,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 1971,
     engines: "2x Pratt & Whitney PW206C",
     takeoffDistance: 0,
-    description: "The Agusta A109 is a versatile light twin-engine helicopter, combining high performance and cabin comfort. Ideal for short-distance VIP transfers, it offers a remarkable cruising speed and a luxurious level of finish.",
-    idealFor: ["VIP transfers", "Short distances", "Heliport access"],
+    description: { fr: "L'Agusta A109 est un hélicoptère bimoteur léger polyvalent, alliant performances élevées et confort en cabine. Idéal pour les transferts VIP courte distance, il offre une vitesse de croisière remarquable et un niveau de finition luxueux.", en: "The Agusta A109 is a versatile light twin-engine helicopter, combining high performance and cabin comfort. Ideal for short-distance VIP transfers, it offers a remarkable cruising speed and a luxurious level of finish." },
+    idealFor: [{ fr: "Transferts VIP", en: "VIP transfers" }, { fr: "Courtes distances", en: "Short distances" }, { fr: "Accès héliport", en: "Heliport access" }],
     image: "/images/fleet/agusta-109/main.jpg",
     gallery: [
       "/images/fleet/agusta-109/gallery-1.jpg",
@@ -1057,8 +1059,8 @@ export const fleet: Aircraft[] = [
     yearIntroduced: 1996,
     engines: "1x Rolls-Royce M250-C47B",
     takeoffDistance: 0,
-    description: "The Bell 407 is a single-engine helicopter renowned for its reliability and versatility. Its spacious cabin and four-blade rotor make it a preferred choice for VIP transfers and tourism missions.",
-    idealFor: ["Airport transfers", "Aerial tourism", "Flexibility"],
+    description: { fr: "Le Bell 407 est un hélicoptère monomoteur réputé pour sa fiabilité et sa polyvalence. Sa cabine spacieuse et son rotor à quatre pales en font un choix privilégié pour les transferts VIP et les missions touristiques.", en: "The Bell 407 is a single-engine helicopter renowned for its reliability and versatility. Its spacious cabin and four-blade rotor make it a preferred choice for VIP transfers and tourism missions." },
+    idealFor: [{ fr: "Transferts aéroport", en: "Airport transfers" }, { fr: "Tourisme aérien", en: "Aerial tourism" }, { fr: "Flexibilité", en: "Flexibility" }],
     image: "/images/fleet/bell-407/main.jpg",
     gallery: [
       "/images/fleet/bell-407/gallery-1.jpg",
