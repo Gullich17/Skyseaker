@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
+import Image from "next/image";
 import { fleet, type Aircraft } from "@/data/fleet";
 
 const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number];
@@ -95,11 +96,7 @@ function MobileAircraftCard({ aircraft, allSelected }: { aircraft: Aircraft; all
       {/* Header */}
       <div style={{ padding: "20px", borderBottom: "1px solid #1A3448", textAlign: "center" }}>
         <div style={{ aspectRatio: "16/9", position: "relative", marginBottom: "12px", overflow: "hidden", borderRadius: "2px", background: "#1A3448" }}>
-          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <svg width="40" height="40" fill="none" stroke="#F4DDC3" strokeWidth="1" viewBox="0 0 24 24" style={{ opacity: 0.2 }}>
-              <path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12M3 20h18" />
-            </svg>
-          </div>
+          <Image src={aircraft.image} alt={aircraft.name} fill style={{ objectFit: "cover" }} />
         </div>
         <h3 style={{ fontSize: "20px", marginBottom: "8px", fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF" }}>{aircraft.name}</h3>
         <Badge>{aircraft.category}</Badge>
@@ -185,11 +182,7 @@ export default function ComparateurPage() {
                       {a ? (
                         <>
                           <div style={{ aspectRatio: "16/9", position: "relative", marginBottom: "12px", overflow: "hidden", borderRadius: "2px", background: "#1A3448" }}>
-                            <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                              <svg width="40" height="40" fill="none" stroke="#F4DDC3" strokeWidth="1" viewBox="0 0 24 24" style={{ opacity: 0.2 }}>
-                                <path d="M6 12L3.27 3.13a1 1 0 01.89-1.38L12 2l7.84-.25a1 1 0 01.89 1.38L18 12M3 20h18" />
-                              </svg>
-                            </div>
+                            <Image src={a.image} alt={a.name} fill style={{ objectFit: "cover" }} />
                           </div>
                           <h3 style={{ fontSize: "18px", marginBottom: "8px", fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF" }}>{a.name}</h3>
                           <Badge>{a.category}</Badge>
