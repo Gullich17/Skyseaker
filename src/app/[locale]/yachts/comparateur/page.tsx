@@ -30,7 +30,7 @@ function YachtSelect({ value, onChange, index }: { value: string; onChange: (id:
       >
         <option value="" style={{ background: "#132A3A" }}>Select a yacht</option>
         {yachts.map((y) => (
-          <option key={y.id} value={y.id} style={{ background: "#132A3A" }}>{y.name} — {y.category}</option>
+          <option key={y.id} value={y.id} style={{ background: "#132A3A" }}>{y.model} — {y.category}</option>
         ))}
       </select>
     </div>
@@ -97,9 +97,9 @@ function MobileYachtCard({ yacht, allSelected }: { yacht: Yacht; allSelected: (Y
       {/* Header */}
       <div style={{ padding: "20px", borderBottom: "1px solid #1A3448", textAlign: "center" }}>
         <div style={{ aspectRatio: "16/9", position: "relative", marginBottom: "12px", overflow: "hidden", borderRadius: "2px" }}>
-          <Image src={getImg(yacht)} alt={yacht.name} fill style={{ objectFit: "cover" }} />
+          <Image src={getImg(yacht)} alt={yacht.model} fill style={{ objectFit: "cover" }} />
         </div>
-        <h3 style={{ fontSize: "20px", marginBottom: "8px", fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF" }}>{yacht.name}</h3>
+        <h3 style={{ fontSize: "20px", marginBottom: "8px", fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF" }}>{yacht.model}</h3>
         <Badge>{yacht.category}</Badge>
       </div>
 
@@ -182,9 +182,9 @@ export default function YachtComparateurPage() {
                       {y ? (
                         <>
                           <div style={{ aspectRatio: "16/9", position: "relative", marginBottom: "12px", overflow: "hidden", borderRadius: "2px" }}>
-                            <Image src={getImg(y)} alt={y.name} fill style={{ objectFit: "cover" }} />
+                            <Image src={getImg(y)} alt={y.model} fill style={{ objectFit: "cover" }} />
                           </div>
-                          <h3 style={{ fontSize: "18px", marginBottom: "8px", fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF" }}>{y.name}</h3>
+                          <h3 style={{ fontSize: "18px", marginBottom: "8px", fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF" }}>{y.model}</h3>
                           <Badge>{y.category}</Badge>
                         </>
                       ) : (

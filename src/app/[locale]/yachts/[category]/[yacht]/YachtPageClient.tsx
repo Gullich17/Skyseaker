@@ -86,7 +86,7 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
             <div onClick={(e) => e.stopPropagation()} style={{ position: "relative", maxWidth: "90vw", maxHeight: "85vh", width: "100%", aspectRatio: "16/10" }}>
               <Image
                 src={allImages[lightboxIndex]}
-                alt={`${yacht.name} - Photo ${lightboxIndex + 1}`}
+                alt={`${yacht.model} - Photo ${lightboxIndex + 1}`}
                 fill
                 style={{ objectFit: "contain" }}
                 sizes="90vw"
@@ -104,7 +104,7 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
       {/* ====== HERO ====== */}
       <section style={{ position: "relative", minHeight: "clamp(420px, 65vh, 720px)", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-          <Image src={heroImg} alt={yacht.name} fill style={{ objectFit: "cover" }} priority />
+          <Image src={heroImg} alt={yacht.model} fill style={{ objectFit: "cover" }} priority />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(14,32,45,0.95) 0%, rgba(14,32,45,0.4) 40%, rgba(14,32,45,0.6) 100%)" }} />
         </div>
         <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1200px", margin: "0 auto", padding: "clamp(100px, 15vh, 160px) 24px clamp(32px, 5vw, 56px)" }}>
@@ -113,7 +113,7 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3, ease: EASE }}
             style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.1, fontSize: "clamp(36px, 6vw, 64px)", marginBottom: "8px" }}>
-            {yacht.name}
+            {yacht.model}
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
             style={{ fontSize: "clamp(14px, 2vw, 16px)", fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#A0A0A0" }}>
@@ -142,7 +142,7 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
           <span style={{ color: "rgba(107,107,107,0.5)" }}>/</span>
           <Link href={`/yachts/${yacht.categorySlug}`} style={{ color: "#6B6B6B", textDecoration: "none" }}>{yacht.category}</Link>
           <span style={{ color: "rgba(107,107,107,0.5)" }}>/</span>
-          <span style={{ color: "#A0A0A0" }}>{yacht.name}</span>
+          <span style={{ color: "#A0A0A0" }}>{yacht.model}</span>
         </div>
       </nav>
 
@@ -211,7 +211,7 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
                   >
                     <Image
                       src={img}
-                      alt={`${yacht.name} - Photo ${i + 1}`}
+                      alt={`${yacht.model} - Photo ${i + 1}`}
                       fill
                       style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
                       className="group-hover:scale-105"
@@ -240,7 +240,7 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
         <div style={{ position: "relative", maxWidth: "720px", margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
           <ScrollReveal>
             <h2 style={{ fontFamily: "var(--font-playfair)", fontWeight: 700, color: "#FFFFFF", fontSize: "clamp(28px, 4.5vw, 44px)", marginBottom: "16px", lineHeight: 1.15 }}>
-              {t("cta.title", { name: yacht.name })}
+              {t("cta.title", { name: yacht.model })}
             </h2>
             <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#A0A0A0", fontSize: "clamp(16px, 2.5vw, 18px)", marginBottom: "clamp(32px, 5vw, 48px)", lineHeight: 1.6 }}>
               {t("cta.subtitle")}
@@ -264,13 +264,13 @@ export default function YachtPageClient({ yacht, similarYachts }: { yacht: Yacht
                   <Link href={`/yachts/${similar.categorySlug}/${similar.id}`} className="block group">
                     <div style={{ backgroundColor: "#132A3A", border: "1px solid #1A3448", borderRadius: "2px", overflow: "hidden", transition: "transform 0.4s ease, box-shadow 0.4s ease" }}>
                       <div style={{ aspectRatio: "16/9", position: "relative", overflow: "hidden" }}>
-                        <Image src={similar.image} alt={similar.name} fill style={{ objectFit: "cover", transition: "transform 0.7s ease" }} className="group-hover:scale-105" />
+                        <Image src={similar.image} alt={similar.model} fill style={{ objectFit: "cover", transition: "transform 0.7s ease" }} className="group-hover:scale-105" />
                         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(19,42,58,0.7) 0%, transparent 50%)" }} />
                         <div style={{ position: "absolute", top: "12px", left: "12px" }}><Badge>{similar.category}</Badge></div>
                       </div>
                       <div style={{ padding: "clamp(16px, 2.5vw, 20px)" }}>
                         <h3 className="group-hover:text-[#F4DDC3] transition-colors" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "clamp(16px, 2vw, 18px)", marginBottom: "8px" }}>
-                          {similar.name}
+                          {similar.model}
                         </h3>
                         <div style={{ display: "flex", alignItems: "center", gap: "10px", fontFamily: "var(--font-montserrat)", fontWeight: 300, fontSize: "clamp(10px, 1.3vw, 12px)", color: "#A0A0A0", flexWrap: "wrap" }}>
                           <span>{similar.guests} {t("specs.guests").toLowerCase()}</span>

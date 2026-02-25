@@ -37,7 +37,7 @@ function YachtCard({ yacht, index }: { yacht: Yacht; index: number }) {
           <div style={{ aspectRatio: "16/9", position: "relative", overflow: "hidden" }}>
             <Image
               src={getYachtImage(yacht)}
-              alt={yacht.name}
+              alt={yacht.model}
               fill
               style={{ objectFit: "cover", transition: "transform 0.7s ease" }}
               className="group-hover:scale-105"
@@ -50,7 +50,7 @@ function YachtCard({ yacht, index }: { yacht: Yacht; index: number }) {
               className="group-hover:text-[#F4DDC3] transition-colors"
               style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "clamp(18px, 2.5vw, 22px)", marginBottom: "8px" }}
             >
-              {yacht.name}
+              {yacht.model}
             </h3>
             <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B", fontSize: "12px", marginBottom: "16px" }}>
               {yacht.builder} · {yacht.yearBuilt ?? '-'}

@@ -35,10 +35,10 @@ export async function generateMetadata({
   const description = tData(yacht.description, locale as Locale);
 
   return {
-    title: `${yacht.name} — ${yacht.category} | Luxury Yacht Charter`,
+    title: `${yacht.model} — ${yacht.category} | Luxury Yacht Charter`,
     description,
     openGraph: {
-      title: `${yacht.name} — ${yacht.category} | Skyseaker`,
+      title: `${yacht.model} — ${yacht.category} | Skyseaker`,
       description,
       images: [{ url: yacht.image, width: 1200, height: 630 }],
     },

@@ -752,7 +752,7 @@ function YachtShowcase() {
   }, []);
 
   const featuredYachts = yachts.slice(0, 5).map((y) => ({
-    name: y.name,
+    name: y.model,
     category: y.category,
     guests: `${y.guests} guests`,
     length: `${y.length} m`,

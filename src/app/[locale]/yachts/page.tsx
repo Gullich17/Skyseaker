@@ -78,7 +78,7 @@ function YachtCard({ yacht, index }: { yacht: Yacht; index: number }) {
         <div style={{ backgroundColor: "#132A3A", border: "1px solid #1A3448", borderRadius: "2px", overflow: "hidden", boxShadow: "0 20px 60px rgba(0,0,0,0.3)", transition: "transform 0.4s ease, box-shadow 0.4s ease" }}>
           {/* Image */}
           <div style={{ aspectRatio: "16/9", position: "relative", overflow: "hidden" }}>
-            <Image src={getYachtImage(yacht)} alt={yacht.name} fill style={{ objectFit: "cover", transition: "transform 0.7s ease" }} className="group-hover:scale-105" />
+            <Image src={getYachtImage(yacht)} alt={yacht.model} fill style={{ objectFit: "cover", transition: "transform 0.7s ease" }} className="group-hover:scale-105" />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(19,42,58,0.7) 0%, transparent 50%)" }} />
             <div style={{ position: "absolute", top: "12px", left: "12px" }}>
               <Badge>{yacht.category}</Badge>
@@ -88,7 +88,7 @@ function YachtCard({ yacht, index }: { yacht: Yacht; index: number }) {
           {/* Content */}
           <div style={{ padding: "clamp(16px, 3vw, 24px)" }}>
             <h3 className="group-hover:text-[#F4DDC3] transition-colors" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600, color: "#FFFFFF", fontSize: "clamp(17px, 2vw, 20px)", marginBottom: "4px" }}>
-              {yacht.name}
+              {yacht.model}
             </h3>
             <p style={{ fontFamily: "var(--font-montserrat)", fontWeight: 300, color: "#6B6B6B", fontSize: "13px", marginBottom: "16px" }}>
               {yacht.builder}
