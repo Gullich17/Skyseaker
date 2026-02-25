@@ -9,6 +9,7 @@ import { categories } from "@/data/fleet";
 import { yachtCategories } from "@/data/yachts";
 import { t as tData } from "@/lib/i18n-data";
 import type { Locale } from "@/i18n/routing";
+import CityAutocomplete from "@/components/ui/CityAutocomplete";
 
 /* ============================================
    STYLE CONSTANTS
@@ -454,14 +455,22 @@ function QuoteForm() {
 
                       {/* Departure / Destination */}
                       <div style={gridTwoCol}>
-                        <div>
-                          <label style={labelCSS}>{t("form.departure")}</label>
-                          <input type="text" placeholder={t("form.departure")} value={form.departure} onChange={(e) => update("departure", e.target.value)} style={inputCSS} />
-                        </div>
-                        <div>
-                          <label style={labelCSS}>{t("form.destination")}</label>
-                          <input type="text" placeholder={t("form.destination")} value={form.destination} onChange={(e) => update("destination", e.target.value)} style={inputCSS} />
-                        </div>
+                        <CityAutocomplete
+                          value={form.departure}
+                          onChange={(v) => update("departure", v)}
+                          placeholder={t("form.departure")}
+                          label={t("form.departure")}
+                          labelStyle={labelCSS}
+                          inputStyle={inputCSS}
+                        />
+                        <CityAutocomplete
+                          value={form.destination}
+                          onChange={(v) => update("destination", v)}
+                          placeholder={t("form.destination")}
+                          label={t("form.destination")}
+                          labelStyle={labelCSS}
+                          inputStyle={inputCSS}
+                        />
                       </div>
 
                       {/* Dates + Passengers */}

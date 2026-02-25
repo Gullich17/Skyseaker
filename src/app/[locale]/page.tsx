@@ -459,7 +459,7 @@ function TrustBanner() {
           style={{
             display: "flex",
             flexWrap: "nowrap",
-            justifyContent: "flex-start",
+            justifyContent: "center",
             overflowX: "auto",
             WebkitOverflowScrolling: "touch",
             scrollbarWidth: "none",
