@@ -10,17 +10,8 @@ import { yachts, type Yacht } from "@/data/yachts";
 
 const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number];
 
-const fallbacks: Record<string, string> = {
-  "motor-yacht": "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=600&q=75",
-  "sailing-yacht": "https://images.unsplash.com/photo-1534854638093-ba35f2a8a7d7?w=600&q=75",
-  "catamaran": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=75",
-  "superyacht": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=600&q=75",
-  "mega-yacht": "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=600&q=75",
-};
-
 function getImg(y: Yacht): string {
-  if (y.image?.startsWith("http")) return y.image;
-  return fallbacks[y.categorySlug] || fallbacks["motor-yacht"];
+  return y.image;
 }
 
 /* ============================================
@@ -121,10 +112,8 @@ function MobileYachtCard({ yacht, allSelected }: { yacht: Yacht; allSelected: (Y
         <SpecRow label="Crew" value={yacht.crew} isBest={isBest("crew", "max")} />
         <SpecRow label="Length" value={yacht.length} unit="m" isBest={isBest("length", "max")} />
         <SpecRow label="Beam" value={yacht.beam} unit="m" isBest={isBest("beam", "max")} />
-        <SpecRow label="Draft" value={yacht.draft ?? null} unit="m" isBest={isBest("draft", "min")} />
-        <SpecRow label="Cruising speed" value={yacht.cruisingSpeed ?? null} unit="kts" isBest={isBest("cruisingSpeed", "max")} />
+        <SpecRow label="Cruising speed" value={yacht.cruisingSpeed} unit="kts" isBest={isBest("cruisingSpeed", "max")} />
         <SpecRow label="Max speed" value={yacht.maxSpeed ?? null} unit="kts" isBest={isBest("maxSpeed", "max")} />
-        <SpecRow label="Range" value={yacht.range ?? null} unit="nm" isBest={isBest("range", "max")} />
         <SpecRow label="Engines" value={yacht.engines ?? null} />
         <SpecRow label="Year" value={yacht.yearBuilt ?? null} />
       </div>
@@ -222,10 +211,8 @@ export default function YachtComparateurPage() {
                     <ComparisonRow label="Crew" values={selectedYachts.map((y) => y?.crew ?? null)} highlight="max" />
                     <ComparisonRow label="Length" values={selectedYachts.map((y) => y?.length ?? null)} unit="m" highlight="max" />
                     <ComparisonRow label="Beam" values={selectedYachts.map((y) => y?.beam ?? null)} unit="m" highlight="max" />
-                    <ComparisonRow label="Draft" values={selectedYachts.map((y) => y?.draft ?? null)} unit="m" highlight="min" />
                     <ComparisonRow label="Cruising speed" values={selectedYachts.map((y) => y?.cruisingSpeed ?? null)} unit="kts" highlight="max" />
                     <ComparisonRow label="Max speed" values={selectedYachts.map((y) => y?.maxSpeed ?? null)} unit="kts" highlight="max" />
-                    <ComparisonRow label="Range" values={selectedYachts.map((y) => y?.range ?? null)} unit="nm" highlight="max" />
                     <ComparisonRow label="Engines" values={selectedYachts.map((y) => y?.engines ?? null)} />
                     <ComparisonRow label="Year" values={selectedYachts.map((y) => y?.yearBuilt ?? null)} />
                   </div>

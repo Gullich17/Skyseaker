@@ -14,17 +14,8 @@ import type { Locale } from "@/i18n/routing";
 
 const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number];
 
-const yachtImages: Record<string, string> = {
-  "motor-yacht": "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=600&q=75",
-  "sailing-yacht": "https://images.unsplash.com/photo-1534854638093-ba35f2a8a7d7?w=600&q=75",
-  "catamaran": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=75",
-  "superyacht": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=600&q=75",
-  "mega-yacht": "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=600&q=75",
-};
-
 function getYachtImage(y: Yacht): string {
-  if (y.image?.startsWith("http")) return y.image;
-  return yachtImages[y.categorySlug] || yachtImages["motor-yacht"];
+  return y.image;
 }
 
 /* ============================================
@@ -36,7 +27,7 @@ function YachtHero() {
       {/* Background image */}
       <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
         <Image
-          src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=1920&q=80"
+          src="/images/yachts/blue-dream/main.jpg"
           alt="Luxury yacht at sea"
           fill
           className="object-cover"

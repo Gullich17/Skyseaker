@@ -14,24 +14,15 @@ const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number];
    IMAGE HELPERS
    ============================================ */
 const categoryImages: Record<string, string> = {
-  "motor-yacht": "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=1920&q=80",
-  "sailing-yacht": "https://images.unsplash.com/photo-1534854638093-ba35f2a8a7d7?w=1920&q=80",
-  "catamaran": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80",
-  "superyacht": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=1920&q=80",
-  "mega-yacht": "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=1920&q=80",
+  "motor-yacht": "/images/yachts/blue-dream/main.jpg",
 };
 
 const categoryDescriptions: Record<string, string> = {
   "motor-yacht": "Power and elegance for luxury cruises in the Mediterranean, Caribbean and beyond.",
-  "sailing-yacht": "The art of sailing combined with the comfort of a luxury yacht. Silence and absolute freedom.",
-  "catamaran": "Exceptional stability and generous living spaces. Ideal for family cruises or trips with friends.",
-  "superyacht": "Exceptional vessels over 40 metres. The pinnacle of nautical luxury with dedicated crew.",
-  "mega-yacht": "The world's largest yachts. Pools, helipads, submarines — anything is possible.",
 };
 
 function getYachtImage(y: Yacht): string {
-  if (y.image?.startsWith("http")) return y.image;
-  return categoryImages[y.categorySlug] || categoryImages["motor-yacht"];
+  return y.image;
 }
 
 /* ============================================

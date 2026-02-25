@@ -1077,6 +1077,10 @@
         "bookThisYacht": "Réserver ce yacht",
         "compareWithOthers": "Comparer avec d'autres"
       },
+      "gallery": {
+        "preTitle": "GALERIE PHOTO",
+        "title": "Découvrir en images"
+      },
       "similar": {
         "preTitle": "YACHTS SIMILAIRES",
         "title": "Découvrir plus"

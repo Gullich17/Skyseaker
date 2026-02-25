@@ -751,14 +751,6 @@ function YachtShowcase() {
     el.scrollLeft += e.deltaY;
   }, []);
 
-  const yachtFallbacks: Record<string, string> = {
-    "motor-yacht": "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=500&q=75",
-    "sailing-yacht": "https://images.unsplash.com/photo-1534854638093-ba35f2a8a7d7?w=500&q=75",
-    "catamaran": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=75",
-    "superyacht": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=500&q=75",
-    "mega-yacht": "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=500&q=75",
-  };
-
   const featuredYachts = yachts.slice(0, 5).map((y) => ({
     name: y.name,
     category: y.category,
@@ -767,7 +759,7 @@ function YachtShowcase() {
     speed: `${y.maxSpeed ?? '-'} nds`,
     slug: y.id,
     categorySlug: y.categorySlug,
-    img: y.image?.startsWith("http") ? y.image : yachtFallbacks[y.categorySlug] || yachtFallbacks["motor-yacht"],
+    img: y.image,
   }));
 
   return (
